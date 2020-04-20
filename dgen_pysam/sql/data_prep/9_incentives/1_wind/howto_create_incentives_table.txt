@@ -1,0 +1,15 @@
+PNNL Incentives provide a decent summary of existing state level incentives, but are not formatted or complete for our purposes. 
+
+THerefore, we manually curated state-level distributed incentives from DSIRE through a detailed review of the site.
+
+Steps:
+
+1. Use incentives from PNNL/Alice as a starting point to summarize the list of incentives by state. To do this, run 1_convert_pnnl_incentives_to_tidy.R
+
+2. Using the resulting csv as a starting point/comparison, review incentives on DSIRE site and manually compile to a word document. That document is /Summaries/state_incentives_summary_v4.docx
+
+3. Based on the summarized incentives, describe them quantitatively in a series of csvs, with a separate csv for each incentive type. These are stored in /Data/Output/curated_incentives
+
+4. Compile the various csvs into a single csv. This csv is stored as Data/Output/curated_incentives/incentives_all.csv. It is created using 2_combine_incentives.R
+
+5. Load the compiled single csv to postgres using /Users/mgleason/NREL_Projects/github/diffusion/sql/data_prep/9_wind_incentives/3_load_state_wind_incentives.sql

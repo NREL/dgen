@@ -1,0 +1,4 @@
+Capacity Cost ($2014/kWh)
+Power Cost ($2014/kW)
+Capacity O&M ($2014/kWh)
+Power O&M ($2014/kW)

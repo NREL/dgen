@@ -1,0 +1,7 @@
+Here is our current incentives spreadsheet.  The file thinks the macro link is still there, but it is not.
+ 
+California is the only state right now with a formula-based incentive.  California’s SGIP program provides an upfront payment for systems up to 30 kW (based on just the $1070/kW incentive in H11, R11, S11), and a hybrid upfront and PBI incentive for systems over 30 kW (the formula in cells BK11, BL11, BM11).  See sections 3.2.2 and 3.2.3 in the attached 2015 SGIP Handbook V4 if you need the precise details.
+ 
+I can help if you have any questions.
+ 
+Alice

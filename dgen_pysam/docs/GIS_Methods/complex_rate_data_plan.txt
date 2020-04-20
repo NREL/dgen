@@ -1,0 +1,45 @@
+- summary:
+	- there are approx 2000 utility districts in the US
+	- we have recently verified rate data for approx 200 utilities:
+		~400 rates in 183 utilities for residential
+		~800 rates in 200 utilities for commercial
+	- these utilities represent approximately 75% of the population of the US
+		- they were selected by an analyst who has since left NREL, so we are not positive whether that is 75% of the customers, load, sales, etc.
+	- The URDB has rates for several other utilities, however they are unverified
+	- There are also portions of the country data with no coverage at all in the URDB
+	- There are several challenges in selecting rates for customers across the country:
+		1) There are areas with no data at all
+		2) THere are areas with unvalidated (untrusted) data
+		3) In areas where there is data (either validaed or unvalidated), there may be several rates structures, so we need an automated process for selecting the correct structure for a given customer
+	- Issue #3 is probably the most challenging to resolve; however, for approximately 50% of the commercial utilities and >50% of the residential utilities, we also have tabulated data from FERC Form 1:
+		- These data identify the percentage of customers and/or load in each utility district that are on each of the applicable rate structures
+		- Note that FERC FOrm 1 typically applies only to "major utilities", therefore, we don't have this data for all of the utilities in the country, or even for all of the verified utilities
+		- Where we do have FERC Form 1, this offers a straightforward and probabilistic technique for assigning rate structures to customers when multiple rate structures are available
+
+- proposed plan for dWind/dSolar models:
+	- Given the prevalence of unverified rates and the lack of a reasonable solution for automated selection of a utility rate in the absnece of a FERC FOrm 1, we propose to focus our analysis of "complex rates" on the ~200 utilities where we have verified data. We believe this is justified because:
+		a) These represent 75% of the market (and X% of the geographic area of the US ?)
+		b) We have high confidence that the rate structures are correct
+		c) For >=50% of the these utilities (those with FERC FOrm 1), we will have an empirical basis for probabilistically assigning customers to different rate structures
+	- Implementation:
+		- For Commercial:
+			- Assign each county in the country to one of the ~200 utility districts based on nearest neighbor or intersection, constrained by state boundaries
+				- ** The alternative to using nearest neighbor would be to apply the flat annual average rates, but we felt it would be better to use complex rate structures from other nearby utilities in this case
+			- for areas with FERC Form 1:
+				- determine the top 2 or 3 most populous rate structures for which we have verified data
+				- randomly assign customers to one of the 2 or 3 rates based on the respective proportions
+			- for areas without FERC Form 1:
+				- derive proportions based on average proportions of tariff type (i.e., demand vs tiered tou, etc.) for utilities with FERC form 1 in the same state
+				- select rates that correspond to those types from the verified tariffs in each utility
+				- randomly assign customers to one of the 2 or 3 selected rates based on respective proportions
+		- For Residential:
+			- Assign each county that overlaps one of the ~200 utility districts to that utility district
+			- For counties that overlap:
+				- for areas with FERC FOrm 1:
+					- do the same as commercial
+				- for areas without ferc form 1:
+					- do the same as commercial
+			- For counties that don't overlap:
+				- use the average annual rates
+				- ** Assumes most residential customers will be on flat rates anyway
+

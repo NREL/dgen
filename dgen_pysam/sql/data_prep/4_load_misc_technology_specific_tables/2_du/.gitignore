@@ -1,0 +1,31 @@
+# ignore thumbs.db
+*.db
+
+# ignore compiled python
+*.pyc
+
+# ignore DS_Stores
+*.DS_Store
+
+data_share/WIND_HEIGHTS_COSTS_20140320.xlsx
+r/graphics/.RData
+r/graphics/.Rhistory
+r/graphics/.Rproj.user*
+r/graphics/figure
+r/graphics/graphics.Rproj
+python/test_carb_price.py
+python/test_irr.py
+data_share/FTG_2013.pdf
+python/code_profiler.py
+data_share/NREL_max_market_share.csv
+python/.Rhistory
+python/.RData
+excel/~$scenario_inputs_wind.xlsm
+battery_model/battery_model.gpr
+battery_model/z_batt_DR_dis.csv
+battery_model/z_batt_DR_sum.csv
+python/plot_outputs.txt
+excel/~$scenario_inputs_solar.xlsm
+
+# ignore PyCharm files
+.idea/

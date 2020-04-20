@@ -1,0 +1,62 @@
+
+########################################################
+# setting up the virtual environment
+# (only necessary when the you receive an error from the model confirming that you need to do this)
+# make sure the environment doesn't exist
+conda remove -n dgen_pyenv --all
+
+# move into the python folder
+# e.g., cd ~/github/diffusion/python
+
+# create the new environment
+conda env create -f environment.yml
+
+
+########################################################
+# Running the Model in Interactive Mode from Spyder
+
+# activate the environment
+source activate dgen_pyenv
+
+# run spyder
+spyder
+
+# ...when finished:
+
+# close spyder (if open)
+
+# deactivate virtual environment
+source deactivate
+
+########################################################
+# Setting up The model to Model in Command Line Mode (for Linux Server)
+
+# open screen
+screen
+
+# activate the environment
+source activate dgen_pyenv
+
+#  run the model
+python dgen_model.py
+
+# ...when finished:
+
+
+# deactivate virtual environment
+source deactivate
+
+# close screen
+exit
+
+########################################################
+# Updating packages within the virtual environment
+# activate virtual environment
+source activate dgen_pyenv
+
+# run conda install or update for your package that you want to update
+
+# export the updated virtual environment to file
+conda env export > environment.yml
+
+# push changes to github

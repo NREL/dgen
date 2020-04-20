@@ -1,0 +1,71 @@
+﻿
+select  'DROP TRIGGER sync_last_mod ON diffusion_template.' || t || ';'
+from tablenames('diffusion_template') t;
+
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_market_carbon_intensities;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_market_rate_type_weights_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_nem_selected_scenario;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_nem_user_defined_scenario_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_reeds_mode;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_reeds_capital_costs;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_projections_res;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_projections_com;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_projections_ind;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_assumptions;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_multipliers;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_performance_annual_system_degradation;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_performance_improvements;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_finances_com;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_finances_ind;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_finances_max_market_share_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_finances_res;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_performance_system_sizing_factors_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_finances_depreciation_schedule;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_incentive_options;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_incentives_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0002p5_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0005_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0010_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0020_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0050_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0100_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0250_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0500_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_0750_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_1000_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_cost_projections_1500_kw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_performance_gen_derate_factors;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_performance_improvements;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_performance_system_sizing_factors_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_finances_com;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_finances_ind;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_finances_max_market_share_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_finances_res;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_finances_depreciation_schedule;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_incentive_options;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_incentives_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_incentive_utility_types;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_leasing_availability;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_apply_parcel_size;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_parcel_size_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_apply_hi_dev;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_canopy_clearance_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_hi_dev_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_wind_siting_apply_canopy_clearance;
+DROP TRIGGER sync_last_mod ON diffusion_template.outputs_com;
+DROP TRIGGER sync_last_mod ON diffusion_template.outputs_ind;
+DROP TRIGGER sync_last_mod ON diffusion_template.outputs_res;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_market_flat_electric_rates_raw;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_market_inflation;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_market_projections;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_nem_utility_types;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_main_scenario_options;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_cost_learning_rates;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_incentive_utility_types;
+DROP TRIGGER sync_last_mod ON diffusion_template.input_solar_leasing_availability;
+
+
+
+UPDATE backups.tables
+set (to_backup, skip_trigger) = (false, true)
+where table_schema = 'diffusion_template';

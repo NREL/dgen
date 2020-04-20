@@ -1,0 +1,3 @@
+-run scripts in ../python/excess_generation_factors to calculate excess generation factors
+-results are ingested to postgres as diffusion_wind_data.excess_generation_factors_[turbine_name]
+-final step is to run 7_merge_wind_resource_results.sql to incorporate excess gen factors into the wind resource data

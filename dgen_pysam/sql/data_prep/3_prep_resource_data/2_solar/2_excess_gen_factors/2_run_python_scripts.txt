@@ -1,0 +1,2 @@
+-run scripts 2b and 3b in ../python/excess_generation_factors to calculate excess generation factors
+-results are ingested to postgres as diffusion_solar_data.excess_generation_factors

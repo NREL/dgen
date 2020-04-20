@@ -1,0 +1,3142 @@
+county_id,county,state,state_abbr,division,region,recs_2009_reportable_domain,state_fips,county_fips
+2271,Allegan,Michigan,MI,East North Central,Midwest,8,26,005
+803,Tulsa,Oklahoma,OK,West South Central,South,20,40,143
+1438,Gonzales,Texas,TX,West South Central,South,21,48,177
+1439,Guadalupe,Texas,TX,West South Central,South,21,48,187
+1720,Marion,Georgia,GA,South Atlantic,South,15,13,197
+1440,Karnes,Texas,TX,West South Central,South,21,48,255
+1730,Randolph,Georgia,GA,South Atlantic,South,15,13,243
+1493,Lamar,Texas,TX,West South Central,South,21,48,277
+1405,Lampasas,Texas,TX,West South Central,South,21,48,281
+625,Las Animas,Colorado,CO,Mountain,West,22,8,071
+626,Pueblo,Colorado,CO,Mountain,West,22,8,101
+343,Tuolumne,California,CA,Pacific,West,26,6,109
+556,Summit,Colorado,CO,Mountain,West,22,8,117
+648,Texas,Oklahoma,OK,West South Central,South,20,40,139
+934,Stanton,Nebraska,NE,West North Central,Midwest,11,31,167
+982,Adams,Iowa,IA,West North Central,Midwest,10,19,003
+993,Story,Iowa,IA,West North Central,Midwest,10,19,169
+2187,Benton,Indiana,IN,East North Central,Midwest,7,18,007
+677,Lipscomb,Texas,TX,West South Central,South,21,48,295
+983,Audubon,Iowa,IA,West North Central,Midwest,10,19,009
+1193,Allen,Kansas,KS,West North Central,Midwest,11,20,001
+836,Adams,Nebraska,NE,West North Central,Midwest,11,31,001
+2252,Boone,Illinois,IL,East North Central,Midwest,6,17,007
+981,Adair,Iowa,IA,West North Central,Midwest,10,19,001
+864,Aurora,South Dakota,SD,West North Central,Midwest,10,46,003
+442,Andrews,Texas,TX,West South Central,South,21,48,003
+923,Fillmore,Nebraska,NE,West North Central,Midwest,11,31,059
+2257,Ozaukee,Wisconsin,WI,East North Central,Midwest,9,55,089
+1105,Adair,Missouri,MO,West North Central,Midwest,12,29,001
+2341,Adams,Indiana,IN,East North Central,Midwest,7,18,001
+163,Adams,North Dakota,ND,West North Central,Midwest,10,38,001
+2547,Abbeville,South Carolina,SC,South Atlantic,South,16,45,001
+2091,Adair,Kentucky,KY,East South Central,South,18,21,001
+1155,Adair,Oklahoma,OK,West South Central,South,20,40,001
+406,Beaver,Utah,UT,Mountain,West,23,49,001
+3091,Addison,Vermont,VT,New England,Northeast,1,50,001
+3105,Belknap,New Hampshire,NH,New England,Northeast,1,33,001
+3057,Barnstable,Massachusetts,MA,New England,Northeast,2,25,001
+1950,Alcorn,Mississippi,MS,East South Central,South,18,28,003
+1202,Anderson,Kansas,KS,West North Central,Midwest,11,20,003
+3087,Bennington,Vermont,VT,New England,Northeast,1,50,003
+928,Antelope,Nebraska,NE,West North Central,Midwest,11,31,003
+741,Alfalfa,Oklahoma,OK,West South Central,South,20,40,003
+2381,Allen,Ohio,OH,East North Central,Midwest,7,39,003
+227,Barnes,North Dakota,ND,West North Central,Midwest,10,38,003
+2814,Albemarle,Virginia,VA,South Atlantic,South,13,51,003
+3009,New Castle,Delaware,DE,South Atlantic,South,14,10,003
+2468,Allegheny,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,003
+344,Douglas,Nevada,NV,Mountain,West,25,32,005
+1087,Allamakee,Iowa,IA,West North Central,Midwest,10,19,005
+2592,Adams,Ohio,OH,East North Central,Midwest,7,39,001
+311,Alameda,California,CA,Pacific,West,26,6,001
+1319,St. Francis,Arkansas,AR,West South Central,South,20,5,123
+1559,Sunflower,Mississippi,MS,East South Central,South,18,28,133
+1560,Washington,Mississippi,MS,East South Central,South,18,28,151
+1420,Grayson,Texas,TX,West South Central,South,21,48,181
+1980,Bond,Illinois,IL,East North Central,Midwest,6,17,005
+2052,Bartholomew,Indiana,IN,East North Central,Midwest,7,18,005
+884,Beadle,South Dakota,SD,West North Central,Midwest,10,46,005
+2180,Fulton,Georgia,GA,South Atlantic,South,15,13,121
+586,Arthur,Nebraska,NE,West North Central,Midwest,11,31,005
+2130,Lincoln,Tennessee,TN,East South Central,South,19,47,103
+971,Atchison,Missouri,MO,West North Central,Midwest,12,29,005
+2458,Armstrong,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,005
+728,Barber,Kansas,KS,West North Central,Midwest,11,20,007
+489,Archuleta,Colorado,CO,Mountain,West,22,8,007
+1692,Bibb,Alabama,AL,East South Central,South,18,1,007
+172,Billings,North Dakota,ND,West North Central,Midwest,10,38,007
+801,Pottawatomie,Oklahoma,OK,West South Central,South,20,40,125
+802,Seminole,Oklahoma,OK,West South Central,South,20,40,133
+581,Banner,Nebraska,NE,West North Central,Midwest,11,31,007
+576,Bennett,South Dakota,SD,West North Central,Midwest,10,46,007
+1004,Appanoose,Iowa,IA,West North Central,Midwest,10,19,007
+2434,Beaver,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,007
+2976,Broome,New York,NY,Middle Atlantic,Northeast,3,36,007
+1597,Assumption,Louisiana,LA,West South Central,South,20,22,007
+3092,Chittenden,Vermont,VT,New England,Northeast,1,50,007
+3100,Coos,New Hampshire,NH,New England,Northeast,1,33,007
+3060,Middlesex,Connecticut,CT,New England,Northeast,1,9,007
+59,Clatsop,Oregon,OR,Pacific,West,27,41,007
+42,Chelan,Washington,WA,Pacific,West,27,53,007
+1650,Attala,Mississippi,MS,East South Central,South,18,28,007
+366,Elko,Nevada,NV,Mountain,West,25,32,007
+110,Beltrami,Minnesota,MN,West North Central,Midwest,10,27,007
+3074,Providence,Rhode Island,RI,New England,Northeast,1,44,007
+3069,Dukes,Massachusetts,MA,New England,Northeast,2,25,007
+2448,Ashtabula,Ohio,OH,East North Central,Midwest,7,39,007
+1224,Barry,Missouri,MO,West North Central,Midwest,12,29,009
+1498,Houston,Texas,TX,West South Central,South,21,48,225
+649,Curry,New Mexico,NM,Mountain,West,25,35,009
+704,Barton,Kansas,KS,West North Central,Midwest,11,20,009
+2435,Brooke,West Virginia,WV,South Atlantic,South,14,54,009
+60,Columbia,Oregon,OR,Pacific,West,27,41,009
+1164,Boone,Arkansas,AR,West South Central,South,20,5,009
+2129,Giles,Tennessee,TN,East South Central,South,19,47,055
+1365,Archer,Texas,TX,West South Central,South,21,48,009
+2352,Blackford,Indiana,IN,East North Central,Midwest,7,18,009
+201,Bottineau,North Dakota,ND,West North Central,Midwest,10,38,009
+814,Blaine,Nebraska,NE,West North Central,Midwest,11,31,009
+695,Beckham,Oklahoma,OK,West South Central,South,20,40,009
+3077,Grafton,New Hampshire,NH,New England,Northeast,1,33,009
+2855,Calvert,Maryland,MD,South Atlantic,South,14,24,009
+2607,Athens,Ohio,OH,East North Central,Midwest,7,39,009
+3102,Essex,Massachusetts,MA,New England,Northeast,2,25,009
+1909,Benton,Mississippi,MS,East South Central,South,18,28,009
+85,Benewah,Idaho,ID,Mountain,West,23,16,009
+2728,Ashe,North Carolina,NC,South Atlantic,South,16,37,009
+257,Benton,Minnesota,MN,West North Central,Midwest,10,27,009
+2119,Blount,Alabama,AL,East South Central,South,18,1,009
+2612,Cabell,West Virginia,WV,South Atlantic,South,14,54,011
+665,Armstrong,Texas,TX,West South Central,South,21,48,011
+629,Bent,Colorado,CO,Mountain,West,22,8,011
+1194,Bourbon,Kansas,KS,West North Central,Midwest,11,20,011
+1955,McNairy,Tennessee,TN,East South Central,South,19,47,109
+1111,Benton,Iowa,IA,West North Central,Midwest,10,19,011
+929,Boone,Nebraska,NE,West North Central,Midwest,11,31,011
+2297,Boone,Indiana,IN,East North Central,Midwest,7,18,011
+1569,Franklin,Mississippi,MS,East South Central,South,18,28,037
+2361,Auglaize,Ohio,OH,East North Central,Midwest,7,39,011
+164,Bowman,North Dakota,ND,West North Central,Midwest,10,38,011
+899,Brookings,South Dakota,SD,West North Central,Midwest,10,46,011
+787,Blaine,Oklahoma,OK,West South Central,South,20,40,011
+319,Colusa,California,CA,Pacific,West,26,6,011
+1321,Bolivar,Mississippi,MS,East South Central,South,18,28,011
+3093,Franklin,Vermont,VT,New England,Northeast,1,50,011
+3084,Franklin,Massachusetts,MA,New England,Northeast,2,25,011
+1902,Calhoun,Mississippi,MS,East South Central,South,18,28,013
+1062,Black Hawk,Iowa,IA,West North Central,Midwest,10,19,013
+2053,Brown,Indiana,IN,East North Central,Midwest,7,18,013
+118,Burke,North Dakota,ND,West North Central,Midwest,10,38,013
+805,Bryan,Oklahoma,OK,West South Central,South,20,40,013
+549,Boulder,Colorado,CO,Mountain,West,22,8,013
+563,Box Butte,Nebraska,NE,West North Central,Midwest,11,31,013
+970,Brown,Kansas,KS,West North Central,Midwest,11,20,013
+418,Maricopa,Arizona,AZ,Mountain,West,24,4,013
+1609,Chautauqua,New York,NY,Middle Atlantic,Northeast,3,36,013
+2921,Blair,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,013
+3053,Knox,Maine,ME,New England,Northeast,1,23,013
+2988,Grand Isle,Vermont,VT,New England,Northeast,1,50,013
+97,Columbia,Washington,WA,Pacific,West,27,53,013
+362,Humboldt,Nevada,NV,Mountain,West,25,32,013
+2944,Carroll,Maryland,MD,South Atlantic,South,14,24,013
+2581,Bell,Kentucky,KY,East South Central,South,18,21,013
+133,Cascade,Montana,MT,Mountain,West,23,30,013
+3065,Hampden,Massachusetts,MA,New England,Northeast,2,25,013
+3045,Essex,New Jersey,NJ,Middle Atlantic,Northeast,4,34,013
+2662,Calhoun,West Virginia,WV,South Atlantic,South,14,54,013
+987,Boone,Iowa,IA,West North Central,Midwest,10,19,015
+2177,Bartow,Georgia,GA,South Atlantic,South,15,13,015
+1165,Carroll,Arkansas,AR,West South Central,South,20,5,015
+2136,Cannon,Tennessee,TN,East South Central,South,19,47,015
+1123,Carroll,Illinois,IL,East North Central,Midwest,6,17,015
+2245,Calumet,Wisconsin,WI,East North Central,Midwest,9,55,015
+2305,Carroll,Indiana,IN,East North Central,Midwest,7,18,015
+860,Brule,South Dakota,SD,West North Central,Midwest,10,46,015
+1518,Bossier,Louisiana,LA,West South Central,South,20,22,015
+1858,Berkeley,South Carolina,SC,South Atlantic,South,16,45,015
+2111,Calhoun,Alabama,AL,East South Central,South,18,1,015
+180,Burleigh,North Dakota,ND,West North Central,Midwest,10,38,015
+1277,Bollinger,Missouri,MO,West North Central,Midwest,12,29,017
+630,Cheyenne,Colorado,CO,Mountain,West,22,8,017
+755,Chase,Kansas,KS,West North Central,Midwest,11,20,017
+1903,Chickasaw,Mississippi,MS,East South Central,South,18,28,017
+1063,Bremer,Iowa,IA,West North Central,Midwest,10,19,017
+2323,Cass,Indiana,IN,East North Central,Midwest,7,18,017
+861,Buffalo,South Dakota,SD,West North Central,Midwest,10,46,017
+654,Bailey,Texas,TX,West South Central,South,21,48,017
+277,Carlton,Minnesota,MN,West North Central,Midwest,10,27,017
+499,Hot Springs,Wyoming,WY,Mountain,West,23,56,017
+2977,Chenango,New York,NY,Middle Atlantic,Northeast,3,36,017
+74,Douglas,Washington,WA,Pacific,West,27,53,017
+475,Navajo,Arizona,AZ,Mountain,West,24,4,017
+2864,Charles,Maryland,MD,South Atlantic,South,14,24,017
+768,Chautauqua,Kansas,KS,West North Central,Midwest,11,20,019
+775,Carter,Oklahoma,OK,West South Central,South,20,40,019
+1055,Buchanan,Iowa,IA,West North Central,Midwest,10,19,019
+2217,Champaign,Illinois,IL,East North Central,Midwest,6,17,019
+1079,Clark,Wisconsin,WI,East North Central,Midwest,9,55,019
+202,Cavalier,North Dakota,ND,West North Central,Midwest,10,38,019
+114,Daniels,Montana,MT,Mountain,West,23,30,019
+2773,Brunswick,North Carolina,NC,South Atlantic,South,16,37,019
+541,Johnson,Wyoming,WY,Mountain,West,23,56,019
+488,Grand,Utah,UT,Mountain,West,23,49,019
+1184,Cherokee,Kansas,KS,West North Central,Midwest,11,20,021
+36,Boundary,Idaho,ID,Mountain,West,23,16,021
+1019,Buena Vista,Iowa,IA,West North Central,Midwest,10,19,021
+2362,Champaign,Ohio,OH,East North Central,Midwest,7,39,021
+2306,Clay,Indiana,IN,East North Central,Midwest,7,18,021
+192,Dickey,North Dakota,ND,West North Central,Midwest,10,38,021
+183,Campbell,South Dakota,SD,West North Central,Midwest,10,46,021
+1568,Claiborne,Mississippi,MS,East South Central,South,18,28,021
+1819,Bibb,Georgia,GA,South Atlantic,South,15,13,021
+547,Laramie,Wyoming,WY,Mountain,West,23,56,021
+407,Iron,Utah,UT,Mountain,West,23,49,021
+2922,Cambria,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,021
+83,Franklin,Washington,WA,Pacific,West,27,53,021
+71,Gilliam,Oregon,OR,Pacific,West,27,41,021
+964,Buchanan,Missouri,MO,West North Central,Midwest,12,29,021
+3088,Rutland,Vermont,VT,New England,Northeast,1,50,021
+1820,Bleckley,Georgia,GA,South Atlantic,South,15,13,023
+1633,Clarke,Mississippi,MS,East South Central,South,18,28,023
+2956,Cortland,New York,NY,Middle Atlantic,Northeast,3,36,023
+2928,Cameron,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,023
+1064,Butler,Iowa,IA,West North Central,Midwest,10,19,023
+858,Keya Paha,Nebraska,NE,West North Central,Midwest,11,31,103
+2003,Clark,Illinois,IL,East North Central,Midwest,6,17,023
+1366,Baylor,Texas,TX,West South Central,South,21,48,023
+2339,Branch,Michigan,MI,East North Central,Midwest,8,26,023
+2298,Clinton,Indiana,IN,East North Central,Midwest,7,18,023
+2370,Clark,Ohio,OH,East North Central,Midwest,7,39,023
+119,Divide,North Dakota,ND,West North Central,Midwest,10,38,023
+421,Santa Cruz,Arizona,AZ,Mountain,West,24,4,023
+594,Cheyenne,Kansas,KS,West North Central,Midwest,11,20,023
+1281,Cleburne,Arkansas,AR,West South Central,South,20,5,023
+2467,Garrett,Maryland,MD,South Atlantic,South,14,24,023
+3055,Sagadahoc,Maine,ME,New England,Northeast,1,23,023
+729,Clark,Kansas,KS,West North Central,Midwest,11,20,025
+855,Boyd,Nebraska,NE,West North Central,Midwest,11,31,015
+856,Brown,Nebraska,NE,West North Central,Midwest,11,31,017
+851,Mellette,South Dakota,SD,West North Central,Midwest,10,46,095
+636,Cimarron,Oklahoma,OK,West South Central,South,20,40,025
+631,Crowley,Colorado,CO,Mountain,West,22,8,025
+1011,Calhoun,Iowa,IA,West North Central,Midwest,10,19,025
+998,Caldwell,Missouri,MO,West North Central,Midwest,12,29,025
+2265,Calhoun,Michigan,MI,East North Central,Midwest,8,26,025
+885,Clark,South Dakota,SD,West North Central,Midwest,10,46,025
+157,Fallon,Montana,MT,Mountain,West,23,30,025
+468,Kane,Utah,UT,Mountain,West,23,49,025
+1282,Cleveland,Arkansas,AR,West South Central,South,20,5,025
+3023,Carbon,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,025
+3021,Delaware,New York,NY,Middle Atlantic,Northeast,3,36,025
+3112,Somerset,Maine,ME,New England,Northeast,1,23,025
+3104,Suffolk,Massachusetts,MA,New England,Northeast,2,25,025
+2734,Cabarrus,North Carolina,NC,South Atlantic,South,16,37,025
+1993,Clay,Illinois,IL,East North Central,Midwest,6,17,025
+1652,Clay,Mississippi,MS,East South Central,South,18,28,025
+1694,Clay,Alabama,AL,East South Central,South,18,1,027
+1880,DeSoto,Florida,FL,South Atlantic,South,17,12,027
+976,Carroll,Iowa,IA,West North Central,Midwest,10,19,027
+838,Dawson,Nebraska,NE,West North Central,Midwest,11,31,047
+841,Kearney,Nebraska,NE,West North Central,Midwest,11,31,099
+842,Phelps,Nebraska,NE,West North Central,Midwest,11,31,137
+874,Clay,South Dakota,SD,West North Central,Midwest,10,46,027
+2304,Cass,Michigan,MI,East North Central,Midwest,8,26,027
+2371,Clinton,Ohio,OH,East North Central,Midwest,7,39,027
+187,Eddy,North Dakota,ND,West North Central,Midwest,10,38,027
+1521,Claiborne,Louisiana,LA,West South Central,South,20,22,027
+1860,Clarendon,South Carolina,SC,South Atlantic,South,16,45,027
+1520,Columbia,Arkansas,AR,West South Central,South,20,5,027
+219,Clay,Minnesota,MN,West North Central,Midwest,10,27,027
+399,Inyo,California,CA,Pacific,West,26,6,027
+408,Millard,Utah,UT,Mountain,West,23,49,027
+1322,Coahoma,Mississippi,MS,East South Central,South,18,28,027
+3056,Waldo,Maine,ME,New England,Northeast,1,23,027
+3032,Dutchess,New York,NY,Middle Atlantic,Northeast,3,36,027
+68,Hood River,Oregon,OR,Pacific,West,27,41,027
+6,Grays Harbor,Washington,WA,Pacific,West,27,53,027
+425,Luna,New Mexico,NM,Mountain,West,25,35,029
+806,Coal,Oklahoma,OK,West South Central,South,20,40,029
+2218,Coles,Illinois,IL,East North Central,Midwest,6,17,029
+886,Codington,South Dakota,SD,West North Central,Midwest,10,46,029
+595,Chase,Nebraska,NE,West North Central,Midwest,11,31,029
+984,Cass,Iowa,IA,West North Central,Midwest,10,19,029
+911,Cloud,Kansas,KS,West North Central,Midwest,11,20,029
+2085,Bullitt,Kentucky,KY,East South Central,South,18,21,029
+1610,Erie,New York,NY,Middle Atlantic,Northeast,3,36,029
+3039,Ocean,New Jersey,NJ,Middle Atlantic,Northeast,4,34,029
+44,Island,Washington,WA,Pacific,West,27,53,029
+2436,Hancock,West Virginia,WV,South Atlantic,South,14,54,029
+1701,Cleburne,Alabama,AL,East South Central,South,18,1,029
+2525,Cocke,Tennessee,TN,East South Central,South,19,47,029
+3113,Washington,Maine,ME,New England,Northeast,1,23,029
+364,Storey,Nevada,NV,Mountain,West,25,32,029
+2815,Buckingham,Virginia,VA,South Atlantic,South,13,51,029
+1677,Coffee,Alabama,AL,East South Central,South,18,1,031
+764,Coffey,Kansas,KS,West North Central,Midwest,11,20,031
+1126,Cedar,Iowa,IA,West North Central,Midwest,10,19,031
+1445,Blanco,Texas,TX,West South Central,South,21,48,031
+2030,Decatur,Indiana,IN,East North Central,Midwest,7,18,031
+188,Foster,North Dakota,ND,West North Central,Midwest,10,38,031
+1840,Bulloch,Georgia,GA,South Atlantic,South,15,13,031
+2800,Carteret,North Carolina,NC,South Atlantic,South,16,37,031
+2400,Coshocton,Ohio,OH,East North Central,Midwest,7,39,031
+3031,Passaic,New Jersey,NJ,Middle Atlantic,Northeast,4,34,031
+2985,Essex,New York,NY,Middle Atlantic,Northeast,3,36,031
+45,Jefferson,Washington,WA,Pacific,West,27,53,031
+365,Washoe,Nevada,NV,Mountain,West,25,32,031
+2709,Campbell,Virginia,VA,South Atlantic,South,13,51,031
+134,Gallatin,Montana,MT,Mountain,West,23,30,031
+184,Corson,South Dakota,SD,West North Central,Midwest,10,46,031
+2643,Hardy,West Virginia,WV,South Atlantic,South,14,54,031
+2858,Montgomery,Maryland,MD,South Atlantic,South,14,24,031
+3101,York,Maine,ME,New England,Northeast,1,23,031
+1306,Craighead,Arkansas,AR,West South Central,South,20,5,031
+2137,Coffee,Tennessee,TN,East South Central,South,19,47,031
+458,Borden,Texas,TX,West South Central,South,21,48,033
+730,Comanche,Kansas,KS,West North Central,Midwest,11,20,033
+1049,Cerro Gordo,Iowa,IA,West North Central,Midwest,10,19,033
+1028,Cottonwood,Minnesota,MN,West North Central,Midwest,10,27,033
+2742,Caswell,North Carolina,NC,South Atlantic,South,16,37,033
+2330,DeKalb,Indiana,IN,East North Central,Midwest,7,18,033
+2393,Crawford,Ohio,OH,East North Central,Midwest,7,39,033
+174,Golden Valley,North Dakota,ND,West North Central,Midwest,10,38,033
+582,Cheyenne,Nebraska,NE,West North Central,Midwest,11,31,033
+2929,Clearfield,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,033
+482,Dolores,Colorado,CO,Mountain,West,22,8,033
+320,Lake,California,CA,Pacific,West,26,6,033
+54,King,Washington,WA,Pacific,West,27,53,033
+2986,Franklin,New York,NY,Middle Atlantic,Northeast,3,36,033
+1008,Carroll,Missouri,MO,West North Central,Midwest,12,29,033
+1076,Dunn,Wisconsin,WI,East North Central,Midwest,9,55,033
+369,White Pine,Nevada,NV,Mountain,West,25,32,033
+2823,Caroline,Virginia,VA,South Atlantic,South,13,51,033
+1269,Carter,Missouri,MO,West North Central,Midwest,12,29,035
+1200,Craig,Oklahoma,OK,West South Central,South,20,40,035
+356,Klamath,Oregon,OR,Pacific,West,27,41,035
+1020,Cherokee,Iowa,IA,West North Central,Midwest,10,19,035
+877,Davison,South Dakota,SD,West North Central,Midwest,10,46,035
+2013,Calloway,Kentucky,KY,East South Central,South,18,21,035
+2000,Cumberland,Illinois,IL,East North Central,Midwest,6,17,035
+2353,Delaware,Indiana,IN,East North Central,Midwest,7,18,035
+2287,Clare,Michigan,MI,East North Central,Midwest,8,26,035
+1080,Eau Claire,Wisconsin,WI,East North Central,Midwest,9,55,035
+922,Clay,Nebraska,NE,West North Central,Midwest,11,31,035
+1634,Forrest,Mississippi,MS,East South Central,South,18,28,035
+55,Kitsap,Washington,WA,Pacific,West,27,53,035
+2990,Fulton,New York,NY,Middle Atlantic,Northeast,3,36,035
+1399,Bosque,Texas,TX,West South Central,South,21,48,035
+255,Crow Wing,Minnesota,MN,West North Central,Midwest,10,27,035
+2394,Cuyahoga,Ohio,OH,East North Central,Midwest,7,39,035
+2860,Queen Anne's,Maryland,MD,South Atlantic,South,14,24,035
+1195,Crawford,Kansas,KS,West North Central,Midwest,11,20,037
+2961,Genesee,New York,NY,Middle Atlantic,Northeast,3,36,037
+1065,Chickasaw,Iowa,IA,West North Central,Midwest,10,19,037
+2350,Darke,Ohio,OH,East North Central,Midwest,7,39,037
+2293,Clinton,Michigan,MI,East North Central,Midwest,8,26,037
+2816,Charlotte,Virginia,VA,South Atlantic,South,13,51,037
+225,Day,South Dakota,SD,West North Central,Midwest,10,46,037
+1307,Cross,Arkansas,AR,West South Central,South,20,5,037
+177,Grant,North Dakota,ND,West North Central,Midwest,10,38,037
+2861,St. Mary's,Maryland,MD,South Atlantic,South,14,24,037
+1489,Bowie,Texas,TX,West South Central,South,21,48,037
+2813,Jefferson,West Virginia,WV,South Atlantic,South,14,54,037
+651,Quay,New Mexico,NM,Mountain,West,25,35,037
+2751,Chatham,North Carolina,NC,South Atlantic,South,16,37,037
+2055,Dubois,Indiana,IN,East North Central,Midwest,7,18,037
+1225,Cedar,Missouri,MO,West North Central,Midwest,12,29,039
+937,Cuming,Nebraska,NE,West North Central,Midwest,11,31,039
+1015,Dodge,Minnesota,MN,West North Central,Midwest,10,27,039
+2190,De Witt,Illinois,IL,East North Central,Midwest,6,17,039
+2342,Defiance,Ohio,OH,East North Central,Midwest,7,39,039
+2299,Elkhart,Indiana,IN,East North Central,Midwest,7,18,039
+2288,Crawford,Michigan,MI,East North Central,Midwest,8,26,039
+229,Griggs,North Dakota,ND,West North Central,Midwest,10,38,039
+900,Deuel,South Dakota,SD,West North Central,Midwest,10,46,039
+221,Norman,Minnesota,MN,West North Central,Midwest,10,27,107
+812,Decatur,Kansas,KS,West North Central,Midwest,11,20,039
+1627,George,Mississippi,MS,East South Central,South,18,28,039
+988,Clarke,Iowa,IA,West North Central,Midwest,10,19,039
+507,Sanpete,Utah,UT,Mountain,West,23,49,039
+601,Rio Arriba,New Mexico,NM,Mountain,West,25,35,039
+1742,Gadsden,Florida,FL,South Atlantic,South,17,12,039
+2461,Crawford,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,039
+383,Elmore,Idaho,ID,Mountain,West,23,16,039
+351,Lane,Oregon,OR,Pacific,West,27,41,039
+615,Elbert,Colorado,CO,Mountain,West,22,8,039
+2721,Fairfield,South Carolina,SC,South Atlantic,South,16,45,039
+126,Hill,Montana,MT,Mountain,West,23,30,041
+1021,Clay,Iowa,IA,West North Central,Midwest,10,19,041
+2219,Douglas,Illinois,IL,East North Central,Midwest,6,17,041
+2230,Columbia,Wisconsin,WI,East North Central,Midwest,9,55,021
+2231,Dane,Wisconsin,WI,East North Central,Midwest,9,55,025
+2121,DeKalb,Alabama,AL,East South Central,South,18,1,049
+2255,Jefferson,Wisconsin,WI,East North Central,Midwest,9,55,055
+2239,Marathon,Wisconsin,WI,East North Central,Midwest,9,55,073
+3119,Oneida,Wisconsin,WI,East North Central,Midwest,9,55,085
+2234,Rock,Wisconsin,WI,East North Central,Midwest,9,55,105
+2193,Mason,Illinois,IL,East North Central,Midwest,6,17,125
+2194,Menard,Illinois,IL,East North Central,Midwest,6,17,129
+1904,Lee,Mississippi,MS,East South Central,South,18,28,081
+1557,Leflore,Mississippi,MS,East South Central,South,18,28,083
+1317,Monroe,Arkansas,AR,West South Central,South,20,5,095
+1318,Phillips,Arkansas,AR,West South Central,South,20,5,107
+203,McHenry,North Dakota,ND,West North Central,Midwest,10,38,049
+175,McKenzie,North Dakota,ND,West North Central,Midwest,10,38,053
+237,Wilkin,Minnesota,MN,West North Central,Midwest,10,27,167
+1471,Galveston,Texas,TX,West South Central,South,21,48,167
+2345,Fayette,Indiana,IN,East North Central,Midwest,7,18,041
+2196,Sangamon,Illinois,IL,East North Central,Midwest,6,17,167
+1925,Tipton,Tennessee,TN,East South Central,South,19,47,167
+1143,Schuyler,Illinois,IL,East North Central,Midwest,6,17,169
+165,Hettinger,North Dakota,ND,West North Central,Midwest,10,38,041
+243,Douglas,Minnesota,MN,West North Central,Midwest,10,27,041
+1635,Greene,Mississippi,MS,East South Central,South,18,28,041
+321,Marin,California,CA,Pacific,West,26,6,041
+3006,Warren,New Jersey,NJ,Middle Atlantic,Northeast,4,34,041
+2987,Hamilton,New York,NY,Middle Atlantic,Northeast,3,36,041
+65,Lewis,Washington,WA,Pacific,West,27,53,041
+1009,Chariton,Missouri,MO,West North Central,Midwest,12,29,041
+1910,Grenada,Mississippi,MS,East South Central,South,18,28,043
+132,Broadwater,Montana,MT,Mountain,West,23,30,007
+381,Malheur,Oregon,OR,Pacific,West,27,41,045
+40,Pend Oreille,Washington,WA,Pacific,West,27,53,051
+190,Stutsman,North Dakota,ND,West North Central,Midwest,10,38,093
+131,Toole,Montana,MT,Mountain,West,23,30,101
+906,Dakota,Nebraska,NE,West North Central,Midwest,11,31,043
+1685,Autauga,Alabama,AL,East South Central,South,18,1,001
+1048,Faribault,Minnesota,MN,West North Central,Midwest,10,27,043
+878,Douglas,South Dakota,SD,West North Central,Midwest,10,46,043
+690,Dewey,Oklahoma,OK,West South Central,South,20,40,043
+1940,Dickson,Tennessee,TN,East South Central,South,19,47,043
+2808,Clarke,Virginia,VA,South Atlantic,South,13,51,043
+2951,Dauphin,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,043
+189,Kidder,North Dakota,ND,West North Central,Midwest,10,38,043
+682,Briscoe,Texas,TX,West South Central,South,21,48,045
+1830,Johnson,Georgia,GA,South Atlantic,South,15,13,167
+1059,Fillmore,Minnesota,MN,West North Central,Midwest,10,27,045
+2224,Edgar,Illinois,IL,East North Central,Midwest,6,17,045
+2232,Green,Wisconsin,WI,East North Central,Midwest,9,55,045
+2945,Adams,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,001
+2927,Morgan,West Virginia,WV,South Atlantic,South,14,54,065
+166,McLean,North Dakota,ND,West North Central,Midwest,10,38,055
+2294,Eaton,Michigan,MI,East North Central,Midwest,8,26,045
+196,Edmunds,South Dakota,SD,West North Central,Midwest,10,46,045
+193,LaMoure,North Dakota,ND,West North Central,Midwest,10,38,045
+564,Dawes,Nebraska,NE,West North Central,Midwest,11,31,045
+544,Weston,Wyoming,WY,Mountain,West,23,56,045
+530,Garfield,Colorado,CO,Mountain,West,22,8,045
+1332,Brooks,Texas,TX,West South Central,South,21,48,047
+2165,Catoosa,Georgia,GA,South Atlantic,South,15,13,047
+1966,Christian,Kentucky,KY,East South Central,South,18,21,047
+731,Edwards,Kansas,KS,West North Central,Midwest,11,20,047
+977,Crawford,Iowa,IA,West North Central,Midwest,10,19,047
+1051,Freeborn,Minnesota,MN,West North Central,Midwest,10,27,047
+791,Garfield,Oklahoma,OK,West South Central,South,20,40,047
+2238,Green Lake,Wisconsin,WI,East North Central,Midwest,9,55,047
+2363,Fayette,Ohio,OH,East North Central,Midwest,7,39,047
+2346,Franklin,Indiana,IN,East North Central,Midwest,7,18,047
+1590,Iberville,Louisiana,LA,West South Central,South,20,22,047
+2774,Columbus,North Carolina,NC,South Atlantic,South,16,37,047
+2637,McDowell,West Virginia,WV,South Atlantic,South,14,54,047
+535,Uintah,Utah,UT,Mountain,West,23,49,047
+568,Fall River,South Dakota,SD,West North Central,Midwest,10,46,047
+3041,Kings,New York,NY,Middle Atlantic,Northeast,3,36,047
+1881,Hardee,Florida,FL,South Atlantic,South,17,12,049
+770,Elk,Kansas,KS,West North Central,Midwest,11,20,049
+989,Dallas,Iowa,IA,West North Central,Midwest,10,19,049
+2001,Effingham,Illinois,IL,East North Central,Midwest,6,17,049
+2324,Fulton,Indiana,IN,East North Central,Midwest,7,18,049
+197,Faulk,South Dakota,SD,West North Central,Midwest,10,46,049
+587,Deuel,Nebraska,NE,West North Central,Midwest,11,31,049
+553,Grand,Colorado,CO,Mountain,West,22,8,049
+2289,Gladwin,Michigan,MI,East North Central,Midwest,8,26,051
+2382,Fulton,Ohio,OH,East North Central,Midwest,7,39,051
+195,McIntosh,North Dakota,ND,West North Central,Midwest,10,38,051
+2413,Bay,Michigan,MI,East North Central,Midwest,8,26,017
+127,Liberty,Montana,MT,Mountain,West,23,30,051
+239,Grant,South Dakota,SD,West North Central,Midwest,10,46,051
+233,Grant,Minnesota,MN,West North Central,Midwest,10,27,051
+1104,Davis,Iowa,IA,West North Central,Midwest,10,19,051
+2962,Livingston,New York,NY,Middle Atlantic,Northeast,3,36,051
+2469,Fayette,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,051
+2763,Cumberland,North Carolina,NC,South Atlantic,South,16,37,051
+1454,Burleson,Texas,TX,West South Central,South,21,48,051
+333,Mono,California,CA,Pacific,West,26,6,051
+2445,Marshall,West Virginia,WV,South Atlantic,South,14,54,051
+272,Iron,Wisconsin,WI,East North Central,Midwest,9,55,051
+517,Jefferson,Idaho,ID,Mountain,West,23,16,051
+2138,Franklin,Tennessee,TN,East South Central,South,19,47,051
+52,Multnomah,Oregon,OR,Pacific,West,27,41,051
+426,Sierra,New Mexico,NM,Mountain,West,25,35,051
+2760,Horry,South Carolina,SC,South Atlantic,South,16,45,051
+742,Grant,Oklahoma,OK,West South Central,South,20,40,053
+746,Ellsworth,Kansas,KS,West North Central,Midwest,11,20,053
+1252,Cooper,Missouri,MO,West North Central,Midwest,12,29,053
+2220,Ford,Illinois,IL,East North Central,Midwest,6,17,053
+2354,Grant,Indiana,IN,East North Central,Midwest,7,18,053
+996,Decatur,Iowa,IA,West North Central,Midwest,10,19,053
+409,Washington,Utah,UT,Mountain,West,23,49,053
+1292,Grant,Arkansas,AR,West South Central,South,20,5,053
+57,Pierce,Washington,WA,Pacific,West,27,53,053
+1486,Jefferson Davis,Louisiana,LA,West South Central,South,20,22,053
+492,Hinsdale,Colorado,CO,Mountain,West,22,8,053
+866,Gregory,South Dakota,SD,West North Central,Midwest,10,46,053
+2980,Madison,New York,NY,Middle Atlantic,Northeast,3,36,053
+2795,Currituck,North Carolina,NC,South Atlantic,South,16,37,053
+2615,Mason,West Virginia,WV,South Atlantic,South,14,54,053
+1081,Jackson,Wisconsin,WI,East North Central,Midwest,9,55,053
+2092,Clinton,Kentucky,KY,East South Central,South,18,21,053
+3114,Gogebic,Michigan,MI,East North Central,Midwest,8,26,053
+603,Socorro,New Mexico,NM,Mountain,West,25,35,053
+258,Hennepin,Minnesota,MN,West North Central,Midwest,10,27,053
+394,Jerome,Idaho,ID,Mountain,West,23,16,053
+1270,Crawford,Missouri,MO,West North Central,Midwest,12,29,055
+711,Finney,Kansas,KS,West North Central,Midwest,11,20,055
+1879,Charlotte,Florida,FL,South Atlantic,South,17,12,015
+1891,Miami-Dade,Florida,FL,South Atlantic,South,17,12,086
+1089,Delaware,Iowa,IA,West North Central,Midwest,10,19,055
+1060,Houston,Minnesota,MN,West North Central,Midwest,10,27,055
+2056,Greene,Indiana,IN,East North Central,Midwest,7,18,055
+2915,Franklin,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,055
+1894,Highlands,Florida,FL,South Atlantic,South,17,12,055
+1591,Lafayette,Louisiana,LA,West South Central,South,20,22,055
+1447,Caldwell,Texas,TX,West South Central,South,21,48,055
+2112,Etowah,Alabama,AL,East South Central,South,18,1,055
+2026,Crittenden,Kentucky,KY,East South Central,South,18,21,055
+2963,Monroe,New York,NY,Middle Atlantic,Northeast,3,36,055
+158,McCone,Montana,MT,Mountain,West,23,30,055
+322,Napa,California,CA,Pacific,West,26,6,055
+1226,Dade,Missouri,MO,West North Central,Midwest,12,29,057
+732,Ford,Kansas,KS,West North Central,Midwest,11,20,057
+1951,Itawamba,Mississippi,MS,East South Central,South,18,28,057
+1662,Fayette,Alabama,AL,East South Central,South,18,1,057
+2295,Gratiot,Michigan,MI,East North Central,Midwest,8,26,057
+2040,Butler,Kentucky,KY,East South Central,South,18,21,031
+887,Hamlin,South Dakota,SD,West North Central,Midwest,10,46,057
+252,Hubbard,Minnesota,MN,West North Central,Midwest,10,27,057
+596,Dundy,Nebraska,NE,West North Central,Midwest,11,31,057
+2832,Brunswick,Virginia,VA,South Atlantic,South,13,51,025
+1189,Newton,Missouri,MO,West North Central,Midwest,12,29,145
+2758,Dillon,South Carolina,SC,South Atlantic,South,16,45,033
+2300,Hamilton,Indiana,IN,East North Central,Midwest,7,18,057
+673,Tillman,Oklahoma,OK,West South Central,South,20,40,141
+1873,Barnwell,South Carolina,SC,South Atlantic,South,16,45,011
+1874,Calhoun,South Carolina,SC,South Atlantic,South,16,45,017
+1506,Gregg,Texas,TX,West South Central,South,21,48,183
+1553,Union,Louisiana,LA,West South Central,South,20,22,111
+1859,Charleston,South Carolina,SC,South Atlantic,South,16,45,019
+1846,Jeff Davis,Georgia,GA,South Atlantic,South,15,13,161
+569,Haakon,South Dakota,SD,West North Central,Midwest,10,46,055
+2946,Berks,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,011
+1773,Gilchrist,Florida,FL,South Atlantic,South,17,12,041
+1885,Pinellas,Florida,FL,South Atlantic,South,17,12,103
+17,Maui,Hawaii,HI,Pacific,West,27,15,009
+432,Terrell,Texas,TX,West South Central,South,21,48,443
+1897,Okeechobee,Florida,FL,South Atlantic,South,17,12,093
+2395,Erie,Ohio,OH,East North Central,Midwest,7,39,043
+2259,Washington,Wisconsin,WI,East North Central,Midwest,9,55,131
+1125,Knox,Illinois,IL,East North Central,Midwest,6,17,095
+1450,Travis,Texas,TX,West South Central,South,21,48,453
+1258,Jersey,Illinois,IL,East North Central,Midwest,6,17,083
+761,Riley,Kansas,KS,West North Central,Midwest,11,20,161
+773,Osage,Oklahoma,OK,West South Central,South,20,40,113
+1216,Benton,Missouri,MO,West North Central,Midwest,12,29,015
+635,Otero,Colorado,CO,Mountain,West,22,8,089
+681,Harmon,Oklahoma,OK,West South Central,South,20,40,057
+1227,Dallas,Missouri,MO,West North Central,Midwest,12,29,059
+1390,Callahan,Texas,TX,West South Central,South,21,48,059
+1204,Franklin,Kansas,KS,West North Central,Midwest,11,20,059
+1022,Dickinson,Iowa,IA,West North Central,Midwest,10,19,059
+2335,Hillsdale,Michigan,MI,East North Central,Midwest,8,26,059
+2311,Hancock,Indiana,IN,East North Central,Midwest,7,18,059
+847,Hand,South Dakota,SD,West North Central,Midwest,10,46,059
+1947,Franklin,Alabama,AL,East South Central,South,18,1,059
+259,Isanti,Minnesota,MN,West North Central,Midwest,10,27,059
+178,Morton,North Dakota,ND,West North Central,Midwest,10,38,059
+1183,Hot Spring,Arkansas,AR,West South Central,South,20,5,059
+2629,Mingo,West Virginia,WV,South Atlantic,South,14,54,059
+2470,Greene,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,059
+3042,Nassau,New York,NY,Middle Atlantic,Northeast,3,36,059
+2439,Guernsey,Ohio,OH,East North Central,Midwest,7,39,059
+2262,Kenosha,Wisconsin,WI,East North Central,Midwest,9,55,059
+1626,Jackson,Mississippi,MS,East South Central,South,18,28,059
+139,Meagher,Montana,MT,Mountain,West,23,30,059
+2736,Davie,North Carolina,NC,South Atlantic,South,16,37,059
+70,Skamania,Washington,WA,Pacific,West,27,53,059
+27,Bristol Bay,Alaska,AK,Pacific,West,27,2,060
+1636,Jasper,Mississippi,MS,East South Central,South,18,28,061
+632,Kiowa,Colorado,CO,Mountain,West,22,8,061
+1090,Dubuque,Iowa,IA,West North Central,Midwest,10,19,061
+879,Hanson,South Dakota,SD,West North Central,Midwest,10,46,061
+844,Franklin,Nebraska,NE,West North Central,Midwest,11,31,061
+999,Daviess,Missouri,MO,West North Central,Midwest,12,29,061
+1709,Geneva,Alabama,AL,East South Central,South,18,1,061
+2048,Edmonson,Kentucky,KY,East South Central,South,18,21,061
+2062,Harrison,Indiana,IN,East North Central,Midwest,7,18,061
+2924,Huntingdon,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,061
+2474,Monongalia,West Virginia,WV,South Atlantic,South,14,54,061
+3043,New York,New York,NY,Middle Atlantic,Northeast,3,36,061
+49,Snohomish,Washington,WA,Pacific,West,27,53,061
+94,Union,Oregon,OR,Pacific,West,27,41,061
+256,Itasca,Minnesota,MN,West North Central,Midwest,10,27,061
+2848,Fauquier,Virginia,VA,South Atlantic,South,13,51,061
+1333,Cameron,Texas,TX,West South Central,South,21,48,061
+2037,Hamilton,Ohio,OH,East North Central,Midwest,7,39,061
+3122,Houghton,Michigan,MI,East North Central,Midwest,8,26,061
+104,Mineral,Montana,MT,Mountain,West,23,30,061
+633,Kit Carson,Colorado,CO,Mountain,West,22,8,063
+395,Lincoln,Idaho,ID,Mountain,West,23,16,063
+1026,Jackson,Minnesota,MN,West North Central,Midwest,10,27,063
+1012,Emmet,Iowa,IA,West North Central,Midwest,10,19,063
+712,Gove,Kansas,KS,West North Central,Midwest,11,20,063
+2387,Hancock,Ohio,OH,East North Central,Midwest,7,39,063
+215,Nelson,North Dakota,ND,West North Central,Midwest,10,38,063
+822,Frontier,Nebraska,NE,West North Central,Midwest,11,31,063
+966,DeKalb,Missouri,MO,West North Central,Midwest,12,29,063
+1611,Niagara,New York,NY,Middle Atlantic,Northeast,3,36,063
+359,Plumas,California,CA,Pacific,West,26,6,063
+1570,Jefferson,Mississippi,MS,East South Central,South,18,28,063
+807,Hughes,Oklahoma,OK,West South Central,South,20,40,063
+2484,Hamblen,Tennessee,TN,East South Central,South,19,47,063
+170,Harding,South Dakota,SD,West North Central,Midwest,10,46,063
+2655,Floyd,Virginia,VA,South Atlantic,South,13,51,063
+91,Spokane,Washington,WA,Pacific,West,27,53,063
+1600,Livingston,Louisiana,LA,West South Central,South,20,22,063
+656,Carson,Texas,TX,West South Central,South,21,48,065
+1995,Hamilton,Illinois,IL,East North Central,Midwest,6,17,065
+1056,Fayette,Iowa,IA,West North Central,Midwest,10,19,065
+473,Apache,Arizona,AZ,Mountain,West,24,4,001
+2237,Adams,Wisconsin,WI,East North Central,Midwest,9,55,001
+721,Graham,Kansas,KS,West North Central,Midwest,11,20,065
+111,Cook,Minnesota,MN,West North Central,Midwest,10,27,031
+1061,Lafayette,Wisconsin,WI,East North Central,Midwest,9,55,065
+2347,Henry,Indiana,IN,East North Central,Midwest,7,18,065
+2374,Hardin,Ohio,OH,East North Central,Midwest,7,39,065
+260,Kanabec,Minnesota,MN,West North Central,Midwest,10,27,065
+815,Furnas,Nebraska,NE,West North Central,Midwest,11,31,065
+168,Oliver,North Dakota,ND,West North Central,Midwest,10,38,065
+621,Lake,Colorado,CO,Mountain,West,22,8,065
+69,Wasco,Oregon,OR,Pacific,West,27,41,065
+41,Stevens,Washington,WA,Pacific,West,27,53,065
+2210,Grundy,Illinois,IL,East North Central,Midwest,6,17,063
+2766,Edgecombe,North Carolina,NC,South Atlantic,South,16,37,065
+1637,Jones,Mississippi,MS,East South Central,South,18,28,067
+2440,Harrison,Ohio,OH,East North Central,Midwest,7,39,067
+1066,Floyd,Iowa,IA,West North Central,Midwest,10,19,067
+880,Hutchinson,South Dakota,SD,West North Central,Midwest,10,46,067
+3117,Langlade,Wisconsin,WI,East North Central,Midwest,9,55,067
+2301,Howard,Indiana,IN,East North Central,Midwest,7,18,067
+2272,Ionia,Michigan,MI,East North Central,Midwest,8,26,067
+244,Kandiyohi,Minnesota,MN,West North Central,Midwest,10,27,067
+949,Gage,Nebraska,NE,West North Central,Midwest,11,31,067
+2101,Fayette,Kentucky,KY,East South Central,South,18,21,067
+2925,Juniata,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,067
+58,Thurston,Washington,WA,Pacific,West,27,53,067
+493,La Plata,Colorado,CO,Mountain,West,22,8,067
+2485,Hancock,Tennessee,TN,East South Central,South,19,47,067
+141,Park,Montana,MT,Mountain,West,23,30,067
+642,Grant,Kansas,KS,West North Central,Midwest,11,20,067
+808,Johnston,Oklahoma,OK,West South Central,South,20,40,069
+2022,Hardin,Illinois,IL,East North Central,Midwest,6,17,069
+666,Castro,Texas,TX,West South Central,South,21,48,069
+705,Gray,Kansas,KS,West North Central,Midwest,11,20,069
+2437,Ohio,West Virginia,WV,South Atlantic,South,14,54,069
+67,Wahkiakum,Washington,WA,Pacific,West,27,53,069
+1052,Franklin,Iowa,IA,West North Central,Midwest,10,19,069
+3118,Lincoln,Wisconsin,WI,East North Central,Midwest,9,55,069
+2331,Huntington,Indiana,IN,East North Central,Midwest,7,18,069
+2383,Henry,Ohio,OH,East North Central,Midwest,7,39,069
+849,Hyde,South Dakota,SD,West North Central,Midwest,10,46,069
+1758,Brooks,Georgia,GA,South Atlantic,South,15,13,027
+1755,Leon,Florida,FL,South Atlantic,South,17,12,073
+1657,Kemper,Mississippi,MS,East South Central,South,18,28,069
+1596,Ascension,Louisiana,LA,West South Central,South,20,22,005
+1598,East Baton Rouge,Louisiana,LA,West South Central,South,20,22,033
+1579,East Feliciana,Louisiana,LA,West South Central,South,20,22,037
+1580,Evangeline,Louisiana,LA,West South Central,South,20,22,039
+1733,Holmes,Florida,FL,South Atlantic,South,17,12,059
+1582,Pointe Coupee,Louisiana,LA,West South Central,South,20,22,077
+1735,Okaloosa,Florida,FL,South Atlantic,South,17,12,091
+1736,Santa Rosa,Florida,FL,South Atlantic,South,17,12,113
+1353,Llano,Texas,TX,West South Central,South,21,48,299
+204,Pierce,North Dakota,ND,West North Central,Midwest,10,38,069
+588,Garden,Nebraska,NE,West North Central,Midwest,11,31,069
+1930,Hardeman,Tennessee,TN,East South Central,South,19,47,069
+2964,Ontario,New York,NY,Middle Atlantic,Northeast,3,36,069
+3024,Lackawanna,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,069
+208,Kittson,Minnesota,MN,West North Central,Midwest,10,27,069
+2780,Franklin,North Carolina,NC,South Atlantic,South,16,37,069
+2839,Frederick,Virginia,VA,South Atlantic,South,13,51,069
+148,Petroleum,Montana,MT,Mountain,West,23,30,069
+637,Greeley,Kansas,KS,West North Central,Midwest,11,20,071
+828,Garfield,Nebraska,NE,West North Central,Midwest,11,31,071
+1129,Henderson,Illinois,IL,East North Central,Midwest,6,17,071
+3033,Orange,New York,NY,Middle Atlantic,Northeast,3,36,071
+84,Walla Walla,Washington,WA,Pacific,West,27,53,071
+2731,Gaston,North Carolina,NC,South Atlantic,South,16,37,071
+1787,Colquitt,Georgia,GA,South Atlantic,South,15,13,071
+112,Koochiching,Minnesota,MN,West North Central,Midwest,10,27,071
+577,Jackson,South Dakota,SD,West North Central,Midwest,10,46,071
+743,Kay,Oklahoma,OK,West South Central,South,20,40,071
+1470,Chambers,Texas,TX,West South Central,South,21,48,071
+757,Greenwood,Kansas,KS,West North Central,Midwest,11,20,073
+2456,Lawrence,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,073
+978,Greene,Iowa,IA,West North Central,Midwest,10,19,073
+2316,Jasper,Indiana,IN,East North Central,Midwest,7,18,073
+2290,Isabella,Michigan,MI,East North Central,Midwest,8,26,073
+2402,Hocking,Ohio,OH,East North Central,Midwest,7,39,073
+867,Jerauld,South Dakota,SD,West North Central,Midwest,10,46,073
+222,Ransom,North Dakota,ND,West North Central,Midwest,10,38,073
+823,Gosper,Nebraska,NE,West North Central,Midwest,11,31,073
+1644,Lamar,Mississippi,MS,East South Central,South,18,28,073
+1984,Montgomery,Illinois,IL,East North Central,Midwest,6,17,135
+792,Kingfisher,Oklahoma,OK,West South Central,South,20,40,073
+2079,Franklin,Kentucky,KY,East South Central,South,18,21,073
+1124,Henry,Illinois,IL,East North Central,Midwest,6,17,073
+414,San Diego,California,CA,Pacific,West,26,6,073
+2666,Pleasants,West Virginia,WV,South Atlantic,South,14,54,073
+234,Lac qui Parle,Minnesota,MN,West North Central,Midwest,10,27,073
+2789,Gates,North Carolina,NC,South Atlantic,South,16,37,073
+2887,Gloucester,Virginia,VA,South Atlantic,South,13,51,073
+1834,Columbia,Georgia,GA,South Atlantic,South,15,13,073
+1638,Lauderdale,Mississippi,MS,East South Central,South,18,28,075
+643,Hamilton,Kansas,KS,West North Central,Midwest,11,20,075
+2947,Lebanon,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,075
+2403,Holmes,Ohio,OH,East North Central,Midwest,7,39,075
+1948,Lamar,Alabama,AL,East South Central,South,18,1,075
+1067,Grundy,Iowa,IA,West North Central,Midwest,10,19,075
+674,Childress,Texas,TX,West South Central,South,21,48,075
+2183,Iroquois,Illinois,IL,East North Central,Midwest,6,17,075
+2355,Jay,Indiana,IN,East North Central,Midwest,7,18,075
+2296,Jackson,Michigan,MI,East North Central,Midwest,8,26,075
+121,Renville,North Dakota,ND,West North Central,Midwest,10,38,075
+578,Logan,Colorado,CO,Mountain,West,22,8,075
+2904,Somerset,Maryland,MD,South Atlantic,South,14,24,039
+2905,Wicomico,Maryland,MD,South Atlantic,South,14,24,045
+965,Clinton,Missouri,MO,West North Central,Midwest,12,29,049
+2818,Fluvanna,Virginia,VA,South Atlantic,South,13,51,065
+2822,Charlottesville,Virginia,VA,South Atlantic,South,13,51,540
+2812,Fredericksburg,Virginia,VA,South Atlantic,South,13,51,630
+589,Grant,Nebraska,NE,West North Central,Midwest,11,31,075
+972,Gentry,Missouri,MO,West North Central,Midwest,12,29,075
+737,Harper,Kansas,KS,West North Central,Midwest,11,20,077
+985,Guthrie,Iowa,IA,West North Central,Midwest,10,19,077
+2240,Marquette,Wisconsin,WI,East North Central,Midwest,9,55,077
+2266,Kalamazoo,Michigan,MI,East North Central,Midwest,8,26,077
+2396,Huron,Ohio,OH,East North Central,Midwest,7,39,077
+888,Kingsbury,South Dakota,SD,West North Central,Midwest,10,46,077
+829,Greeley,Nebraska,NE,West North Central,Midwest,11,31,077
+1575,Lawrence,Mississippi,MS,East South Central,South,18,28,077
+1151,Latimer,Oklahoma,OK,West South Central,South,20,40,077
+483,Mesa,Colorado,CO,Mountain,West,22,8,077
+327,San Joaquin,California,CA,Pacific,West,26,6,077
+3012,Lehigh,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,077
+2248,Menominee,Wisconsin,WI,East North Central,Midwest,9,55,078
+1036,Le Sueur,Minnesota,MN,West North Central,Midwest,10,27,079
+1285,Lincoln,Arkansas,AR,West South Central,South,20,5,079
+494,Mineral,Colorado,CO,Mountain,West,22,8,079
+752,Harvey,Kansas,KS,West North Central,Midwest,11,20,079
+1041,Hamilton,Iowa,IA,West North Central,Midwest,10,19,079
+889,Lake,South Dakota,SD,West North Central,Midwest,10,46,079
+2002,Jasper,Illinois,IL,East North Central,Midwest,6,17,079
+1000,Grundy,Missouri,MO,West North Central,Midwest,12,29,079
+2281,Kalkaska,Michigan,MI,East North Central,Midwest,8,26,079
+2609,Jackson,Ohio,OH,East North Central,Midwest,7,39,079
+206,Rolette,North Dakota,ND,West North Central,Midwest,10,38,079
+1653,Leake,Mississippi,MS,East South Central,South,18,28,079
+360,Sierra,California,CA,Pacific,West,26,6,091
+1602,St. James,Louisiana,LA,West South Central,South,20,22,093
+839,Hall,Nebraska,NE,West North Central,Midwest,11,31,079
+443,Cochran,Texas,TX,West South Central,South,21,48,079
+160,Prairie,Montana,MT,Mountain,West,23,30,079
+2840,Greene,Virginia,VA,South Atlantic,South,13,51,079
+2616,Putnam,West Virginia,WV,South Atlantic,South,14,54,079
+3034,Putnam,New York,NY,Middle Atlantic,Northeast,3,36,079
+1907,Henry,Tennessee,TN,East South Central,South,19,47,079
+2031,Jennings,Indiana,IN,East North Central,Midwest,7,18,079
+1545,Rapides,Louisiana,LA,West South Central,South,20,22,079
+2256,Milwaukee,Wisconsin,WI,East North Central,Midwest,9,55,079
+2776,Greene,North Carolina,NC,South Atlantic,South,16,37,079
+706,Haskell,Kansas,KS,West North Central,Midwest,11,20,081
+1989,Jefferson,Illinois,IL,East North Central,Midwest,6,17,081
+1371,Coke,Texas,TX,West South Central,South,21,48,081
+1042,Hancock,Iowa,IA,West North Central,Midwest,10,19,081
+1001,Harrison,Missouri,MO,West North Central,Midwest,12,29,081
+2312,Johnson,Indiana,IN,East North Central,Midwest,7,18,081
+894,Lincoln,Minnesota,MN,West North Central,Midwest,10,27,081
+223,Sargent,North Dakota,ND,West North Central,Midwest,10,38,081
+531,Moffat,Colorado,CO,Mountain,West,22,8,081
+529,Teton,Idaho,ID,Mountain,West,23,16,081
+2652,Raleigh,West Virginia,WV,South Atlantic,South,14,54,081
+930,Hamilton,Nebraska,NE,West North Central,Midwest,11,31,081
+1514,Little River,Arkansas,AR,West South Central,South,20,5,081
+3044,Queens,New York,NY,Middle Atlantic,Northeast,3,36,081
+1943,Hickman,Tennessee,TN,East South Central,South,19,47,081
+2433,Jefferson,Ohio,OH,East North Central,Midwest,7,39,081
+797,Lincoln,Oklahoma,OK,West South Central,South,20,40,081
+2834,Greensville,Virginia,VA,South Atlantic,South,13,51,081
+2273,Kent,Michigan,MI,East North Central,Midwest,8,26,081
+2167,Dade,Georgia,GA,South Atlantic,South,15,13,083
+713,Hodgeman,Kansas,KS,West North Central,Midwest,11,20,083
+2932,McKean,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,083
+1053,Hardin,Iowa,IA,West North Central,Midwest,10,19,083
+1941,Houston,Tennessee,TN,East South Central,South,19,47,083
+840,Harlan,Nebraska,NE,West North Central,Midwest,11,31,083
+2404,Knox,Ohio,OH,East North Central,Midwest,7,39,083
+182,Sheridan,North Dakota,ND,West North Central,Midwest,10,38,083
+876,Bon Homme,South Dakota,SD,West North Central,Midwest,10,46,009
+1033,Blue Earth,Minnesota,MN,West North Central,Midwest,10,27,013
+1091,Crawford,Wisconsin,WI,East North Central,Midwest,9,55,023
+1084,Monroe,Wisconsin,WI,East North Central,Midwest,9,55,081
+908,Lincoln,South Dakota,SD,West North Central,Midwest,10,46,083
+902,Lyon,Iowa,IA,West North Central,Midwest,10,19,119
+883,Yankton,South Dakota,SD,West North Central,Midwest,10,46,135
+904,Sioux,Iowa,IA,West North Central,Midwest,10,19,167
+895,Lyon,Minnesota,MN,West North Central,Midwest,10,27,083
+2554,Spartanburg,South Carolina,SC,South Atlantic,South,16,45,083
+2123,Limestone,Alabama,AL,East South Central,South,18,1,083
+484,Montezuma,Colorado,CO,Mountain,West,22,8,083
+2710,Halifax,Virginia,VA,South Atlantic,South,13,51,083
+1391,Coleman,Texas,TX,West South Central,South,21,48,083
+2767,Halifax,North Carolina,NC,South Atlantic,South,16,37,083
+397,Twin Falls,Idaho,ID,Mountain,West,23,16,083
+3000,Rensselaer,New York,NY,Middle Atlantic,Northeast,3,36,083
+3123,Keweenaw,Michigan,MI,East North Central,Midwest,8,26,083
+1576,Lincoln,Mississippi,MS,East South Central,South,18,28,085
+1228,Hickory,Missouri,MO,West North Central,Midwest,12,29,085
+2325,Kosciusko,Indiana,IN,East North Central,Midwest,7,18,085
+2145,Jackson,Tennessee,TN,East South Central,South,19,47,087
+2146,Morgan,Tennessee,TN,East South Central,South,19,47,129
+2282,Lake,Michigan,MI,East North Central,Midwest,8,26,085
+1037,McLeod,Minnesota,MN,West North Central,Midwest,10,27,085
+824,Hayes,Nebraska,NE,West North Central,Midwest,11,31,085
+956,Jackson,Kansas,KS,West North Central,Midwest,11,20,085
+485,Montrose,Colorado,CO,Mountain,West,22,8,085
+328,Santa Clara,California,CA,Pacific,West,26,6,085
+2826,Hanover,Virginia,VA,South Atlantic,South,13,51,085
+3049,Richmond,New York,NY,Middle Atlantic,Northeast,3,36,085
+3035,Rockland,New York,NY,Middle Atlantic,Northeast,3,36,087
+881,McCook,South Dakota,SD,West North Central,Midwest,10,46,087
+2337,LaGrange,Indiana,IN,East North Central,Midwest,7,18,087
+169,Slope,North Dakota,ND,West North Central,Midwest,10,38,087
+152,Rosebud,Montana,MT,Mountain,West,23,30,087
+220,Mahnomen,Minnesota,MN,West North Central,Midwest,10,27,087
+1927,Crockett,Tennessee,TN,East South Central,South,19,47,033
+1929,Gibson,Tennessee,TN,East South Central,South,19,47,053
+825,Hitchcock,Nebraska,NE,West North Central,Midwest,11,31,087
+579,Morgan,Colorado,CO,Mountain,West,22,8,087
+1120,Henry,Iowa,IA,West North Central,Midwest,10,19,087
+683,Collingsworth,Texas,TX,West South Central,South,21,48,087
+1068,Howard,Iowa,IA,West North Central,Midwest,10,19,089
+920,Jewell,Kansas,KS,West North Central,Midwest,11,20,089
+1253,Howard,Missouri,MO,West North Central,Midwest,12,29,089
+198,McPherson,South Dakota,SD,West North Central,Midwest,10,46,089
+1862,Williamsburg,South Carolina,SC,South Atlantic,South,16,45,089
+2124,Madison,Alabama,AL,East South Central,South,18,1,089
+209,Marshall,Minnesota,MN,West North Central,Midwest,10,27,089
+2405,Licking,Ohio,OH,East North Central,Midwest,7,39,089
+176,Stark,North Dakota,ND,West North Central,Midwest,10,38,089
+1601,St. Charles,Louisiana,LA,West South Central,South,20,22,089
+2696,Henry,Virginia,VA,South Atlantic,South,13,51,089
+1043,Humboldt,Iowa,IA,West North Central,Midwest,10,19,091
+1083,La Crosse,Wisconsin,WI,East North Central,Midwest,9,55,063
+1016,Martin,Minnesota,MN,West North Central,Midwest,10,27,091
+2365,Logan,Ohio,OH,East North Central,Midwest,7,39,091
+230,Steele,North Dakota,ND,West North Central,Midwest,10,38,091
+226,Marshall,South Dakota,SD,West North Central,Midwest,10,46,091
+1077,Pepin,Wisconsin,WI,East North Central,Midwest,9,55,091
+816,Hooker,Nebraska,NE,West North Central,Midwest,11,31,091
+1645,Marion,Mississippi,MS,East South Central,South,18,28,091
+1392,Comanche,Texas,TX,West South Central,South,21,48,093
+1271,Iron,Missouri,MO,West North Central,Midwest,12,29,093
+109,Silver Bow,Montana,MT,Mountain,West,23,30,093
+644,Kearny,Kansas,KS,West North Central,Midwest,11,20,093
+1949,Marion,Alabama,AL,East South Central,South,18,1,093
+1023,Ida,Iowa,IA,West North Central,Midwest,10,19,093
+692,Major,Oklahoma,OK,West South Central,South,20,40,093
+2213,Kendall,Illinois,IL,East North Central,Midwest,6,17,093
+2064,Lawrence,Indiana,IN,East North Central,Midwest,7,18,093
+245,Meeker,Minnesota,MN,West North Central,Midwest,10,27,093
+830,Howard,Nebraska,NE,West North Central,Midwest,11,31,093
+2871,Isle of Wight,Virginia,VA,South Atlantic,South,13,51,093
+2397,Lorain,Ohio,OH,East North Central,Midwest,7,39,093
+2994,Schenectady,New York,NY,Middle Atlantic,Northeast,3,36,093
+2764,Hoke,North Carolina,NC,South Atlantic,South,16,37,093
+622,Park,Colorado,CO,Mountain,West,22,8,093
+2684,Tucker,West Virginia,WV,South Atlantic,South,14,54,093
+2422,Livingston,Michigan,MI,East North Central,Midwest,8,26,093
+738,Kingman,Kansas,KS,West North Central,Midwest,11,20,095
+1112,Iowa,Iowa,IA,West North Central,Midwest,10,19,095
+935,Burt,Nebraska,NE,West North Central,Midwest,11,31,021
+871,Cedar,Nebraska,NE,West North Central,Midwest,11,31,027
+1088,Clayton,Iowa,IA,West North Central,Midwest,10,19,043
+1092,Grant,Wisconsin,WI,East North Central,Midwest,9,55,043
+907,Dixon,Nebraska,NE,West North Central,Midwest,11,31,051
+875,Knox,Nebraska,NE,West North Central,Midwest,11,31,107
+910,Union,South Dakota,SD,West North Central,Midwest,10,46,127
+903,Plymouth,Iowa,IA,West North Central,Midwest,10,19,149
+869,Woodbury,Iowa,IA,West North Central,Midwest,10,19,193
+2537,Unicoi,Tennessee,TN,East South Central,South,19,47,171
+1921,Lake,Tennessee,TN,East South Central,South,19,47,095
+1214,Jackson,Missouri,MO,West North Central,Midwest,12,29,095
+2384,Lucas,Ohio,OH,East North Central,Midwest,7,39,095
+207,Towner,North Dakota,ND,West North Central,Midwest,10,38,095
+591,Phillips,Colorado,CO,Mountain,West,22,8,095
+924,Jefferson,Nebraska,NE,West North Central,Midwest,11,31,095
+1372,Concho,Texas,TX,West South Central,South,21,48,095
+323,Solano,California,CA,Pacific,West,26,6,095
+1952,Monroe,Mississippi,MS,East South Central,South,18,28,095
+733,Kiowa,Kansas,KS,West North Central,Midwest,11,20,097
+1173,Montgomery,Arkansas,AR,West South Central,South,20,5,097
+890,Miner,South Dakota,SD,West North Central,Midwest,10,46,097
+1158,Mayes,Oklahoma,OK,West South Central,South,20,40,097
+2144,Fentress,Tennessee,TN,East South Central,South,19,47,049
+2241,Portage,Wisconsin,WI,East North Central,Midwest,9,55,097
+950,Johnson,Nebraska,NE,West North Central,Midwest,11,31,097
+2952,Northumberland,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,097
+486,Pitkin,Colorado,CO,Mountain,West,22,8,097
+324,Sonoma,California,CA,Pacific,West,26,6,097
+1196,Labette,Kansas,KS,West North Central,Midwest,11,20,099
+641,Prowers,Colorado,CO,Mountain,West,22,8,099
+1070,Mower,Minnesota,MN,West North Central,Midwest,10,27,099
+909,Minnehaha,South Dakota,SD,West North Central,Midwest,10,46,099
+2713,Surry,North Carolina,NC,South Atlantic,South,16,37,171
+273,Price,Wisconsin,WI,East North Central,Midwest,9,55,099
+2326,Marshall,Indiana,IN,East North Central,Midwest,7,18,099
+1658,Neshoba,Mississippi,MS,East South Central,South,18,28,099
+958,Jasper,Iowa,IA,West North Central,Midwest,10,19,099
+1400,Coryell,Texas,TX,West South Central,South,21,48,099
+1265,Jefferson,Missouri,MO,West North Central,Midwest,12,29,099
+2630,Wayne,West Virginia,WV,South Atlantic,South,14,54,099
+2867,King George,Virginia,VA,South Atlantic,South,13,51,099
+2454,Mahoning,Ohio,OH,East North Central,Midwest,7,39,099
+2523,Jackson,North Carolina,NC,South Atlantic,South,16,37,099
+334,Stanislaus,California,CA,Pacific,West,26,6,099
+2972,Seneca,New York,NY,Middle Atlantic,Northeast,3,36,099
+714,Lane,Kansas,KS,West North Central,Midwest,11,20,101
+901,Moody,South Dakota,SD,West North Central,Midwest,10,46,101
+896,Murray,Minnesota,MN,West North Central,Midwest,10,27,101
+2006,Lawrence,Illinois,IL,East North Central,Midwest,6,17,101
+1127,Clinton,Iowa,IA,West North Central,Midwest,10,19,045
+2375,Marion,Ohio,OH,East North Central,Midwest,7,39,101
+2057,Martin,Indiana,IN,East North Central,Midwest,7,18,101
+675,Cottle,Texas,TX,West South Central,South,21,48,101
+590,Keith,Nebraska,NE,West North Central,Midwest,11,31,101
+1121,Jefferson,Iowa,IA,West North Central,Midwest,10,19,101
+1147,Newton,Arkansas,AR,West South Central,South,20,5,101
+317,Sutter,California,CA,Pacific,West,26,6,101
+2889,King William,Virginia,VA,South Atlantic,South,13,51,101
+2014,Henderson,Kentucky,KY,East South Central,South,18,21,101
+1218,Johnson,Missouri,MO,West North Central,Midwest,12,29,101
+2263,Racine,Wisconsin,WI,East North Central,Midwest,9,55,101
+1639,Newton,Mississippi,MS,East South Central,South,18,28,101
+1106,Knox,Missouri,MO,West North Central,Midwest,12,29,103
+1659,Noxubee,Mississippi,MS,East South Central,South,18,28,103
+2327,Miami,Indiana,IN,East North Central,Midwest,7,18,103
+191,Wells,North Dakota,ND,West North Central,Midwest,10,38,103
+1517,Ouachita,Arkansas,AR,West South Central,South,20,5,103
+2126,Morgan,Alabama,AL,East South Central,South,18,1,103
+532,Rio Blanco,Colorado,CO,Mountain,West,22,8,103
+2071,Henry,Kentucky,KY,East South Central,South,18,21,103
+2398,Medina,Ohio,OH,East North Central,Midwest,7,39,103
+3026,Pike,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,103
+1977,Hickman,Kentucky,KY,East South Central,South,18,21,105
+1201,Nowata,Oklahoma,OK,West South Central,South,20,40,105
+617,Rio Grande,Colorado,CO,Mountain,West,22,8,105
+2933,Potter,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,105
+1128,Jones,Iowa,IA,West North Central,Midwest,10,19,105
+870,Nobles,Minnesota,MN,West North Central,Midwest,10,27,105
+747,Lincoln,Kansas,KS,West North Central,Midwest,11,20,105
+1660,Oktibbeha,Mississippi,MS,East South Central,South,18,28,105
+37,Flathead,Montana,MT,Mountain,West,23,30,029
+38,Glacier,Montana,MT,Mountain,West,23,30,035
+171,Perkins,South Dakota,SD,West North Central,Midwest,10,46,105
+301,Lake,Oregon,OR,Pacific,West,27,41,037
+302,Wheeler,Oregon,OR,Pacific,West,27,41,069
+583,Kimball,Nebraska,NE,West North Central,Midwest,11,31,105
+1585,Tangipahoa,Louisiana,LA,West South Central,South,20,22,105
+2753,Lee,North Carolina,NC,South Atlantic,South,16,37,105
+123,Williams,North Dakota,ND,West North Central,Midwest,10,38,105
+1673,Perry,Alabama,AL,East South Central,South,18,1,105
+2221,Livingston,Illinois,IL,East North Central,Midwest,6,17,105
+1778,Putnam,Florida,FL,South Atlantic,South,17,12,107
+1913,Panola,Mississippi,MS,East South Central,South,18,28,107
+1206,Linn,Kansas,KS,West North Central,Midwest,11,20,107
+2191,Logan,Illinois,IL,East North Central,Midwest,6,17,107
+2308,Montgomery,Indiana,IN,East North Central,Midwest,7,18,107
+2351,Mercer,Ohio,OH,East North Central,Midwest,7,39,107
+2267,Mecosta,Michigan,MI,East North Central,Midwest,8,26,107
+199,Potter,South Dakota,SD,West North Central,Midwest,10,46,107
+274,Rusk,Wisconsin,WI,East North Central,Midwest,9,55,107
+264,Anoka,Minnesota,MN,West North Central,Midwest,10,27,003
+2918,Berkeley,West Virginia,WV,South Atlantic,South,14,54,003
+1779,Atkinson,Georgia,GA,South Atlantic,South,15,13,003
+1480,Allen,Louisiana,LA,West South Central,South,20,22,003
+2135,Bedford,Tennessee,TN,East South Central,South,19,47,003
+373,Adams,Idaho,ID,Mountain,West,23,16,003
+2726,Alexander,North Carolina,NC,South Atlantic,South,16,37,003
+402,Clark,Nevada,NV,Mountain,West,25,32,003
+1762,Baker,Florida,FL,South Atlantic,South,17,12,003
+3099,Carroll,New Hampshire,NH,New England,Northeast,1,33,003
+558,Arapahoe,Colorado,CO,Mountain,West,22,8,005
+2631,Boone,West Virginia,WV,South Atlantic,South,14,54,005
+2685,Alleghany,Virginia,VA,South Atlantic,South,13,51,005
+2392,Ashland,Ohio,OH,East North Central,Midwest,7,39,005
+3015,Burlington,New Jersey,NJ,Middle Atlantic,Northeast,4,34,005
+3040,Bronx,New York,NY,Middle Atlantic,Northeast,3,36,005
+3029,Litchfield,Connecticut,CT,New England,Northeast,1,9,005
+433,Chaves,New Mexico,NM,Mountain,West,25,35,005
+3076,Cheshire,New Hampshire,NH,New England,Northeast,1,33,005
+3073,Newport,Rhode Island,RI,New England,Northeast,1,44,005
+3068,Bristol,Massachusetts,MA,New England,Northeast,2,25,005
+502,Cache,Utah,UT,Mountain,West,23,49,005
+2943,Baltimore,Maryland,MD,South Atlantic,South,14,24,005
+2902,Sussex,Delaware,DE,South Atlantic,South,14,10,005
+1712,Barbour,Alabama,AL,East South Central,South,18,1,005
+1567,Amite,Mississippi,MS,East South Central,South,18,28,005
+804,Atoka,Oklahoma,OK,West South Central,South,20,40,005
+522,Bannock,Idaho,ID,Mountain,West,23,16,005
+2727,Alleghany,North Carolina,NC,South Atlantic,South,16,37,005
+124,Blaine,Montana,MT,Mountain,West,23,30,005
+2099,Anderson,Kentucky,KY,East South Central,South,18,21,005
+3097,Cumberland,Maine,ME,New England,Northeast,1,23,005
+1297,Baxter,Arkansas,AR,West South Central,South,20,5,005
+478,Cibola,New Mexico,NM,Mountain,West,25,35,006
+286,Butte,California,CA,Pacific,West,26,6,007
+1114,Keokuk,Iowa,IA,West North Central,Midwest,10,19,107
+450,Crosby,Texas,TX,West South Central,South,21,48,107
+715,Logan,Kansas,KS,West North Central,Midwest,11,20,109
+1044,Kossuth,Iowa,IA,West North Central,Midwest,10,19,109
+1141,McDonough,Illinois,IL,East North Central,Midwest,6,17,109
+2367,Miami,Ohio,OH,East North Central,Midwest,7,39,109
+1616,St. Johns,Florida,FL,South Atlantic,South,17,12,109
+1174,Pike,Arkansas,AR,West South Central,South,20,5,109
+1229,Lawrence,Missouri,MO,West North Central,Midwest,12,29,109
+438,Culberson,Texas,TX,West South Central,South,21,48,109
+162,Wibaux,Montana,MT,Mountain,West,23,30,109
+618,Saguache,Colorado,CO,Mountain,West,22,8,109
+2828,Louisa,Virginia,VA,South Atlantic,South,13,51,109
+1628,Pearl River,Mississippi,MS,East South Central,South,18,28,109
+2563,Jackson,Kentucky,KY,East South Central,South,18,21,109
+951,Lancaster,Nebraska,NE,West North Central,Midwest,11,31,109
+2973,Tompkins,New York,NY,Middle Atlantic,Northeast,3,36,109
+657,Dallam,Texas,TX,West South Central,South,21,48,111
+1702,Randolph,Alabama,AL,East South Central,South,18,1,111
+758,Lyon,Kansas,KS,West North Central,Midwest,11,20,111
+891,Sanborn,South Dakota,SD,West North Central,Midwest,10,46,111
+2114,Macon,Tennessee,TN,East South Central,South,19,47,111
+1099,Lewis,Missouri,MO,West North Central,Midwest,12,29,111
+2216,Newton,Indiana,IN,East North Central,Midwest,7,18,111
+299,Grant,Oregon,OR,Pacific,West,27,41,023
+2291,Midland,Michigan,MI,East North Central,Midwest,8,26,111
+1640,Perry,Mississippi,MS,East South Central,South,18,28,111
+2072,Jefferson,Kentucky,KY,East South Central,South,18,21,111
+496,San Juan,Colorado,CO,Mountain,West,22,8,111
+3036,Ulster,New York,NY,Middle Atlantic,Northeast,3,36,111
+235,Otter Tail,Minnesota,MN,West North Central,Midwest,10,27,111
+2441,Monroe,Ohio,OH,East North Central,Midwest,7,39,111
+1096,Lee,Iowa,IA,West North Central,Midwest,10,19,111
+82,Benton,Washington,WA,Pacific,West,27,53,005
+1311,Poinsett,Arkansas,AR,West South Central,South,20,5,111
+2541,McDowell,North Carolina,NC,South Atlantic,South,16,37,111
+753,McPherson,Kansas,KS,West North Central,Midwest,11,20,113
+2940,Sullivan,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,113
+1175,Polk,Arkansas,AR,West South Central,South,20,5,113
+1115,Linn,Iowa,IA,West North Central,Midwest,10,19,113
+2332,Noble,Indiana,IN,East North Central,Midwest,7,18,113
+698,Jackson,Oklahoma,OK,West South Central,South,20,40,065
+699,Kiowa,Oklahoma,OK,West South Central,South,20,40,075
+701,Foard,Texas,TX,West South Central,South,21,48,155
+2268,Missaukee,Michigan,MI,East North Central,Midwest,8,26,113
+210,Pennington,Minnesota,MN,West North Central,Midwest,10,27,113
+275,Sawyer,Wisconsin,WI,East North Central,Midwest,9,55,113
+817,Logan,Nebraska,NE,West North Central,Midwest,11,31,113
+1577,Pike,Mississippi,MS,East South Central,South,18,28,113
+2103,Jessamine,Kentucky,KY,East South Central,South,18,21,113
+1260,Lincoln,Missouri,MO,West North Central,Midwest,12,29,113
+2504,Macon,North Carolina,NC,South Atlantic,South,16,37,113
+2192,McLean,Illinois,IL,East North Central,Midwest,6,17,113
+1932,Madison,Tennessee,TN,East South Central,South,19,47,113
+1418,Dallas,Texas,TX,West South Central,South,21,48,113
+1192,Ottawa,Oklahoma,OK,West South Central,South,20,40,115
+1905,Pontotoc,Mississippi,MS,East South Central,South,18,28,115
+451,Dawson,Texas,TX,West South Central,South,21,48,115
+3027,Susquehanna,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,115
+2184,Macon,Illinois,IL,East North Central,Midwest,6,17,115
+1010,Linn,Missouri,MO,West North Central,Midwest,12,29,115
+892,Spink,South Dakota,SD,West North Central,Midwest,10,46,115
+831,Loup,Nebraska,NE,West North Central,Midwest,11,31,115
+592,Sedgwick,Colorado,CO,Mountain,West,22,8,115
+1134,Louisa,Iowa,IA,West North Central,Midwest,10,19,115
+318,Yuba,California,CA,Pacific,West,26,6,115
+2997,Washington,New York,NY,Middle Atlantic,Northeast,3,36,115
+1953,Prentiss,Mississippi,MS,East South Central,South,18,28,117
+667,Deaf Smith,Texas,TX,West South Central,South,21,48,117
+2065,Orange,Indiana,IN,East North Central,Midwest,7,18,117
+897,Pipestone,Minnesota,MN,West North Central,Midwest,10,27,117
+2274,Montcalm,Michigan,MI,East North Central,Midwest,8,26,117
+2406,Morrow,Ohio,OH,East North Central,Midwest,7,39,117
+818,McPherson,Nebraska,NE,West North Central,Midwest,11,31,117
+1235,Cole,Missouri,MO,West North Central,Midwest,12,29,051
+1236,Gasconade,Missouri,MO,West North Central,Midwest,12,29,073
+1239,Osage,Missouri,MO,West North Central,Midwest,12,29,151
+948,Marshall,Kansas,KS,West North Central,Midwest,11,20,117
+959,Lucas,Iowa,IA,West North Central,Midwest,10,19,117
+1188,McDonald,Missouri,MO,West North Central,Midwest,12,29,119
+707,Meade,Kansas,KS,West North Central,Midwest,11,20,119
+623,Teller,Colorado,CO,Mountain,West,22,8,119
+1288,Quitman,Mississippi,MS,East South Central,South,18,28,119
+931,Madison,Nebraska,NE,West North Central,Midwest,11,31,119
+276,Taylor,Wisconsin,WI,East North Central,Midwest,9,55,119
+1607,Montmorency,Michigan,MI,East North Central,Midwest,8,26,119
+2059,Owen,Indiana,IN,East North Central,Midwest,7,18,119
+1752,Sumter,Florida,FL,South Atlantic,South,17,12,119
+853,Sully,South Dakota,SD,West North Central,Midwest,10,46,119
+1595,West Baton Rouge,Louisiana,LA,West South Central,South,20,22,121
+1409,Denton,Texas,TX,West South Central,South,21,48,121
+1990,Marion,Illinois,IL,East North Central,Midwest,6,17,121
+1207,Miami,Kansas,KS,West North Central,Midwest,11,20,121
+1107,Macon,Missouri,MO,West North Central,Midwest,12,29,121
+247,Pope,Minnesota,MN,West North Central,Midwest,10,27,121
+854,Todd,South Dakota,SD,West North Central,Midwest,10,46,121
+990,Madison,Iowa,IA,West North Central,Midwest,10,19,121
+857,Holt,Nebraska,NE,West North Central,Midwest,11,31,089
+1647,Scott,Mississippi,MS,East South Central,South,18,28,123
+1278,Madison,Missouri,MO,West North Central,Midwest,12,29,123
+2975,Yates,New York,NY,Middle Atlantic,Northeast,3,36,123
+562,Weld,Colorado,CO,Mountain,West,22,8,123
+2466,Warren,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,123
+270,Ashland,Wisconsin,WI,East North Central,Midwest,9,55,003
+271,Bayfield,Wisconsin,WI,East North Central,Midwest,9,55,007
+280,Burnett,Wisconsin,WI,East North Central,Midwest,9,55,013
+281,Chippewa,Wisconsin,WI,East North Central,Midwest,9,55,017
+282,Douglas,Wisconsin,WI,East North Central,Midwest,9,55,031
+269,St. Louis,Minnesota,MN,West North Central,Midwest,10,27,137
+1095,Vernon,Wisconsin,WI,East North Central,Midwest,9,55,123
+921,Mitchell,Kansas,KS,West North Central,Midwest,11,20,123
+2203,Marshall,Illinois,IL,East North Central,Midwest,6,17,123
+1538,West Carroll,Louisiana,LA,West South Central,South,20,22,123
+584,Morrill,Nebraska,NE,West North Central,Midwest,11,31,123
+1116,Mahaska,Iowa,IA,West North Central,Midwest,10,19,123
+2038,Perry,Indiana,IN,East North Central,Midwest,7,18,123
+2520,Monroe,Tennessee,TN,East South Central,South,19,47,123
+2276,Newaygo,Michigan,MI,East North Central,Midwest,8,26,123
+2173,Gilmer,Georgia,GA,South Atlantic,South,15,13,123
+266,Ramsey,Minnesota,MN,West North Central,Midwest,10,27,123
+811,Pontotoc,Oklahoma,OK,West South Central,South,20,40,123
+2086,Larue,Kentucky,KY,East South Central,South,18,21,123
+1436,DeWitt,Texas,TX,West South Central,South,21,48,123
+200,Benson,North Dakota,ND,West North Central,Midwest,10,38,005
+155,Custer,Montana,MT,Mountain,West,23,30,017
+194,Logan,North Dakota,ND,West North Central,Midwest,10,38,047
+120,Mountrail,North Dakota,ND,West North Central,Midwest,10,38,061
+205,Ramsey,North Dakota,ND,West North Central,Midwest,10,38,071
+116,Sheridan,Montana,MT,Mountain,West,23,30,091
+771,Montgomery,Kansas,KS,West North Central,Midwest,11,20,125
+1380,Dickens,Texas,TX,West South Central,South,21,48,125
+882,Turner,South Dakota,SD,West North Central,Midwest,10,46,125
+2343,Paulding,Ohio,OH,East North Central,Midwest,7,39,125
+212,Red Lake,Minnesota,MN,West North Central,Midwest,10,27,125
+3016,Camden,New Jersey,NJ,Middle Atlantic,Northeast,4,34,007
+3017,Gloucester,New Jersey,NJ,Middle Atlantic,Northeast,4,34,015
+3018,Salem,New Jersey,NJ,Middle Atlantic,Northeast,4,34,033
+3011,Delaware,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,045
+2401,Fairfield,Ohio,OH,East North Central,Midwest,7,39,045
+3013,Montgomery,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,091
+3019,Philadelphia,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,101
+2407,Perry,Ohio,OH,East North Central,Midwest,7,39,127
+2671,Braxton,West Virginia,WV,South Atlantic,South,14,54,007
+2604,Brown,Ohio,OH,East North Central,Midwest,7,39,015
+2605,Clermont,Ohio,OH,East North Central,Midwest,7,39,025
+2614,Jackson,West Virginia,WV,South Atlantic,South,14,54,035
+2608,Gallia,Ohio,OH,East North Central,Midwest,7,39,053
+2682,Randolph,West Virginia,WV,South Atlantic,South,14,54,083
+593,Yuma,Colorado,CO,Mountain,West,22,8,125
+2515,Anderson,Tennessee,TN,East South Central,South,19,47,001
+2517,Campbell,Tennessee,TN,East South Central,South,19,47,013
+2080,Gallatin,Kentucky,KY,East South Central,South,18,21,077
+2081,Grant,Kentucky,KY,East South Central,South,18,21,081
+2610,Lawrence,Ohio,OH,East North Central,Midwest,7,39,087
+2518,Knox,Tennessee,TN,East South Central,South,19,47,093
+2446,Tyler,West Virginia,WV,South Atlantic,South,14,54,095
+2519,Loudon,Tennessee,TN,East South Central,South,19,47,105
+2082,Kenton,Kentucky,KY,East South Central,South,18,21,117
+2444,Washington,Ohio,OH,East North Central,Midwest,7,39,167
+933,Nance,Nebraska,NE,West North Central,Midwest,11,31,125
+960,Marion,Iowa,IA,West North Central,Midwest,10,19,125
+1962,Massac,Illinois,IL,East North Central,Midwest,6,17,127
+991,Marshall,Iowa,IA,West North Central,Midwest,10,19,127
+759,Morris,Kansas,KS,West North Central,Midwest,11,20,127
+952,Nemaha,Nebraska,NE,West North Central,Midwest,11,31,127
+1358,Dimmit,Texas,TX,West South Central,South,21,48,127
+3028,Wayne,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,127
+2891,New Kent,Virginia,VA,South Atlantic,South,13,51,127
+1866,Glynn,Georgia,GA,South Atlantic,South,15,13,127
+2286,Oceana,Michigan,MI,East North Central,Midwest,8,26,127
+2768,Nash,North Carolina,NC,South Atlantic,South,16,37,127
+1176,Scott,Arkansas,AR,West South Central,South,20,5,127
+2139,Moore,Tennessee,TN,East South Central,South,19,47,127
+1648,Simpson,Mississippi,MS,East South Central,South,18,28,127
+1154,Pushmataha,Oklahoma,OK,West South Central,South,20,40,127
+1649,Smith,Mississippi,MS,East South Central,South,18,28,129
+645,Morton,Kansas,KS,West North Central,Midwest,11,20,129
+1003,Mercer,Missouri,MO,West North Central,Midwest,12,29,129
+2416,Ogemaw,Michigan,MI,East North Central,Midwest,8,26,129
+186,Walworth,South Dakota,SD,West North Central,Midwest,10,46,129
+285,Washburn,Wisconsin,WI,East North Central,Midwest,9,55,129
+946,Mills,Iowa,IA,West North Central,Midwest,10,19,129
+925,Nuckolls,Nebraska,NE,West North Central,Midwest,11,31,129
+684,Donley,Texas,TX,West South Central,South,21,48,129
+1302,Searcy,Arkansas,AR,West South Central,South,20,5,129
+2478,Westmoreland,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,129
+2368,Pickaway,Ohio,OH,East North Central,Midwest,7,39,129
+2769,New Hanover,North Carolina,NC,South Atlantic,South,16,37,129
+693,Roger Mills,Oklahoma,OK,West South Central,South,20,40,129
+1999,Posey,Indiana,IN,East North Central,Midwest,7,18,129
+2942,Wyoming,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,131
+1069,Mitchell,Iowa,IA,West North Central,Midwest,10,19,131
+2319,Pulaski,Indiana,IN,East North Central,Midwest,7,18,131
+957,Nemaha,Kansas,KS,West North Central,Midwest,11,20,131
+1629,Stone,Mississippi,MS,East South Central,South,18,28,131
+1393,Eastland,Texas,TX,West South Central,South,21,48,133
+2617,Letcher,Kentucky,KY,East South Central,South,18,21,133
+1197,Neosho,Kansas,KS,West North Central,Midwest,11,20,133
+905,Rock,Minnesota,MN,West North Central,Midwest,10,27,133
+2269,Osceola,Michigan,MI,East North Central,Midwest,8,26,133
+1291,Faulkner,Arkansas,AR,West South Central,South,20,5,045
+2801,Craven,North Carolina,NC,South Atlantic,South,16,37,049
+1152,Le Flore,Oklahoma,OK,West South Central,South,20,40,079
+1945,Lawrence,Tennessee,TN,East South Central,South,19,47,099
+954,Pawnee,Nebraska,NE,West North Central,Midwest,11,31,133
+2754,Anson,North Carolina,NC,South Atlantic,South,16,37,007
+1928,Fayette,Tennessee,TN,East South Central,South,19,47,047
+1936,Hardin,Tennessee,TN,East South Central,South,19,47,071
+1172,Logan,Arkansas,AR,West South Central,South,20,5,083
+810,Pittsburg,Oklahoma,OK,West South Central,South,20,40,121
+461,Ector,Texas,TX,West South Central,South,21,48,135
+716,Ness,Kansas,KS,West North Central,Midwest,11,20,135
+1255,Moniteau,Missouri,MO,West North Central,Midwest,12,29,135
+2360,Preble,Ohio,OH,East North Central,Midwest,7,39,135
+2357,Randolph,Indiana,IN,East North Central,Midwest,7,18,135
+1217,Henry,Missouri,MO,West North Central,Midwest,12,29,083
+2417,Oscoda,Michigan,MI,East North Central,Midwest,8,26,135
+597,Perkins,Nebraska,NE,West North Central,Midwest,11,31,135
+961,Monroe,Iowa,IA,West North Central,Midwest,10,19,135
+785,Stephens,Oklahoma,OK,West South Central,South,20,40,137
+1145,Morgan,Illinois,IL,East North Central,Midwest,6,17,137
+1101,Monroe,Missouri,MO,West North Central,Midwest,12,29,137
+2243,Waushara,Wisconsin,WI,East North Central,Midwest,9,55,137
+3140,Otsego,Michigan,MI,East North Central,Midwest,8,26,137
+2386,Putnam,Ohio,OH,East North Central,Midwest,7,39,137
+2032,Ripley,Indiana,IN,East North Central,Midwest,7,18,137
+813,Norton,Kansas,KS,West North Central,Midwest,11,20,137
+986,Montgomery,Iowa,IA,West North Central,Midwest,10,19,137
+872,Pierce,Nebraska,NE,West North Central,Midwest,11,31,139
+2222,Moultrie,Illinois,IL,East North Central,Midwest,6,17,139
+2348,Rush,Indiana,IN,East North Central,Midwest,7,18,139
+2162,Polk,Tennessee,TN,East South Central,South,19,47,139
+1915,Tippah,Mississippi,MS,East South Central,South,18,28,139
+868,O'Brien,Iowa,IA,West North Central,Midwest,10,19,141
+1086,Wood,Wisconsin,WI,East North Central,Midwest,9,55,141
+722,Osborne,Kansas,KS,West North Central,Midwest,11,20,141
+2043,Logan,Kentucky,KY,East South Central,South,18,21,141
+2169,Haralson,Georgia,GA,South Atlantic,South,15,13,143
+1024,Osceola,Iowa,IA,West North Central,Midwest,10,19,143
+1969,New Madrid,Missouri,MO,West North Central,Midwest,12,29,143
+748,Ottawa,Kansas,KS,West North Central,Midwest,11,20,143
+2292,Roscommon,Michigan,MI,East North Central,Midwest,8,26,143
+2688,Pittsylvania,Virginia,VA,South Atlantic,South,13,51,143
+1401,Erath,Texas,TX,West South Central,South,21,48,143
+917,Polk,Nebraska,NE,West North Central,Midwest,11,31,143
+2548,Anderson,South Carolina,SC,South Atlantic,South,16,45,007
+2164,Cherokee,Alabama,AL,East South Central,South,18,1,019
+2757,Darlington,South Carolina,SC,South Atlantic,South,16,45,031
+1956,Colbert,Alabama,AL,East South Central,South,18,1,033
+2715,Kershaw,South Carolina,SC,South Atlantic,South,16,45,055
+1039,Sibley,Minnesota,MN,West North Central,Midwest,10,27,143
+2797,Perquimans,North Carolina,NC,South Atlantic,South,16,37,143
+2069,Scott,Indiana,IN,East North Central,Midwest,7,18,143
+1916,Union,Mississippi,MS,East South Central,South,18,28,145
+723,Pawnee,Kansas,KS,West North Central,Midwest,11,20,145
+2750,Person,North Carolina,NC,South Atlantic,South,16,37,145
+2315,Shelby,Indiana,IN,East North Central,Midwest,7,18,145
+2424,Saginaw,Michigan,MI,East North Central,Midwest,8,26,145
+819,Red Willow,Nebraska,NE,West North Central,Midwest,11,31,145
+967,Page,Iowa,IA,West North Central,Midwest,10,19,145
+1398,Falls,Texas,TX,West South Central,South,21,48,145
+1719,Harris,Georgia,GA,South Atlantic,South,15,13,145
+1018,Steele,Minnesota,MN,West North Central,Midwest,10,27,147
+1013,Palo Alto,Iowa,IA,West North Central,Midwest,10,19,147
+774,Washington,Oklahoma,OK,West South Central,South,20,40,147
+835,Phillips,Kansas,KS,West North Central,Midwest,11,20,147
+2223,Piatt,Illinois,IL,East North Central,Midwest,6,17,147
+2389,Seneca,Ohio,OH,East North Central,Midwest,7,39,147
+1578,Walthall,Mississippi,MS,East South Central,South,18,28,147
+1706,Heard,Georgia,GA,South Atlantic,South,15,13,149
+1272,Oregon,Missouri,MO,West North Central,Midwest,12,29,149
+2320,Starke,Indiana,IN,East North Central,Midwest,7,18,149
+2340,St. Joseph,Michigan,MI,East North Central,Midwest,8,26,149
+2369,Shelby,Ohio,OH,East North Central,Midwest,7,39,149
+241,Stevens,Minnesota,MN,West North Central,Midwest,10,27,149
+1510,Titus,Texas,TX,West South Central,South,21,48,449
+1381,Fisher,Texas,TX,West South Central,South,21,48,151
+734,Pratt,Kansas,KS,West North Central,Midwest,11,20,151
+1497,Cherokee,Texas,TX,West South Central,South,21,48,073
+1499,Nacogdoches,Texas,TX,West South Central,South,21,48,347
+447,Ward,Texas,TX,West South Central,South,21,48,475
+1014,Pocahontas,Iowa,IA,West North Central,Midwest,10,19,151
+2338,Steuben,Indiana,IN,East North Central,Midwest,7,18,151
+242,Swift,Minnesota,MN,West North Central,Midwest,10,27,151
+926,Saline,Nebraska,NE,West North Central,Midwest,11,31,151
+1641,Wayne,Mississippi,MS,East South Central,South,18,28,153
+821,Rawlins,Kansas,KS,West North Central,Midwest,11,20,153
+668,Floyd,Texas,TX,West South Central,South,21,48,153
+2455,Trumbull,Ohio,OH,East North Central,Midwest,7,39,155
+809,Marshall,Oklahoma,OK,West South Central,South,20,40,095
+2205,Putnam,Illinois,IL,East North Central,Midwest,6,17,155
+2425,Shiawassee,Michigan,MI,East North Central,Midwest,8,26,155
+1798,Irwin,Georgia,GA,South Atlantic,South,15,13,155
+2659,Pulaski,Virginia,VA,South Atlantic,South,13,51,155
+941,Saunders,Nebraska,NE,West North Central,Midwest,11,31,155
+1655,Webster,Mississippi,MS,East South Central,South,18,28,155
+2018,Marshall,Kentucky,KY,East South Central,South,18,21,157
+1117,Poweshiek,Iowa,IA,West North Central,Midwest,10,19,157
+2747,Rockingham,North Carolina,NC,South Atlantic,South,16,37,157
+585,Scotts Bluff,Nebraska,NE,West North Central,Midwest,11,31,157
+912,Republic,Kansas,KS,West North Central,Midwest,11,20,157
+750,Rice,Kansas,KS,West North Central,Midwest,11,20,159
+1661,Winston,Mississippi,MS,East South Central,South,18,28,159
+1437,Goliad,Texas,TX,West South Central,South,21,48,175
+2157,Van Buren,Tennessee,TN,East South Central,South,19,47,175
+2066,Washington,Indiana,IN,East North Central,Midwest,7,18,175
+1823,Laurens,Georgia,GA,South Atlantic,South,15,13,175
+762,Shawnee,Kansas,KS,West North Central,Midwest,11,20,177
+2636,Washington,Virginia,VA,South Atlantic,South,13,51,191
+2779,Wayne,North Carolina,NC,South Atlantic,South,16,37,191
+2586,Perry,Kentucky,KY,East South Central,South,18,21,193
+2303,Tipton,Indiana,IN,East North Central,Midwest,7,18,159
+2377,Union,Ohio,OH,East North Central,Midwest,7,39,159
+253,Wadena,Minnesota,MN,West North Central,Midwest,10,27,159
+1837,Richmond,Georgia,GA,South Atlantic,South,15,13,245
+997,Ringgold,Iowa,IA,West North Central,Midwest,10,19,159
+287,Glenn,California,CA,Pacific,West,26,6,021
+918,Seward,Nebraska,NE,West North Central,Midwest,11,31,159
+1917,Yalobusha,Mississippi,MS,East South Central,South,18,28,161
+2600,Mason,Kentucky,KY,East South Central,South,18,21,161
+1025,Sac,Iowa,IA,West North Central,Midwest,10,19,161
+1040,Waseca,Minnesota,MN,West North Central,Midwest,10,27,161
+1908,Stewart,Tennessee,TN,East South Central,South,19,47,161
+476,Yavapai,Arizona,AZ,Mountain,West,24,4,025
+2344,Van Wert,Ohio,OH,East North Central,Midwest,7,39,161
+2358,Union,Indiana,IN,East North Central,Midwest,7,18,161
+2426,Washtenaw,Michigan,MI,East North Central,Midwest,8,26,161
+1131,Rock Island,Illinois,IL,East North Central,Midwest,6,17,161
+2542,Rutherford,North Carolina,NC,South Atlantic,South,16,37,161
+1428,Freestone,Texas,TX,West South Central,South,21,48,161
+1986,St. Clair,Illinois,IL,East North Central,Midwest,6,17,163
+2611,Vinton,Ohio,OH,East North Central,Midwest,7,39,163
+832,Sherman,Nebraska,NE,West North Central,Midwest,11,31,163
+724,Rooks,Kansas,KS,West North Central,Midwest,11,20,163
+1359,Frio,Texas,TX,West South Central,South,21,48,163
+2036,Meade,Kentucky,KY,East South Central,South,18,21,163
+1564,Yazoo,Mississippi,MS,East South Central,South,18,28,163
+1136,Scott,Iowa,IA,West North Central,Midwest,10,19,163
+444,Gaines,Texas,TX,West South Central,South,21,48,165
+1842,Jenkins,Georgia,GA,South Atlantic,South,15,13,165
+2024,Saline,Illinois,IL,East North Central,Midwest,6,17,165
+725,Rush,Kansas,KS,West North Central,Midwest,11,20,165
+1032,Watonwan,Minnesota,MN,West North Central,Midwest,10,27,165
+2270,Wexford,Michigan,MI,East North Central,Midwest,8,26,165
+980,Shelby,Iowa,IA,West North Central,Midwest,10,19,165
+1230,Polk,Missouri,MO,West North Central,Midwest,12,29,167
+726,Russell,Kansas,KS,West North Central,Midwest,11,20,167
+2227,Vigo,Indiana,IN,East North Central,Midwest,7,18,167
+452,Garza,Texas,TX,West South Central,South,21,48,169
+1247,Pulaski,Missouri,MO,West North Central,Midwest,12,29,169
+2712,Stokes,North Carolina,NC,South Atlantic,South,16,37,169
+2117,Trousdale,Tennessee,TN,East South Central,South,19,47,169
+751,Saline,Kansas,KS,West North Central,Midwest,11,20,169
+2328,Wabash,Indiana,IN,East North Central,Midwest,7,18,169
+2095,Metcalfe,Kentucky,KY,East South Central,South,18,21,169
+1822,Jones,Georgia,GA,South Atlantic,South,15,13,169
+2399,Wayne,Ohio,OH,East North Central,Midwest,7,39,169
+927,Thayer,Nebraska,NE,West North Central,Midwest,11,31,169
+1811,Lamar,Georgia,GA,South Atlantic,South,15,13,171
+717,Scott,Kansas,KS,West North Central,Midwest,11,20,171
+1118,Tama,Iowa,IA,West North Central,Midwest,10,19,171
+1146,Scott,Illinois,IL,East North Central,Midwest,6,17,171
+2336,Williams,Ohio,OH,East North Central,Midwest,7,39,171
+820,Thomas,Nebraska,NE,West North Central,Midwest,11,31,171
+1349,Gillespie,Texas,TX,West South Central,South,21,48,171
+462,Glasscock,Texas,TX,West South Central,South,21,48,173
+503,Davis,Utah,UT,Mountain,West,23,49,011
+385,Butte,Idaho,ID,Mountain,West,23,16,023
+504,Morgan,Utah,UT,Mountain,West,23,49,029
+374,Boise,Idaho,ID,Mountain,West,23,16,015
+375,Canyon,Idaho,ID,Mountain,West,23,16,027
+376,Gem,Idaho,ID,Mountain,West,23,16,045
+95,Wallowa,Oregon,OR,Pacific,West,27,41,063
+346,Benton,Oregon,OR,Pacific,West,27,41,003
+347,Douglas,Oregon,OR,Pacific,West,27,41,019
+300,Harney,Oregon,OR,Pacific,West,27,41,025
+942,Thurston,Nebraska,NE,West North Central,Midwest,11,31,173
+968,Taylor,Iowa,IA,West North Central,Midwest,10,19,173
+51,Clackamas,Oregon,OR,Pacific,West,27,41,005
+75,Grant,Washington,WA,Pacific,West,27,53,025
+76,Kittitas,Washington,WA,Pacific,West,27,53,037
+77,Klickitat,Washington,WA,Pacific,West,27,53,039
+78,Lincoln,Washington,WA,Pacific,West,27,53,043
+708,Seward,Kansas,KS,West North Central,Midwest,11,20,175
+1108,Randolph,Missouri,MO,West North Central,Midwest,12,29,175
+2206,Stark,Illinois,IL,East North Central,Midwest,6,17,175
+2391,Wyandot,Ohio,OH,East North Central,Midwest,7,39,175
+3081,Caledonia,Vermont,VT,New England,Northeast,1,50,005
+3082,Essex,Vermont,VT,New England,Northeast,1,50,009
+3078,Hillsborough,New Hampshire,NH,New England,Northeast,1,33,011
+3079,Merrimack,New Hampshire,NH,New England,Northeast,1,33,013
+3083,Orange,Vermont,VT,New England,Northeast,1,50,017
+3080,Sullivan,New Hampshire,NH,New England,Northeast,1,33,019
+3066,Norfolk,Massachusetts,MA,New England,Northeast,2,25,021
+833,Valley,Nebraska,NE,West North Central,Midwest,11,31,175
+994,Union,Iowa,IA,West North Central,Midwest,10,19,175
+2532,Transylvania,North Carolina,NC,South Atlantic,South,16,37,175
+2228,Stephenson,Illinois,IL,East North Central,Midwest,6,17,177
+2349,Wayne,Indiana,IN,East North Central,Midwest,7,18,177
+1097,Van Buren,Iowa,IA,West North Central,Midwest,10,19,177
+1273,Reynolds,Missouri,MO,West North Central,Midwest,12,29,179
+2965,Orleans,New York,NY,Middle Atlantic,Northeast,3,36,073
+2926,Mifflin,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,087
+2939,Montour,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,093
+2966,Steuben,New York,NY,Middle Atlantic,Northeast,3,36,101
+2954,Snyder,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,109
+2955,Union,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,119
+2967,Wyoming,New York,NY,Middle Atlantic,Northeast,3,36,121
+873,Wayne,Nebraska,NE,West North Central,Midwest,11,31,179
+2959,Allegany,New York,NY,Middle Atlantic,Northeast,3,36,003
+2960,Cattaraugus,New York,NY,Middle Atlantic,Northeast,3,36,009
+2930,Clinton,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,035
+2936,Columbia,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,037
+2957,Jefferson,New York,NY,Middle Atlantic,Northeast,3,36,045
+2931,Elk,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,047
+2937,Luzerne,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,079
+2938,Lycoming,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,081
+718,Sheridan,Kansas,KS,West North Central,Midwest,11,20,179
+2008,Gibson,Indiana,IN,East North Central,Midwest,7,18,051
+2010,Pike,Indiana,IN,East North Central,Midwest,7,18,125
+2039,Spencer,Indiana,IN,East North Central,Midwest,7,18,147
+2011,Vanderburgh,Indiana,IN,East North Central,Midwest,7,18,163
+2012,Warrick,Indiana,IN,East North Central,Midwest,7,18,173
+2007,Wabash,Illinois,IL,East North Central,Midwest,6,17,185
+2572,Bath,Kentucky,KY,East South Central,South,18,21,011
+2588,Carter,Kentucky,KY,East South Central,South,18,21,043
+2574,Elliott,Kentucky,KY,East South Central,South,18,21,063
+2589,Fleming,Kentucky,KY,East South Central,South,18,21,069
+2576,Magoffin,Kentucky,KY,East South Central,South,18,21,153
+2577,Menifee,Kentucky,KY,East South Central,South,18,21,165
+2578,Morgan,Kentucky,KY,East South Central,South,18,21,175
+2579,Rowan,Kentucky,KY,East South Central,South,18,21,205
+2580,Wolfe,Kentucky,KY,East South Central,South,18,21,237
+1119,Wapello,Iowa,IA,West North Central,Midwest,10,19,179
+685,Gray,Texas,TX,West South Central,South,21,48,179
+2538,Washington,Tennessee,TN,East South Central,South,19,47,179
+2718,Union,North Carolina,NC,South Atlantic,South,16,37,179
+22,Nome,Alaska,AK,Pacific,West,27,2,180
+1964,Union,Illinois,IL,East North Central,Midwest,6,17,181
+1274,Ripley,Missouri,MO,West North Central,Midwest,12,29,181
+845,Webster,Nebraska,NE,West North Central,Midwest,11,31,181
+638,Sherman,Kansas,KS,West North Central,Midwest,11,20,181
+2601,Nicholas,Kentucky,KY,East South Central,South,18,21,181
+2784,Vance,North Carolina,NC,South Atlantic,South,16,37,181
+995,Warren,Iowa,IA,West North Central,Midwest,10,19,181
+1939,Wayne,Tennessee,TN,East South Central,South,19,47,181
+843,Smith,Kansas,KS,West North Central,Midwest,11,20,183
+2186,Vermilion,Illinois,IL,East North Central,Midwest,6,17,183
+2334,Whitley,Indiana,IN,East North Central,Midwest,7,18,183
+834,Wheeler,Nebraska,NE,West North Central,Midwest,11,31,183
+709,Stafford,Kansas,KS,West North Central,Midwest,11,20,185
+919,York,Nebraska,NE,West North Central,Midwest,11,31,185
+1005,Wayne,Iowa,IA,West North Central,Midwest,10,19,185
+646,Stanton,Kansas,KS,West North Central,Midwest,11,20,187
+1045,Webster,Iowa,IA,West North Central,Midwest,10,19,187
+1132,Warren,Illinois,IL,East North Central,Midwest,6,17,187
+647,Stevens,Kansas,KS,West North Central,Midwest,11,20,189
+1046,Winnebago,Iowa,IA,West North Central,Midwest,10,19,189
+669,Hale,Texas,TX,West South Central,South,21,48,189
+1997,Wayne,Illinois,IL,East North Central,Midwest,6,17,191
+403,Esmeralda,Nevada,NV,Mountain,West,25,32,009
+2935,Bradford,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,015
+2934,Chemung,New York,NY,Middle Atlantic,Northeast,3,36,015
+686,Hall,Texas,TX,West South Central,South,21,48,191
+490,Delta,Colorado,CO,Mountain,West,22,8,029
+1058,Winneshiek,Iowa,IA,West North Central,Midwest,10,19,191
+634,Lincoln,Colorado,CO,Mountain,West,22,8,073
+2602,Pendleton,Kentucky,KY,East South Central,South,18,21,191
+740,Sumner,Kansas,KS,West North Central,Midwest,11,20,191
+1402,Hamilton,Texas,TX,West South Central,South,21,48,193
+719,Thomas,Kansas,KS,West North Central,Midwest,11,20,193
+1050,Worth,Iowa,IA,West North Central,Midwest,10,19,195
+658,Hansford,Texas,TX,West South Central,South,21,48,195
+727,Trego,Kansas,KS,West North Central,Midwest,11,20,195
+2628,Pike,Kentucky,KY,East South Central,South,18,21,195
+2207,Whiteside,Illinois,IL,East North Central,Midwest,6,17,195
+2771,Wilson,North Carolina,NC,South Atlantic,South,16,37,195
+1047,Wright,Iowa,IA,West North Central,Midwest,10,19,197
+639,Wallace,Kansas,KS,West North Central,Midwest,11,20,199
+1965,Williamson,Illinois,IL,East North Central,Midwest,6,17,199
+1684,Pike,Georgia,GA,South Atlantic,South,15,13,231
+1421,Hunt,Texas,TX,West South Central,South,21,48,231
+9,Skagway-Hoonah-Angoon,Alaska,AK,Pacific,West,27,2,232
+1110,Scotland,Missouri,MO,West North Central,Midwest,12,29,199
+913,Washington,Kansas,KS,West North Central,Midwest,11,20,201
+1474,Liberty,Texas,TX,West South Central,South,21,48,291
+1817,Upson,Georgia,GA,South Atlantic,South,15,13,293
+1729,Miller,Georgia,GA,South Atlantic,South,15,13,201
+1348,Val Verde,Texas,TX,West South Central,South,21,48,465
+1425,Van Zandt,Texas,TX,West South Central,South,21,48,467
+1467,Victoria,Texas,TX,West South Central,South,21,48,469
+1479,Walker,Texas,TX,West South Central,South,21,48,471
+1459,Waller,Texas,TX,West South Central,South,21,48,473
+1460,Washington,Texas,TX,West South Central,South,21,48,477
+1329,Webb,Texas,TX,West South Central,South,21,48,479
+1468,Wharton,Texas,TX,West South Central,South,21,48,481
+640,Wichita,Kansas,KS,West North Central,Midwest,11,20,203
+772,Wilson,Kansas,KS,West North Central,Midwest,11,20,205
+2743,Guilford,North Carolina,NC,South Atlantic,South,16,37,081
+2875,Suffolk,Virginia,VA,South Atlantic,South,13,51,800
+659,Hartley,Texas,TX,West South Central,South,21,48,205
+1103,Shelby,Missouri,MO,West North Central,Midwest,12,29,205
+1382,Haskell,Texas,TX,West South Central,South,21,48,207
+766,Woodson,Kansas,KS,West North Central,Midwest,11,20,207
+2097,Russell,Kentucky,KY,East South Central,South,18,21,207
+1212,Wyandotte,Kansas,KS,West North Central,Midwest,11,20,209
+2084,Scott,Kentucky,KY,East South Central,South,18,21,209
+1232,Stone,Missouri,MO,West North Central,Midwest,12,29,209
+1449,Hays,Texas,TX,West South Central,South,21,48,209
+1007,Sullivan,Missouri,MO,West North Central,Midwest,12,29,211
+676,Hemphill,Texas,TX,West South Central,South,21,48,211
+1323,Crittenden,Arkansas,AR,West South Central,South,20,5,035
+697,Greer,Oklahoma,OK,West South Central,South,20,40,055
+1181,Yell,Arkansas,AR,West South Central,South,20,5,149
+2050,Simpson,Kentucky,KY,East South Central,South,18,21,213
+1334,Hidalgo,Texas,TX,West South Central,South,21,48,215
+2098,Taylor,Kentucky,KY,East South Central,South,18,21,217
+1403,Hill,Texas,TX,West South Central,South,21,48,217
+1967,Todd,Kentucky,KY,East South Central,South,18,21,219
+850,Jones,South Dakota,SD,West North Central,Midwest,10,46,075
+453,Hockley,Texas,TX,West South Central,South,21,48,219
+827,Custer,Nebraska,NE,West North Central,Midwest,11,31,041
+1410,Hood,Texas,TX,West South Central,South,21,48,221
+2019,Trigg,Kentucky,KY,East South Central,South,18,21,221
+2181,Paulding,Georgia,GA,South Atlantic,South,15,13,223
+1240,Wayne,Missouri,MO,West North Central,Midwest,12,29,223
+2075,Trimble,Kentucky,KY,East South Central,South,18,21,223
+1191,Webster,Missouri,MO,West North Central,Midwest,12,29,225
+2176,Pickens,Georgia,GA,South Atlantic,South,15,13,227
+459,Howard,Texas,TX,West South Central,South,21,48,227
+975,Worth,Missouri,MO,West North Central,Midwest,12,29,227
+1249,Wright,Missouri,MO,West North Central,Midwest,12,29,229
+2090,Washington,Kentucky,KY,East South Central,South,18,21,229
+440,Hudspeth,Texas,TX,West South Central,South,21,48,229
+660,Hutchinson,Texas,TX,West South Central,South,21,48,233
+2170,Polk,Georgia,GA,South Atlantic,South,15,13,233
+1373,Irion,Texas,TX,West South Central,South,21,48,235
+1411,Jack,Texas,TX,West South Central,South,21,48,237
+1464,Jackson,Texas,TX,West South Central,South,21,48,239
+1327,Jim Hogg,Texas,TX,West South Central,South,21,48,247
+1815,Schley,Georgia,GA,South Atlantic,South,15,13,249
+1383,Jones,Texas,TX,West South Central,South,21,48,253
+1422,Kaufman,Texas,TX,West South Central,South,21,48,257
+2500,Stephens,Georgia,GA,South Atlantic,South,15,13,257
+1722,Stewart,Georgia,GA,South Atlantic,South,15,13,259
+1350,Kendall,Texas,TX,West South Central,South,21,48,259
+1793,Sumter,Georgia,GA,South Atlantic,South,15,13,261
+1336,Kenedy,Texas,TX,West South Central,South,21,48,261
+1723,Talbot,Georgia,GA,South Atlantic,South,15,13,263
+1384,Kent,Texas,TX,West South Central,South,21,48,263
+1351,Kerr,Texas,TX,West South Central,South,21,48,265
+1352,Kimble,Texas,TX,West South Central,South,21,48,267
+1385,King,Texas,TX,West South Central,South,21,48,269
+670,Lamb,Texas,TX,West South Central,South,21,48,279
+1360,La Salle,Texas,TX,West South Central,South,21,48,283
+1707,Troup,Georgia,GA,South Atlantic,South,15,13,285
+1465,Lavaca,Texas,TX,West South Central,South,21,48,285
+1457,Lee,Texas,TX,West South Central,South,21,48,287
+1825,Twiggs,Georgia,GA,South Atlantic,South,15,13,289
+1605,Alpena,Michigan,MI,East North Central,Midwest,8,26,007
+16,Kauai,Hawaii,HI,Pacific,West,27,15,007
+1763,Bradford,Florida,FL,South Atlantic,South,17,12,007
+1430,Leon,Texas,TX,West South Central,South,21,48,289
+2831,Amelia,Virginia,VA,South Atlantic,South,13,51,007
+1818,Baldwin,Georgia,GA,South Atlantic,South,15,13,009
+1431,Limestone,Texas,TX,West South Central,South,21,48,293
+454,Lubbock,Texas,TX,West South Central,South,21,48,303
+455,Lynn,Texas,TX,West South Central,South,21,48,305
+1724,Webster,Georgia,GA,South Atlantic,South,15,13,307
+1344,McMullen,Texas,TX,West South Central,South,21,48,311
+456,Martin,Texas,TX,West South Central,South,21,48,317
+1354,Mason,Texas,TX,West South Central,South,21,48,319
+1355,Menard,Texas,TX,West South Central,South,21,48,327
+463,Midland,Texas,TX,West South Central,South,21,48,329
+1374,Mitchell,Texas,TX,West South Central,South,21,48,335
+661,Moore,Texas,TX,West South Central,South,21,48,341
+687,Motley,Texas,TX,West South Central,South,21,48,345
+1375,Nolan,Texas,TX,West South Central,South,21,48,353
+678,Ochiltree,Texas,TX,West South Central,South,21,48,357
+662,Oldham,Texas,TX,West South Central,South,21,48,359
+938,Dodge,Nebraska,NE,West North Central,Midwest,11,31,053
+655,Parmer,Texas,TX,West South Central,South,21,48,369
+663,Potter,Texas,TX,West South Central,South,21,48,375
+671,Randall,Texas,TX,West South Central,South,21,48,381
+464,Reagan,Texas,TX,West South Central,South,21,48,383
+679,Roberts,Texas,TX,West South Central,South,21,48,393
+1424,Rockwall,Texas,TX,West South Central,South,21,48,397
+1376,Runnels,Texas,TX,West South Central,South,21,48,399
+1346,Schleicher,Texas,TX,West South Central,South,21,48,413
+1387,Scurry,Texas,TX,West South Central,South,21,48,415
+1367,Shackelford,Texas,TX,West South Central,South,21,48,417
+664,Sherman,Texas,TX,West South Central,South,21,48,421
+1407,Somervell,Texas,TX,West South Central,South,21,48,425
+1368,Stephens,Texas,TX,West South Central,South,21,48,429
+1377,Sterling,Texas,TX,West South Central,South,21,48,431
+1388,Stonewall,Texas,TX,West South Central,South,21,48,433
+1347,Sutton,Texas,TX,West South Central,South,21,48,435
+672,Swisher,Texas,TX,West South Central,South,21,48,437
+1378,Taylor,Texas,TX,West South Central,South,21,48,441
+457,Terry,Texas,TX,West South Central,South,21,48,445
+1369,Throckmorton,Texas,TX,West South Central,South,21,48,447
+465,Upton,Texas,TX,West South Central,South,21,48,461
+1363,Uvalde,Texas,TX,West South Central,South,21,48,463
+688,Wheeler,Texas,TX,West South Central,South,21,48,483
+448,Winkler,Texas,TX,West South Central,South,21,48,495
+449,Yoakum,Texas,TX,West South Central,South,21,48,501
+1370,Young,Texas,TX,West South Central,South,21,48,503
+1364,Zavala,Texas,TX,West South Central,South,21,48,507
+1268,St. Louis City,Missouri,MO,West North Central,Midwest,12,29,510
+345,Carson City,Nevada,NV,Mountain,West,25,32,510
+2862,Baltimore City,Maryland,MD,South Atlantic,South,14,24,510
+2868,Alexandria,Virginia,VA,South Atlantic,South,13,51,510
+2698,Bedford City,Virginia,VA,South Atlantic,South,13,51,515
+2690,Buena Vista,Virginia,VA,South Atlantic,South,13,51,530
+2691,Covington,Virginia,VA,South Atlantic,South,13,51,580
+2837,Emporia,Virginia,VA,South Atlantic,South,13,51,595
+2869,Fairfax City,Virginia,VA,South Atlantic,South,13,51,600
+2870,Falls Church,Virginia,VA,South Atlantic,South,13,51,610
+2882,Franklin City,Virginia,VA,South Atlantic,South,13,51,620
+2660,Galax,Virginia,VA,South Atlantic,South,13,51,640
+2640,Harrisonburg,Virginia,VA,South Atlantic,South,13,51,660
+2693,Lexington,Virginia,VA,South Atlantic,South,13,51,678
+2853,Manassas Park,Virginia,VA,South Atlantic,South,13,51,685
+2699,Martinsville,Virginia,VA,South Atlantic,South,13,51,690
+2623,Norton,Virginia,VA,South Atlantic,South,13,51,720
+2838,Petersburg,Virginia,VA,South Atlantic,South,13,51,730
+2898,Poquoson,Virginia,VA,South Atlantic,South,13,51,735
+837,Buffalo,Nebraska,NE,West North Central,Midwest,11,31,019
+2661,Radford,Virginia,VA,South Atlantic,South,13,51,750
+2701,Salem,Virginia,VA,South Atlantic,South,13,51,775
+2706,Staunton,Virginia,VA,South Atlantic,South,13,51,790
+2707,Waynesboro,Virginia,VA,South Atlantic,South,13,51,820
+512,Uinta,Wyoming,WY,Mountain,West,23,56,041
+2845,Winchester,Virginia,VA,South Atlantic,South,13,51,840
+505,Rich,Utah,UT,Mountain,West,23,49,033
+2171,Walker,Georgia,GA,South Atlantic,South,15,13,295
+2513,Walton,Georgia,GA,South Atlantic,South,15,13,297
+1850,Ware,Georgia,GA,South Atlantic,South,15,13,299
+1839,Warren,Georgia,GA,South Atlantic,South,15,13,301
+445,Loving,Texas,TX,West South Central,South,21,48,301
+214,Grand Forks,North Dakota,ND,West North Central,Midwest,10,38,035
+1803,Butts,Georgia,GA,South Atlantic,South,15,13,035
+1804,Clayton,Georgia,GA,South Atlantic,South,15,13,063
+1696,Jefferson,Alabama,AL,East South Central,South,18,1,073
+1681,Coweta,Georgia,GA,South Atlantic,South,15,13,077
+1665,Pickens,Alabama,AL,East South Central,South,18,1,107
+1682,Fayette,Georgia,GA,South Atlantic,South,15,13,113
+1667,Tuscaloosa,Alabama,AL,East South Central,South,18,1,125
+1805,Henry,Georgia,GA,South Atlantic,South,15,13,151
+1806,Jasper,Georgia,GA,South Atlantic,South,15,13,159
+1807,Newton,Georgia,GA,South Atlantic,South,15,13,217
+1808,Rockdale,Georgia,GA,South Atlantic,South,15,13,247
+2909,Accomack,Virginia,VA,South Atlantic,South,13,51,001
+2906,Worcester,Maryland,MD,South Atlantic,South,14,24,047
+303,Kern,California,CA,Pacific,West,26,6,029
+304,Kings,California,CA,Pacific,West,26,6,031
+305,Los Angeles,California,CA,Pacific,West,26,6,037
+306,Monterey,California,CA,Pacific,West,26,6,053
+307,San Luis Obispo,California,CA,Pacific,West,26,6,079
+308,Santa Barbara,California,CA,Pacific,West,26,6,083
+1911,Lafayette,Mississippi,MS,East South Central,South,18,28,071
+1316,Lee,Arkansas,AR,West South Central,South,20,5,077
+1872,Bamberg,South Carolina,SC,South Atlantic,South,16,45,009
+2047,Barren,Kentucky,KY,East South Central,South,18,21,009
+534,Daggett,Utah,UT,Mountain,West,23,49,009
+539,Converse,Wyoming,WY,Mountain,West,23,56,009
+3051,Hancock,Maine,ME,New England,Northeast,1,23,009
+5,Clallam,Washington,WA,Pacific,West,27,53,009
+3062,New London,Connecticut,CT,New England,Northeast,1,9,011
+3052,Kennebec,Maine,ME,New England,Northeast,1,23,011
+63,Clark,Washington,WA,Pacific,West,27,53,011
+2479,Avery,North Carolina,NC,South Atlantic,South,16,37,011
+367,Eureka,Nevada,NV,Mountain,West,25,32,011
+1075,Buffalo,Wisconsin,WI,East North Central,Midwest,9,55,011
+2968,Cayuga,New York,NY,Middle Atlantic,Northeast,3,36,011
+232,Big Stone,Minnesota,MN,West North Central,Midwest,10,27,011
+2908,Cumberland,New Jersey,NJ,Middle Atlantic,Northeast,4,34,011
+2903,Caroline,Maryland,MD,South Atlantic,South,14,24,011
+1713,Bullock,Alabama,AL,East South Central,South,18,1,011
+1481,Beauregard,Louisiana,LA,West South Central,South,20,22,011
+607,De Baca,New Mexico,NM,Mountain,West,25,35,011
+524,Bingham,Idaho,ID,Mountain,West,23,16,011
+295,Coos,Oregon,OR,Pacific,West,27,41,011
+2199,Bureau,Illinois,IL,East North Central,Midwest,6,17,011
+1198,Barton,Missouri,MO,West North Central,Midwest,12,29,011
+514,Duchesne,Utah,UT,Mountain,West,23,49,013
+18,Aleutians East,Alaska,AK,Pacific,West,27,2,013
+312,Contra Costa,California,CA,Pacific,West,26,6,013
+1208,Bates,Missouri,MO,West North Central,Midwest,12,29,013
+1741,Calhoun,Florida,FL,South Atlantic,South,17,12,013
+390,Blaine,Idaho,ID,Mountain,West,23,16,013
+434,Dona Ana,New Mexico,NM,Mountain,West,25,35,013
+559,Broomfield,Colorado,CO,Mountain,West,22,8,014
+125,Chouteau,Montana,MT,Mountain,West,23,30,015
+1718,Chattahoochee,Georgia,GA,South Atlantic,South,15,13,053
+2911,Cecil,Maryland,MD,South Atlantic,South,14,24,015
+3094,Lamoille,Vermont,VT,New England,Northeast,1,50,015
+2672,Clay,West Virginia,WV,South Atlantic,South,14,54,015
+3106,Rockingham,New Hampshire,NH,New England,Northeast,1,33,015
+3054,Lincoln,Maine,ME,New England,Northeast,1,23,015
+64,Cowlitz,Washington,WA,Pacific,West,27,53,015
+1651,Carroll,Mississippi,MS,East South Central,South,18,28,015
+788,Caddo,Oklahoma,OK,West South Central,South,20,40,015
+368,Lander,Nevada,NV,Mountain,West,25,32,015
+767,Butler,Kansas,KS,West North Central,Midwest,11,20,015
+2703,Augusta,Virginia,VA,South Atlantic,South,13,51,015
+3064,Windham,Connecticut,CT,New England,Northeast,1,9,015
+2787,Bertie,North Carolina,NC,South Atlantic,South,16,37,015
+1027,Brown,Minnesota,MN,West North Central,Midwest,10,27,015
+435,Eddy,New Mexico,NM,Mountain,West,25,35,015
+2264,Barry,Michigan,MI,East North Central,Midwest,8,26,015
+296,Curry,Oregon,OR,Pacific,West,27,41,015
+3085,Hampshire,Massachusetts,MA,New England,Northeast,2,25,015
+3007,Bucks,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,017
+3107,Strafford,New Hampshire,NH,New England,Northeast,1,33,017
+3103,Middlesex,Massachusetts,MA,New England,Northeast,2,25,017
+2359,Butler,Ohio,OH,East North Central,Midwest,7,39,017
+2663,Doddridge,West Virginia,WV,South Atlantic,South,14,54,017
+789,Canadian,Oklahoma,OK,West South Central,South,20,40,017
+2772,Bladen,North Carolina,NC,South Atlantic,South,16,37,017
+423,Grant,New Mexico,NM,Mountain,West,25,35,017
+1144,Cass,Illinois,IL,East North Central,Midwest,6,17,017
+3098,Oxford,Maine,ME,New England,Northeast,1,23,017
+3038,Hudson,New Jersey,NJ,Middle Atlantic,Northeast,4,34,017
+1034,Carver,Minnesota,MN,West North Central,Midwest,10,27,019
+2694,Bedford,Virginia,VA,South Atlantic,South,13,51,019
+329,Fresno,California,CA,Pacific,West,26,6,019
+2067,Clark,Indiana,IN,East North Central,Midwest,7,18,019
+2806,Dorchester,Maryland,MD,South Atlantic,South,14,24,019
+2606,Boyd,Kentucky,KY,East South Central,South,18,21,019
+3058,Nantucket,Massachusetts,MA,New England,Northeast,2,25,019
+2984,Clinton,New York,NY,Middle Atlantic,Northeast,3,36,019
+43,Ferry,Washington,WA,Pacific,West,27,53,019
+2279,Benzie,Michigan,MI,East North Central,Midwest,8,26,019
+2481,Carter,Tennessee,TN,East South Central,South,19,47,019
+335,Lyon,Nevada,NV,Mountain,West,25,32,019
+3002,Hunterdon,New Jersey,NJ,Middle Atlantic,Northeast,4,34,019
+3110,Penobscot,Maine,ME,New England,Northeast,1,23,019
+1780,Berrien,Georgia,GA,South Atlantic,South,15,13,019
+608,Guadalupe,New Mexico,NM,Mountain,West,25,35,019
+525,Bonneville,Idaho,ID,Mountain,West,23,16,019
+1656,Choctaw,Mississippi,MS,East South Central,South,18,28,019
+2459,Butler,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,019
+1182,Clark,Arkansas,AR,West South Central,South,20,5,019
+1484,Calcasieu,Louisiana,LA,West South Central,South,20,22,019
+3095,Orleans,Vermont,VT,New England,Northeast,1,50,019
+1747,Clay,Florida,FL,South Atlantic,South,17,12,019
+26,Anchorage,Alaska,AK,Pacific,West,27,2,020
+3003,Mercer,New Jersey,NJ,Middle Atlantic,Northeast,4,34,021
+3111,Piscataquis,Maine,ME,New England,Northeast,1,23,021
+2999,Columbia,New York,NY,Middle Atlantic,Northeast,3,36,021
+2673,Gilmer,West Virginia,WV,South Atlantic,South,14,54,021
+2912,Frederick,Maryland,MD,South Atlantic,South,14,24,021
+250,Cass,Minnesota,MN,West North Central,Midwest,10,27,021
+2527,Buncombe,North Carolina,NC,South Atlantic,South,16,37,021
+2182,Christian,Illinois,IL,East North Central,Midwest,6,17,021
+650,Harding,New Mexico,NM,Mountain,West,25,35,021
+2646,Bland,Virginia,VA,South Atlantic,South,13,51,021
+2322,Berrien,Michigan,MI,East North Central,Midwest,8,26,021
+2100,Boyle,Kentucky,KY,East South Central,South,18,21,021
+2687,Botetourt,Virginia,VA,South Atlantic,South,13,51,023
+865,Charles Mix,South Dakota,SD,West North Central,Midwest,10,46,023
+3070,Plymouth,Massachusetts,MA,New England,Northeast,2,25,023
+1233,Butler,Missouri,MO,West North Central,Midwest,12,29,023
+371,Juab,Utah,UT,Mountain,West,23,49,023
+3046,Middlesex,New Jersey,NJ,Middle Atlantic,Northeast,4,34,023
+2641,Grant,West Virginia,WV,South Atlantic,South,14,54,023
+893,Chippewa,Minnesota,MN,West North Central,Midwest,10,27,023
+1934,Chester,Tennessee,TN,East South Central,South,19,47,023
+101,Deer Lodge,Montana,MT,Mountain,West,23,30,023
+2539,Burke,North Carolina,NC,South Atlantic,South,16,37,023
+1669,Choctaw,Alabama,AL,East South Central,South,18,1,023
+3096,Washington,Vermont,VT,New England,Northeast,1,50,023
+612,Costilla,Colorado,CO,Mountain,West,22,8,023
+2597,Bracken,Kentucky,KY,East South Central,South,18,21,023
+2573,Breathitt,Kentucky,KY,East South Central,South,18,21,025
+2482,Claiborne,Tennessee,TN,East South Central,South,19,47,025
+3089,Windham,Vermont,VT,New England,Northeast,1,50,025
+412,Imperial,California,CA,Pacific,West,26,6,025
+936,Cass,Nebraska,NE,West North Central,Midwest,11,31,025
+3047,Monmouth,New Jersey,NJ,Middle Atlantic,Northeast,4,34,025
+265,Chisago,Minnesota,MN,West North Central,Midwest,10,27,025
+2913,Harford,Maryland,MD,South Atlantic,South,14,24,025
+441,Lea,New Mexico,NM,Mountain,West,25,35,025
+391,Camas,Idaho,ID,Mountain,West,23,16,025
+2720,Chesterfield,South Carolina,SC,South Atlantic,South,16,45,025
+173,Dunn,North Dakota,ND,West North Central,Midwest,10,38,025
+1844,Appling,Georgia,GA,South Atlantic,South,15,13,001
+2650,Fayette,West Virginia,WV,South Atlantic,South,14,54,019
+2642,Greenbrier,West Virginia,WV,South Atlantic,South,14,54,025
+1435,Bee,Texas,TX,West South Central,South,21,48,025
+2665,Kanawha,West Virginia,WV,South Atlantic,South,14,54,039
+2645,Summers,West Virginia,WV,South Atlantic,South,14,54,089
+2677,Webster,West Virginia,WV,South Atlantic,South,14,54,101
+1335,Jim Wells,Texas,TX,West South Central,South,21,48,249
+144,Fergus,Montana,MT,Mountain,West,23,30,027
+790,Cleveland,Oklahoma,OK,West South Central,South,20,40,027
+3086,Worcester,Massachusetts,MA,New England,Northeast,2,25,027
+2846,Hampshire,West Virginia,WV,South Atlantic,South,14,54,027
+2856,Howard,Maryland,MD,South Atlantic,South,14,24,027
+2033,Breckinridge,Kentucky,KY,East South Central,South,18,21,027
+2054,Daviess,Indiana,IN,East North Central,Midwest,7,18,027
+744,Clay,Kansas,KS,West North Central,Midwest,11,20,027
+2254,Dodge,Wisconsin,WI,East North Central,Midwest,9,55,027
+2540,Caldwell,North Carolina,NC,South Atlantic,South,16,37,027
+2634,Buchanan,Virginia,VA,South Atlantic,South,13,51,027
+3004,Morris,New Jersey,NJ,Middle Atlantic,Northeast,4,34,027
+613,Custer,Colorado,CO,Mountain,West,22,8,027
+599,Los Alamos,New Mexico,NM,Mountain,West,25,35,028
+2432,Columbiana,Ohio,OH,East North Central,Midwest,7,39,029
+1241,Camden,Missouri,MO,West North Central,Midwest,12,29,029
+2857,Kent,Maryland,MD,South Atlantic,South,14,24,029
+181,Emmons,North Dakota,ND,West North Central,Midwest,10,38,029
+2788,Camden,North Carolina,NC,South Atlantic,South,16,37,029
+2029,Dearborn,Indiana,IN,East North Central,Midwest,7,18,029
+1535,Concordia,Louisiana,LA,West South Central,South,20,22,029
+3128,Door,Wisconsin,WI,East North Central,Midwest,9,55,029
+526,Caribou,Idaho,ID,Mountain,West,23,16,029
+348,Jackson,Oregon,OR,Pacific,West,27,41,029
+1573,Copiah,Mississippi,MS,East South Central,South,18,28,029
+696,Comanche,Oklahoma,OK,West South Central,South,20,40,031
+1749,Duval,Florida,FL,South Atlantic,South,17,12,031
+392,Cassia,Idaho,ID,Mountain,West,23,16,031
+2460,Clarion,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,031
+349,Jefferson,Oregon,OR,Pacific,West,27,41,031
+469,Piute,Utah,UT,Mountain,West,23,49,031
+2719,Chester,South Carolina,SC,South Atlantic,South,16,45,023
+2859,Prince George's,Maryland,MD,South Atlantic,South,14,24,033
+1632,Escambia,Florida,FL,South Atlantic,South,17,12,033
+515,Clark,Idaho,ID,Mountain,West,23,16,033
+1166,Crawford,Arkansas,AR,West South Central,South,20,5,033
+600,Mora,New Mexico,NM,Mountain,West,25,35,033
+350,Josephine,Oregon,OR,Pacific,West,27,41,033
+145,Garfield,Montana,MT,Mountain,West,23,30,033
+779,Cotton,Oklahoma,OK,West South Central,South,20,40,033
+1324,DeSoto,Mississippi,MS,East South Central,South,18,28,033
+437,Otero,New Mexico,NM,Mountain,West,25,35,035
+769,Cowley,Kansas,KS,West North Central,Midwest,11,20,035
+2729,Catawba,North Carolina,NC,South Atlantic,South,16,37,035
+506,Salt Lake,Utah,UT,Mountain,West,23,49,035
+3005,Somerset,New Jersey,NJ,Middle Atlantic,Northeast,4,34,035
+614,Douglas,Colorado,CO,Mountain,West,22,8,035
+2885,Charles City,Virginia,VA,South Atlantic,South,13,51,036
+1035,Dakota,Minnesota,MN,West North Central,Midwest,10,27,037
+3020,Sussex,New Jersey,NJ,Middle Atlantic,Northeast,4,34,037
+470,San Juan,Utah,UT,Mountain,West,23,49,037
+146,Golden Valley,Montana,MT,Mountain,West,23,30,037
+2598,Campbell,Kentucky,KY,East South Central,South,18,21,037
+2200,DeKalb,Illinois,IL,East North Central,Midwest,6,17,037
+185,Dewey,South Dakota,SD,West North Central,Midwest,10,46,041
+2824,Chesterfield,Virginia,VA,South Atlantic,South,13,51,041
+2674,Lewis,West Virginia,WV,South Atlantic,South,14,54,041
+2794,Chowan,North Carolina,NC,South Atlantic,South,16,37,041
+2807,Talbot,Maryland,MD,South Atlantic,South,14,24,041
+2070,Carroll,Kentucky,KY,East South Central,South,18,21,041
+1453,Brazos,Texas,TX,West South Central,South,21,48,041
+652,Roosevelt,New Mexico,NM,Mountain,West,25,35,041
+527,Franklin,Idaho,ID,Mountain,West,23,16,041
+1315,Desha,Arkansas,AR,West South Central,South,20,5,041
+1679,Crenshaw,Alabama,AL,East South Central,South,18,1,041
+616,El Paso,Colorado,CO,Mountain,West,22,8,041
+471,Sevier,Utah,UT,Mountain,West,23,49,041
+2412,Arenac,Michigan,MI,East North Central,Midwest,8,26,011
+135,Jefferson,Montana,MT,Mountain,West,23,30,043
+480,Sandoval,New Mexico,NM,Mountain,West,25,35,043
+2914,Washington,Maryland,MD,South Atlantic,South,14,24,043
+2503,Clay,North Carolina,NC,South Atlantic,South,16,37,043
+2209,DuPage,Illinois,IL,East North Central,Midwest,6,17,043
+3124,Dickinson,Michigan,MI,East North Central,Midwest,8,26,043
+516,Fremont,Idaho,ID,Mountain,West,23,16,043
+2120,Cullman,Alabama,AL,East South Central,South,18,1,043
+2107,Casey,Kentucky,KY,East South Central,South,18,21,045
+2549,Greenville,South Carolina,SC,South Atlantic,South,16,45,045
+2633,Logan,West Virginia,WV,South Atlantic,South,14,54,045
+56,Mason,Washington,WA,Pacific,West,27,53,045
+1624,Hancock,Mississippi,MS,East South Central,South,18,28,045
+372,Tooele,Utah,UT,Mountain,West,23,49,045
+136,Judith Basin,Montana,MT,Mountain,West,23,30,045
+1704,Carroll,Georgia,GA,South Atlantic,South,15,13,045
+691,Ellis,Oklahoma,OK,West South Central,South,20,40,045
+1708,Dale,Alabama,AL,East South Central,South,18,1,045
+1920,Dyer,Tennessee,TN,East South Central,South,19,47,045
+2188,Fountain,Indiana,IN,East North Central,Midwest,7,18,045
+2730,Cleveland,North Carolina,NC,South Atlantic,South,16,37,045
+1098,Clark,Missouri,MO,West North Central,Midwest,12,29,045
+1743,Gulf,Florida,FL,South Atlantic,South,17,12,045
+288,Mendocino,California,CA,Pacific,West,26,6,045
+46,Okanogan,Washington,WA,Pacific,West,27,53,047
+1625,Harrison,Mississippi,MS,East South Central,South,18,28,047
+332,Merced,California,CA,Pacific,West,26,6,047
+2847,Culpeper,Virginia,VA,South Atlantic,South,13,51,047
+1167,Franklin,Arkansas,AR,West South Central,South,20,5,047
+609,San Miguel,New Mexico,NM,Mountain,West,25,35,047
+103,Lake,Montana,MT,Mountain,West,23,30,047
+1765,Hamilton,Florida,FL,South Atlantic,South,17,12,047
+1687,Dallas,Alabama,AL,East South Central,South,18,1,047
+393,Gooding,Idaho,ID,Mountain,West,23,16,047
+353,Marion,Oregon,OR,Pacific,West,27,41,047
+1299,Fulton,Arkansas,AR,West South Central,South,20,5,049
+1071,Goodhue,Minnesota,MN,West North Central,Midwest,10,27,049
+2472,Marion,West Virginia,WV,South Atlantic,South,14,54,049
+66,Pacific,Washington,WA,Pacific,West,27,53,049
+358,Modoc,California,CA,Pacific,West,26,6,049
+1389,Brown,Texas,TX,West South Central,South,21,48,049
+2364,Franklin,Ohio,OH,East North Central,Midwest,7,39,049
+2817,Cumberland,Virginia,VA,South Atlantic,South,13,51,049
+2979,Lewis,New York,NY,Middle Atlantic,Northeast,3,36,049
+1768,Charlton,Georgia,GA,South Atlantic,South,15,13,049
+1574,Hinds,Mississippi,MS,East South Central,South,18,28,049
+602,Santa Fe,New Mexico,NM,Mountain,West,25,35,049
+508,Utah,Utah,UT,Mountain,West,23,49,049
+2462,Erie,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,049
+20,Bethel,Alaska,AK,Pacific,West,27,2,050
+1890,Hendry,Florida,FL,South Atlantic,South,17,12,051
+2567,Clay,Kentucky,KY,East South Central,South,18,21,051
+2618,Dickenson,Virginia,VA,South Atlantic,South,13,51,051
+1446,Burnet,Texas,TX,West South Central,South,21,48,053
+2651,Mercer,West Virginia,WV,South Atlantic,South,14,54,055
+2449,Geauga,Ohio,OH,East North Central,Midwest,7,39,055
+2280,Grand Traverse,Michigan,MI,East North Central,Midwest,8,26,055
+604,Taos,New Mexico,NM,Mountain,West,25,35,055
+88,Kootenai,Idaho,ID,Mountain,West,23,16,055
+939,Douglas,Nebraska,NE,West North Central,Midwest,11,31,055
+1619,Dare,North Carolina,NC,South Atlantic,South,16,37,055
+2166,Chattooga,Georgia,GA,South Atlantic,South,15,13,055
+92,Latah,Idaho,ID,Mountain,West,23,16,057
+167,Mercer,North Dakota,ND,West North Central,Midwest,10,38,057
+1599,Lafourche,Louisiana,LA,West South Central,South,20,22,057
+2886,Essex,Virginia,VA,South Atlantic,South,13,51,057
+2473,Mineral,West Virginia,WV,South Atlantic,South,14,54,057
+2992,Montgomery,New York,NY,Middle Atlantic,Northeast,3,36,057
+48,Skagit,Washington,WA,Pacific,West,27,53,057
+1139,Fulton,Illinois,IL,East North Central,Midwest,6,17,057
+2373,Greene,Ohio,OH,East North Central,Midwest,7,39,057
+2483,Grainger,Tennessee,TN,East South Central,South,19,47,057
+2735,Davidson,North Carolina,NC,South Atlantic,South,16,37,057
+61,Tillamook,Oregon,OR,Pacific,West,27,41,057
+605,Torrance,New Mexico,NM,Mountain,West,25,35,057
+510,Weber,Utah,UT,Mountain,West,23,49,057
+2093,Cumberland,Kentucky,KY,East South Central,South,18,21,057
+1082,Juneau,Wisconsin,WI,East North Central,Midwest,9,55,057
+2866,Fairfax,Virginia,VA,South Atlantic,South,13,51,059
+2594,Pike,Ohio,OH,East North Central,Midwest,7,39,131
+2244,Brown,Wisconsin,WI,East North Central,Midwest,9,55,009
+2247,Kewaunee,Wisconsin,WI,East North Central,Midwest,9,55,061
+2225,Parke,Indiana,IN,East North Central,Midwest,7,18,121
+2260,Waukesha,Wisconsin,WI,East North Central,Midwest,9,55,133
+969,Atchison,Kansas,KS,West North Central,Midwest,11,20,005
+973,Holt,Missouri,MO,West North Central,Midwest,12,29,087
+974,Nodaway,Missouri,MO,West North Central,Midwest,12,29,147
+357,Lassen,California,CA,Pacific,West,26,6,035
+86,Clearwater,Idaho,ID,Mountain,West,23,16,035
+87,Idaho,Idaho,ID,Mountain,West,23,16,049
+39,Lincoln,Montana,MT,Mountain,West,23,30,053
+1072,Olmsted,Minnesota,MN,West North Central,Midwest,10,27,109
+382,Ada,Idaho,ID,Mountain,West,23,16,001
+298,Crook,Oregon,OR,Pacific,West,27,41,013
+81,Umatilla,Oregon,OR,Pacific,West,27,41,059
+240,Roberts,South Dakota,SD,West North Central,Midwest,10,46,109
+2078,Boone,Kentucky,KY,East South Central,South,18,21,015
+2058,Monroe,Indiana,IN,East North Central,Midwest,7,18,105
+2379,Lenawee,Michigan,MI,East North Central,Midwest,8,26,091
+2378,Warren,Ohio,OH,East North Central,Midwest,7,39,165
+1038,Scott,Minnesota,MN,West North Central,Midwest,10,27,139
+293,Del Norte,California,CA,Pacific,West,26,6,015
+294,Humboldt,California,CA,Pacific,West,26,6,023
+1968,Cape Girardeau,Missouri,MO,West North Central,Midwest,12,29,031
+2759,Florence,South Carolina,SC,South Atlantic,South,16,45,041
+2989,Albany,New York,NY,Middle Atlantic,Northeast,3,36,001
+73,Adams,Washington,WA,Pacific,West,27,53,001
+2679,Barbour,West Virginia,WV,South Atlantic,South,14,54,001
+380,Baker,Oregon,OR,Pacific,West,27,41,001
+2741,Alamance,North Carolina,NC,South Atlantic,South,16,37,001
+361,Churchill,Nevada,NV,Mountain,West,25,32,001
+2901,Kent,Delaware,DE,South Atlantic,South,14,10,001
+2863,District of Columbia,District of Columbia,DC,South Atlantic,South,14,11,001
+100,Beaverhead,Montana,MT,Mountain,West,23,30,001
+1314,Arkansas,Arkansas,AR,West South Central,South,20,5,001
+598,Bernalillo,New Mexico,NM,Mountain,West,25,35,001
+3001,Fairfield,Connecticut,CT,New England,Northeast,1,9,001
+3014,Atlantic,New Jersey,NJ,Middle Atlantic,Northeast,4,34,001
+1426,Anderson,Texas,TX,West South Central,South,21,48,001
+1588,Acadia,Louisiana,LA,West South Central,South,20,22,001
+1539,Adams,Mississippi,MS,East South Central,South,18,28,001
+254,Aitkin,Minnesota,MN,West North Central,Midwest,10,27,001
+1555,East Carroll,Louisiana,LA,West South Central,South,20,22,035
+1816,Taylor,Georgia,GA,South Atlantic,South,15,13,269
+1544,La Salle,Louisiana,LA,West South Central,South,20,22,059
+14,Honolulu,Hawaii,HI,Pacific,West,27,15,003
+497,Big Horn,Wyoming,WY,Mountain,West,23,56,003
+151,Big Horn,Montana,MT,Mountain,West,23,30,003
+1532,Ashley,Arkansas,AR,West South Central,South,20,5,003
+848,Hughes,South Dakota,SD,West North Central,Midwest,10,46,065
+852,Stanley,South Dakota,SD,West North Central,Midwest,10,46,117
+1740,Bay,Florida,FL,South Atlantic,South,17,12,005
+3010,Chester,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,029
+1748,Dixie,Florida,FL,South Atlantic,South,17,12,029
+1774,Hernando,Florida,FL,South Atlantic,South,17,12,053
+1776,Marion,Florida,FL,South Atlantic,South,17,12,083
+1777,Pasco,Florida,FL,South Atlantic,South,17,12,101
+1581,Jefferson,Louisiana,LA,West South Central,South,20,22,051
+1732,Franklin,Florida,FL,South Atlantic,South,17,12,037
+1734,Liberty,Florida,FL,South Atlantic,South,17,12,077
+1994,Edwards,Illinois,IL,East North Central,Midwest,6,17,047
+1886,Polk,Florida,FL,South Atlantic,South,17,12,105
+1331,Aransas,Texas,TX,West South Central,South,21,48,007
+1341,Atascosa,Texas,TX,West South Central,South,21,48,013
+1340,Willacy,Texas,TX,West South Central,South,21,48,489
+2919,Allegany,Maryland,MD,South Atlantic,South,14,24,001
+2920,Bedford,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,009
+3139,Mackinac,Michigan,MI,East North Central,Midwest,8,26,097
+1676,Butler,Alabama,AL,East South Central,South,18,1,013
+765,Osage,Kansas,KS,West North Central,Midwest,11,20,139
+1245,Ozark,Missouri,MO,West North Central,Midwest,12,29,153
+1220,Morgan,Missouri,MO,West North Central,Midwest,12,29,141
+2830,Richmond City,Virginia,VA,South Atlantic,South,13,51,760
+1836,McDuffie,Georgia,GA,South Atlantic,South,15,13,189
+2550,McCormick,South Carolina,SC,South Atlantic,South,16,45,065
+11,Valdez-Cordova,Alaska,AK,Pacific,West,27,2,261
+415,Cochise,Arizona,AZ,Mountain,West,24,4,003
+424,Hidalgo,New Mexico,NM,Mountain,West,25,35,023
+1496,Angelina,Texas,TX,West South Central,South,21,48,005
+846,Cherry,Nebraska,NE,West North Central,Midwest,11,31,031
+570,Shannon,South Dakota,SD,West North Central,Midwest,10,46,113
+555,Larimer,Colorado,CO,Mountain,West,22,8,069
+826,Lincoln,Nebraska,NE,West North Central,Midwest,11,31,111
+1690,Lowndes,Alabama,AL,East South Central,South,18,1,085
+1691,Montgomery,Alabama,AL,East South Central,South,18,1,101
+1326,Duval,Texas,TX,West South Central,South,21,48,131
+2923,Centre,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,027
+2590,Greenup,Kentucky,KY,East South Central,South,18,21,089
+474,Coconino,Arizona,AZ,Mountain,West,24,4,005
+416,Gila,Arizona,AZ,Mountain,West,24,4,007
+398,Mohave,Arizona,AZ,Mountain,West,24,4,015
+436,Lincoln,New Mexico,NM,Mountain,West,25,35,027
+309,Tulare,California,CA,Pacific,West,26,6,107
+310,Ventura,California,CA,Pacific,West,26,6,111
+411,Yuma,Arizona,AZ,Mountain,West,24,4,027
+1603,St. John the Baptist,Louisiana,LA,West South Central,South,20,22,095
+1604,Terrebonne,Louisiana,LA,West South Central,South,20,22,109
+326,San Benito,California,CA,Pacific,West,26,6,069
+472,Wayne,Utah,UT,Mountain,West,23,49,055
+2872,Lancaster,Virginia,VA,South Atlantic,South,13,51,103
+2568,Knox,Kentucky,KY,East South Central,South,18,21,121
+2438,Carroll,Ohio,OH,East North Central,Midwest,7,39,019
+979,Pottawattamie,Iowa,IA,West North Central,Midwest,10,19,155
+1163,Benton,Arkansas,AR,West South Central,South,20,5,007
+1725,Baker,Georgia,GA,South Atlantic,South,15,13,007
+1138,Brown,Illinois,IL,East North Central,Midwest,6,17,009
+1444,Bastrop,Texas,TX,West South Central,South,21,48,021
+1876,Dorchester,South Carolina,SC,South Atlantic,South,16,45,035
+1695,Coosa,Alabama,AL,East South Central,South,18,1,037
+1133,Des Moines,Iowa,IA,West North Central,Midwest,10,19,057
+2464,Jefferson,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,065
+1711,Houston,Alabama,AL,East South Central,South,18,1,069
+1714,Lee,Alabama,AL,East South Central,South,18,1,081
+1715,Macon,Alabama,AL,East South Central,South,18,1,087
+1594,Vermilion,Louisiana,LA,West South Central,South,20,22,113
+800,Payne,Oklahoma,OK,West South Central,South,20,40,119
+1703,Tallapoosa,Alabama,AL,East South Central,South,18,1,123
+1587,West Feliciana,Louisiana,LA,West South Central,South,20,22,125
+1137,Adams,Illinois,IL,East North Central,Midwest,6,17,001
+154,Carter,Montana,MT,Mountain,West,23,30,011
+1523,Bienville,Louisiana,LA,West South Central,South,20,22,013
+224,Brown,South Dakota,SD,West North Central,Midwest,10,46,013
+1452,Austin,Texas,TX,West South Central,South,21,48,015
+572,Butte,South Dakota,SD,West North Central,Midwest,10,46,019
+2060,Crawford,Indiana,IN,East North Central,Midwest,7,18,025
+2419,Genesee,Michigan,MI,East North Central,Midwest,8,26,049
+1179,Garland,Arkansas,AR,West South Central,South,20,5,051
+2420,Ingham,Michigan,MI,East North Central,Midwest,8,26,065
+2761,Marion,South Carolina,SC,South Atlantic,South,16,45,067
+2421,Lapeer,Michigan,MI,East North Central,Midwest,8,26,087
+2372,Delaware,Ohio,OH,East North Central,Midwest,7,39,041
+297,Lincoln,Oregon,OR,Pacific,West,27,41,041
+2376,Montgomery,Ohio,OH,East North Central,Midwest,7,39,113
+466,Emery,Utah,UT,Mountain,West,23,49,015
+467,Garfield,Utah,UT,Mountain,West,23,49,017
+560,Denver,Colorado,CO,Mountain,West,22,8,031
+491,Gunnison,Colorado,CO,Mountain,West,22,8,051
+561,Jefferson,Colorado,CO,Mountain,West,22,8,059
+2258,Walworth,Wisconsin,WI,East North Central,Midwest,9,55,127
+2004,Crawford,Illinois,IL,East North Central,Midwest,6,17,033
+1906,Benton,Tennessee,TN,East South Central,South,19,47,005
+2998,Berkshire,Massachusetts,MA,New England,Northeast,2,25,003
+3063,Tolland,Connecticut,CT,New England,Northeast,1,9,013
+2829,Powhatan,Virginia,VA,South Atlantic,South,13,51,145
+2748,Durham,North Carolina,NC,South Atlantic,South,16,37,063
+2647,Grayson,Virginia,VA,South Atlantic,South,13,51,077
+2749,Orange,North Carolina,NC,South Atlantic,South,16,37,135
+2163,Roane,Tennessee,TN,East South Central,South,19,47,145
+2118,Wilson,Tennessee,TN,East South Central,South,19,47,189
+2714,Yadkin,North Carolina,NC,South Atlantic,South,16,37,197
+422,Greenlee,Arizona,AZ,Mountain,West,24,4,011
+419,Pima,Arizona,AZ,Mountain,West,24,4,019
+1670,Clarke,Alabama,AL,East South Central,South,18,1,025
+1397,Bell,Texas,TX,West South Central,South,21,48,027
+1642,Covington,Mississippi,MS,East South Central,South,18,28,031
+1686,Conecuh,Alabama,AL,East South Central,South,18,1,035
+1726,Calhoun,Georgia,GA,South Atlantic,South,15,13,037
+1589,Iberia,Louisiana,LA,West South Central,South,20,22,045
+1689,Escambia,Alabama,AL,East South Central,South,18,1,053
+1727,Clay,Georgia,GA,South Atlantic,South,15,13,061
+1728,Early,Georgia,GA,South Atlantic,South,15,13,099
+460,Crane,Texas,TX,West South Central,South,21,48,103
+1490,Delta,Texas,TX,West South Central,South,21,48,119
+1821,Houston,Georgia,GA,South Atlantic,South,15,13,153
+1491,Franklin,Texas,TX,West South Central,South,21,48,159
+1492,Hopkins,Texas,TX,West South Central,South,21,48,223
+3071,Bristol,Rhode Island,RI,New England,Northeast,1,44,001
+3072,Kent,Rhode Island,RI,New England,Northeast,1,44,003
+2329,Allen,Indiana,IN,East North Central,Midwest,7,18,003
+1256,Calhoun,Illinois,IL,East North Central,Midwest,6,17,013
+710,Beaver,Oklahoma,OK,West South Central,South,20,40,007
+404,Nye,Nevada,NV,Mountain,West,25,32,023
+1186,Greene,Missouri,MO,West North Central,Midwest,12,29,077
+1313,Dunklin,Missouri,MO,West North Central,Midwest,12,29,069
+1301,Marion,Arkansas,AR,West South Central,South,20,5,089
+1312,Randolph,Arkansas,AR,West South Central,South,20,5,121
+1923,Obion,Tennessee,TN,East South Central,South,19,47,131
+1919,Pemiscot,Missouri,MO,West North Central,Midwest,12,29,155
+2571,Whitley,Kentucky,KY,East South Central,South,18,21,235
+1485,Cameron,Louisiana,LA,West South Central,South,20,22,023
+1487,Jefferson,Texas,TX,West South Central,South,21,48,245
+557,Adams,Colorado,CO,Mountain,West,22,8,001
+610,Alamosa,Colorado,CO,Mountain,West,22,8,003
+338,Amador,California,CA,Pacific,West,26,6,005
+513,Carbon,Utah,UT,Mountain,West,23,49,007
+627,Colfax,New Mexico,NM,Mountain,West,25,35,007
+339,Calaveras,California,CA,Pacific,West,26,6,009
+628,Baca,Colorado,CO,Mountain,West,22,8,009
+340,El Dorado,California,CA,Pacific,West,26,6,017
+550,Clear Creek,Colorado,CO,Mountain,West,22,8,019
+611,Conejos,Colorado,CO,Mountain,West,22,8,021
+551,Eagle,Colorado,CO,Mountain,West,22,8,037
+552,Gilpin,Colorado,CO,Mountain,West,22,8,047
+624,Huerfano,Colorado,CO,Mountain,West,22,8,055
+341,Nevada,California,CA,Pacific,West,26,6,057
+342,Placer,California,CA,Pacific,West,26,6,061
+156,Dawson,Montana,MT,Mountain,West,23,30,021
+3108,Aroostook,Maine,ME,New England,Northeast,1,23,003
+3059,Hartford,Connecticut,CT,New England,Northeast,1,9,003
+3030,Bergen,New Jersey,NJ,Middle Atlantic,Northeast,4,34,003
+477,Catron,New Mexico,NM,Mountain,West,25,35,003
+1630,Baldwin,Alabama,AL,East South Central,South,18,1,003
+370,Box Elder,Utah,UT,Mountain,West,23,49,003
+963,Andrew,Missouri,MO,West North Central,Midwest,12,29,003
+337,Alpine,California,CA,Pacific,West,26,6,003
+2854,Anne Arundel,Maryland,MD,South Atlantic,South,14,24,003
+689,Custer,Oklahoma,OK,West South Central,South,20,40,039
+405,Lincoln,Nevada,NV,Mountain,West,25,32,017
+1150,Haskell,Oklahoma,OK,West South Central,South,20,40,061
+1180,Perry,Arkansas,AR,West South Central,South,20,5,105
+700,Washita,Oklahoma,OK,West South Central,South,20,40,149
+2087,Marion,Kentucky,KY,East South Central,South,18,21,155
+2833,Dinwiddie,Virginia,VA,South Atlantic,South,13,51,053
+2051,Warren,Kentucky,KY,East South Central,South,18,21,227
+780,Garvin,Oklahoma,OK,West South Central,South,20,40,049
+1149,Choctaw,Oklahoma,OK,West South Central,South,20,40,023
+1290,Dallas,Arkansas,AR,West South Central,South,20,5,039
+1178,Sevier,Arkansas,AR,West South Central,South,20,5,133
+1289,Tallahatchie,Mississippi,MS,East South Central,South,18,28,135
+1693,Chilton,Alabama,AL,East South Central,South,18,1,021
+1563,Madison,Mississippi,MS,East South Central,South,18,28,089
+1871,Allendale,South Carolina,SC,South Atlantic,South,16,45,005
+1875,Colleton,South Carolina,SC,South Atlantic,South,16,45,029
+1877,Hampton,South Carolina,SC,South Atlantic,South,16,45,049
+1870,Jasper,South Carolina,SC,South Atlantic,South,16,45,053
+1829,Jefferson,Georgia,GA,South Atlantic,South,15,13,163
+1561,Holmes,Mississippi,MS,East South Central,South,18,28,051
+1556,Issaquena,Mississippi,MS,East South Central,South,18,28,055
+1558,Sharkey,Mississippi,MS,East South Central,South,18,28,125
+1863,Bryan,Georgia,GA,South Atlantic,South,15,13,029
+1864,Chatham,Georgia,GA,South Atlantic,South,15,13,051
+1867,Liberty,Georgia,GA,South Atlantic,South,15,13,179
+1853,Long,Georgia,GA,South Atlantic,South,15,13,183
+1868,McIntosh,Georgia,GA,South Atlantic,South,15,13,191
+1854,Tattnall,Georgia,GA,South Atlantic,South,15,13,267
+1855,Wayne,Georgia,GA,South Atlantic,South,15,13,305
+546,Goshen,Wyoming,WY,Mountain,West,23,56,015
+542,Natrona,Wyoming,WY,Mountain,West,23,56,025
+543,Niobrara,Wyoming,WY,Mountain,West,23,56,027
+548,Platte,Wyoming,WY,Mountain,West,23,56,031
+567,Custer,South Dakota,SD,West North Central,Midwest,10,46,033
+1833,Aiken,South Carolina,SC,South Atlantic,South,16,45,003
+545,Albany,Wyoming,WY,Mountain,West,23,56,001
+536,Carbon,Wyoming,WY,Mountain,West,23,56,007
+2556,Edgefield,South Carolina,SC,South Atlantic,South,16,45,037
+2557,Greenwood,South Carolina,SC,South Atlantic,South,16,45,047
+2551,Pickens,South Carolina,SC,South Atlantic,South,16,45,077
+1668,Lowndes,Mississippi,MS,East South Central,South,18,28,087
+1698,Shelby,Alabama,AL,East South Central,South,18,1,117
+1699,Talladega,Alabama,AL,East South Central,South,18,1,121
+1900,Walker,Alabama,AL,East South Central,South,18,1,127
+211,Polk,Minnesota,MN,West North Central,Midwest,10,27,119
+2638,Craig,Virginia,VA,South Atlantic,South,13,51,045
+2708,Appomattox,Virginia,VA,South Atlantic,South,13,51,011
+2110,Wayne,Kentucky,KY,East South Central,South,18,21,231
+2046,Allen,Kentucky,KY,East South Central,South,18,21,003
+1185,Christian,Missouri,MO,West North Central,Midwest,12,29,043
+1275,Shannon,Missouri,MO,West North Central,Midwest,12,29,203
+1959,Alexander,Illinois,IL,East North Central,Midwest,6,17,003
+1973,Ballard,Kentucky,KY,East South Central,South,18,21,007
+1974,Carlisle,Kentucky,KY,East South Central,South,18,21,039
+2178,Cherokee,Georgia,GA,South Atlantic,South,15,13,057
+1519,Caddo,Louisiana,LA,West South Central,South,20,22,017
+1552,Lincoln,Louisiana,LA,West South Central,South,20,22,061
+1845,Bacon,Georgia,GA,South Atlantic,South,15,13,005
+1801,Turner,Georgia,GA,South Atlantic,South,15,13,287
+1802,Wilcox,Georgia,GA,South Atlantic,South,15,13,315
+2388,Sandusky,Ohio,OH,East North Central,Midwest,7,39,143
+3138,Luce,Michigan,MI,East North Central,Midwest,8,26,095
+2229,Winnebago,Illinois,IL,East North Central,Midwest,6,17,201
+80,Morrow,Oregon,OR,Pacific,West,27,41,049
+2143,Cumberland,Tennessee,TN,East South Central,South,19,47,035
+1094,Richland,Wisconsin,WI,East North Central,Midwest,9,55,103
+2102,Garrard,Kentucky,KY,East South Central,South,18,21,079
+1243,Douglas,Missouri,MO,West North Central,Midwest,12,29,067
+1869,Beaufort,South Carolina,SC,South Atlantic,South,16,45,013
+1865,Effingham,Georgia,GA,South Atlantic,South,15,13,103
+1540,Caldwell,Louisiana,LA,West South Central,South,20,22,021
+2159,Bradley,Tennessee,TN,East South Central,South,19,47,011
+781,Grady,Oklahoma,OK,West South Central,South,20,40,051
+2153,Hamilton,Tennessee,TN,East South Central,South,19,47,065
+1199,Vernon,Missouri,MO,West North Central,Midwest,12,29,217
+653,Union,New Mexico,NM,Mountain,West,25,35,059
+2534,Greene,Tennessee,TN,East South Central,South,19,47,059
+2041,Daviess,Kentucky,KY,East South Central,South,18,21,059
+387,Lemhi,Idaho,ID,Mountain,West,23,16,059
+1835,Glascock,Georgia,GA,South Atlantic,South,15,13,125
+2775,Duplin,North Carolina,NC,South Atlantic,South,16,37,061
+1257,Greene,Illinois,IL,East North Central,Midwest,6,17,061
+105,Missoula,Montana,MT,Mountain,West,23,30,063
+1744,Jackson,Florida,FL,South Atlantic,South,17,12,063
+2723,Lexington,South Carolina,SC,South Atlantic,South,16,45,063
+2307,Hendricks,Indiana,IN,East North Central,Midwest,7,18,063
+1300,Izard,Arkansas,AR,West South Central,South,20,5,065
+2562,Estill,Kentucky,KY,East South Central,South,18,21,065
+1565,Madison,Louisiana,LA,West South Central,South,20,22,065
+400,Riverside,California,CA,Pacific,West,26,6,065
+528,Madison,Idaho,ID,Mountain,West,23,16,065
+1753,Jefferson,Florida,FL,South Atlantic,South,17,12,065
+147,Musselshell,Montana,MT,Mountain,West,23,30,065
+1643,Jefferson Davis,Mississippi,MS,East South Central,South,18,28,065
+1242,Dent,Missouri,MO,West North Central,Midwest,12,29,065
+313,Sacramento,California,CA,Pacific,West,26,6,067
+2179,Cobb,Georgia,GA,South Atlantic,South,15,13,067
+2675,Nicholas,West Virginia,WV,South Atlantic,South,14,54,067
+21,Dillingham,Alaska,AK,Pacific,West,27,2,070
+2593,Highland,Ohio,OH,East North Central,Midwest,7,39,071
+2656,Giles,Virginia,VA,South Atlantic,South,13,51,071
+2063,Jackson,Indiana,IN,East North Central,Midwest,7,18,071
+1168,Johnson,Arkansas,AR,West South Central,South,20,5,071
+3125,Iron,Michigan,MI,East North Central,Midwest,8,26,071
+2233,Manitowoc,Wisconsin,WI,East North Central,Midwest,9,55,071
+401,San Bernardino,California,CA,Pacific,West,26,6,071
+128,Phillips,Montana,MT,Mountain,West,23,30,071
+2680,Pendleton,West Virginia,WV,South Atlantic,South,14,54,071
+388,Oneida,Idaho,ID,Mountain,West,23,16,071
+384,Owyhee,Idaho,ID,Mountain,West,23,16,073
+50,Whatcom,Washington,WA,Pacific,West,27,53,073
+1621,Plaquemines,Louisiana,LA,West South Central,South,20,22,075
+1775,Levy,Florida,FL,South Atlantic,South,17,12,075
+113,Lake of the Woods,Minnesota,MN,West North Central,Midwest,10,27,077
+2781,Granville,North Carolina,NC,South Atlantic,South,16,37,077
+1960,Jackson,Illinois,IL,East North Central,Midwest,6,17,077
+2982,Otsego,New York,NY,Middle Atlantic,Northeast,3,36,077
+2068,Jefferson,Indiana,IN,East North Central,Midwest,7,18,077
+106,Powell,Montana,MT,Mountain,West,23,30,077
+1937,Henderson,Tennessee,TN,East South Central,South,19,47,077
+389,Power,Idaho,ID,Mountain,West,23,16,077
+79,Yakima,Washington,WA,Pacific,West,27,53,077
+90,Shoshone,Idaho,ID,Mountain,West,23,16,079
+1958,Lawrence,Alabama,AL,East South Central,South,18,1,079
+2724,Richland,South Carolina,SC,South Atlantic,South,16,45,079
+315,San Mateo,California,CA,Pacific,West,26,6,081
+107,Ravalli,Montana,MT,Mountain,West,23,30,081
+2009,Knox,Indiana,IN,East North Central,Midwest,7,18,083
+2457,Mercer,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,085
+115,Roosevelt,Montana,MT,Mountain,West,23,30,085
+179,Sioux,North Dakota,ND,West North Central,Midwest,10,38,085
+378,Valley,Idaho,ID,Mountain,West,23,16,085
+862,Lyman,South Dakota,SD,West North Central,Midwest,10,46,085
+944,Harrison,Iowa,IA,West North Central,Midwest,10,19,085
+1944,Humphreys,Tennessee,TN,East South Central,South,19,47,085
+2667,Ritchie,West Virginia,WV,South Atlantic,South,14,54,085
+1054,Jo Daviess,Illinois,IL,East North Central,Midwest,6,17,085
+2752,Harnett,North Carolina,NC,South Atlantic,South,16,37,085
+1293,Lonoke,Arkansas,AR,West South Central,South,20,5,085
+2488,Dawson,Georgia,GA,South Atlantic,South,15,13,085
+2717,Sumter,South Carolina,SC,South Atlantic,South,16,45,085
+2450,Lake,Ohio,OH,East North Central,Midwest,7,39,085
+316,Santa Cruz,California,CA,Pacific,West,26,6,087
+1169,Madison,Arkansas,AR,West South Central,South,20,5,087
+2555,Union,South Carolina,SC,South Atlantic,South,16,45,087
+2211,Kane,Illinois,IL,East North Central,Midwest,6,17,089
+2283,Leelanau,Michigan,MI,East North Central,Midwest,8,26,089
+2528,Henderson,North Carolina,NC,South Atlantic,South,16,37,089
+2486,Jefferson,Tennessee,TN,East South Central,South,19,47,089
+2983,St. Lawrence,New York,NY,Middle Atlantic,Northeast,3,36,089
+2215,Lake,Indiana,IN,East North Central,Midwest,7,18,089
+2683,Taylor,West Virginia,WV,South Atlantic,South,14,54,091
+2993,Saratoga,New York,NY,Middle Atlantic,Northeast,3,36,091
+2725,York,South Carolina,SC,South Atlantic,South,16,45,091
+777,McIntosh,Oklahoma,OK,West South Central,South,20,40,091
+495,Ouray,Colorado,CO,Mountain,West,22,8,091
+2487,Johnson,Tennessee,TN,East South Central,South,19,47,091
+2678,Highland,Virginia,VA,South Atlantic,South,13,51,091
+2790,Hertford,North Carolina,NC,South Atlantic,South,16,37,091
+1918,Mississippi,Arkansas,AR,West South Central,South,20,5,093
+1078,Pierce,Wisconsin,WI,East North Central,Midwest,9,55,093
+574,Meade,South Dakota,SD,West North Central,Midwest,10,46,093
+1912,Marshall,Mississippi,MS,East South Central,South,18,28,093
+283,Polk,Wisconsin,WI,East North Central,Midwest,9,55,095
+149,Stillwater,Montana,MT,Mountain,West,23,30,095
+3008,Northampton,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,095
+2995,Schoharie,New York,NY,Middle Atlantic,Northeast,3,36,095
+2356,Madison,Indiana,IN,East North Central,Midwest,7,18,095
+2876,James City,Virginia,VA,South Atlantic,South,13,51,095
+2125,Marshall,Alabama,AL,East South Central,South,18,1,095
+2888,King and Queen,Virginia,VA,South Atlantic,South,13,51,097
+2599,Harrison,Kentucky,KY,East South Central,South,18,21,097
+1187,Jasper,Missouri,MO,West North Central,Midwest,12,29,097
+1654,Montgomery,Mississippi,MS,East South Central,South,18,28,097
+1631,Mobile,Alabama,AL,East South Central,South,18,1,097
+2366,Madison,Ohio,OH,East North Central,Midwest,7,39,097
+142,Sweet Grass,Montana,MT,Mountain,West,23,30,097
+2737,Iredell,North Carolina,NC,South Atlantic,South,16,37,097
+246,Morrison,Minnesota,MN,West North Central,Midwest,10,27,097
+2971,Schuyler,New York,NY,Middle Atlantic,Northeast,3,36,097
+231,Traill,North Dakota,ND,West North Central,Midwest,10,38,097
+1898,Osceola,Florida,FL,South Atlantic,South,17,12,097
+1584,St. Landry,Louisiana,LA,West South Central,South,20,22,097
+1057,Jackson,Iowa,IA,West North Central,Midwest,10,19,097
+1922,Lauderdale,Tennessee,TN,East South Central,South,19,47,097
+2676,Upshur,West Virginia,WV,South Atlantic,South,14,54,097
+2313,Marion,Indiana,IN,East North Central,Midwest,7,18,097
+784,Murray,Oklahoma,OK,West South Central,South,20,40,099
+2201,La Salle,Illinois,IL,East North Central,Midwest,6,17,099
+2049,Hart,Kentucky,KY,East South Central,South,18,21,099
+1672,Monroe,Alabama,AL,East South Central,South,18,1,099
+7,Haines,Alaska,AK,Pacific,West,27,2,100
+2284,Manistee,Michigan,MI,East North Central,Midwest,8,26,101
+2447,Wetzel,West Virginia,WV,South Atlantic,South,14,54,103
+2202,Lee,Illinois,IL,East North Central,Midwest,6,17,103
+1623,St. Tammany,Louisiana,LA,West South Central,South,20,22,103
+1113,Johnson,Iowa,IA,West North Central,Midwest,10,19,103
+3126,Marquette,Michigan,MI,East North Central,Midwest,8,26,103
+153,Treasure,Montana,MT,Mountain,West,23,30,103
+575,Pennington,South Dakota,SD,West North Central,Midwest,10,46,103
+2803,Jones,North Carolina,NC,South Atlantic,South,16,37,103
+3067,Suffolk,New York,NY,Middle Atlantic,Northeast,3,36,103
+292,Trinity,California,CA,Pacific,West,26,6,105
+2543,Elbert,Georgia,GA,South Atlantic,South,15,13,105
+2587,Lee,Virginia,VA,South Atlantic,South,13,51,105
+795,Oklahoma,Oklahoma,OK,West South Central,South,20,40,109
+3127,Menominee,Michigan,MI,East North Central,Midwest,8,26,109
+2732,Lincoln,North Carolina,NC,South Atlantic,South,16,37,109
+2653,Wyoming,West Virginia,WV,South Atlantic,South,14,54,109
+1680,Pike,Alabama,AL,East South Central,South,18,1,109
+1852,Evans,Georgia,GA,South Atlantic,South,15,13,109
+1,Juneau,Alaska,AK,Pacific,West,27,2,110
+2253,McHenry,Illinois,IL,East North Central,Midwest,6,17,111
+778,Okmulgee,Oklahoma,OK,West South Central,South,20,40,111
+1899,St. Lucie,Florida,FL,South Atlantic,South,17,12,111
+2250,Shawano,Wisconsin,WI,East North Central,Midwest,9,55,115
+1697,St. Clair,Alabama,AL,East South Central,South,18,1,115
+2625,Johnson,Kentucky,KY,East South Central,South,18,21,115
+2380,Monroe,Michigan,MI,East North Central,Midwest,8,26,115
+2076,Ohio,Indiana,IN,East North Central,Midwest,7,18,115
+1528,Vernon,Louisiana,LA,West South Central,South,20,22,115
+2529,Madison,North Carolina,NC,South Atlantic,South,16,37,115
+1148,Pope,Arkansas,AR,West South Central,South,20,5,115
+2873,Mathews,Virginia,VA,South Atlantic,South,13,51,115
+2168,Floyd,Georgia,GA,South Atlantic,South,15,13,115
+1522,Webster,Louisiana,LA,West South Central,South,20,22,119
+2497,Franklin,Georgia,GA,South Atlantic,South,15,13,119
+2890,Middlesex,Virginia,VA,South Atlantic,South,13,51,119
+1983,Madison,Illinois,IL,East North Central,Midwest,6,17,119
+2738,Mecklenburg,North Carolina,NC,South Atlantic,South,16,37,119
+2410,Muskingum,Ohio,OH,East North Central,Midwest,7,39,119
+3037,Westchester,New York,NY,Middle Atlantic,Northeast,3,36,119
+2132,Maury,Tennessee,TN,East South Central,South,19,47,119
+1295,Pulaski,Arkansas,AR,West South Central,South,20,5,119
+2657,Montgomery,Virginia,VA,South Atlantic,South,13,51,121
+2465,Venango,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,121
+2,Ketchikan Gateway,Alaska,AK,Pacific,West,27,2,130
+1017,Rice,Minnesota,MN,West North Central,Midwest,10,27,131
+2155,Rhea,Tennessee,TN,East South Central,South,19,47,143
+2195,Peoria,Illinois,IL,East North Central,Midwest,6,17,143
+1325,Tunica,Mississippi,MS,East South Central,South,18,28,143
+1170,Washington,Arkansas,AR,West South Central,South,20,5,143
+1978,McCracken,Kentucky,KY,East South Central,South,18,21,145
+248,Stearns,Minnesota,MN,West North Central,Midwest,10,27,145
+1287,White,Arkansas,AR,West South Central,South,20,5,145
+1162,Wagoner,Oklahoma,OK,West South Central,South,20,40,145
+2596,Scioto,Ohio,OH,East North Central,Midwest,7,39,145
+1419,Fannin,Texas,TX,West South Central,South,21,48,147
+736,Woods,Oklahoma,OK,West South Central,South,20,40,151
+2150,Scott,Tennessee,TN,East South Central,South,19,47,151
+2746,Randolph,North Carolina,NC,South Atlantic,South,16,37,151
+2765,Robeson,North Carolina,NC,South Atlantic,South,16,37,155
+2526,Sevier,Tennessee,TN,East South Central,South,19,47,155
+1073,Wabasha,Minnesota,MN,West North Central,Midwest,10,27,157
+1262,Pike,Missouri,MO,West North Central,Midwest,12,29,163
+2689,Rockbridge,Virginia,VA,South Atlantic,South,13,51,163
+2427,Wayne,Michigan,MI,East North Central,Midwest,8,26,163
+2536,Sullivan,Tennessee,TN,East South Central,South,19,47,163
+267,Washington,Minnesota,MN,West North Central,Midwest,10,27,163
+2778,Sampson,North Carolina,NC,South Atlantic,South,16,37,163
+32,Lake and Peninsula,Alaska,AK,Pacific,West,27,2,164
+2639,Rockingham,Virginia,VA,South Atlantic,South,13,51,165
+278,Pine,Minnesota,MN,West North Central,Midwest,10,27,115
+1700,Chambers,Alabama,AL,East South Central,South,18,1,017
+1716,Russell,Alabama,AL,East South Central,South,18,1,113
+1664,Hale,Alabama,AL,East South Central,South,18,1,065
+1666,Sumter,Alabama,AL,East South Central,South,18,1,119
+1461,Calhoun,Texas,TX,West South Central,South,21,48,057
+1462,Colorado,Texas,TX,West South Central,South,21,48,089
+1463,Fort Bend,Texas,TX,West South Central,South,21,48,157
+3090,Windsor,Vermont,VT,New England,Northeast,1,50,027
+129,Pondera,Montana,MT,Mountain,West,23,30,073
+130,Teton,Montana,MT,Mountain,West,23,30,099
+1267,St. Louis,Missouri,MO,West North Central,Midwest,12,29,189
+2711,Forsyth,North Carolina,NC,South Atlantic,South,16,37,067
+2552,Cherokee,South Carolina,SC,South Atlantic,South,16,45,021
+1705,Douglas,Georgia,GA,South Atlantic,South,15,13,097
+1305,Clay,Arkansas,AR,West South Central,South,20,5,021
+1404,Johnson,Texas,TX,West South Central,South,21,48,251
+1488,Orange,Texas,TX,West South Central,South,21,48,361
+2476,Indiana,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,063
+2477,Somerset,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,111
+410,La Paz,Arizona,AZ,Mountain,West,24,4,012
+413,Orange,California,CA,Pacific,West,26,6,059
+2411,Alcona,Michigan,MI,East North Central,Midwest,8,26,001
+13,Hawaii,Hawaii,HI,Pacific,West,27,15,001
+1771,Alachua,Florida,FL,South Atlantic,South,17,12,001
+96,Asotin,Washington,WA,Pacific,West,27,53,003
+3132,Alger,Michigan,MI,East North Central,Midwest,8,26,003
+15,Kalawao,Hawaii,HI,Pacific,West,27,15,005
+538,Campbell,Wyoming,WY,Mountain,West,23,56,005
+218,Becker,Minnesota,MN,West North Central,Midwest,10,27,005
+1250,Audrain,Missouri,MO,West North Central,Midwest,12,29,007
+523,Bear Lake,Idaho,ID,Mountain,West,23,16,007
+3133,Antrim,Michigan,MI,East North Central,Midwest,8,26,009
+1612,Brevard,Florida,FL,South Atlantic,South,17,12,009
+2702,Amherst,Virginia,VA,South Atlantic,South,13,51,009
+143,Carbon,Montana,MT,Mountain,West,23,30,009
+3075,Washington,Rhode Island,RI,New England,Northeast,1,44,009
+1888,Broward,Florida,FL,South Atlantic,South,17,12,011
+540,Crook,Wyoming,WY,Mountain,West,23,56,011
+1548,Bradley,Arkansas,AR,West South Central,South,20,5,011
+2506,Banks,Georgia,GA,South Atlantic,South,15,13,011
+3121,Baraga,Michigan,MI,East North Central,Midwest,8,26,013
+2431,Belmont,Ohio,OH,East North Central,Midwest,7,39,013
+2507,Barrow,Georgia,GA,South Atlantic,South,15,13,013
+498,Fremont,Wyoming,WY,Mountain,West,23,56,013
+2560,Bourbon,Kentucky,KY,East South Central,South,18,21,017
+355,Deschutes,Oregon,OR,Pacific,West,27,41,017
+35,Bonner,Idaho,ID,Mountain,West,23,16,017
+1933,Carroll,Tennessee,TN,East South Central,South,19,47,017
+1772,Citrus,Florida,FL,South Atlantic,South,17,12,017
+1795,Ben Hill,Georgia,GA,South Atlantic,South,15,13,017
+1554,Chicot,Arkansas,AR,West South Central,South,20,5,017
+228,Cass,North Dakota,ND,West North Central,Midwest,10,38,017
+1251,Boone,Missouri,MO,West North Central,Midwest,12,29,019
+336,Mineral,Nevada,NV,Mountain,West,25,32,021
+1156,Cherokee,Oklahoma,OK,West South Central,South,20,40,021
+2127,Cheatham,Tennessee,TN,East South Central,South,19,47,021
+1889,Collier,Florida,FL,South Atlantic,South,17,12,021
+98,Garfield,Washington,WA,Pacific,West,27,53,023
+1764,Columbia,Florida,FL,South Atlantic,South,17,12,023
+518,Lincoln,Wyoming,WY,Mountain,West,23,56,023
+914,Butler,Nebraska,NE,West North Central,Midwest,11,31,023
+1534,Catahoula,Louisiana,LA,West South Central,South,20,22,025
+1987,Clinton,Illinois,IL,East North Central,Midwest,6,17,027
+2142,Clay,Tennessee,TN,East South Central,South,19,47,027
+3134,Charlevoix,Michigan,MI,East North Central,Midwest,8,26,029
+1357,Bexar,Texas,TX,West South Central,South,21,48,029
+519,Park,Wyoming,WY,Mountain,West,23,56,029
+251,Clearwater,Minnesota,MN,West North Central,Midwest,10,27,029
+3135,Cheboygan,Michigan,MI,East North Central,Midwest,8,26,031
+1524,De Soto,Louisiana,LA,West South Central,South,20,22,031
+1606,Chippewa,Michigan,MI,East North Central,Midwest,8,26,033
+500,Sheridan,Wyoming,WY,Mountain,West,23,56,033
+1841,Burke,Georgia,GA,South Atlantic,South,15,13,033
+1613,Flagler,Florida,FL,South Atlantic,South,17,12,035
+520,Sublette,Wyoming,WY,Mountain,West,23,56,035
+796,Creek,Oklahoma,OK,West South Central,South,20,40,037
+2128,Davidson,Tennessee,TN,East South Central,South,19,47,037
+1209,Cass,Missouri,MO,West North Central,Midwest,12,29,037
+3129,Florence,Wisconsin,WI,East North Central,Midwest,9,55,037
+537,Sweetwater,Wyoming,WY,Mountain,West,23,56,037
+915,Colfax,Nebraska,NE,West North Central,Midwest,11,31,037
+1857,Camden,Georgia,GA,South Atlantic,South,15,13,039
+2246,Fond du Lac,Wisconsin,WI,East North Central,Midwest,9,55,039
+521,Teton,Wyoming,WY,Mountain,West,23,56,039
+330,Madera,California,CA,Pacific,West,26,6,039
+2991,Greene,New York,NY,Middle Atlantic,Northeast,3,36,039
+3048,Union,New Jersey,NJ,Middle Atlantic,Northeast,4,34,039
+1678,Covington,Alabama,AL,East South Central,South,18,1,039
+1469,Brazoria,Texas,TX,West South Central,South,21,48,039
+1157,Delaware,Oklahoma,OK,West South Central,South,20,40,041
+2113,DeKalb,Tennessee,TN,East South Central,South,19,47,041
+745,Dickinson,Kansas,KS,West North Central,Midwest,11,20,041
+3136,Delta,Michigan,MI,East North Central,Midwest,8,26,041
+3116,Forest,Wisconsin,WI,East North Central,Midwest,9,55,041
+1541,Franklin,Louisiana,LA,West South Central,South,20,22,041
+1893,Glades,Florida,FL,South Atlantic,South,17,12,043
+427,Brewster,Texas,TX,West South Central,South,21,48,043
+1542,Grant,Louisiana,LA,West South Central,South,20,22,043
+1861,Georgetown,South Carolina,SC,South Atlantic,South,16,45,043
+1550,Drew,Arkansas,AR,West South Central,South,20,5,043
+511,Summit,Utah,UT,Mountain,West,23,49,043
+501,Washakie,Wyoming,WY,Mountain,West,23,56,043
+2978,Herkimer,New York,NY,Middle Atlantic,Northeast,3,36,043
+620,Fremont,Colorado,CO,Mountain,West,22,8,043
+331,Mariposa,California,CA,Pacific,West,26,6,043
+2632,Lincoln,West Virginia,WV,South Atlantic,South,14,54,043
+2061,Floyd,Indiana,IN,East North Central,Midwest,7,18,043
+1203,Douglas,Kansas,KS,West North Central,Midwest,11,20,045
+1213,Clay,Missouri,MO,West North Central,Midwest,12,29,047
+3137,Emmet,Michigan,MI,East North Central,Midwest,8,26,047
+2561,Clark,Kentucky,KY,East South Central,South,18,21,049
+137,Lewis and Clark,Montana,MT,Mountain,West,23,30,049
+1093,Iowa,Wisconsin,WI,East North Central,Midwest,9,55,049
+1543,Jackson,Louisiana,LA,West South Central,South,20,22,049
+1688,Elmore,Alabama,AL,East South Central,South,18,1,051
+509,Wasatch,Utah,UT,Mountain,West,23,49,051
+1981,Fayette,Illinois,IL,East North Central,Midwest,6,17,051
+1562,Humphreys,Mississippi,MS,East South Central,South,18,28,053
+1988,Franklin,Illinois,IL,East North Central,Midwest,6,17,055
+2916,Fulton,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,057
+1882,Hillsborough,Florida,FL,South Atlantic,South,17,12,057
+554,Jackson,Colorado,CO,Mountain,West,22,8,057
+2021,Gallatin,Illinois,IL,East North Central,Midwest,6,17,059
+2508,Clarke,Georgia,GA,South Atlantic,South,15,13,059
+2553,Laurens,South Carolina,SC,South Atlantic,South,16,45,059
+89,Lewis,Idaho,ID,Mountain,West,23,16,061
+756,Geary,Kansas,KS,West North Central,Midwest,11,20,061
+1895,Indian River,Florida,FL,South Atlantic,South,17,12,061
+1171,Howard,Arkansas,AR,West South Central,South,20,5,061
+2716,Lee,South Carolina,SC,South Atlantic,South,16,45,061
+2414,Huron,Michigan,MI,East North Central,Midwest,8,26,063
+1504,Camp,Texas,TX,West South Central,South,21,48,063
+2644,Monroe,West Virginia,WV,South Atlantic,South,14,54,063
+1769,Clinch,Georgia,GA,South Atlantic,South,15,13,065
+1754,Lafayette,Florida,FL,South Atlantic,South,17,12,067
+216,Pembina,North Dakota,ND,West North Central,Midwest,10,38,067
+1505,Cass,Texas,TX,West South Central,South,21,48,067
+2969,Onondaga,New York,NY,Middle Atlantic,Northeast,3,36,067
+2695,Franklin,Virginia,VA,South Atlantic,South,13,51,067
+782,Jefferson,Oklahoma,OK,West South Central,South,20,40,067
+1536,Morehouse,Louisiana,LA,West South Central,South,20,22,067
+1309,Jackson,Arkansas,AR,West South Central,South,20,5,067
+1710,Henry,Alabama,AL,East South Central,South,18,1,067
+396,Minidoka,Idaho,ID,Mountain,West,23,16,067
+93,Nez Perce,Idaho,ID,Mountain,West,23,16,069
+2415,Iosco,Michigan,MI,East North Central,Midwest,8,26,069
+1750,Lake,Florida,FL,South Atlantic,South,17,12,069
+1796,Coffee,Georgia,GA,South Atlantic,South,15,13,069
+1525,Natchitoches,Louisiana,LA,West South Central,South,20,22,069
+1259,Franklin,Missouri,MO,West North Central,Midwest,12,29,071
+2917,Lancaster,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,071
+1620,Orleans,Louisiana,LA,West South Central,South,20,22,071
+1883,Lee,Florida,FL,South Atlantic,South,17,12,071
+2558,Newberry,South Carolina,SC,South Atlantic,South,16,45,071
+2122,Jackson,Alabama,AL,East South Central,South,18,1,071
+2624,Floyd,Kentucky,KY,East South Central,South,18,21,071
+1537,Ouachita,Louisiana,LA,West South Central,South,20,22,073
+1513,Lafayette,Arkansas,AR,West South Central,South,20,5,073
+2505,Oconee,South Carolina,SC,South Atlantic,South,16,45,073
+99,Whitman,Washington,WA,Pacific,West,27,53,075
+1310,Lawrence,Arkansas,AR,West South Central,South,20,5,075
+3130,Marinette,Wisconsin,WI,East North Central,Midwest,9,55,075
+2681,Pocahontas,West Virginia,WV,South Atlantic,South,14,54,075
+377,Payette,Idaho,ID,Mountain,West,23,16,075
+268,Lake,Minnesota,MN,West North Central,Midwest,10,27,075
+1975,Fulton,Kentucky,KY,East South Central,South,18,21,075
+2825,Goochland,Virginia,VA,South Atlantic,South,13,51,075
+2970,Oswego,New York,NY,Middle Atlantic,Northeast,3,36,075
+1781,Cook,Georgia,GA,South Atlantic,South,15,13,075
+2514,Graham,North Carolina,NC,South Atlantic,South,16,37,075
+1931,Haywood,Tennessee,TN,East South Central,South,19,47,075
+314,San Francisco,California,CA,Pacific,West,26,6,075
+159,Powder River,Montana,MT,Mountain,West,23,30,075
+1878,Orangeburg,South Carolina,SC,South Atlantic,South,16,45,075
+1957,Lauderdale,Alabama,AL,East South Central,South,18,1,077
+238,Richland,North Dakota,ND,West North Central,Midwest,10,38,077
+1810,Crawford,Georgia,GA,South Atlantic,South,15,13,079
+1884,Manatee,Florida,FL,South Atlantic,South,17,12,081
+1788,Crisp,Georgia,GA,South Atlantic,South,15,13,081
+2559,Saluda,South Carolina,SC,South Atlantic,South,16,45,081
+793,Logan,Oklahoma,OK,West South Central,South,20,40,083
+3131,Oconto,Wisconsin,WI,East North Central,Midwest,9,55,083
+1546,Richland,Louisiana,LA,West South Central,South,20,22,083
+1417,Collin,Texas,TX,West South Central,South,21,48,085
+1896,Martin,Florida,FL,South Atlantic,South,17,12,085
+1527,Sabine,Louisiana,LA,West South Central,South,20,22,085
+776,Love,Oklahoma,OK,West South Central,South,20,40,085
+2034,Grayson,Kentucky,KY,East South Central,South,18,21,085
+1205,Jefferson,Kansas,KS,West North Central,Midwest,11,20,087
+1622,St. Bernard,Louisiana,LA,West South Central,South,20,22,087
+1614,Monroe,Florida,FL,South Atlantic,South,17,12,087
+2249,Outagamie,Wisconsin,WI,East North Central,Midwest,9,55,087
+379,Washington,Idaho,ID,Mountain,West,23,16,087
+783,McClain,Oklahoma,OK,West South Central,South,20,40,087
+2827,Henrico,Virginia,VA,South Atlantic,South,13,51,087
+2668,Roane,West Virginia,WV,South Atlantic,South,14,54,087
+2522,Haywood,North Carolina,NC,South Atlantic,South,16,37,087
+1745,Decatur,Georgia,GA,South Atlantic,South,15,13,087
+1961,Johnson,Illinois,IL,East North Central,Midwest,6,17,087
+2094,Green,Kentucky,KY,East South Central,South,18,21,087
+108,Sanders,Montana,MT,Mountain,West,23,30,089
+1210,Johnson,Kansas,KS,West North Central,Midwest,11,20,091
+1448,Comal,Texas,TX,West South Central,South,21,48,091
+1797,Dodge,Georgia,GA,South Atlantic,South,15,13,091
+1515,Miller,Arkansas,AR,West South Central,South,20,5,091
+1237,Howell,Missouri,MO,West North Central,Midwest,12,29,091
+1789,Dooly,Georgia,GA,South Atlantic,South,15,13,093
+1790,Dougherty,Georgia,GA,South Atlantic,South,15,13,095
+2582,Harlan,Kentucky,KY,East South Central,South,18,21,095
+2261,Lake,Illinois,IL,East North Central,Midwest,6,17,097
+2428,Macomb,Michigan,MI,East North Central,Midwest,8,26,099
+1892,Palm Beach,Florida,FL,South Atlantic,South,17,12,099
+1592,St. Martin,Louisiana,LA,West South Central,South,20,22,099
+1516,Nevada,Arkansas,AR,West South Central,South,20,5,099
+217,Walsh,North Dakota,ND,West North Central,Midwest,10,38,099
+1770,Echols,Georgia,GA,South Atlantic,South,15,13,101
+1593,St. Mary,Louisiana,LA,West South Central,South,20,22,101
+1946,Lewis,Tennessee,TN,East South Central,South,19,47,101
+1159,Muskogee,Oklahoma,OK,West South Central,South,20,40,101
+2782,Johnston,North Carolina,NC,South Atlantic,South,16,37,101
+122,Ward,North Dakota,ND,West North Central,Midwest,10,38,101
+291,Tehama,California,CA,Pacific,West,26,6,103
+1029,Nicollet,Minnesota,MN,West North Central,Midwest,10,27,103
+794,Noble,Oklahoma,OK,West South Central,South,20,40,103
+1211,Leavenworth,Kansas,KS,West North Central,Midwest,11,20,103
+1244,Laclede,Missouri,MO,West North Central,Midwest,12,29,105
+428,Crockett,Texas,TX,West South Central,South,21,48,105
+3022,Sullivan,New York,NY,Middle Atlantic,Northeast,3,36,105
+2613,Meigs,Ohio,OH,East North Central,Midwest,7,39,105
+1566,Tensas,Louisiana,LA,West South Central,South,20,22,107
+2015,Hopkins,Kentucky,KY,East South Central,South,18,21,107
+533,Routt,Colorado,CO,Mountain,West,22,8,107
+2948,Schuylkill,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,107
+2777,Lenoir,North Carolina,NC,South Atlantic,South,16,37,107
+1219,Lafayette,Missouri,MO,West North Central,Midwest,12,29,107
+140,Wheatland,Montana,MT,Mountain,West,23,30,107
+2809,Loudoun,Virginia,VA,South Atlantic,South,13,51,107
+2670,Wood,West Virginia,WV,South Atlantic,South,14,54,107
+2160,McMinn,Tennessee,TN,East South Central,South,19,47,107
+798,Okfuskee,Oklahoma,OK,West South Central,South,20,40,107
+150,Yellowstone,Montana,MT,Mountain,West,23,30,111
+2490,Fannin,Georgia,GA,South Atlantic,South,15,13,111
+2819,Lunenburg,Virginia,VA,South Atlantic,South,13,51,111
+487,San Miguel,Colorado,CO,Mountain,West,22,8,113
+325,Yolo,California,CA,Pacific,West,26,6,113
+754,Marion,Kansas,KS,West North Central,Midwest,11,20,115
+2154,Marion,Tennessee,TN,East South Central,South,19,47,115
+1887,Sarasota,Florida,FL,South Atlantic,South,17,12,115
+2236,Sheboygan,Wisconsin,WI,East North Central,Midwest,9,55,117
+1617,Seminole,Florida,FL,South Atlantic,South,17,12,117
+2491,Forsyth,Georgia,GA,South Atlantic,South,15,13,117
+2820,Mecklenburg,Virginia,VA,South Atlantic,South,13,51,117
+1982,Macoupin,Illinois,IL,East North Central,Midwest,6,17,117
+1002,Livingston,Missouri,MO,West North Central,Midwest,12,29,117
+799,Pawnee,Oklahoma,OK,West South Central,South,20,40,117
+2974,Wayne,New York,NY,Middle Atlantic,Northeast,3,36,117
+2791,Martin,North Carolina,NC,South Atlantic,South,16,37,117
+1586,Washington,Louisiana,LA,West South Central,South,20,22,117
+2131,Marshall,Tennessee,TN,East South Central,South,19,47,117
+1294,Prairie,Arkansas,AR,West South Central,South,20,5,117
+2941,Tioga,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,117
+2583,Knott,Kentucky,KY,East South Central,South,18,21,119
+1766,Suwannee,Florida,FL,South Atlantic,South,17,12,121
+580,Washington,Colorado,CO,Mountain,West,22,8,121
+2442,Noble,Ohio,OH,East North Central,Midwest,7,39,121
+932,Merrick,Nebraska,NE,West North Central,Midwest,11,31,121
+2161,Meigs,Tennessee,TN,East South Central,South,19,47,121
+2530,Mitchell,North Carolina,NC,South Atlantic,South,16,37,121
+2275,Muskegon,Michigan,MI,East North Central,Midwest,8,26,121
+1085,Trempealeau,Wisconsin,WI,East North Central,Midwest,9,55,121
+2385,Ottawa,Ohio,OH,East North Central,Midwest,7,39,123
+2744,Montgomery,North Carolina,NC,South Atlantic,South,16,37,123
+2745,Moore,North Carolina,NC,South Atlantic,South,16,37,125
+1767,Union,Florida,FL,South Atlantic,South,17,12,125
+2471,Washington,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,125
+2569,Laurel,Kentucky,KY,East South Central,South,18,21,125
+1238,Maries,Missouri,MO,West North Central,Midwest,12,29,125
+2704,Nelson,Virginia,VA,South Atlantic,South,13,51,125
+2318,Porter,Indiana,IN,East North Central,Midwest,7,18,127
+1618,Volusia,Florida,FL,South Atlantic,South,17,12,127
+1547,Winn,Louisiana,LA,West South Central,South,20,22,127
+1030,Redwood,Minnesota,MN,West North Central,Midwest,10,27,127
+1100,Marion,Missouri,MO,West North Central,Midwest,12,29,127
+1737,Wakulla,Florida,FL,South Atlantic,South,17,12,129
+2174,Gordon,Georgia,GA,South Atlantic,South,15,13,129
+1031,Renville,Minnesota,MN,West North Central,Midwest,10,27,129
+1160,Rogers,Oklahoma,OK,West South Central,South,20,40,131
+2584,Leslie,Kentucky,KY,East South Central,South,18,21,131
+2910,Northampton,Virginia,VA,South Atlantic,South,13,51,131
+1254,Miller,Missouri,MO,West North Central,Midwest,12,29,131
+953,Otoe,Nebraska,NE,West North Central,Midwest,11,31,131
+2783,Northampton,North Carolina,NC,South Atlantic,South,16,37,131
+1130,Mercer,Illinois,IL,East North Central,Midwest,6,17,131
+945,Monona,Iowa,IA,West North Central,Midwest,10,19,133
+1782,Greene,Georgia,GA,South Atlantic,South,15,13,133
+2804,Onslow,North Carolina,NC,South Atlantic,South,16,37,133
+1264,Monroe,Illinois,IL,East North Central,Midwest,6,17,133
+2451,Portage,Ohio,OH,East North Central,Midwest,7,39,133
+2949,York,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,133
+2147,Overton,Tennessee,TN,East South Central,South,19,47,133
+1979,Mississippi,Missouri,MO,West North Central,Midwest,12,29,133
+1739,Washington,Florida,FL,South Atlantic,South,17,12,133
+2309,Putnam,Indiana,IN,East North Central,Midwest,7,18,133
+1901,Winston,Alabama,AL,East South Central,South,18,1,133
+1303,Sharp,Arkansas,AR,West South Central,South,20,5,135
+2591,Lewis,Kentucky,KY,East South Central,South,18,21,135
+2242,Waupaca,Wisconsin,WI,East North Central,Midwest,9,55,135
+213,Roseau,Minnesota,MN,West North Central,Midwest,10,27,135
+2835,Nottoway,Virginia,VA,South Atlantic,South,13,51,135
+1938,Perry,Tennessee,TN,East South Central,South,19,47,135
+1161,Sequoyah,Oklahoma,OK,West South Central,South,20,40,135
+2492,Gwinnett,Georgia,GA,South Atlantic,South,15,13,135
+2498,Habersham,Georgia,GA,South Atlantic,South,15,13,137
+2104,Lincoln,Kentucky,KY,East South Central,South,18,21,137
+2148,Pickett,Tennessee,TN,East South Central,South,19,47,137
+2849,Orange,Virginia,VA,South Atlantic,South,13,51,137
+571,Ziebach,South Dakota,SD,West North Central,Midwest,10,46,137
+1914,Tate,Mississippi,MS,East South Central,South,18,28,137
+1286,Stone,Arkansas,AR,West South Central,South,20,5,137
+2805,Pamlico,North Carolina,NC,South Atlantic,South,16,37,137
+1342,Edwards,Texas,TX,West South Central,South,21,48,137
+1551,Union,Arkansas,AR,West South Central,South,20,5,139
+2493,Hall,Georgia,GA,South Atlantic,South,15,13,139
+2027,Livingston,Kentucky,KY,East South Central,South,18,21,139
+1261,Montgomery,Missouri,MO,West North Central,Midwest,12,29,139
+2251,Winnebago,Wisconsin,WI,East North Central,Midwest,9,55,139
+2408,Richland,Ohio,OH,East North Central,Midwest,7,39,139
+2796,Pasquotank,North Carolina,NC,South Atlantic,South,16,37,139
+1608,Presque Isle,Michigan,MI,East North Central,Midwest,8,26,141
+2595,Ross,Ohio,OH,East North Central,Midwest,7,39,141
+2302,St. Joseph,Indiana,IN,East North Central,Midwest,7,18,141
+2204,Ogle,Illinois,IL,East North Central,Midwest,6,17,141
+2149,Putnam,Tennessee,TN,East South Central,South,19,47,141
+2770,Pender,North Carolina,NC,South Atlantic,South,16,37,141
+2658,Patrick,Virginia,VA,South Atlantic,South,13,51,141
+1991,Perry,Illinois,IL,East North Central,Midwest,6,17,145
+2133,Robertson,Tennessee,TN,East South Central,South,19,47,147
+2429,St. Clair,Michigan,MI,East North Central,Midwest,8,26,147
+2821,Prince Edward,Virginia,VA,South Atlantic,South,13,51,147
+2792,Pitt,North Carolina,NC,South Atlantic,South,16,37,147
+2108,McCreary,Kentucky,KY,East South Central,South,18,21,147
+2140,Rutherford,Tennessee,TN,East South Central,South,19,47,149
+760,Pottawatomie,Kansas,KS,West North Central,Midwest,11,20,149
+2017,McLean,Kentucky,KY,East South Central,South,18,21,149
+2531,Polk,North Carolina,NC,South Atlantic,South,16,37,149
+859,Rock,Nebraska,NE,West North Central,Midwest,11,31,149
+1142,Pike,Illinois,IL,East North Central,Midwest,6,17,149
+1571,Warren,Mississippi,MS,East South Central,South,18,28,149
+1455,Fayette,Texas,TX,West South Central,South,21,48,149
+2877,Prince George,Virginia,VA,South Atlantic,South,13,51,149
+31,Kodiak Island,Alaska,AK,Pacific,West,27,2,150
+2564,Madison,Kentucky,KY,East South Central,South,18,21,151
+2430,Sanilac,Michigan,MI,East North Central,Midwest,8,26,151
+2023,Pope,Illinois,IL,East North Central,Midwest,6,17,151
+2156,Sequatchie,Tennessee,TN,East South Central,South,19,47,153
+694,Woodward,Oklahoma,OK,West South Central,South,20,40,153
+2453,Summit,Ohio,OH,East North Central,Midwest,7,39,153
+3141,Schoolcraft,Michigan,MI,East North Central,Midwest,8,26,153
+249,Todd,Minnesota,MN,West North Central,Midwest,10,27,153
+2850,Prince William,Virginia,VA,South Atlantic,South,13,51,153
+2755,Richmond,North Carolina,NC,South Atlantic,South,16,37,153
+2005,Sullivan,Indiana,IN,East North Central,Midwest,7,18,153
+992,Polk,Iowa,IA,West North Central,Midwest,10,19,153
+940,Sarpy,Nebraska,NE,West North Central,Midwest,11,31,153
+1985,Randolph,Illinois,IL,East North Central,Midwest,6,17,157
+1970,Perry,Missouri,MO,West North Central,Midwest,12,29,157
+2509,Jackson,Georgia,GA,South Atlantic,South,15,13,157
+1924,Shelby,Tennessee,TN,East South Central,South,19,47,157
+2851,Rappahannock,Virginia,VA,South Atlantic,South,13,51,157
+2443,Tuscarawas,Ohio,OH,East North Central,Midwest,7,39,157
+1572,Wilkinson,Mississippi,MS,East South Central,South,18,28,157
+2310,Tippecanoe,Indiana,IN,East North Central,Midwest,7,18,157
+2418,Tuscola,Michigan,MI,East North Central,Midwest,8,26,157
+2627,Martin,Kentucky,KY,East South Central,South,18,21,159
+1996,Richland,Illinois,IL,East North Central,Midwest,6,17,159
+1221,Pettis,Missouri,MO,West North Central,Midwest,12,29,159
+2892,Richmond,Virginia,VA,South Atlantic,South,13,51,159
+2278,Van Buren,Michigan,MI,East North Central,Midwest,8,26,159
+2115,Smith,Tennessee,TN,East South Central,South,19,47,159
+2739,Rowan,North Carolina,NC,South Atlantic,South,16,37,159
+1246,Phelps,Missouri,MO,West North Central,Midwest,12,29,161
+565,Sheridan,Nebraska,NE,West North Central,Midwest,11,31,161
+566,Sioux,Nebraska,NE,West North Central,Midwest,11,31,165
+2116,Sumner,Tennessee,TN,East South Central,South,19,47,165
+2756,Scotland,North Carolina,NC,South Atlantic,South,16,37,165
+2226,Vermillion,Indiana,IN,East North Central,Midwest,7,18,165
+2619,Russell,Virginia,VA,South Atlantic,South,13,51,167
+2740,Stanly,North Carolina,NC,South Atlantic,South,16,37,167
+2105,Mercer,Kentucky,KY,East South Central,South,18,21,167
+2620,Scott,Virginia,VA,South Atlantic,South,13,51,169
+1074,Winona,Minnesota,MN,West North Central,Midwest,10,27,169
+33,Matanuska-Susitna,Alaska,AK,Pacific,West,27,2,170
+2096,Monroe,Kentucky,KY,East South Central,South,18,21,171
+1006,Putnam,Missouri,MO,West North Central,Midwest,12,29,171
+2843,Shenandoah,Virginia,VA,South Atlantic,South,13,51,171
+263,Wright,Minnesota,MN,West North Central,Midwest,10,27,171
+739,Sedgwick,Kansas,KS,West North Central,Midwest,11,20,173
+1102,Ralls,Missouri,MO,West North Central,Midwest,12,29,173
+898,Yellow Medicine,Minnesota,MN,West North Central,Midwest,10,27,173
+2390,Wood,Ohio,OH,East North Central,Midwest,7,39,173
+2524,Swain,North Carolina,NC,South Atlantic,South,16,37,173
+2185,Shelby,Illinois,IL,East North Central,Midwest,6,17,173
+1784,Lanier,Georgia,GA,South Atlantic,South,15,13,173
+2648,Smyth,Virginia,VA,South Atlantic,South,13,51,173
+1791,Lee,Georgia,GA,South Atlantic,South,15,13,177
+2044,Muhlenberg,Kentucky,KY,East South Central,South,18,21,177
+2810,Spotsylvania,Virginia,VA,South Atlantic,South,13,51,177
+2798,Tyrrell,North Carolina,NC,South Atlantic,South,16,37,177
+2141,Warren,Tennessee,TN,East South Central,South,19,47,177
+943,Washington,Nebraska,NE,West North Central,Midwest,11,31,177
+1222,Ray,Missouri,MO,West North Central,Midwest,12,29,177
+2088,Nelson,Kentucky,KY,East South Central,South,18,21,179
+2811,Stafford,Virginia,VA,South Atlantic,South,13,51,179
+2333,Wells,Indiana,IN,East North Central,Midwest,7,18,179
+2545,Lincoln,Georgia,GA,South Atlantic,South,15,13,181
+2879,Surry,Virginia,VA,South Atlantic,South,13,51,181
+2880,Sussex,Virginia,VA,South Atlantic,South,13,51,183
+2045,Ohio,Kentucky,KY,East South Central,South,18,21,183
+1266,St. Charles,Missouri,MO,West North Central,Midwest,12,29,183
+2785,Wake,North Carolina,NC,South Atlantic,South,16,37,183
+1122,Washington,Iowa,IA,West North Central,Midwest,10,19,183
+1926,Weakley,Tennessee,TN,East South Central,South,19,47,183
+2635,Tazewell,Virginia,VA,South Atlantic,South,13,51,185
+2073,Oldham,Kentucky,KY,East South Central,South,18,21,185
+2786,Warren,North Carolina,NC,South Atlantic,South,16,37,185
+1231,St. Clair,Missouri,MO,West North Central,Midwest,12,29,185
+1456,Grimes,Texas,TX,West South Central,South,21,48,185
+2158,White,Tennessee,TN,East South Central,South,19,47,185
+1760,Lowndes,Georgia,GA,South Atlantic,South,15,13,185
+23,North Slope,Alaska,AK,Pacific,West,27,2,185
+1279,Ste. Genevieve,Missouri,MO,West North Central,Midwest,12,29,186
+2134,Williamson,Tennessee,TN,East South Central,South,19,47,187
+2494,Lumpkin,Georgia,GA,South Atlantic,South,15,13,187
+1280,St. Francois,Missouri,MO,West North Central,Midwest,12,29,187
+2083,Owen,Kentucky,KY,East South Central,South,18,21,187
+1992,Washington,Illinois,IL,East North Central,Midwest,6,17,189
+2480,Watauga,North Carolina,NC,South Atlantic,South,16,37,189
+1998,White,Illinois,IL,East North Central,Midwest,6,17,193
+1812,Macon,Georgia,GA,South Atlantic,South,15,13,193
+289,Shasta,California,CA,Pacific,West,26,6,089
+1751,Nassau,Florida,FL,South Atlantic,South,17,12,089
+1153,McCurtain,Oklahoma,OK,West South Central,South,20,40,089
+2489,DeKalb,Georgia,GA,South Atlantic,South,15,13,089
+29,Fairbanks North Star,Alaska,AK,Pacific,West,27,2,090
+2042,Hancock,Kentucky,KY,East South Central,South,18,21,091
+1583,St. Helena,Louisiana,LA,West South Central,South,20,22,091
+2317,LaPorte,Indiana,IN,East North Central,Midwest,7,18,091
+1671,Marengo,Alabama,AL,East South Central,South,18,1,091
+2212,Kankakee,Illinois,IL,East North Central,Midwest,6,17,091
+290,Siskiyou,California,CA,Pacific,West,26,6,093
+2802,Hyde,North Carolina,NC,South Atlantic,South,16,37,095
+261,Mille Lacs,Minnesota,MN,West North Central,Midwest,10,27,095
+1408,Cooke,Texas,TX,West South Central,South,21,48,097
+763,Wabaunsee,Kansas,KS,West North Central,Midwest,11,20,197
+2649,Wythe,Virginia,VA,South Atlantic,South,13,51,197
+1109,Schuyler,Missouri,MO,West North Central,Midwest,12,29,197
+702,Hardeman,Texas,TX,West South Central,South,21,48,197
+2566,Powell,Kentucky,KY,East South Central,South,18,21,197
+2214,Will,Illinois,IL,East North Central,Midwest,6,17,197
+2028,Union,Kentucky,KY,East South Central,South,18,21,225
+3050,Androscoggin,Maine,ME,New England,Northeast,1,23,001
+3109,Franklin,Maine,ME,New England,Northeast,1,23,007
+2151,Bledsoe,Tennessee,TN,East South Central,South,19,47,007
+1472,Hardin,Texas,TX,West South Central,South,21,48,199
+2533,Yancey,North Carolina,NC,South Atlantic,South,16,37,199
+2109,Pulaski,Kentucky,KY,East South Central,South,18,21,199
+2881,York,Virginia,VA,South Atlantic,South,13,51,199
+3061,New Haven,Connecticut,CT,New England,Northeast,1,9,009
+2865,Arlington,Virginia,VA,South Atlantic,South,13,51,013
+2799,Beaufort,North Carolina,NC,South Atlantic,South,16,37,013
+1971,Scott,Missouri,MO,West North Central,Midwest,12,29,201
+619,Chaffee,Colorado,CO,Mountain,West,22,8,015
+2570,Rockcastle,Kentucky,KY,East South Central,South,18,21,203
+2198,Woodford,Illinois,IL,East North Central,Midwest,6,17,203
+1507,Harrison,Texas,TX,West South Central,South,21,48,203
+2686,Bath,Virginia,VA,South Atlantic,South,13,51,017
+1356,Bandera,Texas,TX,West South Central,South,21,48,019
+420,Pinal,Arizona,AZ,Mountain,West,24,4,021
+1856,Brantley,Georgia,GA,South Atlantic,South,15,13,025
+1792,Mitchell,Georgia,GA,South Atlantic,South,15,13,205
+363,Pershing,Nevada,NV,Mountain,West,25,32,027
+1234,Callaway,Missouri,MO,West North Central,Midwest,12,29,027
+1298,Conway,Arkansas,AR,West South Central,South,20,5,029
+1813,Monroe,Georgia,GA,South Atlantic,South,15,13,207
+1972,Stoddard,Missouri,MO,West North Central,Midwest,12,29,207
+2208,Cook,Illinois,IL,East North Central,Midwest,6,17,031
+479,McKinley,New Mexico,NM,Mountain,West,25,35,031
+1785,Morgan,Georgia,GA,South Atlantic,South,15,13,211
+2074,Shelby,Kentucky,KY,East South Central,South,18,21,211
+2664,Harrison,West Virginia,WV,South Atlantic,South,14,54,033
+1190,Taney,Missouri,MO,West North Central,Midwest,12,29,213
+2175,Murray,Georgia,GA,South Atlantic,South,15,13,213
+2654,Carroll,Virginia,VA,South Atlantic,South,13,51,035
+1721,Muscogee,Georgia,GA,South Atlantic,South,15,13,215
+386,Custer,Idaho,ID,Mountain,West,23,16,037
+2511,Oconee,Georgia,GA,South Atlantic,South,15,13,219
+2950,Cumberland,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,041
+1263,Warren,Missouri,MO,West North Central,Midwest,12,29,219
+8,Sitka,Alaska,AK,Pacific,West,27,2,220
+1827,Candler,Georgia,GA,South Atlantic,South,15,13,043
+1276,Washington,Missouri,MO,West North Central,Midwest,12,29,221
+2512,Oglethorpe,Georgia,GA,South Atlantic,South,15,13,221
+481,San Juan,New Mexico,NM,Mountain,West,25,35,045
+720,Ellis,Kansas,KS,West North Central,Midwest,11,20,051
+2463,Forest,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,053
+354,Polk,Oregon,OR,Pacific,West,27,41,053
+1308,Greene,Arkansas,AR,West South Central,South,20,5,055
+47,San Juan,Washington,WA,Pacific,West,27,53,055
+72,Sherman,Oregon,OR,Pacific,West,27,41,055
+2722,Lancaster,South Carolina,SC,South Atlantic,South,16,45,057
+735,Harper,Oklahoma,OK,West South Central,South,20,40,059
+2020,Webster,Kentucky,KY,East South Central,South,18,21,233
+2152,Grundy,Tennessee,TN,East South Central,South,19,47,061
+606,Valencia,New Mexico,NM,Mountain,West,25,35,061
+1824,Pulaski,Georgia,GA,South Atlantic,South,15,13,235
+1786,Putnam,Georgia,GA,South Atlantic,South,15,13,237
+1283,Independence,Arkansas,AR,West South Central,South,20,5,063
+2981,Oneida,New York,NY,Middle Atlantic,Northeast,3,36,065
+1843,Screven,Georgia,GA,South Atlantic,South,15,13,251
+2762,Marlboro,South Carolina,SC,South Atlantic,South,16,45,069
+1746,Seminole,Georgia,GA,South Atlantic,South,15,13,253
+62,Yamhill,Oregon,OR,Pacific,West,27,41,071
+1838,Taliaferro,Georgia,GA,South Atlantic,South,15,13,265
+2535,Hawkins,Tennessee,TN,East South Central,South,19,47,073
+2475,Preston,West Virginia,WV,South Atlantic,South,14,54,077
+1756,Madison,Florida,FL,South Atlantic,South,17,12,079
+25,Wade Hampton,Alaska,AK,Pacific,West,27,2,270
+1799,Telfair,Georgia,GA,South Atlantic,South,15,13,271
+1343,Kinney,Texas,TX,West South Central,South,21,48,271
+1337,Kleberg,Texas,TX,West South Central,South,21,48,273
+1731,Terrell,Georgia,GA,South Atlantic,South,15,13,273
+573,Lawrence,South Dakota,SD,West North Central,Midwest,10,46,081
+1849,Toombs,Georgia,GA,South Atlantic,South,15,13,279
+4,Wrangell-Petersburg,Alaska,AK,Pacific,West,27,2,280
+2501,Towns,Georgia,GA,South Atlantic,South,15,13,281
+12,Yakutat,Alaska,AK,Pacific,West,27,2,282
+161,Richland,Montana,MT,Mountain,West,23,30,083
+1976,Graves,Kentucky,KY,East South Central,South,18,21,083
+1831,Treutlen,Georgia,GA,South Atlantic,South,15,13,283
+3025,Monroe,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,089
+2035,Hardin,Kentucky,KY,East South Central,South,18,21,093
+1832,Washington,Georgia,GA,South Atlantic,South,15,13,303
+1615,Orange,Florida,FL,South Atlantic,South,17,12,095
+2953,Perry,Pennsylvania,PA,Middle Atlantic,Northeast,5,42,099
+1394,McCulloch,Texas,TX,West South Central,South,21,48,307
+1406,McLennan,Texas,TX,West South Central,South,21,48,309
+1851,Wheeler,Georgia,GA,South Atlantic,South,15,13,309
+2314,Morgan,Indiana,IN,East North Central,Midwest,7,18,109
+2502,White,Georgia,GA,South Atlantic,South,15,13,311
+1432,Madison,Texas,TX,West South Central,South,21,48,313
+2172,Whitfield,Georgia,GA,South Atlantic,South,15,13,313
+1508,Marion,Texas,TX,West South Central,South,21,48,315
+2235,Sauk,Wisconsin,WI,East North Central,Midwest,9,55,111
+2546,Wilkes,Georgia,GA,South Atlantic,South,15,13,317
+1826,Wilkinson,Georgia,GA,South Atlantic,South,15,13,319
+2409,Morgan,Ohio,OH,East North Central,Midwest,7,39,115
+1794,Worth,Georgia,GA,South Atlantic,South,15,13,321
+1466,Matagorda,Texas,TX,West South Central,South,21,48,321
+1345,Maverick,Texas,TX,West South Central,South,21,48,323
+1361,Medina,Texas,TX,West South Central,South,21,48,325
+2575,Lee,Kentucky,KY,East South Central,South,18,21,129
+1674,Washington,Alabama,AL,East South Central,South,18,1,129
+1458,Milam,Texas,TX,West South Central,South,21,48,331
+1395,Mills,Texas,TX,West South Central,South,21,48,333
+2452,Stark,Ohio,OH,East North Central,Midwest,7,39,151
+1412,Montague,Texas,TX,West South Central,South,21,48,337
+1475,Montgomery,Texas,TX,West South Central,South,21,48,339
+236,Traverse,Minnesota,MN,West North Central,Midwest,10,27,155
+1509,Morris,Texas,TX,West South Central,South,21,48,343
+2878,Southampton,Virginia,VA,South Atlantic,South,13,51,175
+1433,Navarro,Texas,TX,West South Central,South,21,48,349
+1483,Newton,Texas,TX,West South Central,South,21,48,351
+2321,White,Indiana,IN,East North Central,Midwest,7,18,181
+1338,Nueces,Texas,TX,West South Central,South,21,48,355
+1847,Montgomery,Georgia,GA,South Atlantic,South,15,13,209
+1814,Peach,Georgia,GA,South Atlantic,South,15,13,225
+1413,Palo Pinto,Texas,TX,West South Central,South,21,48,363
+1500,Panola,Texas,TX,West South Central,South,21,48,365
+1414,Parker,Texas,TX,West South Central,South,21,48,367
+1848,Pierce,Georgia,GA,South Atlantic,South,15,13,229
+430,Pecos,Texas,TX,West South Central,South,21,48,371
+1476,Polk,Texas,TX,West South Central,South,21,48,373
+34,Yukon-Koyukuk,Alaska,AK,Pacific,West,27,2,290
+431,Presidio,Texas,TX,West South Central,South,21,48,377
+1423,Rains,Texas,TX,West South Central,South,21,48,379
+2899,Portsmouth,Virginia,VA,South Atlantic,South,13,51,740
+1362,Real,Texas,TX,West South Central,South,21,48,385
+1494,Red River,Texas,TX,West South Central,South,21,48,387
+446,Reeves,Texas,TX,West South Central,South,21,48,389
+1442,Refugio,Texas,TX,West South Central,South,21,48,391
+1434,Robertson,Texas,TX,West South Central,South,21,48,395
+1501,Rusk,Texas,TX,West South Central,South,21,48,401
+1529,Sabine,Texas,TX,West South Central,South,21,48,403
+1530,San Augustine,Texas,TX,West South Central,South,21,48,405
+1531,Shelby,Texas,TX,West South Central,South,21,48,419
+1502,Smith,Texas,TX,West South Central,South,21,48,423
+1328,Starr,Texas,TX,West South Central,South,21,48,427
+1415,Tarrant,Texas,TX,West South Central,South,21,48,439
+1379,Tom Green,Texas,TX,West South Central,South,21,48,451
+1503,Trinity,Texas,TX,West South Central,South,21,48,455
+1478,Tyler,Texas,TX,West South Central,South,21,48,457
+1511,Upshur,Texas,TX,West South Central,South,21,48,459
+680,Wichita,Texas,TX,West South Central,South,21,48,485
+703,Wilbarger,Texas,TX,West South Central,South,21,48,487
+1451,Williamson,Texas,TX,West South Central,South,21,48,491
+1443,Wilson,Texas,TX,West South Central,South,21,48,493
+1416,Wise,Texas,TX,West South Central,South,21,48,497
+1495,Wood,Texas,TX,West South Central,South,21,48,499
+1330,Zapata,Texas,TX,West South Central,South,21,48,505
+2622,Bristol,Virginia,VA,South Atlantic,South,13,51,520
+2894,Chesapeake,Virginia,VA,South Atlantic,South,13,51,550
+2836,Colonial Heights,Virginia,VA,South Atlantic,South,13,51,570
+2692,Danville,Virginia,VA,South Atlantic,South,13,51,590
+2895,Hampton,Virginia,VA,South Atlantic,South,13,51,650
+2883,Hopewell,Virginia,VA,South Atlantic,South,13,51,670
+2705,Lynchburg,Virginia,VA,South Atlantic,South,13,51,680
+2852,Manassas,Virginia,VA,South Atlantic,South,13,51,683
+2896,Newport News,Virginia,VA,South Atlantic,South,13,51,700
+2897,Norfolk,Virginia,VA,South Atlantic,South,13,51,710
+2700,Roanoke City,Virginia,VA,South Atlantic,South,13,51,770
+2900,Virginia Beach,Virginia,VA,South Atlantic,South,13,51,810
+2884,Williamsburg,Virginia,VA,South Atlantic,South,13,51,830
+19,Aleutians West,Alaska,AK,Pacific,West,27,2,016
+962,Doniphan,Kansas,KS,West North Central,Midwest,11,20,043
+352,Linn,Oregon,OR,Pacific,West,27,41,043
+1512,Hempstead,Arkansas,AR,West South Central,South,20,5,057
+138,Madison,Montana,MT,Mountain,West,23,30,057
+1441,Live Oak,Texas,TX,West South Central,South,21,48,297
+10,Southeast Fairbanks,Alaska,AK,Pacific,West,27,2,240
+1663,Greene,Alabama,AL,East South Central,South,18,1,063
+1646,Rankin,Mississippi,MS,East South Central,South,18,28,121
+1427,Ellis,Texas,TX,West South Central,South,21,48,139
+1429,Henderson,Texas,TX,West South Central,South,21,48,213
+279,Barron,Wisconsin,WI,East North Central,Midwest,9,55,005
+417,Graham,Arizona,AZ,Mountain,West,24,4,009
+2907,Cape May,New Jersey,NJ,Middle Atlantic,Northeast,4,34,009
+1533,Avoyelles,Louisiana,LA,West South Central,South,20,22,009
+2516,Blount,Tennessee,TN,East South Central,South,19,47,009
+1549,Calhoun,Arkansas,AR,West South Central,South,20,5,013
+2025,Caldwell,Kentucky,KY,East South Central,South,18,21,033
+2496,Cherokee,North Carolina,NC,South Atlantic,South,16,37,039
+102,Granite,Montana,MT,Mountain,West,23,30,039
+1935,Decatur,Tennessee,TN,East South Central,South,19,47,039
+53,Washington,Oregon,OR,Pacific,West,27,41,067
+1140,Hancock,Illinois,IL,East North Central,Midwest,6,17,067
+28,Denali,Alaska,AK,Pacific,West,27,2,068
+1284,Jefferson,Arkansas,AR,West South Central,South,20,5,069
+947,Fremont,Iowa,IA,West North Central,Midwest,10,19,071
+786,Clay,Texas,TX,West South Central,South,21,48,077
+1526,Red River,Louisiana,LA,West South Central,South,20,22,081
+2285,Mason,Michigan,MI,East North Central,Midwest,8,26,105
+117,Valley,Montana,MT,Mountain,West,23,30,105
+2669,Wirt,West Virginia,WV,South Atlantic,South,14,54,105
+2958,Tioga,New York,NY,Middle Atlantic,Northeast,3,36,107
+1828,Emanuel,Georgia,GA,South Atlantic,South,15,13,107
+284,St. Croix,Wisconsin,WI,East North Central,Midwest,9,55,109
+2996,Warren,New York,NY,Middle Atlantic,Northeast,3,36,113
+2841,Madison,Virginia,VA,South Atlantic,South,13,51,113
+30,Kenai Peninsula,Alaska,AK,Pacific,West,27,2,122
+1757,Taylor,Florida,FL,South Atlantic,South,17,12,123
+863,Tripp,South Dakota,SD,West North Central,Midwest,10,46,123
+1942,Montgomery,Tennessee,TN,East South Central,South,19,47,125
+2423,Oakland,Michigan,MI,East North Central,Midwest,8,26,125
+3120,Vilas,Wisconsin,WI,East North Central,Midwest,9,55,125
+1296,Saline,Arkansas,AR,West South Central,South,20,5,125
+2626,Lawrence,Kentucky,KY,East South Central,South,18,21,127
+1738,Walton,Florida,FL,South Atlantic,South,17,12,131
+3115,Ontonagon,Michigan,MI,East North Central,Midwest,8,26,131
+1675,Wilcox,Alabama,AL,East South Central,South,18,1,131
+1759,Grady,Georgia,GA,South Atlantic,South,15,13,131
+1177,Sebastian,Arkansas,AR,West South Central,South,20,5,131
+2874,Northumberland,Virginia,VA,South Atlantic,South,13,51,133
+2842,Page,Virginia,VA,South Atlantic,South,13,51,139
+2277,Ottawa,Michigan,MI,East North Central,Midwest,8,26,139
+1135,Muscatine,Iowa,IA,West North Central,Midwest,10,19,139
+439,El Paso,Texas,TX,West South Central,South,21,48,141
+1783,Hancock,Georgia,GA,South Atlantic,South,15,13,141
+262,Sherburne,Minnesota,MN,West North Central,Midwest,10,27,141
+916,Platte,Nebraska,NE,West North Central,Midwest,11,31,141
+1304,Van Buren,Arkansas,AR,West South Central,South,20,5,141
+1954,Tishomingo,Mississippi,MS,East South Central,South,18,28,141
+2016,Lyon,Kentucky,KY,East South Central,South,18,21,143
+2544,Hart,Georgia,GA,South Atlantic,South,15,13,147
+955,Richardson,Nebraska,NE,West North Central,Midwest,11,31,147
+1320,Woodruff,Arkansas,AR,West South Central,South,20,5,147
+1963,Pulaski,Illinois,IL,East North Central,Midwest,6,17,153
+2077,Switzerland,Indiana,IN,East North Central,Midwest,7,18,155
+749,Reno,Kansas,KS,West North Central,Midwest,11,20,155
+2697,Roanoke,Virginia,VA,South Atlantic,South,13,51,161
+1215,Platte,Missouri,MO,West North Central,Midwest,12,29,165
+2189,Warren,Indiana,IN,East North Central,Midwest,7,18,171
+2565,Montgomery,Kentucky,KY,East South Central,South,18,21,173
+2521,Union,Tennessee,TN,East South Central,South,19,47,173
+2197,Tazewell,Illinois,IL,East North Central,Midwest,6,17,179
+2793,Washington,North Carolina,NC,South Atlantic,South,16,37,187
+2844,Warren,Virginia,VA,South Atlantic,South,13,51,187
+24,Northwest Arctic,Alaska,AK,Pacific,West,27,2,188
+2585,Owsley,Kentucky,KY,East South Central,South,18,21,189
+2893,Westmoreland,Virginia,VA,South Atlantic,South,13,51,193
+2733,Wilkes,North Carolina,NC,South Atlantic,South,16,37,193
+2621,Wise,Virginia,VA,South Atlantic,South,13,51,195
+1223,Saline,Missouri,MO,West North Central,Midwest,12,29,195
+2510,Madison,Georgia,GA,South Atlantic,South,15,13,195
+1683,Meriwether,Georgia,GA,South Atlantic,South,15,13,199
+3,Prince of Wales-Outer Ketchikan,Alaska,AK,Pacific,West,27,2,201
+1717,Quitman,Georgia,GA,South Atlantic,South,15,13,239
+2106,Woodford,Kentucky,KY,East South Central,South,18,21,239
+2499,Rabun,Georgia,GA,South Atlantic,South,15,13,241
+1482,Jasper,Texas,TX,West South Central,South,21,48,241
+429,Jeff Davis,Texas,TX,West South Central,South,21,48,243
+2495,Union,Georgia,GA,South Atlantic,South,15,13,291
+2603,Robertson,Kentucky,KY,East South Central,South,18,21,201
+1473,Harris,Texas,TX,West South Central,South,21,48,201
+1248,Texas,Missouri,MO,West North Central,Midwest,12,29,215
+2089,Spencer,Kentucky,KY,East South Central,South,18,21,215
+1809,Spalding,Georgia,GA,South Atlantic,South,15,13,255
+1386,Knox,Texas,TX,West South Central,South,21,48,275
+1761,Thomas,Georgia,GA,South Atlantic,South,15,13,275
+1800,Tift,Georgia,GA,South Atlantic,South,15,13,277
+1477,San Jacinto,Texas,TX,West South Central,South,21,48,407
+1339,San Patricio,Texas,TX,West South Central,South,21,48,409
+1396,San Saba,Texas,TX,West South Central,South,21,48,411

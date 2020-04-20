@@ -1,0 +1,52 @@
+state_name,state_abbr,region,region_long_name,division,division_abbr
+West Virginia,WV,South,South Census Region,South Atlantic,SA
+Florida,FL,South,South Census Region,South Atlantic,SA
+Illinois,IL,Midwest,Midwest Census Region,East North Central,ENC
+Minnesota,MN,Midwest,Midwest Census Region,West North Central,WNC
+Maryland,MD,South,South Census Region,South Atlantic,SA
+Rhode Island,RI,Northeast,Northeast Census Region,New England,NE
+Idaho,ID,West,West Census Region,Mountain,MTN
+New Hampshire,NH,Northeast,Northeast Census Region,New England,NE
+North Carolina,NC,South,South Census Region,South Atlantic,SA
+Vermont,VT,Northeast,Northeast Census Region,New England,NE
+Connecticut,CT,Northeast,Northeast Census Region,New England,NE
+Delaware,DE,South,South Census Region,South Atlantic,SA
+New Mexico,NM,West,West Census Region,Mountain,MTN
+California,CA,West,West Census Region,Pacific,PAC
+New Jersey,NJ,Northeast,Northeast Census Region,Middle Atlantic,MA
+Wisconsin,WI,Midwest,Midwest Census Region,East North Central,ENC
+Oregon,OR,West,West Census Region,Pacific,PAC
+Nebraska,NE,Midwest,Midwest Census Region,West North Central,WNC
+Pennsylvania,PA,Northeast,Northeast Census Region,Middle Atlantic,MA
+Washington,WA,West,West Census Region,Pacific,PAC
+Louisiana,LA,South,South Census Region,West South Central,WSC
+Georgia,GA,South,South Census Region,South Atlantic,SA
+Alabama,AL,South,South Census Region,East South Central,ESC
+Utah,UT,West,West Census Region,Mountain,MTN
+Ohio,OH,Midwest,Midwest Census Region,East North Central,ENC
+Texas,TX,South,South Census Region,West South Central,WSC
+Colorado,CO,West,West Census Region,Mountain,MTN
+South Carolina,SC,South,South Census Region,South Atlantic,SA
+Oklahoma,OK,South,South Census Region,West South Central,WSC
+Tennessee,TN,South,South Census Region,East South Central,ESC
+Wyoming,WY,West,West Census Region,Mountain,MTN
+Hawaii,HI,West,West Census Region,Pacific,PAC
+North Dakota,ND,Midwest,Midwest Census Region,West North Central,WNC
+Kentucky,KY,South,South Census Region,East South Central,ESC
+Maine,ME,Northeast,Northeast Census Region,New England,NE
+New York,NY,Northeast,Northeast Census Region,Middle Atlantic,MA
+Nevada,NV,West,West Census Region,Mountain,MTN
+Alaska,AK,West,West Census Region,Pacific,PAC
+Michigan,MI,Midwest,Midwest Census Region,East North Central,ENC
+Arkansas,AR,South,South Census Region,West South Central,WSC
+Mississippi,MS,South,South Census Region,East South Central,ESC
+Missouri,MO,Midwest,Midwest Census Region,West North Central,WNC
+Montana,MT,West,West Census Region,Mountain,MTN
+Kansas,KS,Midwest,Midwest Census Region,West North Central,WNC
+Indiana,IN,Midwest,Midwest Census Region,East North Central,ENC
+South Dakota,SD,Midwest,Midwest Census Region,West North Central,WNC
+Massachusetts,MA,Northeast,Northeast Census Region,New England,NE
+Virginia,VA,South,South Census Region,South Atlantic,SA
+District of Columbia,DC,South,South Census Region,South Atlantic,SA
+Iowa,IA,Midwest,Midwest Census Region,West North Central,WNC
+Arizona,AZ,West,West Census Region,Mountain,MTN

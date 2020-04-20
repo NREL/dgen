@@ -1,0 +1,2 @@
+Units: annual average $/kWh of electricity. 
+Non-weighted average (i.e., a given hour's price is weighted the same regardless of how much electricity was consumed in that hour)

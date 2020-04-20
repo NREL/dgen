@@ -1,0 +1,12 @@
+cen,census_division,census_division_abbr
+cen9,pacific,PAC
+cen8,mountain,MTN
+cen4,west_north_central,WNC
+cen3,east_north_central,ENC
+cen7,west_south_central,WSC
+cen6,east_south_central,ESC
+cen5,south_atlantic,SA
+cen2,middle_atlantic,MA
+cen1,new_england,NE
+cen10,mexico,MEX
+cen11,canada,CAN

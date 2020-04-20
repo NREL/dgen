@@ -1,0 +1,19 @@
+-- update view : diffusion_template.all_rate_jsons;
+
+-- tables to replace on bigde:
+	- pt_grid_us_com
+	- pt_grid_us_res
+	- pt_grid_us_ind
+	- ranked_rate_array_lkup_com
+	- ranked_rate_array_lkup_res
+	- ranked_rate_array_lkup_ind
+	- urdb3_rate_sam_jsons
+	- urdb_rates_by_state_com
+	- urdb_rates_by_state_ind
+	- urdb_rates_by_state_res
+	- diffusion_shared.point_microdata_com_us
+	- diffusion_shared.point_microdata_ind_us
+	- diffusion_shared.point_microdata_res_us
+
+- to manually transfer these, drop the tables in dgen_db, then use a modified version of this:
+pg_dump -h localhost -U mgleason -t diffusion_shared.point_microdata_com_us -t diffusion_shared.point_microdata_ind_us -t diffusion_shared.point_microdata_res_us -v dav-gis  | psql -h dnpdb001.bigde.nrel.gov -p 5433 -U mgleason_su -e dgen_db

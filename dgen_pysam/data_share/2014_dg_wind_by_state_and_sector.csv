@@ -1,0 +1,157 @@
+State,Sector,Capacity (MW)
+Alabama,Residential,0.076070914
+Alaska,Residential,8.931875178
+Arizona,Residential,2.389680107
+Arkansas,Residential,0.676245428
+California,Residential,10.21745883
+Colorado,Residential,1.653038612
+Connecticut,Residential,0.557018845
+DC,Residential,0.002778374
+Delaware,Residential,0.21043874
+Florida,Residential,0.245676755
+Georgia,Residential,0.111134952
+Hawaii,Residential,0.539811689
+Idaho,Residential,2.168755757
+Illinois,Residential,2.334816501
+Indiana,Residential,1.211254104
+Iowa,Residential,14.90994389
+Kansas,Residential,4.010294561
+Kentucky,Residential,0.206019336
+Louisiana,Residential,0.0486368
+Maine,Residential,2.650216361
+Maryland,Residential,1.274210592
+Massachusetts,Residential,4.175430841
+Michigan,Residential,3.846245575
+Minnesota,Residential,8.234205402
+Mississippi,Residential,0.034556589
+Missouri,Residential,1.026439465
+Montana,Residential,2.754425006
+Nebraska,Residential,1.222752185
+Nevada,Residential,12.37792508
+New Hampshire,Residential,0.381429238
+New Jersey,Residential,1.873614112
+New Mexico,Residential,0.382264534
+New York,Residential,5.185546339
+North Carolina,Residential,0.305454625
+North Dakota,Residential,0.336544698
+Ohio,Residential,9.464409783
+Oklahoma,Residential,1.205974341
+Oregon,Residential,1.360635474
+Pennsylvania,Residential,2.686948741
+PR-VI,Residential,0.103057866
+Rhode Island,Residential,0.624183789
+South Carolina,Residential,0.030713707
+South Dakota,Residential,0.915896199
+Tennessee,Residential,0.14730164
+Texas,Residential,8.303364757
+Utah,Residential,0.352491398
+Vermont,Residential,1.835214778
+Virginia,Residential,0.979877306
+Washington,Residential,2.301329374
+West Virginia,Residential,0.12637036
+Wisconsin,Residential,8.638421778
+Wyoming,Residential,2.626558333
+Alabama,Commercial,0
+Alaska,Commercial,1.133777736
+Arizona,Commercial,1.030707033
+Arkansas,Commercial,0
+California,Commercial,6.081171494
+Colorado,Commercial,0.92763633
+Connecticut,Commercial,0
+DC,Commercial,0
+Delaware,Commercial,0
+Florida,Commercial,0
+Georgia,Commercial,0
+Hawaii,Commercial,0
+Idaho,Commercial,0.206141407
+Illinois,Commercial,5.359676571
+Indiana,Commercial,5.771959384
+Iowa,Commercial,7.833373449
+Kansas,Commercial,1.030707033
+Kentucky,Commercial,0
+Louisiana,Commercial,0
+Maine,Commercial,0.61842422
+Maryland,Commercial,0
+Massachusetts,Commercial,6.184242197
+Michigan,Commercial,0.30921211
+Minnesota,Commercial,27.10759496
+Mississippi,Commercial,0
+Missouri,Commercial,0
+Montana,Commercial,2.267555472
+Nebraska,Commercial,0
+Nevada,Commercial,0
+New Hampshire,Commercial,1.442989846
+New Jersey,Commercial,0
+New Mexico,Commercial,0
+New York,Commercial,0.92763633
+North Carolina,Commercial,0
+North Dakota,Commercial,1.752201956
+Ohio,Commercial,8.245656262
+Oklahoma,Commercial,0
+Oregon,Commercial,3.607474615
+Pennsylvania,Commercial,0
+PR-VI,Commercial,0
+Rhode Island,Commercial,1.236848439
+South Carolina,Commercial,0
+South Dakota,Commercial,0.824565626
+Tennessee,Commercial,0
+Texas,Commercial,11.33777736
+Utah,Commercial,0.721494923
+Vermont,Commercial,0
+Virginia,Commercial,0
+Washington,Commercial,4.638181648
+West Virginia,Commercial,0
+Wisconsin,Commercial,0
+Wyoming,Commercial,1.339919143
+Alabama,Industrial,0
+Alaska,Industrial,0
+Arizona,Industrial,0
+Arkansas,Industrial,0
+California,Industrial,51.43228094
+Colorado,Industrial,18.65579729
+Connecticut,Industrial,0
+DC,Industrial,0
+Delaware,Industrial,2.061414066
+Florida,Industrial,0
+Georgia,Industrial,0
+Hawaii,Industrial,0
+Idaho,Industrial,0
+Illinois,Industrial,14.42989846
+Indiana,Industrial,0
+Iowa,Industrial,100.8031478
+Kansas,Industrial,0
+Kentucky,Industrial,0
+Louisiana,Industrial,0
+Maine,Industrial,4.638181648
+Maryland,Industrial,0
+Massachusetts,Industrial,53.08141219
+Michigan,Industrial,0
+Minnesota,Industrial,92.24827944
+Mississippi,Industrial,0
+Missouri,Industrial,0
+Montana,Industrial,6.699595713
+Nebraska,Industrial,4.122828131
+Nevada,Industrial,0
+New Hampshire,Industrial,0
+New Jersey,Industrial,9.276363295
+New Mexico,Industrial,1.546060549
+New York,Industrial,3.401333208
+North Carolina,Industrial,0
+North Dakota,Industrial,4.638181648
+Ohio,Industrial,16.18210041
+Oklahoma,Industrial,0
+Oregon,Industrial,0
+Pennsylvania,Industrial,3.298262505
+PR-VI,Industrial,0
+Rhode Island,Industrial,7.730302746
+South Carolina,Industrial,0
+South Dakota,Industrial,1.546060549
+Tennessee,Industrial,0
+Texas,Industrial,166.1499737
+Utah,Industrial,0
+Vermont,Industrial,10.30707033
+Virginia,Industrial,0
+Washington,Industrial,6.184242197
+West Virginia,Industrial,0
+Wisconsin,Industrial,18.44965589
+Wyoming,Industrial,2.061414066
