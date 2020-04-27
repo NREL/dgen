@@ -43,7 +43,7 @@ A. After cloning this repository and installing (and running) Docker as well as 
    $ CREATE DATABASE dgen_db;
 ```
 
-B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip and zipped fules. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your data): 
+B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip the zipped .sql file; this file is used to restore the database. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your .sql file): 
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_os_db_postgres4.sql | docker exec -i <container id> psql -U postgres -d dgen_db
