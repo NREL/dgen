@@ -7,7 +7,7 @@ Install Docker (Windows): https://docs.docker.com/docker-for-windows/install/
 
 Install Anaconda Python 3.7 Version: https://www.anaconda.com/distribution/
 
-Install PgAdmin: https://www.pgadmin.org/download/ 
+Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options for docker, python, os host, etc.)
 
 
 If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
@@ -42,6 +42,11 @@ A. After cloning this repository and installing (and running) Docker as well as 
    $ docker exec -it <container id> psql -U postgres
    $ CREATE DATABASE dgen_db;
 ```
+- Note, you may get an error like: “psql: FATAL:  the database system is starting up". Simply run the docker command again after a couple of minutes as docker can take some time to initialize everything.
+
+- After running 'CREATE DATABASE dgen_db;' a print out statement saying 'CREATE DATABASE' will be displayed in the postgresql terminal.
+
+- Don't close the docker container or postgresql server at any point while running dGen.
 
 B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip the zipped .sql file; this file is used to restore the database. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your .sql file): 
 
