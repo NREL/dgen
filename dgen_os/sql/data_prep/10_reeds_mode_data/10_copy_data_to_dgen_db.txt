@@ -1,1 +1,0 @@
-pg_dump -h localhost -U mgleason -t diffusion_solar.pca_solar_re_9809_combinations -t diffusion_solar.reeds_h17_to_h3_ratio_by_pca -t diffusion_solar.reeds_solar_resource_by_pca_summary_tidy -t diffusion_solar.reeds_solar_resource_by_pca_summary_wide -t diffusion_solar.reeds_time_slice_lkup -v dav-gis  | psql -h dnpdb001.bigde.nrel.gov -p 5433 -U mgleason_su -e dgen_db

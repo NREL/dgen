@@ -1,9 +1,0 @@
-- in addition to the "verified" rates, we can also use rates from the URDB where there is only one commercial rate and/or one residential rate. For simplicity, we'll call these "singular rates". 
-- run /diffusion/python/urdb_find_singular_rates.py to extract the commercial and residential rates that are singular rates. 
-- These resulting data will be output to postgres as urdb_rates.urdb3_singular_rates_lookup_20141202
-- The major assumption underlying this work is that the URDB includes ALL of the rates for each utility area, which likely isn't true...
-
-Here is a summary of the number of rates found:
-Accounting for all ‘approved’ commercial and residential rates in the URDB, there are 1301 rates that are “singular” rates for their utility (meaning, no other rates are available for that sector in the utility, according to URDB). For reference, we had a total of 1146 “verified” rates from Peter’s work. There is a small overlap between the two groups (37 rates), but even so, if we use these, we can more than doubled the number of rates we’re covering, and definitely more than double the number of utility territories.
-
-

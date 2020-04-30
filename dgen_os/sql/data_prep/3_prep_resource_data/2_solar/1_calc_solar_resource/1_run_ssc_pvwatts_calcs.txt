@@ -1,1 +1,0 @@
-- have dylan run ssc_pvwatts python script to calculate generation and output to hdfs

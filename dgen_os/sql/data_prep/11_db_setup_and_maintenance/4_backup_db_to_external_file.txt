@@ -1,1 +1,0 @@
-/usr/pgsql-9.2/bin/pg_dump dgen_db_fy16q3_standard_scenarios -v -U mgleason_su -p 5433 | gzip -9 > ~/dgen_db_backups/dgen_db_fy16q3_standard_scenarios.sql.gz

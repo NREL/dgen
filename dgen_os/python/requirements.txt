@@ -1,9 +1,0 @@
-colorama
-colorlog
-matplotlib
-numpy
-openpyxl
-pandas
-psutil
-psycopg2
-sqlalchemy

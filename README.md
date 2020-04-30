@@ -43,10 +43,13 @@ A. After cloning this repository and installing (and running) Docker as well as 
    $ CREATE DATABASE dgen_db;
 ```
 
-B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip and zipped fules. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your data): 
+- If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so.
+- ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
+
+B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
 ```
-   $ cat /path_to_where_you_saved_data/dgen_os_db_postgres4.sql | docker exec -i <container id> psql -U postgres -d dgen_db
+   $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
 ```
 
 
@@ -61,7 +64,7 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 - In spyder, open the dgen_model.py file. This is what we will run once everything is configured.
 
-2. Now open the input sheet (don't forget to enable macros!) and configure it depending on the model run you want to do. See the Input Sheet Wiki page for more details on this. Finally, save this in the "input_scenarios" directory in the dgen directory on your local machine.
+2. Now open the input sheet located in dgen/python/excel (don't forget to enable macros!) and configure it depending on the model run you want to do. See the Input Sheet Wiki page for more details on this. Finally, save this in the "input_scenarios" directory (dgen/python/input_scenarios) in the dgen directory on your local machine.
 
 
 3. In the python folder, open the "pg_params_atlas.json" file and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
@@ -82,7 +85,7 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 4. The cloned repository will have initialized the default values for the following important parameters:
 
-* ``` agents_per_region = 1 ``` ( in /../dgen/python/config.py)        --> number agents model will run for a given region
+* ``` agents_per_region = 10 ``` ( in /../dgen/python/config.py)        --> number agents model will run for a given region
 * ``` start_year = 2014 ``` ( in /../dgen/python/config.py)            --> start year the model will begin at
 * ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                 --> number of parallel processes the model will run with
 * ``` cores = 2 ``` ( in /../dgen/python/config.py)                    --> number of cores the model will run with

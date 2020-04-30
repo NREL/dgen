@@ -1,3 +1,0 @@
-- run diffusion/python/batch_load_urdb_to_postgres.py with parameter for rate_type set to 'verified'
-- this script ingests "verified" rate data from urdb into postgres, reformatting for consistency with the SAM utilityrate3 module
-

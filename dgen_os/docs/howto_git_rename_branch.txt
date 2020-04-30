@@ -1,6 +1,0 @@
-git fetch
-git checkout -b aBranch --track origin/aBranch
-git pull origin aBranch
-git branch -m new_branch
-git push origin new_branch
-# manually delete branch on remote
