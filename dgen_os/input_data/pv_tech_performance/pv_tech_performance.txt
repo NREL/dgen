@@ -1,0 +1,2 @@
+Power density units are W/ft^2
+Degradation units are %/year
