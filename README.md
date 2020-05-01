@@ -20,6 +20,9 @@ Clone this repository by running the following command in your terminal/powershe
    $ git clone https://github.com/<github_username>/dgen.git
 ```
 
+- Create a new branch in this repository by running ```git checkout -b <branch_name_here>```
+- It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Hence, create new branch when developing features or performing configurations for unique runs.
+
 A. After cloning this repository and installing (and running) Docker as well as Anaconda, we'll create our environment and container:
 
 1. Depending on directory you cloned this repo into, navigate in terminal to the python directory (/../dgen/python) and run the following command:
