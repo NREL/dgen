@@ -44,23 +44,16 @@ A. After cloning this repository and installing (and running) Docker as well as 
 ```
 - Note, you may get an error like: “psql: FATAL:  the database system is starting up". Simply run the docker command again after a couple of minutes as docker can take some time to initialize everything.
 
-<<<<<<< HEAD
 - If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so.
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
 B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
-=======
-- After running 'CREATE DATABASE dgen_db;' a print out statement saying 'CREATE DATABASE' will be displayed in the postgresql terminal.
-
-- Don't close the docker container or postgresql server at any point while running dGen.
-
-B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip the zipped .sql file; this file is used to restore the database. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your .sql file): 
->>>>>>> f398267f53f9ed06b4bb2bde4c5a1f52648aadd2
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
 ```
 
+- Don't close the docker container or postgresql server at any point while running dGen.
 
 C. Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. It is time to configure and run the model:
 
