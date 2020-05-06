@@ -48,18 +48,10 @@ A. After cloning this repository and installing (and running) Docker as well as 
 - Note, you may get an error like: “psql: FATAL:  the database system is starting up". Simply run the docker command again after a couple of minutes as docker can take some time to initialize everything.
 
 - If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so.
+
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
 B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
-<<<<<<< HEAD
-=======
-
-- After running 'CREATE DATABASE dgen_db;' a print out statement saying 'CREATE DATABASE' will be displayed in the postgresql terminal.
-
-- Don't close the docker container or postgresql server at any point while running dGen.
-
-B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip the zipped .sql file; this file is used to restore the database. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your .sql file): 
->>>>>>> 3146652abfc9a765157b34cb9218c8be74effc00
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
@@ -95,7 +87,7 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 - Localhost could also be set as "127.0.0.1"
 - Save this file
-- make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py, lines 382 and 434
+- make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py
 
 4. The cloned repository will have initialized the default values for the following important parameters:
 
