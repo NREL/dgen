@@ -20,6 +20,9 @@ Clone this repository by running the following command in your terminal/powershe
    $ git clone https://github.com/<github_username>/dgen.git
 ```
 
+- Create a new branch in this repository by running ```git checkout -b <branch_name_here>```
+- It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Hence, create new branch when developing features or performing configurations for unique runs.
+
 A. After cloning this repository and installing (and running) Docker as well as Anaconda, we'll create our environment and container:
 
 1. Depending on directory you cloned this repo into, navigate in terminal to the python directory (/../dgen/python) and run the following command:
@@ -48,6 +51,15 @@ A. After cloning this repository and installing (and running) Docker as well as 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
 B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
+<<<<<<< HEAD
+=======
+
+- After running 'CREATE DATABASE dgen_db;' a print out statement saying 'CREATE DATABASE' will be displayed in the postgresql terminal.
+
+- Don't close the docker container or postgresql server at any point while running dGen.
+
+B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip the zipped .sql file; this file is used to restore the database. Next, run the following in the command line (replacing 'path_to_where_you_saved_data' below with the actual path where you saved your .sql file): 
+>>>>>>> 3146652abfc9a765157b34cb9218c8be74effc00
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
