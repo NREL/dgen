@@ -213,10 +213,16 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
     agent.loc['naep'] = float(np.sum(pv['generation_hourly']))
 
     # Battwatts
-    batt = battery.default("PVWattsResidential")
+    if agent.loc['sector_abbr'] == 'res':
+        batt = battery.default("PVWattsBatteryResidential")
+    else:
+        batt = battery.default("PVWattsBatteryCommercial")
 
     # Utilityrate5
-    utilityrate = utility.default("PVWattsResidential")
+    if agent.loc['sector_abbr'] == 'res':
+        utilityrate = utility.default("PVWattsBatteryResidential")
+    else:
+        utilityrate = utility.default("PVWattsBatteryCommercial")
     tariff_dict = agent.loc['tariff_dict']
     
 
@@ -400,8 +406,20 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
     ###----------- CASHLOAN -----------###
     ###----- FINANCIAL PARAMETERS -----###
     ######################################
-    
-    loan = cashloan.default("PVWattsResidential")
+
+    # Initiate cashloan model and set market-specific variables
+    # Assume res agents do not evaluate depreciation at all
+    # Assume non-res agents only evaluate federal depreciation (not state)
+    if agent.loc['sector_abbr'] == 'res':
+        loan = cashloan.default("PVWattsBatteryResidential")
+        loan.FinancialParameters.market = 0
+        loan.Depreciation.depr_fed_type = 0
+        loan.Depreciation.depr_sta_type = 0
+    else:
+        loan = cashloan.default("PVWattsBatteryCommercial")
+        loan.FinancialParameters.market = 1
+        loan.Depreciation.depr_fed_type = 1
+        loan.Depreciation.depr_sta_type = 0
 
     loan.Lifetime.system_use_lifetime_output = 0  # default value: outputs first year info only
 
@@ -412,7 +430,7 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
     loan.FinancialParameters.debt_fraction = 100 - agent.loc['down_payment_fraction']
     loan.FinancialParameters.real_discount_rate = agent.loc['real_discount_rate'] * 100 # decimal to %
     loan.FinancialParameters.system_heat_rate = 0
-    loan.FinancialParameters.market = 0 if agent.loc['sector_abbr'] == 'res' else 1
+    #loan.FinancialParameters.market = 0 if agent.loc['sector_abbr'] == 'res' else 1
     loan.FinancialParameters.mortgage = 0 # default value - standard loan (no mortgage)
     loan.FinancialParameters.salvage_percentage = 0
     loan.FinancialParameters.insurance_rate = 0 # ?
@@ -445,14 +463,6 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
     system_costs['batt_capex_per_kwh'] = agent.loc['batt_capex_per_kwh']
     system_costs['batt_om_per_kw'] = agent.loc['batt_om_per_kw']
     system_costs['batt_om_per_kwh'] = agent.loc['batt_om_per_kwh']
-
-
-    ######################################
-    ###----------- CASHLOAN -----------###
-    ###--------- DEPRECIATION ---------###
-    ######################################
-    
-    # TODO: loan.Depreciation
     
     ######################################
     ###----------- CASHLOAN -----------###
@@ -493,7 +503,7 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
 
     batt_kw = batt.Battery.batt_simple_kw
     batt_kwh = batt.Battery.batt_simple_kwh
-    batt_dispatch_profile = batt.Outputs.batt_power # ?
+    batt_dispatch_profile = batt.Outputs.batt_power 
 
     # Run without battery
     res_no_batt = optimize.minimize_scalar(calc_system_performance, 
@@ -617,8 +627,8 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
             'pbi_total_sta': pbi_total_sta,
             'pbi_total_uti': pbi_total_uti
             })
-    agent.loc['cash_incentives'] = '' # TODO
-    agent.loc['export_tariff_results'] = '' # TODO
+    agent.loc['cash_incentives'] = ''
+    agent.loc['export_tariff_results'] = '' 
 
     out_cols = ['agent_id',
                 'system_kw',
