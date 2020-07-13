@@ -37,6 +37,12 @@ A. After cloning this repository and installing (and running) Docker as well as 
 ```
    $ docker run --name postgis_1 -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d mdillon/postgis
 ```
+- Alternatively, if having issues connecting to the postgres server in pgAdmin, run:
+
+```
+   $ docker run --name postgis_1 -p 5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d mdillon/postgis
+```
+- This will allow the docker container to select a different port to forward to 5432.
 
 3. Connect to our postgresql DB. In the command line run the following:
 
@@ -58,6 +64,7 @@ B. Download data here (https://data.nrel.gov/submissions/129) and make sure to u
 ```
 
 - Don't close the docker container or postgresql server at any point while running dGen.
+- The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 
 C. Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. It is time to configure and run the model:
 
@@ -87,17 +94,17 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 - Localhost could also be set as "127.0.0.1"
 - Save this file
-- make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py
+- make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py (this should already be set as such)
 
 4. The cloned repository will have initialized the default values for the following important parameters:
 
-* ``` agents_per_region = 10 ``` ( in /../dgen/python/config.py)        --> number agents model will run for a given region
-* ``` start_year = 2014 ``` ( in /../dgen/python/config.py)            --> start year the model will begin at
-* ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                 --> number of parallel processes the model will run with
-* ``` cores = 2 ``` ( in /../dgen/python/config.py)                    --> number of cores the model will run with
+* ``` agents_per_region = 10 ``` ( in /../dgen/python/config.py)           --> number agents model will run for a given region
+* ``` start_year = 2014 ``` ( in /../dgen/python/config.py)                    --> start year the model will begin at
+* ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                              --> number of parallel processes the model will run with
+* ``` cores = 2 ``` ( in /../dgen/python/config.py)                                        --> number of cores the model will run with
 
 * ``` role = "postgres" ``` ( in /../dgen/python/data_functions.py)    --> same as the owner of the restored database
-* ``` role = "postgres" ``` ( in /../dgen/python/settings.py)          --> same as the owner of the restored database
+* ``` role = "postgres" ``` ( in /../dgen/python/settings.py)                --> same as the owner of the restored database
 
 D. Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
 
