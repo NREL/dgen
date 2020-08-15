@@ -105,8 +105,6 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # Depending on settings either generate new agents or use pre-generated agents from provided .pkl file                
                 solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')
                 
-                # Write base agents to disk
-                solar_agents.df.to_pickle(out_scen_path + '/agent_df_base.pkl')
 
                 # Get set of columns that define agent's immutable attributes
                 cols_base = list(solar_agents.df.columns)
@@ -204,7 +202,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     solar_agents.on_frame(agent_mutation.elec.apply_state_incentives, [state_incentives, year, model_settings.start_year, state_capacity_by_year])
                     
                     # Calculate System Financial Performance
-                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, cores=cores, rate_switch_table=rate_switch_table)
+                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
 
                     # Calculate the financial performance of the S+S systems
                     solar_agents.on_frame(financial_functions.calc_financial_performance)

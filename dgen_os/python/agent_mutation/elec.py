@@ -380,9 +380,11 @@ def get_and_apply_normalized_hourly_resource_solar(con, agent):
                 WHERE solar_re_9809_gid = '{solar_re_9809_gid}'
                 AND tilt = '{tilt}'
                 AND azimuth = '{azimuth}';""".format(**inputs)
+
     df = pd.read_sql(sql, con, coerce_float=False)
 
     df = df[['generation_hourly', 'scale_offset']]
+
     # rename the column generation_hourly to solar_cf_profile
     df.rename(columns={'generation_hourly':'solar_cf_profile'}, inplace=True)
           

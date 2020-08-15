@@ -156,7 +156,7 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, ur_metering_
     return -loan.Outputs.npv
 
 
-def calc_system_size_and_performance(agent, rate_switch_table=None):
+def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     """
     Calculate the optimal system and battery size and generation profile, and resulting bill savings and financial metrics.
     
@@ -193,6 +193,7 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
         - **export_tariff_result** - summary of structure of retail tariff applied to agent
     """
 
+
     # Initialize new DB connection    
     model_settings = settings.init_model_settings()
     con, cur = utilfunc.make_con(model_settings.pg_conn_string, model_settings.role)
@@ -200,10 +201,23 @@ def calc_system_size_and_performance(agent, rate_switch_table=None):
     # PV
     pv = dict()
 
-    # Extract load profile after applying offset
-    norm_scaled_load_profiles_df = agent_mutation.elec.get_and_apply_normalized_load_profiles(con, agent)
-    pv['consumption_hourly'] = pd.Series(norm_scaled_load_profiles_df['consumption_hourly']).iloc[0]
-    del norm_scaled_load_profiles_df
+
+    state_path = model_settings.load_path
+
+
+    if any('res' in ele for ele in sectors):
+        de_ts = pd.read_parquet(state_path)
+        s = str(agent.loc['bldg_id'])  # *** query 8760 by bdlg_id (residential version reformats bldg_id to str) ***
+
+    elif any('com' in ele for ele in sectors):
+        de_ts = pd.read_parquet(state_path)
+        de_ts.rename(columns=lambda t: int(t.strip()), inplace=True) # *** get's rid of leading zeros & converts from str to int for com ***
+        s = agent.loc['bldg_id']                                     # query 8760 by bdlg_id (commercial version)
+
+
+    load_profile = pd.Series(de_ts[s].to_list())
+    
+    pv['consumption_hourly'] = load_profile
 
     # Using the scale offset factor of 1E6 for capacity factors
     norm_scaled_pv_cf_profiles_df = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(con, agent)

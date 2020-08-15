@@ -30,7 +30,8 @@ class ModelSettings(object):
         self.pg_conn_string = None  # type is text
         self.pg_params_log = None  # type is text, doesn't include pw
         self.model_path = None  # path exists
-        self.agents_per_region = None  # type is integer, > 0
+        self.load_path = None
+        # self.agents_per_region = None  # type is integer, > 0
         self.pg_procs = None  # int<=16
         self.local_cores = None  # int < cores on machine
         self.delete_output_schema = None  # bool
@@ -47,9 +48,10 @@ class ModelSettings(object):
 
     def add_config(self, config):
 
+        self.set('load_path', config.load_path)
         self.set('start_year', config.start_year)
         self.set('model_path', config.model_path)
-        self.set('agents_per_region', config.agents_per_region)
+        #self.set('agents_per_region', config.agents_per_region)
         self.set('local_cores', config.local_cores)
         self.set('pg_procs', config.pg_procs)
         self.set_pg_params(config.pg_params_file)
@@ -86,6 +88,15 @@ class ModelSettings(object):
                 check_type(self.get(property_name), float)
             except TypeError as e:
                 raise TypeError('Invalid {0}: {1}'.format(property_name, e))
+
+        elif property_name == 'load_path':
+            # check type
+            try:
+                check_type(self.get(property_name), str)
+            except TypeError as e:
+                raise TypeError('Invalid {0}: {1}'.format(property_name, e))
+            if os.path.exists(self.load_path) == False:
+                raise ValueError('Invalid {}: does not exist'.format(property_name))
 
         elif property_name == 'cdate':
             # check type
@@ -182,17 +193,17 @@ class ModelSettings(object):
             if os.path.exists(self.model_path) == False:
                 raise ValueError('Invalid {}: does not exist'.format(property_name))
 
-        elif property_name == 'agents_per_region':
-            # check type
-            try:
-                check_type(self.get(property_name), int)
-            except TypeError as e:
-                raise TypeError('Invalid {0}: {1}'.format(property_name, e))
-            if self.agents_per_region <= 0:
-                raise ValueError('Invalid {}: value must be >0'.format(property_name))
-            if self.agents_per_region > 20:
-                warnings.warn(
-                    'High {}: using values > 20 may result in very slow model run times'.format(property_name))
+        # elif property_name == 'agents_per_region':
+        #     # check type
+        #     try:
+        #         check_type(self.get(property_name), int)
+        #     except TypeError as e:
+        #         raise TypeError('Invalid {0}: {1}'.format(property_name, e))
+        #     if self.agents_per_region <= 0:
+        #         raise ValueError('Invalid {}: value must be >0'.format(property_name))
+        #     if self.agents_per_region > 20:
+        #         warnings.warn(
+        #             'High {}: using values > 20 may result in very slow model run times'.format(property_name))
 
 
         elif property_name == 'local_cores':
@@ -460,6 +471,7 @@ def init_model_settings():
     model_settings.add_config(config)
     model_settings.set('model_init', utilfunc.get_epoch_time())
     model_settings.set('role', 'postgres')
+    #model_settings.set('role', 'diffusion-writers')
     model_settings.set('cdate', utilfunc.get_formatted_time())
     model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate))
     model_settings.set('input_data_dir', '{}/input_data'.format(os.path.dirname(os.getcwd())))

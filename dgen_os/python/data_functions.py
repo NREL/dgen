@@ -144,6 +144,7 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
     logger.info('Creating output schema based on {source_schema}'.format(**inputs))
 
     con, cur = utilfunc.make_con(pg_conn_string, role="postgres")
+    #con, cur = utilfunc.make_con(pg_conn_string, role="diffusion-schema-writers")
 
     # check that the source schema exists
     sql = """SELECT count(*)
@@ -190,6 +191,7 @@ def drop_output_schema(pg_conn_string, schema, delete_output_schema):
         logger.info('Dropping the Output Schema ({}) from Database'.format(schema))
 
         con, cur = utilfunc.make_con(pg_conn_string, role="postgres")
+        #con, cur = utilfunc.make_con(pg_conn_string, role="diffusion-schema-writers")
         sql = '''DROP SCHEMA IF EXISTS {schema} CASCADE;'''.format(**inputs)
         cur.execute(sql)
         con.commit()
