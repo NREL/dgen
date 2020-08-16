@@ -57,7 +57,7 @@ A. After cloning this repository and installing (and running) Docker as well as 
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
-B. Download data here (https://data.nrel.gov/submissions/129) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
+B. Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
@@ -98,7 +98,7 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 4. The cloned repository will have initialized the default values for the following important parameters:
 
-* ``` agents_per_region = 10 ``` ( in /../dgen/python/config.py)           --> number agents model will run for a given region
+* ``` load_path ```  = file path to where you saved your data    ( in /../dgen/python/config.py)
 * ``` start_year = 2014 ``` ( in /../dgen/python/config.py)                    --> start year the model will begin at
 * ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                              --> number of parallel processes the model will run with
 * ``` cores = 2 ``` ( in /../dgen/python/config.py)                                        --> number of cores the model will run with
@@ -106,14 +106,16 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 * ``` role = "postgres" ``` ( in /../dgen/python/data_functions.py)    --> same as the owner of the restored database
 * ``` role = "postgres" ``` ( in /../dgen/python/settings.py)                --> same as the owner of the restored database
 
-D. Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
+D. Make sure you set the load_path variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
 
-E. Results from the model run will be placed in a table called "agent_outputs" within a newly created schema in the connected database. Because the database will not persist once a docker container is termianted, these results will need to be saved locally. 
+E. Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
+
+F. Results from the model run will be placed in a table called "agent_outputs" within a newly created schema in the connected database. Because the database will not persist once a docker container is termianted, these results will need to be saved locally. 
 
 1. To backup the whole database, including the results from the completed run, please run the following command in terminal after changing the save path and database name:
 
 ```
-   $ pg_dump dgen_db -f '/../path_to_save_directory/dgen_db.sql'
+   $ docker exec <container_id> pg_dumpall -U postgres > '/../path_to_save_directory/dgen_db.sql'
 ```
 
 - this .sql file can be restored in the same way as was detailed above. 
