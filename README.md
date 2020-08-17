@@ -62,7 +62,7 @@ B. Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) a
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
 ```
-   $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
+   $ cat /path_to_where_you_saved_data/dgen_db.sql | docker exec -i <container id> psql -U postgres -d dgen_db
 ```
 
 - Don't close docker at any point while running dGen.
