@@ -57,13 +57,15 @@ A. After cloning this repository and installing (and running) Docker as well as 
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
-B. Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files. Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
+B. Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files once downloaded. Note, only download one data file at a time to avoid Box's "download size exceeded" error.
+
+Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
 ```
    $ cat /path_to_where_you_saved_data/dgen_alpha_os_db_postgres.sql | docker exec -i <container id> psql -U postgres -d dgen_db
 ```
 
-- Don't close the docker container or postgresql server at any point while running dGen.
+- Don't close docker at any point while running dGen.
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 
 C. Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. It is time to configure and run the model:
@@ -106,7 +108,7 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 * ``` role = "postgres" ``` ( in /../dgen/python/data_functions.py)    --> same as the owner of the restored database
 * ``` role = "postgres" ``` ( in /../dgen/python/settings.py)                --> same as the owner of the restored database
 
-D. Make sure you set the load_path variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
+D. Make sure you set the 'load_path' variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
 
 E. Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
 
