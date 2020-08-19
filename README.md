@@ -51,9 +51,7 @@ A. After cloning this repository and installing (and running) Docker as well as 
    $ docker exec -it <container id> psql -U postgres
    $ CREATE DATABASE dgen_db;
 ```
-- Note, you may get an error like: “psql: FATAL:  the database system is starting up". Simply run the docker command again after a couple of minutes as docker can take some time to initialize everything.
-
-- If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so.
+- If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so because docker can take some time to initialize everything.
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
