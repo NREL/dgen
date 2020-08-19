@@ -1,21 +1,19 @@
 ![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
 
-
-Install Docker (mac): https://docs.docker.com/docker-for-mac/install/
-
-Install Docker (Windows): https://docs.docker.com/docker-for-windows/install/
+## Get Your Tools
+Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
 
 Install Anaconda Python 3.7 Version: https://www.anaconda.com/distribution/
 
 Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options for docker, python, os host, etc.)
 
+Install Git: If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
 
-If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
+## Download Code 
+New users should fork a copy of dGen to their own private github account 
 
-To begin, fork this repository to your own github account and clone the forked repository to your local machine.
 
-Clone this repository by running the following command in your terminal/powershell/command prompt:
-
+Next, clone the forked repository to your local machine by running the following in a terminal/powershell/command prompt:
 ```
    $ git clone https://github.com/<github_username>/dgen.git
 ```
@@ -23,7 +21,10 @@ Clone this repository by running the following command in your terminal/powershe
 - Create a new branch in this repository by running ```git checkout -b <branch_name_here>```
 - It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Hence, create new branch when developing features or performing configurations for unique runs.
 
-A. After cloning this repository and installing (and running) Docker as well as Anaconda, we'll create our environment and container:
+# Running and Configuring dGen
+
+### A. Create Environment
+After cloning this repository and installing (and running) Docker as well as Anaconda, we'll create our environment and container:
 
 1. Depending on directory you cloned this repo into, navigate in terminal to the python directory (/../dgen/python) and run the following command:
 
@@ -55,7 +56,8 @@ A. After cloning this repository and installing (and running) Docker as well as 
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
-B. Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files once downloaded. Note, only download one data file at a time to avoid Box's "download size exceeded" error.
+### B. Download data (agents and database):
+Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files once downloaded. Note, only download one data file at a time to avoid Box's "download size exceeded" error.
 
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
@@ -66,9 +68,11 @@ Next, run the following in the command line (replacing 'path_to_where_you_saved_
 - Don't close docker at any point while running dGen.
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 
-C. Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. It is time to configure and run the model:
+### C. Create Local Server:
+Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
 
-1. Activate the dg3n environment and launch spyder by opening a new terminal window and run the following command:
+### D: Activate Environment 
+Activate the dg3n environment and launch spyder by opening a new terminal window and run the following command:
 
 ```
    $ conda activate dg3n
@@ -77,10 +81,10 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 - In spyder, open the dgen_model.py file. This is what we will run once everything is configured.
 
-2. Now open the input sheet located in dgen/python/excel (don't forget to enable macros!) and configure it depending on the model run you want to do. See the Input Sheet Wiki page for more details on this. Finally, save this in the "input_scenarios" directory (dgen/python/input_scenarios) in the dgen directory on your local machine.
+### E: Configure Scenario
+1. Open the input sheet located in ```dgen/python/excel`` (don't forget to enable macros!) and configure it depending on the desired model run (scenario). See the Input Sheet Wiki page for more details on this. Finally, save this in the "input_scenarios" directory (dgen/python/input_scenarios) in the dgen directory on your local machine.
 
-
-3. In the python folder, open the "pg_params_atlas.json" file and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
+2. In the python folder, open ```pg_params_atlas.json``` and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
 
 ```
    {	
@@ -94,9 +98,10 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 
 - Localhost could also be set as "127.0.0.1"
 - Save this file
-- make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py (this should already be set as such)
+- Make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py (this should already be set as such)
 
-4. The cloned repository will have initialized the default values for the following important parameters:
+3. Set the 'load_path' variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
+The cloned repository will have already initialized the default values for the following important parameters:
 
 * ``` load_path ```  = file path to where you saved your data    ( in /../dgen/python/config.py)
 * ``` start_year = 2014 ``` ( in /../dgen/python/config.py)                    --> start year the model will begin at
@@ -106,12 +111,17 @@ C. Once the database is restored (it could take a couple minutes), open PgAdmin 
 * ``` role = "postgres" ``` ( in /../dgen/python/data_functions.py)    --> same as the owner of the restored database
 * ``` role = "postgres" ``` ( in /../dgen/python/settings.py)                --> same as the owner of the restored database
 
-D. Make sure you set the 'load_path' variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
 
-E. Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
+### F: Run the Model
+Run the model in the command line:
+```
+   $ python dgen_model.py
+```
+Or, open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
 
-F. Results from the model run will be placed in a table called "agent_outputs" within a newly created schema in the connected database. Because the database will not persist once a docker container is termianted, these results will need to be saved locally. 
+Results from the model run will be placed in a SQL table called "agent_outputs" within a newly created schema in the connected database. Because the database will not persist once a docker container is terminated, these results will need to be saved locally.
 
+## Saving Results:
 1. To backup the whole database, including the results from the completed run, please run the following command in terminal after changing the save path and database name:
 
 ```
@@ -120,4 +130,4 @@ F. Results from the model run will be placed in a table called "agent_outputs" w
 
 - this .sql file can be restored in the same way as was detailed above. 
 
-2. To export just the "agent_outputs" table, simply right click on this table and select the "Import/Export" option and configure to how you want the data to be saved. Note, if a save directory isn't specified this will likely save in your home directory.
+2. To export just the "agent_outputs" table, simply right click on this table and select the "Import/Export" option and configure how you want the data to be saved. Note, if a save directory isn't specified this will likely save in the home directory.
