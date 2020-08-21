@@ -3,6 +3,8 @@
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
 
+- Important: In Docker, go into Docker > Preferences > Resources and up the allocation for disk size image for Docker. 64 GB is recommended. If a lot of this is being used up, then pruning past failed images/volumes will help free up some space. Refer to Docker’s website for more details on this.
+
 Install Anaconda Python 3.7 Version: https://www.anaconda.com/distribution/
 
 Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options for docker, python, os host, etc.)
