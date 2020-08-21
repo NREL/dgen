@@ -10,12 +10,12 @@ model_path = os.path.dirname(os.path.abspath(__file__))
 # set the name of the pg_params_file
 pg_params_file = 'pg_params_atlas.json'
 
+#==============================================================================
+#   path to load file corresponding to the state-sector scenario you're running
+#==============================================================================
+
 load_path = '/Users/tstanley/Documents/dGen_Materials/OpenSourcing/Load_Integration/fixed_loads/res/state_data/state_timeseries/DE_timeseries.parquet'
 
-#==============================================================================
-#   set the number of customer bins to model in each county
-#==============================================================================
-#agents_per_region = 1
 
 #==============================================================================
 #   model start year

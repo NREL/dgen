@@ -84,6 +84,7 @@ Activate the dg3n environment and launch spyder by opening a new terminal window
 ### E: Configure Scenario
 1. Open the input sheet located in ```dgen/python/excel`` (don't forget to enable macros!) and configure it depending on the desired model run (scenario). See the Input Sheet Wiki page for more details on this. Finally, save this in the "input_scenarios" directory (dgen/python/input_scenarios) in the dgen directory on your local machine.
 
+
 2. In the python folder, open ```pg_params_atlas.json``` and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
 
 ```
@@ -101,9 +102,10 @@ Activate the dg3n environment and launch spyder by opening a new terminal window
 - Make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py (this should already be set as such)
 
 3. Set the 'load_path' variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
+* ``` load_path ```  = file path to where you saved your data    ( in /../dgen/python/config.py)
+
 The cloned repository will have already initialized the default values for the following important parameters:
 
-* ``` load_path ```  = file path to where you saved your data    ( in /../dgen/python/config.py)
 * ``` start_year = 2014 ``` ( in /../dgen/python/config.py)                    --> start year the model will begin at
 * ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                              --> number of parallel processes the model will run with
 * ``` cores = 2 ``` ( in /../dgen/python/config.py)                                        --> number of cores the model will run with
