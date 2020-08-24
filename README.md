@@ -84,7 +84,9 @@ Activate the dg3n environment and launch spyder by opening a new terminal window
 - In spyder, open the dgen_model.py file. This is what we will run once everything is configured.
 
 ### E: Configure Scenario
-1. Open the blank input sheet located in ```dgen_os/excel/input_sheet_v_beta.xlsm ``` (don't forget to enable macros!). This file defines most of the settings for a scenario.Configure it depending on the desired model run and save a copy the input_scenarios folder, i.e. ```dgen_os/input_scenarios/my_scenario.xlsm```. See the Input Sheet Wiki page for more details on customizing scenarios. 
+1. Open the blank input sheet located in ```dgen_os/excel/input_sheet_v_beta.xlsm ``` (don't forget to enable macros!). This file defines most of the settings for a scenario. Configure it depending on the desired model run and save a copy in the input_scenarios folder, i.e. ```dgen_os/input_scenarios/my_scenario.xlsm```. 
+
+See the Input Sheet Wiki page for more details on customizing scenarios. 
 
 
 2. In the python folder, open ```pg_params_atlas.json``` and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
