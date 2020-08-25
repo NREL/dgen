@@ -8,6 +8,9 @@ import settings
 import utility_functions as utilfunc
 import agent_mutation
 
+import pyarrow as pa
+import pyarrow.parquet as pq
+
 import PySAM.Battwatts as battery
 import PySAM.BatteryTools as batt_tools
 import PySAM.Utilityrate5 as utility
