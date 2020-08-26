@@ -67,11 +67,19 @@ Next, run the following in the command line (replacing 'path_to_where_you_saved_
    $ cat /path_to_where_you_saved_data/dgen_db.sql | docker exec -i <container id> psql -U postgres -d dgen_db
 ```
 
+- Note, if on a Windows machine, use Powershell rather than command prompt. If linux commands still aren't working in Powershell, you can copy the data to the docker container and then load the data by running:
+
+```
+   $ docker cp /path_to_where_you_saved_data/dgen_db.sql <container id>:/dgen_db.sql
+   $ docker exec -i <container id> psql -U postgres -d dgen_db -f dgen_db.sql
+```
+
+- Backing up the database will likely take 45-60 minutes. 
 - Don't close docker at any point while running dGen.
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 
 ### C. Create Local Server:
-Once the database is restored (it could take a couple minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
+Once the database is restored (it will take 45-60 minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
 
 ### D: Activate Environment 
 Activate the dg3n environment and launch spyder by opening a new terminal window and run the following command:
