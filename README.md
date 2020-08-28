@@ -11,6 +11,8 @@ Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options fo
 
 Install Git: If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
 
+Windows users: if you don't have UNIX commands enabled for command prompt/powershell then you'll need to install Cygwin to run a UNIX terminal.
+
 ## Download Code 
 New users should fork a copy of dGen to their own private github account 
 
