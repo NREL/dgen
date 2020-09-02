@@ -54,11 +54,14 @@ After cloning this repository and installing (and running) Docker as well as Ana
 ```
    $ docker container ls
    $ docker exec -it <container id> psql -U postgres
-   $ CREATE DATABASE dgen_db;
+   $ postgres=# CREATE DATABASE dgen_db;
 ```
 - If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so because docker can take some time to initialize everything.
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
+
+- ```Postgres=# \c dgen_db``` can then be used to connect to the database.
+
 
 ### B. Download data (agents and database):
 Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files once downloaded. Note, only download one data file at a time to avoid Box's "download size exceeded" error.
