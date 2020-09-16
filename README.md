@@ -1,5 +1,9 @@
 ![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
 
+## Watch The Webinar and Demo
+https://attendee.gotowebinar.com/recording/8157192513262044417
+
+
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
 

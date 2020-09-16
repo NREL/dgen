@@ -345,7 +345,7 @@ def get_and_apply_residential_agent_load_profiles(con, sector, agent):
     
     sql = """SELECT bldg_id, sector_abbr, state_abbr,
                     kwh_load_profile as consumption_hourly
-             FROM diffusion_load_profiles.restock_load_profiles b
+             FROM diffusion_load_profiles.resstock_load_profiles b
                  WHERE bldg_id = {bldg_id} 
                  AND sector_abbr = '{sector_abbr}'
                  AND state_abbr = '{state_abbr}';""".format(**inputs)
