@@ -228,8 +228,7 @@ def get_sectors(cur, schema):
 def get_technologies(con, schema):
 
     sql = """SELECT 
-                CASE WHEN run_tech = 'Solar Only' THEN 'solar'::text
-                     WHEN run_tech = 'Solar + Storage (Not Available Yet)' THEN 'solar'::text
+                CASE WHEN run_tech = 'Solar + Storage' THEN 'solar'::text
                 END AS tech
             FROM {}.input_main_scenario_options;""".format(schema)
 
@@ -284,7 +283,8 @@ def get_bass_params(con, schema):
 
 def get_state_incentives(con):
 
-    sql = """SELECT * FROM diffusion_shared.state_incentives_2019;"""
+    # changed from 2019 to 2020
+    sql = """SELECT * FROM diffusion_shared.state_incentives_2020;"""
 
     state_incentives = pd.read_sql(sql, con)
 

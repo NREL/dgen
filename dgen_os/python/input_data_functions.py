@@ -219,7 +219,7 @@ def get_userdefined_scenario_settings(schema, table_name, con):
 
 
 #%%
-def import_table(scenario_settings, con, engine, role, input_name, csv_import_function):
+def import_table(scenario_settings, con, engine, role, input_name, csv_import_function=None):
     """
     Imports table from csv given the name of the csv
     
@@ -263,7 +263,9 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
 
         else:
             df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
-            df = csv_import_function(df)
+
+            if csv_import_function is not None:
+                df = csv_import_function(df)
 
             df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
 
