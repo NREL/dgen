@@ -430,6 +430,8 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
     input_agent_dir = model_settings.input_agent_dir
     state_to_model = scenario_settings.state_to_model
 
+    ISO_List = ['ERCOT', 'ISONE', 'NYISO', 'CAISO', 'PJM', 'MISO', 'SPP']
+
     if agent_file_status == 'Use pre-generated Agents':
 
         userdefined_table_name = "input_" + input_name + "_user_defined"
@@ -437,7 +439,13 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
         scenario_userdefined_value = scenario_userdefined_name['val'].values[0]
 
         solar_agents_df = pd.read_pickle(os.path.join(input_agent_dir, scenario_userdefined_value+".pkl"))
-        solar_agents_df = solar_agents_df[solar_agents_df['state_abbr'].isin(state_to_model)]
+
+
+        if scenario_settings.region in ISO_List:
+            solar_agents_df = pd.read_pickle(os.path.join(input_agent_dir, scenario_userdefined_value+".pkl"))
+
+        else:
+            solar_agents_df = solar_agents_df[solar_agents_df['state_abbr'].isin(state_to_model)]
         
         if solar_agents_df.empty:
             raise ValueError('Region not present within pre-generated agent file - Edit Inputsheet')
