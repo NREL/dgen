@@ -278,9 +278,11 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
 
             #####################################################################
             # drop the new scenario_settings.schema
+            engine.dispose()
+            con.close()
             datfunc.drop_output_schema(model_settings.pg_conn_string, scenario_settings.schema, model_settings.delete_output_schema)
             #####################################################################
-            engine.dispose()
+            #engine.dispose()
             logger.info("-------------Model Run Complete-------------")
             time_to_complete = time.time() - model_settings.model_init
             logger.info('Completed in: {} seconds'.format(round(time_to_complete, 1)))
