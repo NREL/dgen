@@ -101,10 +101,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # =========================================================
                 # Initialize agents
                 # =========================================================   
-             
-                # Depending on settings either generate new agents or use pre-generated agents from provided .pkl file                
-                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')
-                
+                            
+                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')                
 
                 # Get set of columns that define agent's immutable attributes
                 cols_base = list(solar_agents.df.columns)
