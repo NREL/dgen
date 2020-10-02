@@ -430,7 +430,7 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
     input_agent_dir = model_settings.input_agent_dir
     state_to_model = scenario_settings.state_to_model
 
-    ISO_List = ['ERCOT', 'ISONE', 'NYISO', 'CAISO', 'PJM', 'MISO', 'SPP']
+    ISO_List = ['ERCOT', 'NEISO', 'NYISO', 'CAISO', 'PJM', 'MISO', 'SPP']
 
     if agent_file_status == 'Use pre-generated Agents':
 

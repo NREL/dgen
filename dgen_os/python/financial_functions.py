@@ -291,12 +291,6 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     # PV
     pv = dict()
 
-    # if any('res' in ele for ele in sectors):
-    #     load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
-
-    # elif any('com' in ele for ele in sectors):
-    #     load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
-
     load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
 
     pv['consumption_hourly'] = pd.Series(load_profile_df['consumption_hourly']).iloc[0]
