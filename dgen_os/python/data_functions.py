@@ -439,8 +439,6 @@ def summarize_scenario(scenario_settings, model_settings):
     return
 
 #%%
-
-
 def get_scenario_options(cur, schema, pg_params):
     ''' Pull scenario options and log the user running the scenario from dB
     '''

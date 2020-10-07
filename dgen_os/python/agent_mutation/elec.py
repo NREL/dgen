@@ -373,12 +373,16 @@ def get_and_apply_agent_load_profiles(con, agent):
                  AND state_abbr = '{state_abbr}';""".format(**inputs)
                            
     df = pd.read_sql(sql, con, coerce_float=False)
-    df = df[['consumption_hourly']]
-    df['load_kwh_per_customer_in_bin'] = agent.loc['load_kwh_per_customer_in_bin']
     
+    df = df[['consumption_hourly']]
+    
+    df['load_kwh_per_customer_in_bin'] = agent.loc['load_kwh_per_customer_in_bin']
+
     # scale the normalized profile to sum to the total load
     df = df.apply(scale_array_sum, axis=1, args=(
         'consumption_hourly', 'load_kwh_per_customer_in_bin'))
+    
+    
     return df
 
 #%%
