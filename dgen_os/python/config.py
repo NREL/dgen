@@ -16,7 +16,6 @@ pg_params_file = 'pg_params_atlas.json'
 #   path to load file corresponding to the state-sector scenario you're running
 #==============================================================================
 
-#load_path = '/Users/tstanley/Documents/dGen_Materials/OpenSourcing/Load_Integration/fixed_loads/res/state_data/state_timeseries'
 load_path = '/Users/tstanley/Documents/dGen_Materials/OpenSourcing/Load_Integration/fixed_loads/res/state_data/state_timeseries/DE_timeseries.parquet'
 
 #==============================================================================

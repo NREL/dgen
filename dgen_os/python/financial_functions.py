@@ -210,12 +210,10 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
 
 
     if any('res' in ele for ele in sectors):
-        #load_profile_df = agent_mutation.elec.get_and_apply_residential_agent_load_profiles(con, 'res', agent) # *** for full release, don't uncomment ***
         de_ts = pd.read_parquet(state_path)
         s = str(agent.loc['bldg_id'])  # *** query 8760 by bdlg_id (residential version reformats bldg_id to str) ***
 
     elif any('com' in ele for ele in sectors):
-        #load_profile_df = agent_mutation.elec.get_and_apply_commercial_agent_load_profiles(con, 'com', agent) # *** for full release, don't uncomment ***
         de_ts = pd.read_parquet(state_path)
         de_ts.rename(columns=lambda t: int(t.strip()), inplace=True) # *** get's rid of leading zeros & converts from str to int for com ***
         s = agent.loc['bldg_id']                                     # query 8760 by bdlg_id (commercial version)
