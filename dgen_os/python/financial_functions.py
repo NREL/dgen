@@ -204,6 +204,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     # PV
     pv = dict()
 
+    #load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent) # for full release, don't uncomment
 
     state_path = model_settings.load_path
 

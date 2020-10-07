@@ -333,6 +333,33 @@ def get_nem_settings(state_limits, state_by_sector, utility_by_sector, selected_
     return state_result, utility_result
 
 
+def get_and_apply_agent_load_profiles(con, agent):
+    inputs = locals().copy()
+    inputs['bldg_id'] = agent.loc['bldg_id']
+    inputs['sector_abbr'] = agent.loc['sector_abbr']
+    inputs['state_abbr'] = agent.loc['state_abbr']
+    
+    sql = """SELECT bldg_id, sector_abbr, state_abbr,
+                    kwh_load_profile as consumption_hourly
+             FROM diffusion_load_profiles.{sector_abbr}stock_load_profiles
+                 WHERE bldg_id = {bldg_id} 
+                 AND sector_abbr = '{sector_abbr}'
+                 AND state_abbr = '{state_abbr}';""".format(**inputs)
+                           
+    df = pd.read_sql(sql, con, coerce_float=False)
+    
+    df = df[['consumption_hourly']]
+    
+    df['load_kwh_per_customer_in_bin'] = agent.loc['load_kwh_per_customer_in_bin']
+
+    # scale the normalized profile to sum to the total load
+    df = df.apply(scale_array_sum, axis=1, args=(
+        'consumption_hourly', 'load_kwh_per_customer_in_bin'))
+    
+    
+    return df
+
+
 #%%
 # will be used for full release
 def get_and_apply_residential_agent_load_profiles(con, sector, agent):

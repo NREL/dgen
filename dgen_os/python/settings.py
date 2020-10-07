@@ -31,7 +31,6 @@ class ModelSettings(object):
         self.pg_params_log = None  # type is text, doesn't include pw
         self.model_path = None  # path exists
         self.load_path = None
-        # self.agents_per_region = None  # type is integer, > 0
         self.pg_procs = None  # int<=16
         self.local_cores = None  # int < cores on machine
         self.delete_output_schema = None  # bool
@@ -51,7 +50,6 @@ class ModelSettings(object):
         self.set('load_path', config.load_path)
         self.set('start_year', config.start_year)
         self.set('model_path', config.model_path)
-        #self.set('agents_per_region', config.agents_per_region)
         self.set('local_cores', config.local_cores)
         self.set('pg_procs', config.pg_procs)
         self.set_pg_params(config.pg_params_file)
@@ -471,7 +469,6 @@ def init_model_settings():
     model_settings.add_config(config)
     model_settings.set('model_init', utilfunc.get_epoch_time())
     model_settings.set('role', 'postgres')
-    #model_settings.set('role', 'diffusion-writers')
     model_settings.set('cdate', utilfunc.get_formatted_time())
     model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate))
     model_settings.set('input_data_dir', '{}/input_data'.format(os.path.dirname(os.getcwd())))
