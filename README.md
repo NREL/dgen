@@ -7,7 +7,12 @@ https://attendee.gotowebinar.com/recording/8157192513262044417
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
 
-- Important: In Docker, go into Docker > Preferences > Resources and up the allocation for disk size image for Docker. 64 GB is recommended. If a lot of this is being used up, then pruning past failed images/volumes will help free up some space. Refer to Docker’s website for more details on this.
+- Important: In Docker, go into Docker > Preferences > Resources and up the allocation for disk size image for Docker. 16 GB is recommended for smaller (state level) databasese. 32 GB is recommended for ISO specific databases. 70+GB is required for restoring the national level database. If you get a memory issue then you'll need to up the memory allocation and or will need to prune past failed images/volumes. Running the below docker commands will clear these out and let you start fresh:
+```
+   $ docker system prune -a 
+   $ docker volume prune -f
+``` 
+- Refer to Docker’s website for more details on this.
 
 Install Anaconda Python 3.7 Version: https://www.anaconda.com/distribution/
 
@@ -15,7 +20,7 @@ Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options fo
 
 Install Git: If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
 
-Windows users: if you don't have UNIX commands enabled for command prompt/powershell then you'll need to install Cygwin to run a UNIX terminal.
+Windows users: if you don't have UNIX commands enabled for command prompt/powershell then you'll need to install Cygwin or QEMU to run a UNIX terminal.
 
 ## Download Code 
 New users should fork a copy of dGen to their own private github account 
@@ -27,7 +32,7 @@ Next, clone the forked repository to your local machine by running the following
 ```
 
 - Create a new branch in this repository by running ```git checkout -b <branch_name_here>```
-- It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Hence, create new branch when developing features or performing configurations for unique runs.
+- It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Create new branches when developing features or performing configurations for unique runs.
 
 # Running and Configuring dGen
 
@@ -64,11 +69,11 @@ After cloning this repository and installing (and running) Docker as well as Ana
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
-- ```Postgres=# \c dgen_db``` can then be used to connect to the database.
+- ```Postgres=# \c dgen_db``` can then be used to connect to the database in terminal, but this step isn't necessary.
 
 
 ### B. Download data (agents and database):
-Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F) and make sure to unzip any zipped files once downloaded.
+Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F) and make sure to unzip any zipped files once downloaded. Note, the 13.5 GB dgen_db.sql.zip file contains all of the data for national level runs. We recommend starting with the database specific to the state or ISO region you're interested in.
 
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
@@ -83,7 +88,7 @@ Next, run the following in the command line (replacing 'path_to_where_you_saved_
    $ docker exec -i <container id> psql -U postgres -d dgen_db -f dgen_db.sql
 ```
 
-- Backing up the database will likely take 45-60 minutes. 
+- Backing up state/ISO databases will likely take 5-15 minutes. The national database will take 45-60 minutes.
 - Don't close docker at any point while running dGen.
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 
@@ -120,10 +125,9 @@ See the Input Sheet Wiki page for more details on customizing scenarios.
 
 - Localhost could also be set as "127.0.0.1"
 - Save this file
-- Make sure the role is set as "postgres" in settings.py, line 515; also change the role to "postgres" in data_functions.py (this should already be set as such)
+- Make sure the role is set as "postgres" in settings.py (it is set as "postgres" already by default)
 
-3. Set the 'load_path' variable correctly in config.py to the exact location of the load file that corresponds to the analysis you're running.
-* ``` load_path ```  = file path to where you saved your data    ( in /../dgen/python/config.py)
+Note, the "load_path" variable in config.py from the beta release has been removed for the final release. The load data is now integrated into each database. Load data and meta data for the agents is still accessible via the OEDI data submission.
 
 The cloned repository will have already initialized the default values for the following important parameters:
 
