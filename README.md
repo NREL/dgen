@@ -68,7 +68,7 @@ After cloning this repository and installing (and running) Docker as well as Ana
 
 
 ### B. Download data (agents and database):
-Download data here (https://app.box.com/s/9zx58ojj0hhwr3b59xhanvmzimp06bgt) and make sure to unzip any zipped files once downloaded. Note, only download one data file at a time to avoid Box's "download size exceeded" error.
+Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F) and make sure to unzip any zipped files once downloaded.
 
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 

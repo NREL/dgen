@@ -180,19 +180,6 @@ class ModelSettings(object):
             if os.path.exists(self.model_path) == False:
                 raise ValueError('Invalid {}: does not exist'.format(property_name))
 
-        # elif property_name == 'agents_per_region':
-        #     # check type
-        #     try:
-        #         check_type(self.get(property_name), int)
-        #     except TypeError as e:
-        #         raise TypeError('Invalid {0}: {1}'.format(property_name, e))
-        #     if self.agents_per_region <= 0:
-        #         raise ValueError('Invalid {}: value must be >0'.format(property_name))
-        #     if self.agents_per_region > 20:
-        #         warnings.warn(
-        #             'High {}: using values > 20 may result in very slow model run times'.format(property_name))
-
-
         elif property_name == 'local_cores':
             # check type
             try:
