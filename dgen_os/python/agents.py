@@ -228,7 +228,15 @@ class Agents(object):
         null_columns = results_df[new_columns].columns[results_df[new_columns].isna().any()].tolist()
         null_columns = [c for c in null_columns if c not in config.NULL_COLUMN_EXCEPTIONS]
         if len(null_columns) > 0:
-            raise ValueError("After applying a function, the following columns have NaN values: {}".format(null_columns))
+            null_agents = []
+            for i in null_columns:
+                sector_abbr = results_df.loc[results_df[i].isnull(), 'sector_abbr'].values[0]
+                county_id = results_df.loc[results_df[i].isnull(), 'county_id'].values[0]
+                bin_id = results_df.loc[results_df[i].isnull(), 'bin_id'].values[0]
+                null_agents.append((sector_abbr,county_id,bin_id))
+            raise ValueError("After applying a function, the following columns have NaN values: {0}\nObserved agents (sector_abbr, county_id, bin_id): {1}".format(null_columns, null_agents))
+            #raise ValueError("After applying a function, the following columns have NaN values: {}".format(null_columns))
+
 
         #check for consistant len(df)
         assert initial_len == post_len, "agent_df len changed by a function applied on_frame"

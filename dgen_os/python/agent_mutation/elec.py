@@ -140,7 +140,7 @@ def apply_pv_prices(dataframe, pv_price_traj):
     dataframe = pd.merge(dataframe, pv_price_traj, how='left', on=['sector_abbr', 'year'])
 
     # apply the capital cost multipliers
-    dataframe['system_capex_per_kw'] = (dataframe['system_capex_per_kw'] * dataframe['cap_cost_multiplier'])
+    #dataframe['system_capex_per_kw'] = (dataframe['system_capex_per_kw'] * dataframe['cap_cost_multiplier'])
 
     dataframe = dataframe.set_index('agent_id')
 
@@ -154,30 +154,53 @@ def apply_batt_prices(dataframe, batt_price_traj, batt_tech_traj, year):
     dataframe = dataframe.reset_index()
 
     # Merge on prices
-    dataframe = pd.merge(dataframe, batt_price_traj[['batt_capex_per_kwh', 'batt_capex_per_kw', 'sector_abbr', 'year']], 
+    dataframe = pd.merge(dataframe, batt_price_traj[['year','sector_abbr',
+                                                     'batt_capex_per_kwh','batt_capex_per_kw','linear_constant',
+                                                     'batt_om_per_kwh','batt_om_per_kw']],
                          how = 'left', on = ['sector_abbr', 'year'])
                      
-    batt_price_traj = pd.merge(batt_price_traj, batt_tech_traj, on=['year', 'sector_abbr'])
-    batt_price_traj['replace_year'] = batt_price_traj['year'] - batt_price_traj['batt_lifetime_yrs']
-                         
-    # Add replacement cost payments to base O&M 
-    storage_replace_values = batt_price_traj[batt_price_traj['replace_year']==year]
-    storage_replace_values['kw_replace_price'] = storage_replace_values['batt_capex_per_kw'] * storage_replace_values['batt_replace_frac_kw']
-    storage_replace_values['kwh_replace_price'] = storage_replace_values['batt_capex_per_kwh'] * storage_replace_values['batt_replace_frac_kwh']
-    
-    # Calculate the present value of the replacements
-    replace_discount = 0.06 # Use a different discount rate to represent the discounting of the third party doing the replacing
-    storage_replace_values['kw_replace_present'] = storage_replace_values['kw_replace_price'] * 1 / (1.0+replace_discount)**storage_replace_values['batt_lifetime_yrs']
-    storage_replace_values['kwh_replace_present'] = storage_replace_values['kwh_replace_price'] * 1 / (1.0+replace_discount)**storage_replace_values['batt_lifetime_yrs']
-
-    # Calculate the level of annual payments whose present value equals the present value of a replacement
-    storage_replace_values['batt_om_per_kw'] += storage_replace_values['kw_replace_present'] * (replace_discount*(1+replace_discount)**20) / ((1+replace_discount)**20 - 1)
-    storage_replace_values['batt_om_per_kwh'] += storage_replace_values['kwh_replace_present'] * (replace_discount*(1+replace_discount)**20) / ((1+replace_discount)**20 - 1)
-
-    dataframe = pd.merge(dataframe, storage_replace_values[['sector_abbr', 'batt_om_per_kwh', 'batt_om_per_kw']], how='left', on=['sector_abbr'])
     
     dataframe = dataframe.set_index('agent_id')
 
+    return dataframe
+
+
+@decorators.fn_timer(logger=logger, tab_level=2, prefix='')
+def apply_pv_plus_batt_prices(dataframe, pv_plus_batt_price_traj, batt_tech_traj, year):
+    
+    dataframe = dataframe.reset_index()
+    
+    # rename cost columns -- PV+batt configuration has distinct costs
+    pv_plus_batt_price_traj.rename(columns={'system_capex_per_kw':'system_capex_per_kw_combined',
+                              'batt_capex_per_kwh':'batt_capex_per_kwh_combined',
+                              'batt_capex_per_kw':'batt_capex_per_kw_combined',
+                              'linear_constant':'linear_constant_combined',
+                              'batt_om_per_kw':'batt_om_per_kw_combined',
+                              'batt_om_per_kwh':'batt_om_per_kwh_combined'}, inplace=True)
+
+    # Merge on prices
+    dataframe = pd.merge(dataframe, pv_plus_batt_price_traj[['year','sector_abbr',
+                                                             'system_capex_per_kw_combined',
+                                                             'batt_capex_per_kwh_combined','batt_capex_per_kw_combined',
+                                                             'linear_constant_combined',
+                                                             'batt_om_per_kw_combined','batt_om_per_kwh_combined']], 
+                         how = 'left', on = ['year', 'sector_abbr'])
+    
+    dataframe = dataframe.set_index('agent_id')
+
+    return dataframe
+
+
+#%%
+@decorators.fn_timer(logger=logger, tab_level=2, prefix='')
+def apply_value_of_resiliency(dataframe, value_of_resiliency):
+             
+    dataframe = dataframe.reset_index()
+
+    dataframe = dataframe.merge(value_of_resiliency[['state_abbr','sector_abbr','value_of_resiliency_usd']], how='left', on=['state_abbr', 'sector_abbr'])
+             
+    dataframe = dataframe.set_index('agent_id')
+    
     return dataframe
 
     
@@ -259,17 +282,20 @@ def get_electric_rates_json(con, unique_rate_ids):
 
     inputs = locals().copy()
 
+    # updated urdb3_rate_jsons_201905 to 20200721 version
+
     # reformat the rate list for use in postgres query
     inputs['rate_id_list'] = utilfunc.pylist_2_pglist(unique_rate_ids)
     inputs['rate_id_list'] = inputs['rate_id_list'].replace("L", "")
 
     # get (only the required) rate jsons from postgres
     sql = """SELECT a.rate_id_alias, a.rate_name, a.eia_id, a.json as rate_json
-             FROM diffusion_shared.urdb3_rate_jsons_201905 a
+             FROM diffusion_shared.urdb3_rate_jsons_20200721 a
              WHERE a.rate_id_alias in ({rate_id_list});""".format(**inputs)
     df = pd.read_sql(sql, con, coerce_float=False)
 
     return df
+
 
 
 #%%
@@ -299,11 +325,11 @@ def get_nem_settings(state_limits, state_by_sector, utility_by_sector, selected_
     state_df = state_df[state_df['year'] == state_df['filter_year'] ]
     state_df = state_df.merge(cf_during_peak_demand, on = 'state_abbr')
 
-    state_df = state_df.loc[ pd.isnull(state_df['max_cum_capacity_mw']) | ( pd.notnull( state_df['max_cum_capacity_mw']) & (state_df['cum_capacity_mw'] < state_df['max_cum_capacity_mw']))]
+    state_df = state_df.loc[ pd.isnull(state_df['max_cum_capacity_mw']) | ( pd.notnull( state_df['max_cum_capacity_mw']) & (state_df['cum_system_mw'] < state_df['max_cum_capacity_mw']))]
     # Calculate the maximum MW of solar capacity before reaching the NEM cap. MW are determine on a generation basis during the period of peak demand, as determined by ReEDS.
     # CF during peak period is based on ReEDS H17 timeslice, assuming average over south-facing 15 degree tilt systems (so this could be improved by using the actual tilts selected)
     state_df['max_mw'] = (state_df['max_pct_cum_capacity']/100) * state_df['peak_demand_mw'] / state_df['solar_cf_during_peak_demand_period']
-    state_df = state_df.loc[ pd.isnull(state_df['max_pct_cum_capacity']) | ( pd.notnull( state_df['max_pct_cum_capacity']) & (state_df['max_mw'] > state_df['cum_capacity_mw']))]
+    state_df = state_df.loc[ pd.isnull(state_df['max_pct_cum_capacity']) | ( pd.notnull( state_df['max_pct_cum_capacity']) & (state_df['max_mw'] > state_df['cum_system_mw']))]
 
     # Filter state and sector data to those that have not sunset
     selected_state_by_sector = state_by_sector.loc[state_by_sector['scenario'] == selected_scenario]
@@ -358,7 +384,6 @@ def get_and_apply_agent_load_profiles(con, agent):
     
     
     return df
-
 
 #%%
 def get_and_apply_normalized_hourly_resource_solar(con, agent):
@@ -451,9 +476,32 @@ def get_state_starting_capacities(con, schema):
 
     inputs = locals().copy()
 
-    sql = """SELECT *
-             FROM {schema}.state_starting_capacities_to_model;""".format(**inputs)
-    df = pd.read_sql(sql, con)
+    # sql = """SELECT *
+    #          FROM {schema}.state_starting_capacities_to_model;""".format(**inputs)
+    # df = pd.read_sql(sql, con)
+
+
+    # get state starting capacities for both solar and storage, distinguished by column names
+    sql = """WITH all_combos AS(
+                 SELECT state_abbr, unnest(ARRAY['res','com','ind']) as sector_abbr
+                 FROM diffusion_shared.state_abbr_lkup
+                 WHERE state_abbr NOT IN ('AK','HI','PR')
+             ), solar AS(
+                 SELECT sector_abbr, state_abbr, system_mw, systems_count AS pv_systems_count
+                 FROM {schema}.state_starting_capacities_to_model
+                 WHERE tech = 'solar'
+             ), storage AS(
+                 SELECT sector_abbr, state_abbr, system_mw AS batt_mw, system_mwh as batt_mwh, systems_count AS batt_systems_count
+                 FROM {schema}.state_starting_capacities_to_model
+                 WHERE tech = 'storage'
+             )
+             SELECT a.state_abbr, a.sector_abbr, b.system_mw, c.batt_mw, c.batt_mwh, b.pv_systems_count, c.batt_systems_count
+             FROM all_combos a
+             LEFT JOIN solar b
+                 ON a.state_abbr = b.state_abbr AND a.sector_abbr = b.sector_abbr
+             LEFT JOIN storage c
+                 ON a.state_abbr = c.state_abbr AND a.sector_abbr = c.sector_abbr;""".format(**inputs)
+    df = pd.read_sql(sql, con).fillna(0.)
 
     return df
 
@@ -468,9 +516,9 @@ def apply_state_incentives(dataframe, state_incentives, year, start_year, state_
         state_incentives['end_date'][pd.isnull(state_incentives['end_date'])] = end_date
 
     #Adjust incenctives to account for reduced values as adoption increases
-    yearly_escalation_function = lambda value, end_year: max(value - value * (1.0 / (end_year - start_year)) * (year-start_year) , 0)
+    yearly_escalation_function = lambda value, end_year: max(value - value * (1.0 / (end_year - start_year)) * (year-start_year), 0)
     for field in ['pbi_usd_p_kwh','cbi_usd_p_w','ibi_pct','cbi_usd_p_wh']:
-        state_incentives[field] = state_incentives.apply(lambda row: yearly_escalation_function(row[field],row['end_date'].year),axis=1)
+        state_incentives[field] = state_incentives.apply(lambda row: yearly_escalation_function(row[field], row['end_date'].year), axis=1)
         
     # Filter Incentives by the Years in which they are valid
     state_incentives = state_incentives.loc[
@@ -484,7 +532,7 @@ def apply_state_incentives(dataframe, state_incentives, year, start_year, state_
 
     # Filter where the states have not exceeded their cumulative installed capacity (by mw or pct generation) or total program budget
     #state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['incentive_cap_total_pct']) | (state_incentives_mg['cum_capacity_pct'] < state_incentives_mg['incentive_cap_total_pct'])]
-    state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['incentive_cap_total_mw']) | (state_incentives_mg['cum_capacity_mw'] < state_incentives_mg['incentive_cap_total_mw'])]
+    state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['incentive_cap_total_mw']) | (state_incentives_mg['cum_system_mw'] < state_incentives_mg['incentive_cap_total_mw'])]
     state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['budget_total_usd']) | (state_incentives_mg['cum_incentive_spending_usd'] < state_incentives_mg['budget_total_usd'])]
 
     output  =[]
@@ -530,7 +578,10 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
 
     # merge in the state starting capacities
     dataframe = pd.merge(dataframe, state_starting_capacities_df, how='left',
-                         on=['tech', 'state_abbr', 'sector_abbr'])
+                         on=['state_abbr', 'sector_abbr'])
+
+    # dataframe = pd.merge(dataframe, state_starting_capacities_df, how='left',
+    #                      on=['tech', 'state_abbr', 'sector_abbr'])
 
     # determine the portion of initial load and systems that should be allocated to each agent
     # (when there are no developable agnets in the state, simply apportion evenly to all agents)
@@ -538,11 +589,13 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
                                              dataframe[
                                                  'developable_agent_weight'] / dataframe['developable_customers_in_state'],
                                              1. / dataframe['agent_count'])
+
     # apply the agent's portion to the total to calculate starting capacity and systems
-    dataframe['adopters_cum_last_year'] = dataframe['portion_of_state'] * dataframe['systems_count']
-    dataframe['system_kw_cum_last_year'] = dataframe['portion_of_state'] * dataframe['capacity_mw'] * 1000.0
-    dataframe['batt_kw_cum_last_year'] = 0.0
-    dataframe['batt_kwh_cum_last_year'] = 0.0
+    dataframe['adopters_cum_last_year'] = dataframe['portion_of_state'] * dataframe['pv_systems_count']
+    dataframe['batt_adopters_cum_last_year'] = dataframe['portion_of_state'] * dataframe['batt_systems_count']
+    dataframe['system_kw_cum_last_year'] = dataframe['portion_of_state'] * dataframe['system_mw'] * 1000.
+    dataframe['batt_kw_cum_last_year'] = dataframe['portion_of_state'] * dataframe['batt_mw'] * 1000.0
+    dataframe['batt_kwh_cum_last_year'] = dataframe['portion_of_state'] * dataframe['batt_mwh'] * 1000.0
 
     dataframe['market_share_last_year'] = np.where(dataframe['developable_agent_weight'] == 0, 0,
                                                    dataframe['adopters_cum_last_year'] / dataframe['developable_agent_weight'])
@@ -552,12 +605,17 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
     # reproduce these columns as "initial" columns too
     dataframe['initial_number_of_adopters'] = dataframe['adopters_cum_last_year']
     dataframe['initial_pv_kw'] = dataframe['system_kw_cum_last_year']
+    dataframe['initial_batt_kw'] = dataframe['batt_kw_cum_last_year']
+    dataframe['initial_batt_kwh'] = dataframe['batt_kwh_cum_last_year']
     dataframe['initial_market_share'] = dataframe['market_share_last_year']
     dataframe['initial_market_value'] = 0
 
     # isolate the return columns
-    return_cols = ['initial_number_of_adopters', 'initial_pv_kw', 'initial_market_share', 'initial_market_value',
-                   'adopters_cum_last_year', 'system_kw_cum_last_year', 'batt_kw_cum_last_year', 'batt_kwh_cum_last_year', 'market_share_last_year', 'market_value_last_year']
+    return_cols = ['initial_number_of_adopters','initial_pv_kw','initial_batt_kw','initial_batt_kwh','initial_market_share','initial_market_value',
+                   'adopters_cum_last_year','system_kw_cum_last_year','batt_kw_cum_last_year','batt_kwh_cum_last_year','market_share_last_year','market_value_last_year']
+
+    # return_cols = ['initial_number_of_adopters', 'initial_pv_kw', 'initial_market_share', 'initial_market_value',
+    #                'adopters_cum_last_year', 'system_kw_cum_last_year', 'batt_kw_cum_last_year', 'batt_kwh_cum_last_year', 'market_share_last_year', 'market_value_last_year']
 
     dataframe[return_cols] = dataframe[return_cols].fillna(0)
 
@@ -589,28 +647,39 @@ def estimate_total_generation(dataframe):
 def calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_first_year, year,solar_agents, last_year_installed_capacity):
 
     if is_first_year:
-        df = last_year_installed_capacity.query('tech == "solar"').groupby('state_abbr')['capacity_mw'].sum().reset_index()
+        # get state starting capacities for solar & storage and sum by state
+        df = last_year_installed_capacity.groupby('state_abbr')[['system_mw','batt_mw','batt_mwh']].sum().reset_index()
+        df.rename(columns={'system_mw':'cum_system_mw', 'batt_mw':'cum_batt_mw', 'batt_mwh':'cum_batt_mwh'}, inplace=True)
+        
         # Not all states have starting capacity, don't want to drop any states thus left join on peak_demand
-        df = peak_demand_mw.merge(df,how = 'left').fillna(0)
-        df['peak_demand_mw'] = df['peak_demand_mw_2014']
-        df['cum_capacity_mw'] = df['capacity_mw']
+        df = peak_demand_mw.merge(df, how='left').fillna(0)
+        
+        # rename columns
+        df.rename(columns={'peak_demand_mw_2014':'peak_demand_mw'}, inplace=True)
+
 
     else:
         df = last_year_installed_capacity.copy()
-        df['cum_capacity_mw'] = df['system_kw_cum']/1000
+        df['cum_system_mw'] = df['system_kw_cum']/1000
+        df['cum_batt_mw'] = df['batt_kw_cum']/1000
+        df['cum_batt_mwh'] = df['batt_kwh_cum']/1000
+#        # Load growth is resolved by census region, so a lookup table is needed
+#        df = df.merge(census_division_lkup, on = 'state_abbr')
         load_growth_this_year = load_growth.loc[(load_growth['year'] == year) & (load_growth['sector_abbr'] == 'res')]
         load_growth_this_year = pd.merge(solar_agents.df[['state_abbr', 'county_id']], load_growth_this_year, how='left', on=['county_id'])
         load_growth_this_year = load_growth_this_year.groupby('state_abbr')['load_multiplier'].mean().reset_index()
         df = df.merge(load_growth_this_year, on = 'state_abbr')
         
-        df = peak_demand_mw.merge(df,how = 'left', on = 'state_abbr').fillna(0)
+        df = peak_demand_mw.merge(df, how='left', on='state_abbr').fillna(0)
         df['peak_demand_mw'] = df['peak_demand_mw_2014'] * df['load_multiplier']
 
-    df["cum_capacity_pct"] = 0
-    df["cum_incentive_spending_usd"] = 0
+    # TODO: drop cum_capacity_pct from table (misnomer)
+    df['cum_capacity_pct'] = 0
+    # TODO: enforce program spending cap
+    df['cum_incentive_spending_usd'] = 0
     df['year'] = year
     
-    df = df[["state_abbr","cum_capacity_mw","cum_capacity_pct","cum_incentive_spending_usd","peak_demand_mw","year"]]
+    df = df[['state_abbr','cum_system_mw','cum_batt_mw','cum_batt_mwh','cum_capacity_pct','cum_incentive_spending_usd','peak_demand_mw','year']]
     
     return df
 
@@ -619,19 +688,22 @@ def calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_fir
 def get_rate_switch_table(con):
     
     # get rate switch table from database
-    sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2019;"""
+    sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2020;"""
+    # sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2019;"""
     rate_switch_table = pd.read_sql(sql, con, coerce_float=False)
     rate_switch_table = rate_switch_table.reset_index(drop=True)
     
     return rate_switch_table
 
-def apply_rate_switch(rate_switch_table, agent, system_size_kw):
+def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
+    rate_switch_table = rate_switch_table.loc[rate_switch_table['tech'] == tech]
     rate_switch_table.rename(columns={'rate_id_alias':'tariff_id', 'json':'tariff_dict'}, inplace=True)
     rate_switch_table = rate_switch_table[(rate_switch_table['eia_id'] == agent.loc['eia_id']) &
                                           (rate_switch_table['res_com'] == str(agent.loc['sector_abbr']).upper()[0]) &
-                                          (rate_switch_table['min_pv_kw_limit'] <= system_size_kw) &
-                                          (rate_switch_table['max_pv_kw_limit'] > system_size_kw)]
+                                          (rate_switch_table['min_kw_limit'] <= system_size_kw) &
+                                          (rate_switch_table['max_kw_limit'] > system_size_kw)]
+
     rate_switch_table = rate_switch_table.reset_index(drop=True)
     
     # check if a DG rate is applicable to agent
@@ -659,127 +731,127 @@ def reassign_agent_tariffs(dataframe, con):
     
     # map res/com tariffs based on most likely tariff in state
     res_tariffs = {
-                    'AL':17512, # Family Dwelling Service
-                    'AR':14767, # Optional Residential Time-Of-Use (RT) Single Phase
-                    'AZ':16831, # Residential Time of Use (Saver Choice) TOU-E
-                    'CA':16959, # E-1 -Residential Service Baseline Region P
-                    'CO':16818, # Residential Service (Schedule R)
-                    'CT':15787, # Rate 1 - Residential Electric Service
-                    'DC':14986, # Residential - Schedule R
-                    'DE':11650, # Residential Service
-                    'FL':16909, # RS-1 Residential Service
-                    'GA':15036, # SCHEDULE R-22 RESIDENTIAL SERVICE
-                    'IA':11762, # Optional Residential Service
-                    'ID':12577, # Schedule 1: Residential Rates
-                    'IL':17316, # DS-1 Residential Zone 1
-                    'IN':16425, # RS - Residential Service
-                    'KS':8304, # M System Residential Service
-                    'KY':13497, # Residential Service
-                    'LA':17094, # Residential and Farm Service - Single Phase (RS-L)
-                    'MA':17211, # Greater Boston Residential R-1 (A1)
-                    'MD':15166, # Residential Service (R)
-                    'ME':17243, # A Residential Standard Offer Service (Bundled)
-                    'MI':15844, # Residential Service - Secondary (Rate RS)
-                    'MN':16617, # Residential Service - Overhead Standard (A01)
-                    'MO':17498, # 1(M) Residential Service Rate
-                    'MS':13676, # Residential Service Single Phase (RS-37C)
-                    'MT':5316, # Single Phase
-                    'NC':13819, # Residential Service (RES-41) Single Phase
-                    'ND':13877, # Residential Service Rate 10
-                    'NE':13535, # Residential Service
-                    'NH':14432, # Residential Service
-                    'NJ':15894, # RS - Residential Service
-                    'NM':16989, # 1A (Residential Service)
-                    'NV':14856, # D-1 (Residential Service)
-                    'NY':15882, # SC1- Zone A
-                    'OH':15918, # RS (Residential Service)
-                    'OK':15766, # Residential Service (R-1)
-                    'OR':17082, # Schedule 4 - Residential (Single Phase)
-                    'PA':14746, # RS (Residential Service)
-                    'RI':16189, # A-16 (Residential Service)
-                    'SC':16952, # Residential - RS (SC)
-                    'SD':1182, # Town and Rural Residential Rate
-                    'TN':15624, # Residential Electric Service
-                    'TX':15068, # Residential Service - Time Of Day
-                    'UT':17082, # Schedule 4 - Residential (Single Phase)
-                    'VA':17472, # Residential Schedule 1
-                    'VT':13757, # Rate 01 Residential Service
-                    'WA':16396, # 10 (Residential and Farm Primary General Service)
-                    'WI':16593, # Residential Rg-1
-                    'WV':16521, # Residential Service A
-                    'WY':17082 # Schedule 4 - Residential (Single Phase)
+                    'AL':17279, # Family Dwelling Service
+                    'AR':16671, # Optional Residential Time-Of-Use (RT) Single Phase
+                    'AZ':15704, # Residential Time of Use (Saver Choice) TOU-E
+                    'CA':15747, # E-1 -Residential Service Baseline Region P
+                    'CO':17078, # Residential Service (Schedule R)
+                    'CT':16678, # Rate 1 - Residential Electric Service
+                    'DC':16806, # Residential - Schedule R
+                    'DE':11569, # Residential Service
+                    'FL':16986, # RS-1 Residential Service
+                    'GA':16649, # SCHEDULE R-22 RESIDENTIAL SERVICE
+                    'IA':11693, # Optional Residential Service
+                    'ID':16227, # Schedule 1: Residential Rates
+                    'IL':16045, # DS-1 Residential Zone 1
+                    'IN':15491, # RS - Residential Service
+                    'KS':8178, # M System Residential Service
+                    'KY':16566, # Residential Service
+                    'LA':16352, # Residential and Farm Service - Single Phase (RS-L)
+                    'MA':15953, # Greater Boston Residential R-1 (A1)
+                    'MD':14779, # Residential Service (R)
+                    'ME':15984, # A Residential Standard Offer Service (Bundled)
+                    'MI':16265, # Residential Service - Secondary (Rate RS)
+                    'MN':15556, # Residential Service - Overhead Standard (A01)
+                    'MO':17207, # 1(M) Residential Service Rate
+                    'MS':16788, # Residential Service Single Phase (RS-38C)
+                    'MT':5216, # Single Phase
+                    'NC':16938, # Residential Service (RES-41) Single Phase
+                    'ND':14016, # Residential Service Rate 10
+                    'NE':13817, # Residential Service
+                    'NH':16605, # Residential Service
+                    'NJ':16229, # RS - Residential Service
+                    'NM':8692, # 1A (Residential Service)
+                    'NV':16701, # D-1 (Residential Service)
+                    'NY':16902, # SC1- Zone A
+                    'OH':16892, # RS (Residential Service)
+                    'OK':15258, # Residential Service (R-1)
+                    'OR':15847, # Schedule 4 - Residential (Single Phase)
+                    'PA':17237, # RS (Residential Service)
+                    'RI':16598, # A-16 (Residential Service)
+                    'SC':15744, # Residential - RS (SC)
+                    'SD':1216, # Town and Rural Residential Rate
+                    'TN':15149, # Residential Electric Service
+                    'TX':16710, # Residential Service - Time Of Day
+                    'UT':15847, # Schedule 4 - Residential (Single Phase)
+                    'VA':17067, # Residential Schedule 1
+                    'VT':16544, # Rate 01 Residential Service
+                    'WA':16305, # 10 (Residential and Farm Primary General Service)
+                    'WI':15543, # Residential Rg-1
+                    'WV':15515, # Residential Service A
+                    'WY':15847 # Schedule 4 - Residential (Single Phase)
                     }
     
     com_tariffs = {
-                    'AL':16462, # BTA - BUSINESS TIME ADVANTAGE (OPTIONAL) - Transmission
-                    'AR':14768, # Small General Service (SGS)
-                    'AZ':10920, # LGS-TOU- N - Large General Service Time-of-Use
-                    'CA':16983, # A-10 Medium General Demand Service (Transmission Voltage)
-                    'CO':14824, # Transmission Time Of Use  (Schedule TTOU)
-                    'CT':15804, # Rate 35 Intermediate General Electric Service
-                    'DC':16156, # General Service (Schedule GS)
-                    'DE':1164, # Schedule LC-P Large Commercial Primary
-                    'FL':13463, # SDTR-1 (Option A)
-                    'GA':1883, # SCHEDULE TOU-MB-4 TIME OF USE - MULTIPLE BUSINESS
-                    'IA':11776, # Three Phase Farm
-                    'ID':15169, # Large General Service (3 Phase)-Schedule 21
-                    'IL':1553, # General Service Three Phase standard
-                    'IN':16426, # CS - Commercial Service
-                    'KS':14943, # Generation Substitution Service
-                    'KY':16502, # Retail Transmission Service
-                    'LA':17104, # Large General Service (LGS-L)
-                    'MA':17271, # Western Massachusetts Primary General Service G-2
-                    'MD':2655, # Commercial
-                    'ME':17401, # General Service Rate
-                    'MI':5446, # Large Power Service (LP4)
-                    'MN':13857, # General Service (D16) Transmission
-                    'MO':17500, # 2(M) Small General Service - Single phase
-                    'MS':16589, # General Service - Low Voltage Single-Phase (GS-LVS-14)
-                    'MT':10885, # Three Phase
-                    'NC':13830, # General Service (GS-41)
-                    'ND':13898, # Small General Electric Service rate 20 (Demand Metered; Non-Demand)
-                    'NE':13536, # General Service Single-Phase
-                    'NH':14444, # GV Commercial and Industrial Service
-                    'NJ':14566, # AGS Secondary- BGS-RSCP
-                    'NM':16991, # 2A (Small Power Service)
-                    'NV':13374, # OGS-2-TOU
-                    'NY':17186, # SC-9 - General Large High Tension Service [Westchester]
-                    'OH':15932, # GS (General Service-Secondary)
-                    'OK':15775, # GS-TOU (General Service Time-Of-Use)
-                    'OR':17056, # Small Non-Residential Direct Access Service, Single Phase (Rate 532)
-                    'PA':7237, # Large Power 2 (LP2)
-                    'RI':16192, # G-02 (General C & I Rate)
-                    'SC':14950, # 3 (Municipal  Power Service)
-                    'SD':3685, # Small Commercial
-                    'TN':15631, # Large General Service (Subtransmission/Transmission)
-                    'TX':6113, # Medium Non-Residential LSP POLR
-                    'UT':3516, # SCHEDULE GS - 3 Phase General Service
-                    'VA':13834, # Small General Service Schedule 5
-                    'VT':13758, # Rate 06: General Service
-                    'WA':16397, # 40 (Large Demand General Service over 3MW - Primary)
-                    'WI':15013, # Cg-7 General Service Time-of-Day (Primary)
-                    'WV':16523, # General Service C
-                    'WY':3911 # General Service (GS)-Three phase
+                    'AL':15494, # BTA - BUSINESS TIME ADVANTAGE (OPTIONAL) - Primary
+                    'AR':16674, # Small General Service (SGS)
+                    'AZ':10742, # LGS-TOU- N - Large General Service Time-of-Use
+                    'CA':17057, # A-10 Medium General Demand Service (Secondary Voltage)
+                    'CO':17102, # Commercial Service (Schedule C)
+                    'CT':16684, # Rate 35 Intermediate General Electric Service
+                    'DC':15336, # General Service (Schedule GS)
+                    'DE':1199, # Schedule LC-P Large Commercial Primary
+                    'FL':13790, # SDTR-1 (Option A)
+                    'GA':1905, # SCHEDULE TOU-MB-4 TIME OF USE - MULTIPLE BUSINESS
+                    'IA':11705, # Three Phase Farm
+                    'ID':14782, # Large General Service (3 Phase)-Schedule 21
+                    'IL':1567, # General Service Three Phase standard
+                    'IN':15492, # CS - Commercial Service
+                    'KS':14736, # Generation Substitution Service
+                    'KY':17179, # General Service (Single Phase)
+                    'LA':17220, # Large General Service (LGS-L)
+                    'MA':16005, # Western Massachusetts Primary General Service G-2
+                    'MD':2659, # Commercial
+                    'ME':16125, # General Service Rate
+                    'MI':5355, # Large Power Service (LP4)
+                    'MN':15566, # General Service (A14) Secondary Voltage
+                    'MO':17208, # 2(M) Small General Service - Single phase
+                    'MS':13427, # General Service - Low Voltage Single-Phase (GS-LVS-14)
+                    'MT':10707, # Three Phase
+                    'NC':16947, # General Service (GS-41)
+                    'ND':14035, # Small General Electric Service rate 20 (Demand Metered; Non-Demand)
+                    'NE':13818, # General Service Single-Phase
+                    'NH':16620, # GV Commercial and Industrial Service
+                    'NJ':17095, # AGS Secondary- BGS-RSCP
+                    'NM':15769, # 2A (Small Power Service)
+                    'NV':13724, # OGS-2-TOU
+                    'NY':15940, # SC-9 - General Large High Tension Service [Westchester]
+                    'OH':16873, # GS (General Service-Secondary)
+                    'OK':17144, # GS-TOU (General Service Time-Of-Use)
+                    'OR':15829, # Small Non-Residential Direct Access Service, Single Phase (Rate 532)
+                    'PA':7066, # Large Power 2 (LP2)
+                    'RI':16600, # G-02 (General C & I Rate)
+                    'SC':16207, # 3 (Municipal  Power Service)
+                    'SD':3650, # Small Commercial
+                    'TN':15154, # Medium General Service (Primary)
+                    'TX':6001, # Medium Non-Residential LSP POLR
+                    'UT':3478, # SCHEDULE GS - 3 Phase General Service
+                    'VA':16557, # Small General Service Schedule 5
+                    'VT':16543, # Rate 06: General Service
+                    'WA':16306, # 40 (Large Demand General Service over 3MW - Primary)
+                    'WI':6620, # Cg-7 General Service Time-of-Day (Primary)
+                    'WV':15518, # General Service C
+                    'WY':3878 # General Service (GS)-Three phase
                     }
     
     # map industrial tariffs based on census division
     ind_tariffs = {
-                    'SA':15044, # Georgia Power Co, Schedule TOU-GSD-10 Time Of Use - General Service Demand
-                    'WSC':17163, # Southwestern Public Service Co (Texas), Large General Service - Inside City Limits 115 KV
-                    'PAC':17109, # PacifiCorp (Oregon), Schedule 47 - Secondary (Less than 4000 kW)
-                    'MA':16018, # New York State Elec & Gas Corp, All Regions - SERVICE CLASSIFICATION NO. 7-1 Large General Service TOU - Secondary -ESCO                   
-                    'MTN':16823, # Public Service Co of Colorado, Secondary General Service (Schedule SG)                   
-                    'ENC':16547, # Wisconsin Power & Light Co, Industrial Power Cp-1 (Secondary)                   
-                    'NE':14917, # Delmarva Power, General Service - Primary                   
-                    'ESC':16424, # Alabama Power Co, LPM - LIGHT AND POWER SERVICE - MEDIUM                   
-                    'WNC':15015 # Northern States Power Co - Wisconsin, Cg-9.1 Large General Time-of-Day Primary Mandatory Customers
+                    'SA':16657, # Georgia Power Co, Schedule TOU-GSD-10 Time Of Use - General Service Demand
+                    'WSC':15919, # Southwestern Public Service Co (Texas), Large General Service - Inside City Limits 115 KV
+                    'PAC':15864, # PacifiCorp (Oregon), Schedule 47 - Secondary (Less than 4000 kW)
+                    'MA':16525, # New York State Elec & Gas Corp, All Regions - SERVICE CLASSIFICATION NO. 7-1 Large General Service TOU - Secondary -ESCO                   
+                    'MTN':17101, # Public Service Co of Colorado, Secondary General Service (Schedule SG)                   
+                    'ENC':15526, # Wisconsin Power & Light Co, Industrial Power Cp-1 (Secondary)                   
+                    'NE':16635, # Delmarva Power, General Service - Primary                   
+                    'ESC':15490, # Alabama Power Co, LPM - LIGHT AND POWER SERVICE - MEDIUM                   
+                    'WNC':6642 # Northern States Power Co - Wisconsin, Cg-9.1 Large General Time-of-Day Primary Mandatory Customers
                    }
     
     dataframe = dataframe.reset_index()
 
     # separate agents with incorrect and correct rates
-    bad_rates = dataframe.loc[np.in1d(dataframe['tariff_id'], [4175, 7280, 8623, 11106, 11107, 12044])]
-    good_rates = dataframe.loc[~np.in1d(dataframe['tariff_id'], [4175, 7280, 8623, 11106, 11107, 12044])]
+    bad_rates = dataframe.loc[np.in1d(dataframe['tariff_id'], [4145, 7111, 8498, 10953, 10954, 12003])]
+    good_rates = dataframe.loc[~np.in1d(dataframe['tariff_id'], [4145, 7111, 8498, 10953, 10954, 12003])]
     
     # if incorrect rates exist, grab the correct ones from the rates table
     if len(bad_rates) > 0:

@@ -1,5 +1,5 @@
 """
-Distributed Generation Market Demand Model (dGen) - Alpha Release
+Distributed Generation Market Demand Model (dGen) - Final Release
 National Renewable Energy Lab
 """
 
@@ -101,8 +101,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # =========================================================
                 # Initialize agents
                 # =========================================================   
-                            
-                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')                
+                           
+                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')   
 
                 # Get set of columns that define agent's immutable attributes
                 cols_base = list(solar_agents.df.columns)
@@ -132,8 +132,10 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 load_growth = iFuncs.import_table( scenario_settings, con, engine, owner,input_name='load_growth', csv_import_function=iFuncs.stacked_sectors)
                 pv_price_traj = iFuncs.import_table( scenario_settings, con, engine, owner,input_name='pv_prices', csv_import_function=iFuncs.stacked_sectors)
                 batt_price_traj = iFuncs.import_table( scenario_settings, con, engine,owner, input_name='batt_prices', csv_import_function=iFuncs.stacked_sectors)
+                pv_plus_batt_price_traj = iFuncs.import_table( scenario_settings, con, engine,owner, input_name='pv_plus_batt_prices', csv_import_function=iFuncs.stacked_sectors)
                 financing_terms = iFuncs.import_table( scenario_settings, con, engine, owner,input_name='financing_terms', csv_import_function=iFuncs.stacked_sectors)
                 batt_tech_traj = iFuncs.import_table( scenario_settings, con, engine, owner,input_name='batt_tech_performance', csv_import_function=iFuncs.stacked_sectors)
+                value_of_resiliency = iFuncs.import_table( scenario_settings, con, engine,owner, input_name='value_of_resiliency', csv_import_function=None)
 
                 #==========================================================================================================
                 # Calculate Tariff Components from ReEDS data
@@ -178,6 +180,10 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     # Apply technology prices
                     solar_agents.on_frame(agent_mutation.elec.apply_pv_prices, pv_price_traj)
                     solar_agents.on_frame(agent_mutation.elec.apply_batt_prices, [batt_price_traj, batt_tech_traj, year])
+                    solar_agents.on_frame(agent_mutation.elec.apply_pv_plus_batt_prices, [pv_plus_batt_price_traj, batt_tech_traj, year])
+
+                    # Apply value of resiliency
+                    solar_agents.on_frame(agent_mutation.elec.apply_value_of_resiliency, value_of_resiliency)
 
                     # Apply depreciation schedule
                     solar_agents.on_frame(agent_mutation.elec.apply_depreciation_schedule, deprec_sch)
@@ -203,7 +209,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
 
                     # Calculate the financial performance of the S+S systems
-                    solar_agents.on_frame(financial_functions.calc_financial_performance)
+                    #solar_agents.on_frame(financial_functions.calc_financial_performance)
 
                     # Calculate Maximum Market Share
                     solar_agents.on_frame(financial_functions.calc_max_market_share, max_market_share)
@@ -228,9 +234,9 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     # Aggregate results
                     scenario_settings.output_batt_dispatch_profiles = True
 
-                    last_year_installed_capacity = solar_agents.df[['state_abbr','system_kw_cum','year']].copy()
+                    last_year_installed_capacity = solar_agents.df[['state_abbr','system_kw_cum','batt_kw_cum','batt_kwh_cum','year']].copy()
                     last_year_installed_capacity = last_year_installed_capacity.loc[last_year_installed_capacity['year'] == year]
-                    last_year_installed_capacity = last_year_installed_capacity.groupby('state_abbr')['system_kw_cum'].sum().reset_index()
+                    last_year_installed_capacity = last_year_installed_capacity.groupby('state_abbr')[['system_kw_cum','batt_kw_cum','batt_kwh_cum']].sum().reset_index()
 
                     #==========================================================================================================
                     # WRITE AGENT DF AS PICKLES FOR POST-PROCESSING
