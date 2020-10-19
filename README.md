@@ -78,6 +78,8 @@ Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&pref
 
 For example, if you want to simulate only California then navigate to the 'ca_final_db' folder and download the dgen_db.sql file. 
 
+You will also need to download and unzip the agent files "OS_dGen_Agents.zip", making sure the use the correct agent file corresponding to the scenario you'd like to run (e.g. commercial agents for California).
+
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
 ```
