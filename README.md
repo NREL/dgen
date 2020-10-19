@@ -74,7 +74,9 @@ After cloning this repository and installing (and running) Docker as well as Ana
 
 
 ### B. Download data (agents and database):
-Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F) and make sure to unzip any zipped files once downloaded. Note, the 13.5 GB dgen_db.sql.zip file contains all of the data for national level runs. We recommend starting with the database specific to the state or ISO region you're interested in.
+Download data here (https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F) and make sure to unzip any zipped files once downloaded. Note, the 13.5 GB dgen_db.sql.zip file contains all of the data for national level runs. We recommend starting with the database specific to the state or ISO region you're interested in. 
+
+For example, if you want to simulate only California then navigate to the 'ca_final_db' folder and download the dgen_db.sql file. 
 
 Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
 
