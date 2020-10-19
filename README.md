@@ -1,6 +1,7 @@
 ![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
 
 ## Watch The Webinar and Demo
+(this is currently being updated, however, much of the setup steps are the same)
 https://attendee.gotowebinar.com/recording/8157192513262044417
 
 
