@@ -959,7 +959,7 @@ def process_incentives(loan, kw, batt_kw, batt_kwh, generation_hourly, agent):
                  )
         
         # Process state capacity-based incentives (CBI)
-        cbi_value = calculate_capacity_based_incentives(kw, batt_kw, batt_kwh, agent)
+        #cbi_value = calculate_capacity_based_incentives(kw, batt_kw, batt_kwh, agent)
         
         # For multiple CBIs that are applicable to the agent, cap at 2 and use PySAM's "state" and "other" option
         if len(cbi_df) == 1:
@@ -1002,7 +1002,7 @@ def process_incentives(loan, kw, batt_kw, batt_kwh, generation_hourly, agent):
         pv_kwh_by_year = np.concatenate([(pv_kwh_by_year - (pv_kwh_by_year * agent.loc['pv_degradation_factor'] * i)) for i in range(1, agent.loc['economic_lifetime_yrs']+1)])
         kwh_by_timestep = kw * pv_kwh_by_year
         
-        pbi_value = calculate_production_based_incentives(kw, kwh_by_timestep, agent)
+        #pbi_value = calculate_production_based_incentives(kw, kwh_by_timestep, agent)
     
         # For multiple PBIs that are applicable to the agent, cap at 2 and use PySAM's "state" and "other" option
         if len(pbi_df) == 1:
@@ -1040,7 +1040,7 @@ def process_incentives(loan, kw, batt_kw, batt_kwh, generation_hourly, agent):
                  )
         
         # Process state investment-based incentives (CBI)
-        ibi_value = calculate_investment_based_incentives(kw, batt_kw, batt_kwh, agent)
+        #ibi_value = calculate_investment_based_incentives(kw, batt_kw, batt_kwh, agent)
         
         # For multiple IBIs that are applicable to the agent, cap at 2 and use PySAM's "state" and "other" option
         # NOTE: this specifies IBI percentage, instead of IBI absolute amount
@@ -1208,116 +1208,116 @@ def check_incentive_constraints(incentive_data, incentive_value, system_cost):
     return incentive_value
 
 
-#%%
-def calculate_investment_based_incentives(pv, batt_kw, batt_kwh, agent):
-    # Get State Incentives that have a valid Investment Based Incentive value (based on percent of total installed costs)
-    ibi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['ibi_pct'])]
+# #%%
+# def calculate_investment_based_incentives(pv, batt_kw, batt_kwh, agent):
+#     # Get State Incentives that have a valid Investment Based Incentive value (based on percent of total installed costs)
+#     ibi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['ibi_pct'])]
 
-    # Create a empty dataframe to store cumulative ibi's for each system configuration
-    result = 0.
+#     # Create a empty dataframe to store cumulative ibi's for each system configuration
+#     result = 0.
 
-    # Loop through each incenctive and add it to the result df
-    for row in ibi_list.to_dict('records'):
-        if row['tech'] == 'solar':
-            # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
-            size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
+#     # Loop through each incenctive and add it to the result df
+#     for row in ibi_list.to_dict('records'):
+#         if row['tech'] == 'solar':
+#             # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
+#             size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
 
-            # Scale costs based on system size
-            system_cost = (pv * agent.loc['system_capex_per_kw'])
+#             # Scale costs based on system size
+#             system_cost = (pv * agent.loc['system_capex_per_kw'])
 
-        if row['tech'] == 'storage':
-            # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
-            size_filter = check_minmax(batt_kwh, row['min_kwh'], row['max_kwh'])
-            size_filter = size_filter * check_minmax(batt_kw, row['min_kw'], row['max_kw'])
+#         if row['tech'] == 'storage':
+#             # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
+#             size_filter = check_minmax(batt_kwh, row['min_kwh'], row['max_kwh'])
+#             size_filter = size_filter * check_minmax(batt_kw, row['min_kw'], row['max_kw'])
 
-            # Calculate system costs
-            system_costs = (batt_kw * agent.loc['batt_capex_per_kw']) + (batt_kwh * agent.loc['batt_capex_per_kwh'])
+#             # Calculate system costs
+#             system_costs = (batt_kw * agent.loc['batt_capex_per_kw']) + (batt_kwh * agent.loc['batt_capex_per_kwh'])
 
-        # Total incentive
-        incentive_value = (system_cost * row['ibi_pct']) * size_filter
+#         # Total incentive
+#         incentive_value = (system_cost * row['ibi_pct']) * size_filter
 
-        # Add the result to the cumulative total
-        result += check_incentive_constraints(row, incentive_value, system_cost)
+#         # Add the result to the cumulative total
+#         result += check_incentive_constraints(row, incentive_value, system_cost)
 
-    return np.array(result)
-
-
-#%%
-def calculate_capacity_based_incentives(pv, batt_kw, batt_kwh, agent):
-
-    # Get State Incentives that have a valid Capacity Based Incentive value (based on $ per watt)
-    cbi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['cbi_usd_p_w']) | pd.notnull(agent.loc['state_incentives']['cbi_usd_p_wh'])]
-
-    # Create a empty dataframe to store cumulative bi's for each system configuration
-    result = 0.
-
-    # Loop through each incenctive and add it to the result df
-    for row in cbi_list.to_dict('records'):
-
-        if row['tech'] == 'solar':
-            # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
-            size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
-
-            # Calculate incentives
-            incentive_value = (pv * (row['cbi_usd_p_w']*1000)) * size_filter
-
-            # Calculate system costs
-            system_cost = pv * agent.loc['system_capex_per_kw']
-
-
-        if row['tech'] == 'storage' and not np.isnan(row['cbi_usd_p_wh']):
-            # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
-            size_filter = check_minmax(batt_kwh, row['min_kwh'], row['max_kwh'])
-            size_filter = size_filter * check_minmax(batt_kw, row['min_kw'], row['max_kw'])
-
-            # Calculate incentives
-            incentive_value = (row['cbi_usd_p_wh'] * batt_kwh + row['cbi_usd_p_w'] * batt_kw) * 1000  * size_filter
-
-            # Calculate system costs
-            system_cost = (batt_kw * agent.loc['batt_capex_per_kw']) + (batt_kwh * agent.loc['batt_capex_per_kwh'])
-
-        result += check_incentive_constraints(row, incentive_value, system_cost)
-
-    return np.array(result)
+#     return np.array(result)
 
 
 #%%
-def calculate_production_based_incentives(pv, kwh_by_timestep, agent):
+# def calculate_capacity_based_incentives(pv, batt_kw, batt_kwh, agent):
 
-    # Get State Incentives that have a valid Production Based Incentive value
-    pbi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['pbi_usd_p_kwh'])]
+#     # Get State Incentives that have a valid Capacity Based Incentive value (based on $ per watt)
+#     cbi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['cbi_usd_p_w']) | pd.notnull(agent.loc['state_incentives']['cbi_usd_p_wh'])]
 
-    # Create a empty dataframe to store cumulative pbi's for each system configuration (each system should have an array as long as the number of years times the number of timesteps per year)
-    result = np.tile(np.array([0]*agent.loc['economic_lifetime_yrs']*agent.loc['timesteps_per_year']), (1,1))
+#     # Create a empty dataframe to store cumulative bi's for each system configuration
+#     result = 0.
+
+#     # Loop through each incenctive and add it to the result df
+#     for row in cbi_list.to_dict('records'):
+
+#         if row['tech'] == 'solar':
+#             # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
+#             size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
+
+#             # Calculate incentives
+#             incentive_value = (pv * (row['cbi_usd_p_w']*1000)) * size_filter
+
+#             # Calculate system costs
+#             system_cost = pv * agent.loc['system_capex_per_kw']
+
+
+#         if row['tech'] == 'storage' and not np.isnan(row['cbi_usd_p_wh']):
+#             # Size filer calls a function to check for valid system size limitations - a boolean so if the size in invalid it will add zero's to the results df
+#             size_filter = check_minmax(batt_kwh, row['min_kwh'], row['max_kwh'])
+#             size_filter = size_filter * check_minmax(batt_kw, row['min_kw'], row['max_kw'])
+
+#             # Calculate incentives
+#             incentive_value = (row['cbi_usd_p_wh'] * batt_kwh + row['cbi_usd_p_w'] * batt_kw) * 1000  * size_filter
+
+#             # Calculate system costs
+#             system_cost = (batt_kw * agent.loc['batt_capex_per_kw']) + (batt_kwh * agent.loc['batt_capex_per_kwh'])
+
+#         result += check_incentive_constraints(row, incentive_value, system_cost)
+
+#     return np.array(result)
+
+
+# #%%
+# def calculate_production_based_incentives(pv, kwh_by_timestep, agent):
+
+#     # Get State Incentives that have a valid Production Based Incentive value
+#     pbi_list = agent.loc['state_incentives'].loc[pd.notnull(agent.loc['state_incentives']['pbi_usd_p_kwh'])]
+
+#     # Create a empty dataframe to store cumulative pbi's for each system configuration (each system should have an array as long as the number of years times the number of timesteps per year)
+#     result = np.tile(np.array([0]*agent.loc['economic_lifetime_yrs']*agent.loc['timesteps_per_year']), (1,1))
     
-    #Loop through incentives
-    for row in pbi_list.to_dict('records'):
-        #Build boolean array to express if system sizes are valid
-        size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
+#     #Loop through incentives
+#     for row in pbi_list.to_dict('records'):
+#         #Build boolean array to express if system sizes are valid
+#         size_filter = check_minmax(pv, row['min_kw'], row['max_kw'])
 
-        if row['tech'] == 'solar':
-            # Assume flat rate timestep function for PBI
-            default_expiration = datetime.date(agent.loc['year'] + agent.loc['economic_lifetime_yrs'], 1, 1)
-            fn = {'function':eqn_flat_rate,
-                  'row_params':['pbi_usd_p_kwh','incentive_duration_yrs','end_date'],
-                  'default_params':[0, agent.loc['economic_lifetime_yrs'], default_expiration],
-                  'additional_params':[agent.loc['year'], agent.loc['timesteps_per_year']]}
+#         if row['tech'] == 'solar':
+#             # Assume flat rate timestep function for PBI
+#             default_expiration = datetime.date(agent.loc['year'] + agent.loc['economic_lifetime_yrs'], 1, 1)
+#             fn = {'function':eqn_flat_rate,
+#                   'row_params':['pbi_usd_p_kwh','incentive_duration_yrs','end_date'],
+#                   'default_params':[0, agent.loc['economic_lifetime_yrs'], default_expiration],
+#                   'additional_params':[agent.loc['year'], agent.loc['timesteps_per_year']]}
 
 
 
-            # Vectorize the function
-            f =  np.vectorize(fn['function'](row, fn['row_params'], fn['default_params'], fn['additional_params']))
+#             # Vectorize the function
+#             f =  np.vectorize(fn['function'](row, fn['row_params'], fn['default_params'], fn['additional_params']))
 
-            # Apply the function to each row (containing an array of timestep values)
-            incentive_value = kwh_by_timestep * f(list(range(0,len(kwh_by_timestep))))
+#             # Apply the function to each row (containing an array of timestep values)
+#             incentive_value = kwh_by_timestep * f(list(range(0,len(kwh_by_timestep))))
 
-            #Add the pbi the cumulative total
-            result = result + list(incentive_value * size_filter)
+#             #Add the pbi the cumulative total
+#             result = result + list(incentive_value * size_filter)
 
-    #Sum the incentive at each timestep by year for each system size
-    result =  [np.array([sum(x) for x in np.split(x,agent.loc['economic_lifetime_yrs'] )]) for x in result]
+#     #Sum the incentive at each timestep by year for each system size
+#     result =  [np.array([sum(x) for x in np.split(x,agent.loc['economic_lifetime_yrs'] )]) for x in result]
 
-    return result
+#     return result
 
 
 #%%
