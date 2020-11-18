@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dGen Code Base &#8212; dgen  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribution Policy" href="contributing.html" />
+    <link rel="prev" title="dGen Overview" href="overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dgen-code-base">
+<h1>dGen Code Base<a class="headerlink" href="#dgen-code-base" title="Permalink to this headline">¶</a></h1>
+<p>The dGen source code is located within the <code class="file docutils literal notranslate"><span class="pre">python/</span></code> directory. This page contains information
+on the classes, functions, attributes, and methods used by dGen. This page is useful for debugging
+errors, or examining how different elements interact incase a special run is desired.</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-python.config">
+<span id="python-config-module"></span><h2>python.config module<a class="headerlink" href="#module-python.config" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-python.decorators">
+<span id="python-decorators-module"></span><h2>python.decorators module<a class="headerlink" href="#module-python.decorators" title="Permalink to this headline">¶</a></h2>
+<p>Created on Thu Jan  8 13:14:32 2015</p>
+<p>&#64;author: mgleason</p>
+<dl class="py class">
+<dt id="python.decorators.fid">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.decorators.fn_info">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fn_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">info</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tab_level</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fn_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fn_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.decorators.fn_timer">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fn_timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">tab_level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fn_timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fn_timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.decorators.shared">
+<code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">shared</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#shared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.shared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.decorators.unshared">
+<code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">unshared</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#unshared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.unshared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="python-dgen-model-module">
+<h2>python.dgen_model module<a class="headerlink" href="#python-dgen-model-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-diffusion-functions-module">
+<h2>python.diffusion_functions module<a class="headerlink" href="#python-diffusion-functions-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-dispatch-functions-module">
+<h2>python.dispatch_functions module<a class="headerlink" href="#python-dispatch-functions-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-financial-functions-module">
+<h2>python.financial_functions module<a class="headerlink" href="#python-financial-functions-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-settings-module">
+<h2>python.settings module<a class="headerlink" href="#python-settings-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-storage-functions-module">
+<h2>python.storage_functions module<a class="headerlink" href="#python-storage-functions-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-python.tariff_functions">
+<span id="python-tariff-functions-module"></span><h2>python.tariff_functions module<a class="headerlink" href="#module-python.tariff_functions" title="Permalink to this headline">¶</a></h2>
+<p>Created on Fri Sep 30 11:26:58 2016</p>
+<p>&#64;author: pgagnon</p>
+<p>To Do:</p>
+<dl class="py class">
+<dt id="python.tariff_functions.Export_Tariff">
+<em class="property">class </em><code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">Export_Tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">full_retail_nem</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">prices</span><span class="o">=</span><span class="default_value">array([[0.0]])</span></em>, <em class="sig-param"><span class="n">levels</span><span class="o">=</span><span class="default_value">array([[0.0]])</span></em>, <em class="sig-param"><span class="n">periods_8760</span><span class="o">=</span><span class="default_value">array([0, 0, 0, ..., 0, 0, 0])</span></em>, <em class="sig-param"><span class="n">period_tou_n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Export_Tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Export_Tariff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Structure of compensation for exported generation. Currently only two
+styles: full-retail NEM, and instantanous TOU energy value.</p>
+<dl class="py method">
+<dt id="python.tariff_functions.Export_Tariff.set_constant_sell_price">
+<code class="sig-name descname">set_constant_sell_price</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">price</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Export_Tariff.set_constant_sell_price"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Export_Tariff.set_constant_sell_price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.tariff_functions.Tariff">
+<em class="property">class </em><code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">Tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_day</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">urdb_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">json_file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dict_obj</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tariff Attributes:
+-urdb_id: id for utility rate database. US, not international.
+-eia_id: The EIA assigned ID number for the utility associated with this tariff
+-name: tariff name
+-utility: Name of utility this tariff is associated with
+-fixed_charge: Fixed monthly charge in $/mo.
+-peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff
+-peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff
+-kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff
+-kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff
+-sector: residential, commercial, or industrial
+-comments: comments from the urdb
+-description: tariff description from urdb
+-source: uri for the source of the tariff
+-uri: link the the urdb page
+-voltage_category: secondary, primary, transmission
+-d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand.
+-d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.
+-d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+-d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+-d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component
+-d_tou_n = Number of unique tou demand periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+-d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+-d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+-e_exists = Boolean of whether there is a flat (not tou) demand charge component
+-e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component
+-e_n = Number of unique energy periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+-e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.
+-e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.
+-e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+-e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+-d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+-d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+-d_tou_8760
+-e_tou_8760
+-e_prices_no_tier
+-e_max_difference: The maximum energy price differential within any single day
+-energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later
+-demand_rate_unit: kW or kW/day - for guiding the bill calculations later</p>
+<p>To Do
+-peak_kW_capacity and other scalar variables may be being imported as tuples.</p>
+<blockquote>
+<div><p>this may have been solved now, but general unit check would be good.</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_d_flat">
+<code class="sig-name descname">define_d_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_flat_levels</span></em>, <em class="sig-param"><span class="n">d_flat_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_d_flat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_d_flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_d_tou">
+<code class="sig-name descname">define_d_tou</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_wkday_12by24</span></em>, <em class="sig-param"><span class="n">d_wkend_12by24</span></em>, <em class="sig-param"><span class="n">d_tou_levels</span></em>, <em class="sig-param"><span class="n">d_tou_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_d_tou"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_d_tou" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_e">
+<code class="sig-name descname">define_e</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">e_wkday_12by24</span></em>, <em class="sig-param"><span class="n">e_wkend_12by24</span></em>, <em class="sig-param"><span class="n">e_levels</span></em>, <em class="sig-param"><span class="n">e_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_e"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_e" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.identify_max_demand_charge">
+<code class="sig-name descname">identify_max_demand_charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.identify_max_demand_charge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.identify_max_demand_charge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.write_json">
+<code class="sig-name descname">write_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.write_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.write_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.bill_calculator">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">bill_calculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">load_profile</span></em>, <em class="sig-param"><span class="n">tariff</span></em>, <em class="sig-param"><span class="n">export_tariff</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#bill_calculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.bill_calculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not vectorized for now. Next step will be pass in multiple profiles for the same tariff
+2 styles of NEM: Full retail and fixed schedule value.</p>
+<p>To-do
+-Both energy and demand calcs (anything that uses piecewise calculator) doesn’t go below zero, because piecewise isn’t built to.</p>
+<blockquote>
+<div><p>Therefore, credit can’t be earned in one period and applied to another.</p>
+</div></blockquote>
+<p>-My current approach sums for all periods, not just those in a month. Potentially inefficient, if it was dynamic it would be cheaper, but less clear.
+-Make this flexible for different hours increments (which will require more robust approach for power vs energy units)
+-I haven’t checked the TOU export credit option yet.
+-I don’t make any type of check about what day of the week this calculator assumes your load profile is starting on
+-e_period_charges wasn’t being built for non-NEM
+-daily_kwh energy tiers are just crudely patched</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.build_8760_from_12by24s">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">build_8760_from_12by24s</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wkday_12by24</span></em>, <em class="sig-param"><span class="n">wkend_12by24</span></em>, <em class="sig-param"><span class="n">start_day</span><span class="o">=</span><span class="default_value">6</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#build_8760_from_12by24s"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.build_8760_from_12by24s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start day of 6 equates to a Sunday</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.design_tariff_for_portfolio">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">design_tariff_for_portfolio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">agent_df</span></em>, <em class="sig-param"><span class="n">avg_rev</span></em>, <em class="sig-param"><span class="n">peak_hour_indicies</span></em>, <em class="sig-param"><span class="n">summer_month_indicies</span></em>, <em class="sig-param"><span class="n">rev_f_d</span></em>, <em class="sig-param"><span class="n">rev_f_e</span></em>, <em class="sig-param"><span class="n">rev_f_fixed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#design_tariff_for_portfolio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.design_tariff_for_portfolio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a tariff that would extract a given $/kWh from a portfolio of
+customers.</p>
+<dl class="simple">
+<dt>Inputs:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>agent_df: Dataframe of agents. Must contain load_profile and its</dt><dd><p>weight in the portfolio.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>avg_rev: $/kWh that the tariff would extract from the given portfolio</dt><dd><p>of customers.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_d: revenue strucutre for demand charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from tou charges,
+fraction that comes from flat charges]
+ex: [0.4875, 0.5, 0.5]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_d: revenue strucutre for energy charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from off-peak hours,
+fraction that comes from on-peak hours]
+ex: [0.4875, 0.20, 0.8]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_fixed: [fraction of revenue from fixed monthly charges].</dt><dd><p>ex: [0.025]</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Assumptions:</dt><dd><ul class="simple">
+<li><p>peak hours are the same between demand and energy.</p></li>
+<li><p>peak hours only occur during the summer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.download_tariffs_from_urdb">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">download_tariffs_from_urdb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em>, <em class="sig-param"><span class="n">sector</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">utility</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_progress</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#download_tariffs_from_urdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.download_tariffs_from_urdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each user should get their own URDB API key: <a class="reference external" href="http://en.openei.org/services/api/signup/">http://en.openei.org/services/api/signup/</a></p>
+<p>Sectors: Residential, Commercial, Industrial, Lighting</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.filter_tariff_df">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">filter_tariff_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tariff_df</span></em>, <em class="sig-param"><span class="n">keyword_list</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keyword_list_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">demand_units_to_exclude</span><span class="o">=</span><span class="default_value">['hp', 'kVA', 'kW daily', 'hp daily', 'kVA daily']</span></em>, <em class="sig-param"><span class="n">remove_expired</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#filter_tariff_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.filter_tariff_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: Bring in energy rate unit filtering
+energy_units_to_exclude=[‘kWh/kW’, ‘kWh/hp’, ‘kWh/kVA’, ‘kWh daily’, ‘kWh/kW daily’, ‘kWh/hp daily’, ‘kWh/kVA daily’],</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.load_config_params">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">load_config_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_file_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#load_config_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.load_config_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each user should fill in a config_template.json file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.tiered_calc_vec">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">tiered_calc_vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">levels</span></em>, <em class="sig-param"><span class="n">prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#tiered_calc_vec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.tiered_calc_vec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.utility_functions">
+<span id="python-utility-functions-module"></span><h2>python.utility_functions module<a class="headerlink" href="#module-python.utility_functions" title="Permalink to this headline">¶</a></h2>
+<p>Created on Thu Sep 17 10:51:51 2015</p>
+<p>&#64;author: mgleason</p>
+<dl class="py class">
+<dt id="python.utility_functions.Timer">
+<em class="property">class </em><code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">Timer</code><a class="reference internal" href="_modules/python/utility_functions.html#Timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.code_profiler">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">code_profiler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out_dir</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#code_profiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.code_profiler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.current_datetime">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">current_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'%Y_%m_%d_%Hh%Mm%Ss'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#current_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.current_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_epoch_time">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_epoch_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_epoch_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_epoch_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_formatted_time">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_formatted_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_formatted_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_formatted_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_git_hash">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_git_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_git_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_git_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_logger">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_file_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_pg_engine_params">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_pg_engine_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_pg_engine_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_pg_engine_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_pg_params">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_pg_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_pg_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_pg_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.make_con">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">make_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">connection_string</span></em>, <em class="sig-param"><span class="n">role</span></em>, <em class="sig-param"><span class="n">async_</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#make_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.make_con" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.make_engine">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">make_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pg_engine_con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#make_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.make_engine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.parse_command_args">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">parse_command_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argv</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#parse_command_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.parse_command_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to parse the command line arguments
+IN:</p>
+<p>-h : help ‘dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;’
+-i : Initiate model for 2010 and quit
+-y: or year= : Resume model solve in passed year</p>
+<p>OUT:</p>
+<p>init_model - Boolean - Should model initiate?
+resume_year - Float - year model should resume</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.pylist_2_pglist">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">pylist_2_pglist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#pylist_2_pglist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.pylist_2_pglist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.shutdown_log">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">shutdown_log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#shutdown_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.shutdown_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.wait">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-python" title="Permalink to this headline">¶</a></h2>
+<p>Created on Tue Dec 23 13:50:28 2014</p>
+<p>&#64;author: mgleason</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">dgen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">dGen Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-dgen-model-module">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-diffusion-functions-module">python.diffusion_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-dispatch-functions-module">python.dispatch_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-financial-functions-module">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-settings-module">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-storage-functions-module">python.storage_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution Policy</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="overview.html" title="previous chapter">dGen Overview</a></li>
+      <li>Next: <a href="contributing.html" title="next chapter">Contribution Policy</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, NREL.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
