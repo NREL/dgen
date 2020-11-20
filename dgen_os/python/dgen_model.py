@@ -168,6 +168,14 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     
                     #Apply net metering parameters
                     net_metering_state_df, net_metering_utility_df = agent_mutation.elec.get_nem_settings(nem_state_capacity_limits, nem_state_and_sector_attributes, nem_utility_and_sector_attributes, nem_selected_scenario, year, state_capacity_by_year, cf_during_peak_demand)
+                    # update NEM sunset year to reflect actual expiration
+                    if is_first_year == False:
+                        nem_state_capacity_limits.loc[nem_state_capacity_limits.state_abbr.isin(
+                                net_metering_state_df.state_abbr.loc[net_metering_state_last_year_df.pv_pctload_limit.notnull() &
+                                                                     net_metering_state_df.pv_pctload_limit.isnull()]),
+                            'sunset_year'] = year
+                    net_metering_state_last_year_df = net_metering_state_df
+
                     solar_agents.on_frame(agent_mutation.elec.apply_export_tariff_params, [net_metering_state_df, net_metering_utility_df])
 
                     # Apply each agent's electricity price change and assumption about increases
