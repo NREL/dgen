@@ -1,4 +1,4 @@
-![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
+﻿![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
 
 ## Watch The Webinar and Setup Tutorial
 https://attendee.gotowebinar.com/recording/7790172234808601356
@@ -115,7 +115,7 @@ Activate the dg3n environment and launch spyder by opening a new terminal window
 See the Input Sheet Wiki page for more details on customizing scenarios. 
 
 
-2. In the python folder, open ```pg_params_atlas.json``` and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
+2. In the python folder, open ```pg_params_connect.json``` and configure it to your local database. If you didn't change your username or password settings while setting up the docker container, this file should look like the below example:
 
 ```
    {	
@@ -139,8 +139,7 @@ The cloned repository will have already initialized the default values for the f
 * ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                              --> number of parallel processes the model will run with
 * ``` cores = 2 ``` ( in /../dgen/python/config.py)                                        --> number of cores the model will run with
 
-* ``` role = "postgres" ``` ( in /../dgen/python/data_functions.py)    --> same as the owner of the restored database
-* ``` role = "postgres" ``` ( in /../dgen/python/settings.py)                --> same as the owner of the restored database
+* ``` role = "postgres" ``` ( in /../dgen/python/config.py)    --> set role of the restored database
 
 
 ### F: Run the Model

@@ -10,7 +10,7 @@ import pyarrow.parquet as pq
 model_path = os.path.dirname(os.path.abspath(__file__))
 
 # set the name of the pg_params_file
-pg_params_file = 'pg_params_atlas.json'
+pg_params_file = 'pg_params_connect.json'
 
 #==============================================================================
 #   model start year
