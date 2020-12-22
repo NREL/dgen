@@ -12,8 +12,15 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('../os_dgen/python'))
+#sys.path.insert(0, os.path.abspath('../dgen_os'))
+#sys.path.insert(0, os.path.abspath('../dgen_os/python'))
+sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../dgen_os'))
+sys.path.insert(0, os.path.abspath('../../dgen_os/python'))
+
+#print('$$$$$$$', os.path.abspath('../..'))
+#sys.path.insert(0, os.path.abspath('../dgen_os'))
+#sys.path.insert(0, os.path.abspath('../../dgen_os/python'))
 # sys.path.insert(0, os.path.abspath('.'))
 #import sphinx_rtd_theme
 
@@ -60,3 +67,6 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+autodoc_mock_imports = ["PySAM"]

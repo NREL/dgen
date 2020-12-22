@@ -1,7 +1,7 @@
-python.financial_functions module
----------------------------------
+dgen_os.python.financial_functions module
+-----------------------------------------
 
-.. automodule:: python.financial_functions
+.. automodule:: dgen_os.python.financial_functions
    :members:
    :undoc-members:
    :show-inheritance:
@@ -10,7 +10,7 @@ python.financial_functions module
 Module contents
 ---------------
 
-.. automodule:: os_dgen.python
+.. automodule:: dgen_os.python
    :members:
    :undoc-members:
    :show-inheritance:

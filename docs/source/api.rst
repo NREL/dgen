@@ -11,48 +11,57 @@ Subpackages
 
 .. toctree::
 
-    os_dgen.python.financial_functions
+    python.agent_mutation
+    python.excel
 
 
 Submodules
 ----------
 
-os_dgen.python.config module
+python.config module
 --------------------
 
-.. automodule:: os_dgen.python.config
+.. automodule:: python.config
     :members:
     :undoc-members:
     :show-inheritance:
 
-os_dgen.python.decorators module
+python.decorators module
 ------------------------
 
-.. automodule:: os_dgen.python.decorators
+.. automodule:: python.decorators
     :members:
     :undoc-members:
     :show-inheritance:
 
-os_dgen.python.dgen\_model module
+python.dgen\_model module
 -------------------------
 
-.. automodule:: os_dgen.python.dgen_model
+.. automodule:: python.dgen_model
     :members:
     :undoc-members:
     :show-inheritance:
 
-os_dgen.python.diffusion\_functions module
-----------------------------------
+python.data\_functions module
+-----------------------------
 
-.. automodule:: os_dgen.python.diffusion_functions
+.. automodule:: python.data_functions
     :members:
     :undoc-members:
     :show-inheritance:
 
-os_dgen.python.dispatch\_functions module
----------------------------------
+python.input\_data\_functions module
+------------------------------------
 
-.. automodule:: os_dgen.python.dispatch_functions
+.. automodule:: python.input_data_functions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+python.diffusion\_functions\_elec module
+----------------------------------------
+
+.. automodule:: python.diffusion_functions_elec
     :members:
     :undoc-members:
     :show-inheritance:
@@ -73,14 +82,6 @@ python.settings module
     :undoc-members:
     :show-inheritance:
 
-python.storage\_functions module
---------------------------------
-
-.. automodule:: python.storage_functions
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 python.tariff\_functions module
 -------------------------------
 
@@ -96,7 +97,6 @@ python.utility\_functions module
     :members:
     :undoc-members:
     :show-inheritance:
-
 
 Module contents
 ---------------

@@ -5,18 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python.tariff_functions &#8212; dgen  documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <title>dgen_os.python.tariff_functions &#8212; dgen  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
    
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -31,7 +31,7 @@
 
           <div class="body" role="main">
             
-  <h1>Source code for python.tariff_functions</h1><div class="highlight"><pre>
+  <h1>Source code for dgen_os.python.tariff_functions</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">Deprecated. Nullified by new PySAM code and will be taken out in Beta release.</span>
@@ -50,7 +50,7 @@
 
 <span class="c1">#%%</span>
 <span class="c1"># Load configuration file, if one exists.</span>
-<div class="viewcode-block" id="load_config_params"><a class="viewcode-back" href="../../api.html#python.tariff_functions.load_config_params">[docs]</a><span class="k">def</span> <span class="nf">load_config_params</span><span class="p">(</span><span class="n">config_file_name</span><span class="p">):</span>
+<div class="viewcode-block" id="load_config_params"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.load_config_params">[docs]</a><span class="k">def</span> <span class="nf">load_config_params</span><span class="p">(</span><span class="n">config_file_name</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Each user should fill in a config_template.json file.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -61,7 +61,7 @@
 
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="Tariff"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff">[docs]</a><span class="k">class</span> <span class="nc">Tariff</span><span class="p">:</span>
+<div class="viewcode-block" id="Tariff"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff">[docs]</a><span class="k">class</span> <span class="nc">Tariff</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Tariff Attributes:</span>
 <span class="sd">    -urdb_id: id for utility rate database. US, not international. </span>
@@ -574,7 +574,7 @@
     <span class="c1">#######################################################################</span>
     <span class="c1"># Write the current class object to a json file</span>
     <span class="c1">#######################################################################     </span>
-<div class="viewcode-block" id="Tariff.write_json"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff.write_json">[docs]</a>    <span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_file_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Tariff.write_json"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff.write_json">[docs]</a>    <span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_file_name</span><span class="p">):</span>
         
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
                 
@@ -591,7 +591,7 @@
     <span class="c1">#######################################################################</span>
     <span class="c1"># Define TOU demand charge periods, levels, and prices</span>
     <span class="c1">#######################################################################             </span>
-<div class="viewcode-block" id="Tariff.define_d_tou"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff.define_d_tou">[docs]</a>    <span class="k">def</span> <span class="nf">define_d_tou</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_wkday_12by24</span><span class="p">,</span> <span class="n">d_wkend_12by24</span><span class="p">,</span> <span class="n">d_tou_levels</span><span class="p">,</span> <span class="n">d_tou_prices</span><span class="p">):</span>
+<div class="viewcode-block" id="Tariff.define_d_tou"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff.define_d_tou">[docs]</a>    <span class="k">def</span> <span class="nf">define_d_tou</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_wkday_12by24</span><span class="p">,</span> <span class="n">d_wkend_12by24</span><span class="p">,</span> <span class="n">d_tou_levels</span><span class="p">,</span> <span class="n">d_tou_prices</span><span class="p">):</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">d_tou_levels</span> <span class="o">=</span> <span class="n">d_tou_levels</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">d_tou_prices</span> <span class="o">=</span> <span class="n">d_tou_prices</span>
@@ -607,7 +607,7 @@
     <span class="c1">#######################################################################</span>
     <span class="c1"># Define Flat demand charge periods, levels, and prices</span>
     <span class="c1">#######################################################################             </span>
-<div class="viewcode-block" id="Tariff.define_d_flat"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff.define_d_flat">[docs]</a>    <span class="k">def</span> <span class="nf">define_d_flat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_flat_levels</span><span class="p">,</span> <span class="n">d_flat_prices</span><span class="p">):</span>
+<div class="viewcode-block" id="Tariff.define_d_flat"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff.define_d_flat">[docs]</a>    <span class="k">def</span> <span class="nf">define_d_flat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_flat_levels</span><span class="p">,</span> <span class="n">d_flat_prices</span><span class="p">):</span>
         
         <span class="c1"># If it is only handed one value for levels and prices, it assumes that</span>
         <span class="c1"># value applies to all months</span>
@@ -628,7 +628,7 @@
     <span class="c1">#######################################################################</span>
     <span class="c1"># Define energy periods, levels, and prices</span>
     <span class="c1">#######################################################################             </span>
-<div class="viewcode-block" id="Tariff.define_e"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff.define_e">[docs]</a>    <span class="k">def</span> <span class="nf">define_e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e_wkday_12by24</span><span class="p">,</span> <span class="n">e_wkend_12by24</span><span class="p">,</span> <span class="n">e_levels</span><span class="p">,</span> <span class="n">e_prices</span><span class="p">):</span>
+<div class="viewcode-block" id="Tariff.define_e"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff.define_e">[docs]</a>    <span class="k">def</span> <span class="nf">define_e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e_wkday_12by24</span><span class="p">,</span> <span class="n">e_wkend_12by24</span><span class="p">,</span> <span class="n">e_levels</span><span class="p">,</span> <span class="n">e_prices</span><span class="p">):</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">e_levels</span> <span class="o">=</span> <span class="n">e_levels</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">e_prices</span> <span class="o">=</span> <span class="n">e_prices</span>
@@ -662,7 +662,7 @@
     <span class="c1">#######################################################################</span>
     <span class="c1"># Identify the maximum demand charge for this tariff</span>
     <span class="c1">####################################################################### </span>
-<div class="viewcode-block" id="Tariff.identify_max_demand_charge"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff.identify_max_demand_charge">[docs]</a>    <span class="k">def</span> <span class="nf">identify_max_demand_charge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Tariff.identify_max_demand_charge"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Tariff.identify_max_demand_charge">[docs]</a>    <span class="k">def</span> <span class="nf">identify_max_demand_charge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         
         <span class="c1"># identify the max demand charge for each period for both flat and tou</span>
         <span class="n">max_d_flat_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_flat_prices</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -684,7 +684,7 @@
                             
                  
 <span class="c1">#%%     </span>
-<div class="viewcode-block" id="Export_Tariff"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Export_Tariff">[docs]</a><span class="k">class</span> <span class="nc">Export_Tariff</span><span class="p">:</span>
+<div class="viewcode-block" id="Export_Tariff"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Export_Tariff">[docs]</a><span class="k">class</span> <span class="nc">Export_Tariff</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Structure of compensation for exported generation. Currently only two </span>
 <span class="sd">    styles: full-retail NEM, and instantanous TOU energy value. </span>
@@ -702,7 +702,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">periods_8760</span> <span class="o">=</span> <span class="n">periods_8760</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">period_tou_n</span> <span class="o">=</span> <span class="n">period_tou_n</span>
         
-<div class="viewcode-block" id="Export_Tariff.set_constant_sell_price"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Export_Tariff.set_constant_sell_price">[docs]</a>    <span class="k">def</span> <span class="nf">set_constant_sell_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+<div class="viewcode-block" id="Export_Tariff.set_constant_sell_price"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.Export_Tariff.set_constant_sell_price">[docs]</a>    <span class="k">def</span> <span class="nf">set_constant_sell_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">full_retail_nem</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">price</span><span class="p">]],</span> <span class="nb">float</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9999999</span><span class="p">]],</span> <span class="nb">float</span><span class="p">)</span>
@@ -710,7 +710,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">period_tou_n</span> <span class="o">=</span> <span class="mi">1</span></div></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="tiered_calc_vec"><a class="viewcode-back" href="../../api.html#python.tariff_functions.tiered_calc_vec">[docs]</a><span class="k">def</span> <span class="nf">tiered_calc_vec</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">prices</span><span class="p">):</span>
+<div class="viewcode-block" id="tiered_calc_vec"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.tiered_calc_vec">[docs]</a><span class="k">def</span> <span class="nf">tiered_calc_vec</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">prices</span><span class="p">):</span>
     <span class="c1"># Vectorized piecewise function calculator</span>
     <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
     <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
@@ -732,7 +732,7 @@
 
 <span class="c1">#%%</span>
 
-<div class="viewcode-block" id="bill_calculator"><a class="viewcode-back" href="../../api.html#python.tariff_functions.bill_calculator">[docs]</a><span class="k">def</span> <span class="nf">bill_calculator</span><span class="p">(</span><span class="n">load_profile</span><span class="p">,</span> <span class="n">tariff</span><span class="p">,</span> <span class="n">export_tariff</span><span class="p">):</span>
+<div class="viewcode-block" id="bill_calculator"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.bill_calculator">[docs]</a><span class="k">def</span> <span class="nf">bill_calculator</span><span class="p">(</span><span class="n">load_profile</span><span class="p">,</span> <span class="n">tariff</span><span class="p">,</span> <span class="n">export_tariff</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Deprecated. Nullified by new PySAM code and will be taken out in Beta release</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -967,7 +967,7 @@
     
 <span class="c1">#%%</span>
 <span class="c1"># Bulk Downloader from URDB API</span>
-<div class="viewcode-block" id="download_tariffs_from_urdb"><a class="viewcode-back" href="../../api.html#python.tariff_functions.download_tariffs_from_urdb">[docs]</a><span class="k">def</span> <span class="nf">download_tariffs_from_urdb</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">sector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">utility</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="download_tariffs_from_urdb"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.download_tariffs_from_urdb">[docs]</a><span class="k">def</span> <span class="nf">download_tariffs_from_urdb</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">sector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">utility</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Each user should get their own URDB API key: http://en.openei.org/services/api/signup/</span>
 <span class="sd">    </span>
@@ -1052,7 +1052,7 @@
 <span class="c1">#%%</span>
 <span class="c1"># Filter tariff_df by a list of keywords in the tariff names, and unit types</span>
     
-<div class="viewcode-block" id="filter_tariff_df"><a class="viewcode-back" href="../../api.html#python.tariff_functions.filter_tariff_df">[docs]</a><span class="k">def</span> <span class="nf">filter_tariff_df</span><span class="p">(</span><span class="n">tariff_df</span><span class="p">,</span> 
+<div class="viewcode-block" id="filter_tariff_df"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.filter_tariff_df">[docs]</a><span class="k">def</span> <span class="nf">filter_tariff_df</span><span class="p">(</span><span class="n">tariff_df</span><span class="p">,</span> 
                      <span class="n">keyword_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">keyword_list_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">demand_units_to_exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="s1">&#39;kVA&#39;</span><span class="p">,</span> <span class="s1">&#39;kW daily&#39;</span><span class="p">,</span> <span class="s1">&#39;hp daily&#39;</span><span class="p">,</span> <span class="s1">&#39;kVA daily&#39;</span><span class="p">],</span> 
@@ -1098,7 +1098,7 @@
     
 <span class="c1">#%%</span>
 <span class="c1"># Create 8760 from two 12x24&#39;s</span>
-<div class="viewcode-block" id="build_8760_from_12by24s"><a class="viewcode-back" href="../../api.html#python.tariff_functions.build_8760_from_12by24s">[docs]</a><span class="k">def</span> <span class="nf">build_8760_from_12by24s</span><span class="p">(</span><span class="n">wkday_12by24</span><span class="p">,</span> <span class="n">wkend_12by24</span><span class="p">,</span> <span class="n">start_day</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<div class="viewcode-block" id="build_8760_from_12by24s"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.build_8760_from_12by24s">[docs]</a><span class="k">def</span> <span class="nf">build_8760_from_12by24s</span><span class="p">(</span><span class="n">wkday_12by24</span><span class="p">,</span> <span class="n">wkend_12by24</span><span class="p">,</span> <span class="n">start_day</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Start day of 6 equates to a Sunday</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -1125,7 +1125,7 @@
 
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="design_tariff_for_portfolio"><a class="viewcode-back" href="../../api.html#python.tariff_functions.design_tariff_for_portfolio">[docs]</a><span class="k">def</span> <span class="nf">design_tariff_for_portfolio</span><span class="p">(</span><span class="n">agent_df</span><span class="p">,</span> <span class="n">avg_rev</span><span class="p">,</span> <span class="n">peak_hour_indicies</span><span class="p">,</span> <span class="n">summer_month_indicies</span><span class="p">,</span> <span class="n">rev_f_d</span><span class="p">,</span> <span class="n">rev_f_e</span><span class="p">,</span> <span class="n">rev_f_fixed</span><span class="p">):</span>
+<div class="viewcode-block" id="design_tariff_for_portfolio"><a class="viewcode-back" href="../../../api.html#dgen_os.python.tariff_functions.design_tariff_for_portfolio">[docs]</a><span class="k">def</span> <span class="nf">design_tariff_for_portfolio</span><span class="p">(</span><span class="n">agent_df</span><span class="p">,</span> <span class="n">avg_rev</span><span class="p">,</span> <span class="n">peak_hour_indicies</span><span class="p">,</span> <span class="n">summer_month_indicies</span><span class="p">,</span> <span class="n">rev_f_d</span><span class="p">,</span> <span class="n">rev_f_e</span><span class="p">,</span> <span class="n">rev_f_fixed</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Builds a tariff that would extract a given $/kWh from a portfolio of </span>
 <span class="sd">    customers.</span>
@@ -1242,7 +1242,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">dgen</a></h1>
+<h1 class="logo"><a href="../../../index.html">dgen</a></h1>
 
 
 
@@ -1254,17 +1254,17 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">dGen Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">dGen Code Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contribution Policy</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../index.html">Module code</a><ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
   </ul></li>
   </ul></li>
 </ul>
@@ -1272,7 +1272,7 @@
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
+    <form class="search" action="../../../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>

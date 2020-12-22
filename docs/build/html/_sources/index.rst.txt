@@ -1,5 +1,5 @@
 Welcome to the Open Source dGen Model Documentation!
-===================================
+====================================================
 
 The open source dGen model is an agent based model developed by NREL. Statistically representative
 residential and commercial agents are ingested by the model and used to forecast PV adoption based

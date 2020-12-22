@@ -3,12 +3,9 @@ Name: diffusion_functions
 Purpose: Contains functions to calculate diffusion of distributed wind model
 
     (1) Determine maximum market size as a function of payback time;
-    (2) Parameterize Bass diffusion curve with diffusion rates (p, q) set by 
-        payback time;
-    (3) Determine current stage (equivaluent time) of diffusion based on existing 
-        market and current economics 
-    (3) Calculate new market share by stepping forward on diffusion curve.
-
+    (2) Parameterize Bass diffusion curve with diffusion rates (p, q) set by payback time;
+    (3) Determine current stage (equivaluent time) of diffusion based on existing market and current economics 
+    (4) Calculate new market share by stepping forward on diffusion curve.
 """
 
 import numpy as np
@@ -23,7 +20,6 @@ logger = utilfunc.get_logger()
 #==============================================================================
 
 #=============================================================================
-# ^^^^  Diffusion Calculator  ^^^^
 @decorators.fn_timer(logger = logger, tab_level = 2, prefix = '')
 def calc_diffusion_solar(df, is_first_year, bass_params, year,
                            override_p_value = None, override_q_value = None, override_teq_yr1_value = None):

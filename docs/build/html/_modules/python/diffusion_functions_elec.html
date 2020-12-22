@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python.diffusion_functions_elec &#8212; dgen  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for python.diffusion_functions_elec</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Name: diffusion_functions</span>
+<span class="sd">Purpose: Contains functions to calculate diffusion of distributed wind model</span>
+
+<span class="sd">    (1) Determine maximum market size as a function of payback time;</span>
+<span class="sd">    (2) Parameterize Bass diffusion curve with diffusion rates (p, q) set by payback time;</span>
+<span class="sd">    (3) Determine current stage (equivaluent time) of diffusion based on existing market and current economics </span>
+<span class="sd">    (4) Calculate new market share by stepping forward on diffusion curve.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">import</span> <span class="nn">decorators</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># Load logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="c1">#=============================================================================</span>
+<div class="viewcode-block" id="calc_diffusion_solar"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.calc_diffusion_solar">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calc_diffusion_solar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span>
+                           <span class="n">override_p_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">override_q_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">override_teq_yr1_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the market share (ms) added in the solve year. Market share must be less</span>
+<span class="sd">    than max market share (mms) except initial ms is greater than the calculated mms.</span>
+<span class="sd">    For this circumstance, no diffusion allowed until mms &gt; ms. Also, do not allow ms to</span>
+<span class="sd">    decrease if economics deterioriate. Using the calculated </span>
+<span class="sd">    market share, relevant quantities are updated.</span>
+
+<span class="sd">    IN: df - pd dataframe - Main dataframe</span>
+<span class="sd">    </span>
+<span class="sd">    OUT: df - pd dataframe - Main dataframe</span>
+<span class="sd">        market_last_year - pd dataframe - market to inform diffusion in next year</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">bass_params</span> <span class="o">=</span> <span class="n">bass_params</span><span class="p">[</span><span class="n">bass_params</span><span class="p">[</span><span class="s1">&#39;tech&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;solar&#39;</span><span class="p">]</span>    
+    
+    <span class="c1"># set p/q/teq_yr1 params    </span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;bass_param_p&#39;</span><span class="p">,</span> <span class="s1">&#39;bass_param_q&#39;</span><span class="p">,</span> <span class="s1">&#39;teq_yr1&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">]],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># calc diffusion market share</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">calc_diffusion_market_share</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">)</span>
+    
+    <span class="c1"># market share floor is based on last year&#39;s market share</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">])</span>
+   
+    <span class="c1"># calculate the &quot;new&quot; market share (old - current)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span>
+
+    <span class="c1"># cap the new_market_share where the market share exceeds the max market share</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;max_market_share&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">])</span>
+
+    <span class="c1"># calculate new adopters, capacity and market value            </span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_capex_per_kw&#39;</span><span class="p">]</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_system_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_batt_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_batt_kwh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh&#39;</span><span class="p">]</span>
+
+    <span class="c1"># then add these values to values from last year to get cumulative values:</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_value_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_value&#39;</span><span class="p">]</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_system_kw&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_batt_kw&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_batt_kwh&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># constrain state-level capacity totals to known historical values</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">2018</span><span class="p">):</span>
+        <span class="n">group_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span>
+        <span class="n">state_capacity_total</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">group_cols</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;agent_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_cols</span><span class="p">)</span>
+                                                                            <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;agent_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
+                                                                            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;state_solar_kw_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;state_batt_kw_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">:</span><span class="s1">&#39;state_batt_kwh_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;agent_id&#39;</span><span class="p">:</span><span class="s1">&#39;agent_count&#39;</span><span class="p">})</span>
+                                                                            <span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+        
+        <span class="c1"># coerce dtypes</span>
+        <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_solar_kw_cum</span> <span class="o">=</span> <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_solar_kw_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_batt_kw_cum</span> <span class="o">=</span> <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_batt_kw_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> 
+        <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_batt_kwh_cum</span> <span class="o">=</span> <span class="n">state_capacity_total</span><span class="o">.</span><span class="n">state_batt_kwh_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> 
+        <span class="n">df</span><span class="o">.</span><span class="n">system_kw_cum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">system_kw_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">batt_kw_cum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">batt_kw_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">batt_kwh_cum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">batt_kwh_cum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> 
+        
+        <span class="c1"># merge state totals back to agent df</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">state_capacity_total</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+        
+        <span class="c1"># read csv of historical capacity values by state and sector</span>
+        <span class="n">historical_state_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">OBSERVED_DEPLOYMENT_BY_STATE</span><span class="p">)</span>
+        
+        <span class="c1"># join historical data to agent df</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">historical_state_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+        
+        <span class="c1"># calculate scale factor - weight that is given to each agent based on proportion of state total</span>
+        <span class="c1"># where state cumulative capacity is 0, proportion evenly to all agents</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_scale_factor&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_solar_kw_cum&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;agent_count&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_solar_kw_cum&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_mw_scale_factor&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_batt_kw_cum&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;agent_count&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_batt_kw_cum&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_mwh_scale_factor&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_batt_kwh_cum&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;agent_count&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_batt_kwh_cum&#39;</span><span class="p">])</span>
+        
+        <span class="c1"># use scale factor to constrain agent capacity values to historical values</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_scale_factor&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;observed_solar_mw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_mw_scale_factor&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;observed_storage_mw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_mwh_scale_factor&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;observed_storage_mwh&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.</span>
+        
+        <span class="c1"># recalculate number of adopters using anecdotal values</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;res&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span>
+    
+        <span class="c1"># recalculate market share</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> 
+                           <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        
+        <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;agent_count&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;state_solar_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;state_batt_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;state_batt_kwh_cum&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;observed_solar_mw&#39;</span><span class="p">,</span><span class="s1">&#39;observed_storage_mw&#39;</span><span class="p">,</span><span class="s1">&#39;observed_storage_mwh&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;solar_scale_factor&#39;</span><span class="p">,</span><span class="s1">&#39;batt_mw_scale_factor&#39;</span><span class="p">,</span><span class="s1">&#39;batt_mwh_scale_factor&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">market_last_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;agent_id&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;market_share&#39;</span><span class="p">,</span><span class="s1">&#39;max_market_share&#39;</span><span class="p">,</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;market_value&#39;</span><span class="p">,</span><span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">,</span><span class="s1">&#39;initial_pv_kw&#39;</span><span class="p">,</span><span class="s1">&#39;initial_batt_kw&#39;</span><span class="p">,</span><span class="s1">&#39;initial_batt_kwh&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;initial_market_share&#39;</span><span class="p">,</span><span class="s1">&#39;initial_market_value&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;system_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;new_system_kw&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;new_batt_kw&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">,</span><span class="s1">&#39;new_batt_kwh&#39;</span><span class="p">]]</span>
+
+    <span class="n">market_last_year</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;market_share&#39;</span><span class="p">:</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;max_market_share&#39;</span><span class="p">:</span><span class="s1">&#39;max_market_share_last_year&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;number_of_adopters&#39;</span><span class="p">:</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;market_value&#39;</span><span class="p">:</span> <span class="s1">&#39;market_value_last_year&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;system_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">:</span><span class="s1">&#39;batt_kw_cum_last_year&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">:</span><span class="s1">&#39;batt_kwh_cum_last_year&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">market_last_year</span></div>
+
+
+<span class="c1">#=============================================================================</span>
+<span class="c1"># ^^^^  Diffusion Calculator  ^^^^</span>
+<div class="viewcode-block" id="calc_diffusion"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.calc_diffusion">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calc_diffusion</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">techs</span><span class="p">,</span> <span class="n">choose_tech</span><span class="p">,</span> <span class="n">sectors</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">,</span>
+                   <span class="n">bass_params</span><span class="p">,</span> <span class="n">override_p_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">override_q_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">override_teq_yr1_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the market share (ms) added in the solve year. Market share must be less</span>
+<span class="sd">    than max market share (mms) except initial ms is greater than the calculated mms.</span>
+<span class="sd">    For this circumstance, no diffusion allowed until mms &gt; ms. Also, do not allow ms to</span>
+<span class="sd">    decrease if economics deterioriate. Using the calculated </span>
+<span class="sd">    market share, relevant quantities are updated.</span>
+
+<span class="sd">    IN: df - pd dataframe - Main dataframe</span>
+<span class="sd">    </span>
+<span class="sd">    OUT: df - pd dataframe - Main dataframe</span>
+<span class="sd">        market_last_year - pd dataframe - market to inform diffusion in next year</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Calculating Diffusion&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># set p/q/teq_yr1 params    </span>
+    <span class="n">df</span>  <span class="o">=</span> <span class="n">set_bass_param</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">,</span> <span class="n">override_p_value</span><span class="p">,</span> <span class="n">override_q_value</span><span class="p">,</span> <span class="n">override_teq_yr1_value</span><span class="p">)</span>
+    
+    <span class="c1"># calc diffusion market share</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">calc_diffusion_market_share</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">)</span>
+    
+    <span class="c1"># ensure no diffusion for non-selected options</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;selected_option&#39;</span><span class="p">]</span> 
+    
+    <span class="c1"># market share floor is based on last year&#39;s market share</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">])</span>
+
+    <span class="c1"># if in tech choice mode, ensure that total market share doesn&#39;t exceed 1   </span>
+    <span class="k">if</span> <span class="n">choose_tech</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+       
+        <span class="c1"># extract out the rows for unselected technologies</span>
+        <span class="n">market_share_cap</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;selected_option&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">][[</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;market_share&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+       
+        <span class="c1"># determine how much market share is allowable based on 1 - the MS of the unselected techs</span>
+        <span class="n">market_share_cap</span><span class="p">[</span><span class="s1">&#39;market_share_cap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">market_share_cap</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span>
+       
+        <span class="c1"># drop the market share column</span>
+        <span class="n">market_share_cap</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;market_share&#39;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+       
+        <span class="c1"># merge to df</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">market_share_cap</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+       
+        <span class="c1"># cap the market share (for the selected option only)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;selected_option&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_cap&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">])</span>
+       
+        <span class="c1"># drop the market share cap field</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;market_share_cap&#39;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+   
+    <span class="c1"># calculate the &quot;new&quot; market share (old - current)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span>
+   
+    <span class="c1"># cap the new_market_share where the market share exceeds the max market share</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;max_market_share&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">])</span>
+   
+    <span class="c1"># calculate new adopters, capacity and market value            </span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_size_kw&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_share&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_size_kw&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_size_kw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;installed_costs_dollars_per_kw&#39;</span><span class="p">]</span>
+   
+    <span class="c1"># then add these values to values from last year to get cumulative values:</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopters&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;installed_capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;installed_capacity_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_capacity&#39;</span><span class="p">]</span> <span class="c1"># All capacity in kW in the model</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_value_last_year&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_market_value&#39;</span><span class="p">]</span>
+    <span class="n">market_last_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span><span class="s1">&#39;bin_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;max_market_share&#39;</span><span class="p">,</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">,</span> <span class="s1">&#39;installed_capacity&#39;</span><span class="p">,</span> <span class="s1">&#39;market_value&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_capacity_mw&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_market_value&#39;</span><span class="p">]]</span> <span class="c1"># Update dataframe for next solve year</span>
+    <span class="n">market_last_year</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;market_share_last_year&#39;</span><span class="p">,</span> <span class="s1">&#39;max_market_share_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">,</span> <span class="s1">&#39;installed_capacity_last_year&#39;</span><span class="p">,</span> <span class="s1">&#39;market_value_last_year&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_capacity_mw&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_market_value&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">market_last_year</span></div>
+
+<span class="c1">#=============================================================================</span>
+
+<span class="c1">#  ^^^^ Calculate new diffusion in market segment ^^^^</span>
+<div class="viewcode-block" id="calc_diffusion_market_share"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.calc_diffusion_market_share">[docs]</a><span class="k">def</span> <span class="nf">calc_diffusion_market_share</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the fraction of overall population that have adopted the </span>
+<span class="sd">    technology in the current period. Note that this does not specify the </span>
+<span class="sd">    actual new adoption fraction without knowing adoption in the previous period. </span>
+
+<span class="sd">    IN: payback_period - numpy array - payback in years</span>
+<span class="sd">        max_market_share - numpy array - maximum market share as decimal</span>
+<span class="sd">        current_market_share - numpy array - current market share as decimal</span>
+<span class="sd">                    </span>
+<span class="sd">    OUT: new_market_share - numpy array - fraction of overall population </span>
+<span class="sd">                                            that have adopted the technology</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># The relative economic attractiveness controls the p,q values in Bass diffusion</span>
+    <span class="c1"># Current assumption is that only payback and MBS are being used, that pp is bounded [0-30] and MBS bounded [0-120]</span>
+       
+    <span class="n">df</span> <span class="o">=</span> <span class="n">calc_equiv_time</span><span class="p">(</span><span class="n">df</span><span class="p">);</span> <span class="c1"># find the &#39;equivalent time&#39; on the newly scaled diffusion curve</span>
+    <span class="k">if</span> <span class="n">is_first_year</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;teq2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_params_teq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;teq_yr1&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;teq2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_params_teq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># now step forward two years from the &#39;new location&#39;</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">bass_diffusion</span><span class="p">(</span><span class="n">df</span><span class="p">);</span> <span class="c1"># calculate the new diffusion by stepping forward 2 years</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">max_market_share</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">new_adopt_fraction</span> <span class="c1"># new market adoption    </span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">market_share_last_year</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">bass_market_share</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">market_share_last_year</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">bass_market_share</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df</span></div>
+<span class="c1">#==============================================================================  </span>
+    
+<span class="c1">#=============================================================================</span>
+<div class="viewcode-block" id="set_bass_param"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.set_bass_param">[docs]</a><span class="k">def</span> <span class="nf">set_bass_param</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">,</span> <span class="n">override_p_value</span><span class="p">,</span> <span class="n">override_q_value</span><span class="p">,</span> <span class="n">override_teq_yr1_value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the p &amp; q parameters which define the Bass diffusion curve.</span>
+<span class="sd">    p is the coefficient of innovation, external influence or advertising effect. </span>
+<span class="sd">    q is the coefficient of imitation, internal influence or word-of-mouth effect.</span>
+
+<span class="sd">        IN: scaled_metric_value - numpy array - scaled value of economic attractiveness [0-1]</span>
+<span class="sd">        OUT: p,q - numpy arrays - Bass diffusion parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+      
+    <span class="c1"># set p and q values</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># if override values were provided for p, q, or teq_yr1, apply them to all agents</span>
+    <span class="k">if</span> <span class="n">override_p_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;bass_param_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">override_p_value</span>
+
+    <span class="k">if</span> <span class="n">override_q_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;bass_param_q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">override_q_value</span>
+        
+    <span class="k">if</span> <span class="n">override_teq_yr1_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;teq_yr1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">override_teq_yr1_value</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+    
+<span class="c1">#=============================================================================</span>
+<span class="c1"># ^^^^  Bass Diffusion Calculator  ^^^^ </span>
+<div class="viewcode-block" id="bass_diffusion"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.bass_diffusion">[docs]</a><span class="k">def</span> <span class="nf">bass_diffusion</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the fraction of population that diffuse into the max_market_share.</span>
+<span class="sd">    Note that this is different than the fraction of population that will </span>
+<span class="sd">    adopt, which is the max market share</span>
+
+<span class="sd">    IN: p,q - numpy arrays - Bass diffusion parameters</span>
+<span class="sd">        t - numpy array - Number of years since diffusion began</span>
+<span class="sd">        </span>
+<span class="sd">        </span>
+<span class="sd">    OUT: new_adopt_fraction - numpy array - fraction of overall population </span>
+<span class="sd">                                            that will adopt the technology</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_p&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_q&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;teq2&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_adopt_fraction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_q&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_p&#39;</span><span class="p">])</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">])</span> <span class="c1"># Bass Diffusion - cumulative adoption</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+    
+<span class="c1">#=============================================================================</span>
+
+<span class="c1">#=============================================================================</span>
+<div class="viewcode-block" id="calc_equiv_time"><a class="viewcode-back" href="../../api.html#python.diffusion_functions_elec.calc_equiv_time">[docs]</a><span class="k">def</span> <span class="nf">calc_equiv_time</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the &quot;equivalent time&quot; on the diffusion curve. This defines the</span>
+<span class="sd">    gradient of adoption.</span>
+
+<span class="sd">        IN: msly - numpy array - market share last year [at end of the previous solve] as decimal</span>
+<span class="sd">            mms - numpy array - maximum market share as decimal</span>
+<span class="sd">            p,q - numpy arrays - Bass diffusion parameters</span>
+<span class="sd">            </span>
+<span class="sd">        OUT: t_eq - numpy array - Equivalent number of years after diffusion </span>
+<span class="sd">                                  started on the diffusion curve</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mms_fix_zeros&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;max_market_share&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;max_market_share&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mms_fix_zeros&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mms_fix_zeros&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_params_teq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_q&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_p&#39;</span><span class="p">])))</span> <span class="o">/</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_p&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bass_param_q&#39;</span><span class="p">]))</span> <span class="c1"># solve for equivalent time</span>
+   
+    <span class="k">return</span> <span class="n">df</span></div>
+    
+<span class="c1">#=============================================================================</span>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">dgen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, NREL.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

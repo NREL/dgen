@@ -15,6 +15,7 @@ import agent_mutation
 import diffusion_functions_elec
 import financial_functions
 import input_data_functions as iFuncs
+import PySAM
 
 #==============================================================================
 # raise  numpy and pandas warnings as exceptions

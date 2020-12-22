@@ -11,7 +11,8 @@ Subpackages
 
 .. toctree::
 
-    python.financial_functions
+    python.agent_mutation
+    python.excel
 
 
 Submodules
@@ -41,18 +42,26 @@ python.dgen\_model module
     :undoc-members:
     :show-inheritance:
 
-python.diffusion\_functions module
-----------------------------------
+python.data\_functions module
+-----------------------------
 
-.. automodule:: python.diffusion_functions
+.. automodule:: python.data_functions
     :members:
     :undoc-members:
     :show-inheritance:
 
-python.dispatch\_functions module
----------------------------------
+python.input\_data\_functions module
+------------------------------------
 
-.. automodule:: python.dispatch_functions
+.. automodule:: python.input_data_functions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+python.diffusion\_functions\_elec module
+----------------------------------------
+
+.. automodule:: python.diffusion_functions_elec
     :members:
     :undoc-members:
     :show-inheritance:
@@ -73,14 +82,6 @@ python.settings module
     :undoc-members:
     :show-inheritance:
 
-python.storage\_functions module
---------------------------------
-
-.. automodule:: python.storage_functions
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 python.tariff\_functions module
 -------------------------------
 
@@ -96,7 +97,6 @@ python.utility\_functions module
     :members:
     :undoc-members:
     :show-inheritance:
-
 
 Module contents
 ---------------
