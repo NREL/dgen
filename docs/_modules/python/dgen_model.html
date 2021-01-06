@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.dgen_model &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.dgen_model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.dgen_model</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Distributed Generation Market Demand Model (dGen) - Final Release</span>
+<span class="sd">National Renewable Energy Lab</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">psycopg2.extras</span> <span class="k">as</span> <span class="nn">pgx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">data_functions</span> <span class="k">as</span> <span class="nn">datfunc</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">import</span> <span class="nn">settings</span>
+<span class="kn">import</span> <span class="nn">agent_mutation</span>
+<span class="kn">import</span> <span class="nn">diffusion_functions_elec</span>
+<span class="kn">import</span> <span class="nn">financial_functions</span>
+<span class="kn">import</span> <span class="nn">input_data_functions</span> <span class="k">as</span> <span class="nn">iFuncs</span>
+<span class="kn">import</span> <span class="nn">PySAM</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># raise  numpy and pandas warnings as exceptions</span>
+<span class="c1">#==============================================================================</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="c1">#==============================================================================</span>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../api.html#python.dgen_model.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">resume_year</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">endyear</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ReEDS_inputs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># =====================================================================</span>
+        <span class="c1"># SET UP THE MODEL TO RUN</span>
+        <span class="c1"># =====================================================================</span>
+        <span class="c1"># initialize Model Settings object</span>
+        <span class="c1"># (this controls settings that apply to all scenarios to be executed)</span>
+        <span class="n">model_settings</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">init_model_settings</span><span class="p">()</span>
+
+        <span class="c1"># make output directory</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">out_dir</span><span class="p">)</span>
+        <span class="c1"># create the logger</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">out_dir</span><span class="p">,</span> <span class="s1">&#39;dg_model.log&#39;</span><span class="p">))</span>
+
+        <span class="c1"># connect to Postgres and configure connection</span>
+        <span class="n">con</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">make_con</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">role</span><span class="p">)</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">make_engine</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_engine_string</span><span class="p">)</span>
+
+        <span class="c1"># register access to hstore in postgres</span>
+        <span class="n">pgx</span><span class="o">.</span><span class="n">register_hstore</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>  
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to Postgres with the following params:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_params_log</span><span class="p">))</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">role</span>
+
+        <span class="c1"># =====================================================================</span>
+        <span class="c1"># LOOP OVER SCENARIOS</span>
+        <span class="c1"># =====================================================================</span>
+        <span class="c1"># variables used to track outputs</span>
+        <span class="n">scenario_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dup_n</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">out_subfolders</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wind&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;solar&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">scenario_file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">input_scenarios</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;============================================&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;============================================&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Running Scenario </span><span class="si">{i}</span><span class="s2"> of </span><span class="si">{n}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">input_scenarios</span><span class="p">)))</span>
+            <span class="c1"># initialize ScenarioSettings object</span>
+            <span class="c1"># (this controls settings that apply only to this specific scenario)</span>
+            <span class="n">scenario_settings</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">init_scenario_settings</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">)</span>
+            <span class="n">scenario_settings</span><span class="o">.</span><span class="n">input_data_dir</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">input_data_dir</span>
+
+            <span class="c1"># summarize high level secenario settings</span>
+            <span class="n">datfunc</span><span class="o">.</span><span class="n">summarize_scenario</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">)</span>
+
+            <span class="c1"># create output folder for this scenario</span>
+            <span class="n">input_scenario</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">input_scenario</span>
+            <span class="n">scen_name</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">scen_name</span>
+            <span class="n">out_dir</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">out_dir</span>
+            <span class="p">(</span><span class="n">out_scen_path</span><span class="p">,</span> <span class="n">scenario_names</span><span class="p">,</span> <span class="n">dup_n</span><span class="p">)</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">create_scenario_results_folder</span><span class="p">(</span><span class="n">input_scenario</span><span class="p">,</span> <span class="n">scen_name</span><span class="p">,</span>
+                                                             <span class="n">scenario_names</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">dup_n</span><span class="p">)</span>
+                                                             
+            <span class="c1"># create folder for input data csvs for this scenario</span>
+            <span class="n">scenario_settings</span><span class="o">.</span><span class="n">dir_to_write_input_data</span> <span class="o">=</span> <span class="n">out_scen_path</span> <span class="o">+</span> <span class="s1">&#39;/input_data&#39;</span>
+            <span class="n">scenario_settings</span><span class="o">.</span><span class="n">scen_output_dir</span> <span class="o">=</span> <span class="n">out_scen_path</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">dir_to_write_input_data</span><span class="p">)</span>
+                                                             
+            <span class="c1"># get other datasets needed for the model run</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Getting various scenario parameters&#39;</span><span class="p">)</span>
+
+            <span class="n">schema</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span>
+            <span class="n">max_market_share</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_max_market_share</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+            <span class="n">load_growth_scenario</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">load_growth</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">inflation_rate</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_annual_inflation</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+            <span class="n">bass_params</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_bass_params</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+
+            <span class="c1"># get settings whether to use pre-generated agent file (&#39;User Defined&#39;- provide pkl file name) or generate new agents</span>
+            <span class="n">agent_file_status</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">agent_file_status</span>
+
+            <span class="c1">#==========================================================================================================</span>
+            <span class="c1"># CREATE AGENTS</span>
+            <span class="c1">#==========================================================================================================</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--------------Creating Agents---------------&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">techs</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;wind&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">]]:</span>
+
+                <span class="c1"># =========================================================</span>
+                <span class="c1"># Initialize agents</span>
+                <span class="c1"># =========================================================   </span>
+                           
+                <span class="n">solar_agents</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_agent_file</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">agent_file_status</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;agent_file&#39;</span><span class="p">)</span>   
+
+                <span class="c1"># Get set of columns that define agent&#39;s immutable attributes</span>
+                <span class="n">cols_base</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+            <span class="c1">#==============================================================================</span>
+            <span class="c1"># TECHNOLOGY DEPLOYMENT</span>
+            <span class="c1">#==============================================================================</span>
+
+            <span class="k">if</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">techs</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">]:</span>
+                <span class="c1"># get incentives and itc inputs</span>
+                <span class="n">state_incentives</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_state_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+                <span class="n">itc_options</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_itc_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">nem_state_capacity_limits</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_nem_state</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">nem_state_and_sector_attributes</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_nem_state_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">nem_utility_and_sector_attributes</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_nem_utility_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">nem_selected_scenario</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_selected_scenario</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">get_rate_switch_table</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+
+                <span class="c1">#==========================================================================================================</span>
+                <span class="c1"># INGEST SCENARIO ENVIRONMENTAL VARIABLES</span>
+                <span class="c1">#==========================================================================================================</span>
+                <span class="n">deprec_sch</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span> <span class="o">=</span><span class="s1">&#39;depreciation_schedules&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">deprec_schedule</span><span class="p">)</span>
+                <span class="n">carbon_intensities</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span><span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;carbon_intensities&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">melt_year</span><span class="p">(</span><span class="s1">&#39;grid_carbon_intensity_tco2_per_kwh&#39;</span><span class="p">))</span>
+                <span class="n">wholesale_elec_prices</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;wholesale_electricity_prices&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">process_wholesale_elec_prices</span><span class="p">)</span>
+                <span class="n">pv_tech_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;pv_tech_performance&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">elec_price_change_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;elec_prices&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">process_elec_price_trajectories</span><span class="p">)</span>
+                <span class="n">load_growth</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;load_growth&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">pv_price_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;pv_prices&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">batt_price_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span><span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;batt_prices&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">pv_plus_batt_price_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span><span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;pv_plus_batt_prices&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">financing_terms</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;financing_terms&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">batt_tech_traj</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;batt_tech_performance&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="n">iFuncs</span><span class="o">.</span><span class="n">stacked_sectors</span><span class="p">)</span>
+                <span class="n">value_of_resiliency</span> <span class="o">=</span> <span class="n">iFuncs</span><span class="o">.</span><span class="n">import_table</span><span class="p">(</span> <span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span><span class="n">owner</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s1">&#39;value_of_resiliency&#39;</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+                <span class="c1">#==========================================================================================================</span>
+                <span class="c1"># Calculate Tariff Components from ReEDS data</span>
+                <span class="c1">#==========================================================================================================</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">model_years</span><span class="p">):</span>
+
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Working on </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+
+                    <span class="c1"># determine any non-base-year columns and drop them</span>
+                    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+                    <span class="n">cols_to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cols</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cols_base</span><span class="p">]</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cols_to_drop</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+                    <span class="c1"># copy the core agent object and set their year</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+
+                    <span class="c1"># is it the first model year?</span>
+                    <span class="n">is_first_year</span> <span class="o">=</span> <span class="n">year</span> <span class="o">==</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">start_year</span>
+
+                    <span class="c1"># get and apply load growth</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_load_growth</span><span class="p">,</span> <span class="p">(</span><span class="n">load_growth</span><span class="p">))</span>
+
+                    <span class="c1"># Update net metering and incentive expiration</span>
+                    <span class="n">cf_during_peak_demand</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cf_during_peak_demand.csv&#39;</span><span class="p">)</span> <span class="c1"># Apply NEM on generation basis, i.e. solar capacity factor during peak demand</span>
+                    <span class="n">peak_demand_mw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;peak_demand_mw.csv&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">is_first_year</span><span class="p">:</span>
+                        <span class="n">last_year_installed_capacity</span> <span class="o">=</span> <span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">get_state_starting_capacities</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+                    <span class="n">state_capacity_by_year</span> <span class="o">=</span> <span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">calc_state_capacity_by_year</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">load_growth</span><span class="p">,</span> <span class="n">peak_demand_mw</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span><span class="n">solar_agents</span><span class="p">,</span><span class="n">last_year_installed_capacity</span><span class="p">)</span>
+                    
+                    <span class="c1">#Apply net metering parameters</span>
+                    <span class="n">net_metering_state_df</span><span class="p">,</span> <span class="n">net_metering_utility_df</span> <span class="o">=</span> <span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">get_nem_settings</span><span class="p">(</span><span class="n">nem_state_capacity_limits</span><span class="p">,</span> <span class="n">nem_state_and_sector_attributes</span><span class="p">,</span> <span class="n">nem_utility_and_sector_attributes</span><span class="p">,</span> <span class="n">nem_selected_scenario</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">state_capacity_by_year</span><span class="p">,</span> <span class="n">cf_during_peak_demand</span><span class="p">)</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_export_tariff_params</span><span class="p">,</span> <span class="p">[</span><span class="n">net_metering_state_df</span><span class="p">,</span> <span class="n">net_metering_utility_df</span><span class="p">])</span>
+
+                    <span class="c1"># Apply each agent&#39;s electricity price change and assumption about increases</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_elec_price_multiplier_and_escalator</span><span class="p">,</span> <span class="p">[</span><span class="n">year</span><span class="p">,</span> <span class="n">elec_price_change_traj</span><span class="p">])</span>
+
+                    <span class="c1"># Apply technology performance</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_batt_tech_performance</span><span class="p">,</span> <span class="p">(</span><span class="n">batt_tech_traj</span><span class="p">))</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_pv_tech_performance</span><span class="p">,</span> <span class="n">pv_tech_traj</span><span class="p">)</span>
+
+                    <span class="c1"># Apply technology prices</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_pv_prices</span><span class="p">,</span> <span class="n">pv_price_traj</span><span class="p">)</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_batt_prices</span><span class="p">,</span> <span class="p">[</span><span class="n">batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">])</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_pv_plus_batt_prices</span><span class="p">,</span> <span class="p">[</span><span class="n">pv_plus_batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">])</span>
+
+                    <span class="c1"># Apply value of resiliency</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_value_of_resiliency</span><span class="p">,</span> <span class="n">value_of_resiliency</span><span class="p">)</span>
+
+                    <span class="c1"># Apply depreciation schedule</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_depreciation_schedule</span><span class="p">,</span> <span class="n">deprec_sch</span><span class="p">)</span>
+
+                    <span class="c1"># Apply carbon intensities</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_carbon_intensities</span><span class="p">,</span> <span class="n">carbon_intensities</span><span class="p">)</span>
+
+                    <span class="c1"># Apply wholesale electricity prices</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_wholesale_elec_prices</span><span class="p">,</span> <span class="n">wholesale_elec_prices</span><span class="p">)</span>
+
+                    <span class="c1"># Apply host-owned financial parameters</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_financial_params</span><span class="p">,</span> <span class="p">[</span><span class="n">financing_terms</span><span class="p">,</span> <span class="n">itc_options</span><span class="p">,</span> <span class="n">inflation_rate</span><span class="p">])</span>
+
+                    <span class="k">if</span> <span class="s1">&#39;ix&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> 
+                        <span class="n">cores</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">cores</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">local_cores</span>
+
+                    <span class="c1"># Apply state incentives</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_state_incentives</span><span class="p">,</span> <span class="p">[</span><span class="n">state_incentives</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">start_year</span><span class="p">,</span> <span class="n">state_capacity_by_year</span><span class="p">])</span>
+                    
+                    <span class="c1"># Calculate System Financial Performance</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">chunk_on_row</span><span class="p">(</span><span class="n">financial_functions</span><span class="o">.</span><span class="n">calc_system_size_and_performance</span><span class="p">,</span> <span class="n">sectors</span><span class="o">=</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">sectors</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="n">cores</span><span class="p">,</span> <span class="n">rate_switch_table</span><span class="o">=</span><span class="n">rate_switch_table</span><span class="p">)</span>
+
+                    <span class="c1"># Calculate the financial performance of the S+S systems</span>
+                    <span class="c1">#solar_agents.on_frame(financial_functions.calc_financial_performance)</span>
+
+                    <span class="c1"># Calculate Maximum Market Share</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">financial_functions</span><span class="o">.</span><span class="n">calc_max_market_share</span><span class="p">,</span> <span class="n">max_market_share</span><span class="p">)</span>
+
+                    <span class="c1"># determine &quot;developable&quot; population</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">calculate_developable_customers_and_load</span><span class="p">)</span>
+
+                    <span class="c1"># Apply market_last_year</span>
+                    <span class="k">if</span> <span class="n">is_first_year</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                        <span class="n">state_starting_capacities_df</span> <span class="o">=</span> <span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">get_state_starting_capacities</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+                        <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">estimate_initial_market_shares</span><span class="p">,</span> <span class="n">state_starting_capacities_df</span><span class="p">)</span>
+                        <span class="n">market_last_year_df</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">apply_market_last_year</span><span class="p">,</span> <span class="n">market_last_year_df</span><span class="p">)</span>
+
+                    <span class="c1"># Calculate diffusion based on economics and bass diffusion</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">market_last_year_df</span> <span class="o">=</span> <span class="n">diffusion_functions_elec</span><span class="o">.</span><span class="n">calc_diffusion_solar</span><span class="p">(</span><span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">,</span> <span class="n">bass_params</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+                    <span class="c1"># Estimate total generation</span>
+                    <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">estimate_total_generation</span><span class="p">)</span>
+
+                    <span class="c1"># Aggregate results</span>
+                    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">output_batt_dispatch_profiles</span> <span class="o">=</span> <span class="kc">True</span>
+
+                    <span class="n">last_year_installed_capacity</span> <span class="o">=</span> <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                    <span class="n">last_year_installed_capacity</span> <span class="o">=</span> <span class="n">last_year_installed_capacity</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">last_year_installed_capacity</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+                    <span class="n">last_year_installed_capacity</span> <span class="o">=</span> <span class="n">last_year_installed_capacity</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">)[[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+                    <span class="c1">#==========================================================================================================</span>
+                    <span class="c1"># WRITE AGENT DF AS PICKLES FOR POST-PROCESSING</span>
+                    <span class="c1">#==========================================================================================================</span>
+                    <span class="n">write_annual_agents</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">drop_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;reeds_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;customers_in_bin_initial&#39;</span><span class="p">,</span> <span class="s1">&#39;load_kwh_per_customer_in_bin_initial&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;load_kwh_in_bin_initial&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;roof_adjustment&#39;</span><span class="p">,</span> <span class="s1">&#39;load_kwh_in_bin&#39;</span><span class="p">,</span> <span class="s1">&#39;naep&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;first_year_elec_bill_savings_frac&#39;</span><span class="p">,</span> <span class="s1">&#39;metric&#39;</span><span class="p">,</span> <span class="s1">&#39;developable_load_kwh_in_bin&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_pv_kw&#39;</span><span class="p">,</span> 
+                                   <span class="s1">&#39;initial_market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;initial_market_value&#39;</span><span class="p">,</span> <span class="s1">&#39;market_value_last_year&#39;</span><span class="p">,</span> <span class="s1">&#39;teq_yr1&#39;</span><span class="p">,</span> <span class="s1">&#39;mms_fix_zeros&#39;</span><span class="p">,</span> <span class="s1">&#39;ratio&#39;</span><span class="p">,</span> 
+                                   <span class="s1">&#39;teq2&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;new_adopt_fraction&#39;</span><span class="p">,</span> <span class="s1">&#39;bass_market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;diffusion_market_share&#39;</span><span class="p">,</span> <span class="s1">&#39;new_market_value&#39;</span><span class="p">,</span> <span class="s1">&#39;market_value&#39;</span><span class="p">,</span> <span class="s1">&#39;total_gen_twh&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;consumption_hourly&#39;</span><span class="p">,</span> <span class="s1">&#39;solar_cf_profile&#39;</span><span class="p">,</span> <span class="s1">&#39;tariff_dict&#39;</span><span class="p">,</span> <span class="s1">&#39;deprec_sch&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_dispatch_profile&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;cash_flow&#39;</span><span class="p">,</span> <span class="s1">&#39;cbi&#39;</span><span class="p">,</span> <span class="s1">&#39;ibi&#39;</span><span class="p">,</span> <span class="s1">&#39;pbi&#39;</span><span class="p">,</span> <span class="s1">&#39;cash_incentives&#39;</span><span class="p">,</span> <span class="s1">&#39;state_incentives&#39;</span><span class="p">,</span> <span class="s1">&#39;export_tariff_results&#39;</span><span class="p">]</span>
+                    <span class="n">drop_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">drop_fields</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+                    <span class="n">df_write</span> <span class="o">=</span> <span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop_fields</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">write_annual_agents</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+                        <span class="n">df_write</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">out_scen_path</span> <span class="o">+</span> <span class="s1">&#39;/agent_df_</span><span class="si">{}</span><span class="s1">.pkl&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+
+                    <span class="c1"># Write Outputs to the database</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">write_mode</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">write_mode</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span>
+                    <span class="n">iFuncs</span><span class="o">.</span><span class="n">df_to_psql</span><span class="p">(</span><span class="n">df_write</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span><span class="s1">&#39;agent_outputs&#39;</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="n">write_mode</span><span class="p">,</span> <span class="n">append_transformations</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+                    <span class="k">del</span> <span class="n">df_write</span>
+
+            <span class="k">elif</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">techs</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;wind&#39;</span><span class="p">]:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Wind not yet supported&#39;</span><span class="p">)</span>
+                <span class="k">break</span>
+            
+            <span class="c1">#==============================================================================</span>
+            <span class="c1">#    Outputs &amp; Visualization</span>
+            <span class="c1">#==============================================================================</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;---------Saving Model Results---------&quot;</span><span class="p">)</span>
+            <span class="n">out_subfolders</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">create_tech_subfolders</span><span class="p">(</span><span class="n">out_scen_path</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">techs</span><span class="p">,</span> <span class="n">out_subfolders</span><span class="p">)</span>
+
+            <span class="c1">#####################################################################</span>
+            <span class="c1"># drop the new scenario_settings.schema</span>
+            <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">datfunc</span><span class="o">.</span><span class="n">drop_output_schema</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">delete_output_schema</span><span class="p">)</span>
+            <span class="c1">#####################################################################</span>
+            
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;-------------Model Run Complete-------------&quot;</span><span class="p">)</span>
+            <span class="n">time_to_complete</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">model_init</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Completed in: </span><span class="si">{}</span><span class="s1"> seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_to_complete</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># close the connection (need to do this before dropping schema or query will hang)</span>
+        <span class="k">if</span> <span class="s1">&#39;engine&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;con&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;logger&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="n">exc_info</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;scenario_settings&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># drop the output schema</span>
+            <span class="n">datfunc</span><span class="o">.</span><span class="n">drop_output_schema</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">delete_output_schema</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;logger&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="k">raise</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;con&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;scenario_settings&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># drop the output schema</span>
+            <span class="n">datfunc</span><span class="o">.</span><span class="n">drop_output_schema</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">delete_output_schema</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;logger&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">utilfunc</span><span class="o">.</span><span class="n">shutdown_log</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
+            <span class="n">utilfunc</span><span class="o">.</span><span class="n">code_profiler</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">out_dir</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

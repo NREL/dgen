@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.input_data_functions &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.input_data_functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.input_data_functions</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="kn">import</span> <span class="nn">data_functions</span> <span class="k">as</span> <span class="nn">datfunc</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">import</span> <span class="nn">agent_mutation</span>
+<span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">Agents</span><span class="p">,</span> <span class="n">Solar_Agents</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Load logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="check_table_exists"><a class="viewcode-back" href="../../api.html#python.input_data_functions.check_table_exists">[docs]</a><span class="k">def</span> <span class="nf">check_table_exists</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if table exists in schema</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">        SQL schema in which to check if given table exists</span>
+<span class="sd">    **table** : &#39;SQL table&#39;</span>
+<span class="sd">        SQL table to be searched </span>
+<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">        SQL connection to connect to database</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **True or False** : &#39;bool&#39;</span>
+<span class="sd">        Returns True if table exists in schema.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT EXISTS (SELECT 1 FROM   information_schema.tables WHERE  table_schema = &#39;</span><span class="si">{}</span><span class="s2">&#39; AND table_name = &#39;</span><span class="si">{}</span><span class="s2">&#39;);&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_psql_table_fields"><a class="viewcode-back" href="../../api.html#python.input_data_functions.get_psql_table_fields">[docs]</a><span class="k">def</span> <span class="nf">get_psql_table_fields</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates numpy array of columns from specified schema and table</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">        SQL engine to intepret SQL query</span>
+<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">        SQL schema to pull table from </span>
+<span class="sd">    **name** : &#39;string&#39;</span>
+<span class="sd">        Name of the table from which fields are retrieved</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy array : &#39;np.array&#39;</span>
+<span class="sd">        Numpy array of columns</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT column_name FROM information_schema.columns WHERE table_schema = &#39;</span><span class="si">{}</span><span class="s2">&#39; AND table_name   = &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="df_to_psql"><a class="viewcode-back" href="../../api.html#python.input_data_functions.df_to_psql">[docs]</a><span class="k">def</span> <span class="nf">df_to_psql</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">append_transformations</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uploads dataframe to database</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe to upload to database</span>
+<span class="sd">    **engine** : &#39;SQL table&#39;</span>
+<span class="sd">        SQL engine to intepret SQL query </span>
+<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which to upload df</span>
+<span class="sd">    **owner** : &#39;string&#39;</span>
+<span class="sd">        Owner of schema</span>
+<span class="sd">    **name** : &#39;string&#39;</span>
+<span class="sd">        Name to be given to table that is uploaded</span>
+<span class="sd">    **if_exists** : &#39;replace or append&#39;</span>
+<span class="sd">        If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database. </span>
+<span class="sd">    **append_transformations** : &#39;bool&#39;</span>
+<span class="sd">        IDK</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe that was uploaded to database</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">d_types</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">f_d_type</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">sql_type</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">delete_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">orig_fields</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">orig_fields</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">df_filter</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df_filter</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="p">][</span><span class="n">df_filter</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;int&#39;</span><span class="p">:</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;INTEGER&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">NUMERIC</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NUMERIC&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;str&#39;</span><span class="p">:</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;list&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">ARRAY</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">STRINGTYPE</span><span class="p">)</span>
+                <span class="n">transform</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ndarray&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">ARRAY</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">STRINGTYPE</span><span class="p">)</span>
+                <span class="n">transform</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dict&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">STRINGTYPE</span>
+                <span class="n">transform</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+                    <span class="nb">dict</span><span class="p">([(</span><span class="n">k_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">k_v</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">k_v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ndarray&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">k_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k_v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">k_v</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">())]))</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;interval&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">STRINGTYPE</span>
+                <span class="n">transform</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+
+            <span class="k">if</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">:</span>
+                <span class="n">d_types</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">STRINGTYPE</span>
+                <span class="n">transform</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VARCHAR&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">orig_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">orig_fields</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">!=</span><span class="n">f</span><span class="p">]</span>
+            <span class="n">delete_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">delete_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">transform</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">append_transformations</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">sql_type</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">f_d_type</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">=</span> <span class="n">sql_type</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">sql_type</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   
+
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">if_exists</span> <span class="o">==</span> <span class="s1">&#39;append&#39;</span><span class="p">:</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">get_psql_table_fields</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">fields</span><span class="p">)):</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;ALTER TABLE </span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2"> ADD COLUMN </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sql_type</span><span class="p">[</span><span class="n">f</span><span class="p">])</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+        
+    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">d_types</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="n">if_exists</span><span class="p">)</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;ALTER TABLE </span><span class="si">{}</span><span class="s1">.&quot;</span><span class="si">{}</span><span class="s1">&quot; OWNER to &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">owner</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span> 
+
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">orig_fields</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+    
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_scenario_settings"><a class="viewcode-back" href="../../api.html#python.input_data_functions.get_scenario_settings">[docs]</a><span class="k">def</span> <span class="nf">get_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates dataframe of default scenario settings from input_main_scenario_options table</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which to look for the scenario settings</span>
+<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">        SQL connection to connect to database</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of default scenario settings</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM </span><span class="si">{}</span><span class="s2">.input_main_scenario_options&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="get_userdefined_scenario_settings"><a class="viewcode-back" href="../../api.html#python.input_data_functions.get_userdefined_scenario_settings">[docs]</a><span class="k">def</span> <span class="nf">get_userdefined_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates dataframe of user created scenario settings</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which to look for the scenario settings</span>
+<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">        SQL connection to connect to database</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of user created scenario settings</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM </span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="import_table"><a class="viewcode-back" href="../../api.html#python.input_data_functions.import_table">[docs]</a><span class="k">def</span> <span class="nf">import_table</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">input_name</span><span class="p">,</span> <span class="n">csv_import_function</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Imports table from csv given the name of the csv</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **scenario_settings** : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which to look for the scenario settings</span>
+<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">        SQL connection to connect to database</span>
+<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">        SQL engine to intepret SQL query</span>
+<span class="sd">    **role** : &#39;string&#39;</span>
+<span class="sd">        Owner of schema</span>
+<span class="sd">    **input_name** : &#39;string&#39;</span>
+<span class="sd">        Name of the csv file that should be imported     </span>
+<span class="sd">    **csv_import_function** : &#39;function&#39;</span>
+<span class="sd">        Specific function to import and munge csv </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of the table that was imported</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span>
+    <span class="n">shared_schema</span> <span class="o">=</span> <span class="s1">&#39;diffusion_shared&#39;</span>
+    <span class="n">input_data_dir</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">input_data_dir</span>
+    <span class="n">user_scenario_settings</span> <span class="o">=</span> <span class="n">get_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="n">scenario_name</span> <span class="o">=</span> <span class="n">user_scenario_settings</span><span class="p">[</span><span class="n">input_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">scenario_name</span> <span class="o">==</span> <span class="s1">&#39;User Defined&#39;</span><span class="p">:</span>
+
+        <span class="n">userdefined_table_name</span> <span class="o">=</span> <span class="s2">&quot;input_&quot;</span> <span class="o">+</span> <span class="n">input_name</span> <span class="o">+</span> <span class="s2">&quot;_user_defined&quot;</span>
+        <span class="n">scenario_userdefined_name</span> <span class="o">=</span> <span class="n">get_userdefined_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">userdefined_table_name</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+        <span class="n">scenario_userdefined_value</span> <span class="o">=</span> <span class="n">scenario_userdefined_name</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+          
+        <span class="k">if</span> <span class="n">check_table_exists</span><span class="p">(</span><span class="n">shared_schema</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM </span><span class="si">{}</span><span class="s1">.&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shared_schema</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_data_dir</span><span class="p">,</span> <span class="n">input_name</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">csv_import_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">csv_import_function</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+            <span class="n">df_to_psql</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">shared_schema</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_name</span> <span class="o">==</span> <span class="s1">&#39;elec_prices&#39;</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_rate_escalations</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">input_name</span> <span class="o">==</span> <span class="s1">&#39;load_growth&#39;</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_load_growth</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">input_name</span> <span class="o">==</span> <span class="s1">&#39;pv_prices&#39;</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_technology_costs_solar</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="stacked_sectors"><a class="viewcode-back" href="../../api.html#python.input_data_functions.stacked_sectors">[docs]</a><span class="k">def</span> <span class="nf">stacked_sectors</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes dataframe and sorts table fields by sector</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe to be sorted by sector. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **output** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of the table that was imported and split by sector</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sectors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;res&#39;</span><span class="p">,</span> <span class="s1">&#39;ind&#39;</span><span class="p">,</span><span class="s1">&#39;com&#39;</span><span class="p">,</span><span class="s1">&#39;nonres&#39;</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">core_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sectors</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">sector</span> <span class="ow">in</span> <span class="n">sectors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sector</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]):</span>
+            <span class="n">sector_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">sector</span><span class="p">]</span>
+            <span class="n">rename_fields</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">sector_columns</span><span class="p">}</span>
+
+            <span class="n">temp</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">core_columns</span> <span class="o">+</span> <span class="n">sector_columns</span><span class="p">]</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_fields</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sector</span> <span class="o">==</span><span class="s1">&#39;nonres&#39;</span><span class="p">:</span>
+                <span class="n">sector_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;ind&#39;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">sector</span><span class="o">==</span><span class="s1">&#39;all&#39;</span><span class="p">:</span>
+                <span class="n">sector_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;ind&#39;</span><span class="p">,</span><span class="s1">&#39;res&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sector_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">sector</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sector_list</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">output</span><span class="p">,</span> <span class="n">temp</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="deprec_schedule"><a class="viewcode-back" href="../../api.html#python.input_data_functions.deprec_schedule">[docs]</a><span class="k">def</span> <span class="nf">deprec_schedule</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes depreciation schedule and sorts table fields by depreciation year</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe to be sorted by sector. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **output** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of depreciation schedule sorted by year</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;deprec_sch&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">max_required_year</span> <span class="o">=</span> <span class="mi">2050</span>
+    <span class="n">max_input_year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">missing_years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_input_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_required_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">last_entry</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_input_year</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">missing_years</span><span class="p">:</span>
+        <span class="n">last_entry</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_entry</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;deprec_sch&#39;</span><span class="p">]]</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="melt_year"><a class="viewcode-back" href="../../api.html#python.input_data_functions.melt_year">[docs]</a><span class="k">def</span> <span class="nf">melt_year</span><span class="p">(</span><span class="n">parameter_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a function to melt dataframe&#39;s columns of years and parameter values to the row axis</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **parameter name** : &#39;string&#39;</span>
+<span class="sd">        Name of the parameter value in dataframe. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **function** : &#39;function&#39;</span>
+<span class="sd">        Function that melts years and parameter value to row axis</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unpivots years and values from columns of dataframe to rows for each state abbreviation</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **df** : &#39;pd.df&#39;</span>
+<span class="sd">            Dataframe to be unpivot. </span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        **df_tidy** : &#39;pd.df&#39;</span>
+<span class="sd">            Dataframe with every other year and the parameter value for that year as rows for each state </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">2051</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+
+        <span class="n">df_tidy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="n">years</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="n">parameter_name</span><span class="p">)</span>
+
+        <span class="n">df_tidy</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tidy</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">df_tidy</span>
+
+    <span class="k">return</span> <span class="n">function</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="import_agent_file"><a class="viewcode-back" href="../../api.html#python.input_data_functions.import_agent_file">[docs]</a><span class="k">def</span> <span class="nf">import_agent_file</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">agent_file_status</span><span class="p">,</span> <span class="n">input_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates new agents or uses pre-generated agents from provided .pkl file</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **scenario_settings** : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema of the scenario settings</span>
+<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">        SQL connection to connect to database</span>
+<span class="sd">    **cur** : &#39;SQL cursor&#39;</span>
+<span class="sd">        Cursor</span>
+<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">        SQL engine to intepret SQL query</span>
+<span class="sd">    **model_settings** : &#39;object&#39;</span>
+<span class="sd">        Model settings that apply to all scenarios</span>
+<span class="sd">    **agent_file_status** : &#39;attribute&#39;</span>
+<span class="sd">        Attribute that describes whether to use pre-generated agent file or create new    </span>
+<span class="sd">    **input_name** : &#39;string&#39;</span>
+<span class="sd">        .Pkl file name substring of pre-generated agent table </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **solar_agents** : &#39;Class&#39;</span>
+<span class="sd">        Instance of Agents class with either user pre-generated or new data</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span>
+    <span class="n">input_agent_dir</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">input_agent_dir</span>
+    <span class="n">state_to_model</span> <span class="o">=</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">state_to_model</span>
+
+    <span class="n">ISO_List</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ERCOT&#39;</span><span class="p">,</span> <span class="s1">&#39;NEISO&#39;</span><span class="p">,</span> <span class="s1">&#39;NYISO&#39;</span><span class="p">,</span> <span class="s1">&#39;CAISO&#39;</span><span class="p">,</span> <span class="s1">&#39;PJM&#39;</span><span class="p">,</span> <span class="s1">&#39;MISO&#39;</span><span class="p">,</span> <span class="s1">&#39;SPP&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">agent_file_status</span> <span class="o">==</span> <span class="s1">&#39;Use pre-generated Agents&#39;</span><span class="p">:</span>
+
+        <span class="n">userdefined_table_name</span> <span class="o">=</span> <span class="s2">&quot;input_&quot;</span> <span class="o">+</span> <span class="n">input_name</span> <span class="o">+</span> <span class="s2">&quot;_user_defined&quot;</span>
+        <span class="n">scenario_userdefined_name</span> <span class="o">=</span> <span class="n">get_userdefined_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">userdefined_table_name</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+        <span class="n">scenario_userdefined_value</span> <span class="o">=</span> <span class="n">scenario_userdefined_name</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">solar_agents_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_agent_dir</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="o">+</span><span class="s2">&quot;.pkl&quot;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">region</span> <span class="ow">in</span> <span class="n">ISO_List</span><span class="p">:</span>
+            <span class="n">solar_agents_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_agent_dir</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="o">+</span><span class="s2">&quot;.pkl&quot;</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">solar_agents_df</span> <span class="o">=</span> <span class="n">solar_agents_df</span><span class="p">[</span><span class="n">solar_agents_df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">state_to_model</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">solar_agents_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Region not present within pre-generated agent file - Edit Inputsheet&#39;</span><span class="p">)</span>
+            
+        <span class="n">solar_agents</span> <span class="o">=</span> <span class="n">Agents</span><span class="p">(</span><span class="n">solar_agents_df</span><span class="p">)</span>
+
+        <span class="n">solar_agents</span><span class="o">.</span><span class="n">on_frame</span><span class="p">(</span><span class="n">agent_mutation</span><span class="o">.</span><span class="n">elec</span><span class="o">.</span><span class="n">reassign_agent_tariffs</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Generating agents is not supported at this time. Please select &quot;Use pre-generated Agents&quot; in the input sheet&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">solar_agents</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="process_elec_price_trajectories"><a class="viewcode-back" href="../../api.html#python.input_data_functions.process_elec_price_trajectories">[docs]</a><span class="k">def</span> <span class="nf">process_elec_price_trajectories</span><span class="p">(</span><span class="n">elec_price_traj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the trajectory of the change in electricity prices over time with 2018 as the base year</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **elec_price_traj** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of electricity prices by year and ReEDS BA</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **elec_price_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of annual electricity price change factors from base year</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">county_to_ba_lkup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;county_to_ba_mapping.csv&#39;</span><span class="p">)</span>
+
+    <span class="c1"># For SS19, when using Retail Electricity Prices from ReEDS</span>
+    <span class="n">base_year_prices</span> <span class="o">=</span> <span class="n">elec_price_traj</span><span class="p">[</span><span class="n">elec_price_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2018</span><span class="p">]</span>
+    
+    <span class="n">base_year_prices</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;elec_price_res&#39;</span><span class="p">:</span><span class="s1">&#39;res_base&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;elec_price_com&#39;</span><span class="p">:</span><span class="s1">&#39;com_base&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;elec_price_ind&#39;</span><span class="p">:</span><span class="s1">&#39;ind_base&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">elec_price_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elec_price_traj</span><span class="p">,</span> <span class="n">base_year_prices</span><span class="p">[[</span><span class="s1">&#39;res_base&#39;</span><span class="p">,</span> <span class="s1">&#39;com_base&#39;</span><span class="p">,</span> <span class="s1">&#39;ind_base&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">)</span>
+
+    <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_change_res&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_res&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;res_base&#39;</span><span class="p">]</span>
+    <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_change_com&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_com&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;com_base&#39;</span><span class="p">]</span>
+    <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_change_ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;elec_price_ind&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;ind_base&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Melt by sector</span>
+    <span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">res_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;elec_price_change_res&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">]]</span>
+    <span class="n">res_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;elec_price_change_res&#39;</span><span class="p">:</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;res&#39;</span>
+    
+    <span class="n">com_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">com_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;elec_price_change_com&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">]]</span>
+    <span class="n">com_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;elec_price_change_com&#39;</span><span class="p">:</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">com_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com&#39;</span>
+    
+    <span class="n">ind_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">ind_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;elec_price_change_ind&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">]]</span>
+    <span class="n">ind_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;elec_price_change_ind&#39;</span><span class="p">:</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ind_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ind&#39;</span>
+    
+    <span class="n">elec_price_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">res_df</span><span class="p">,</span> <span class="n">com_df</span><span class="p">,</span> <span class="n">ind_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">elec_price_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">county_to_ba_lkup</span><span class="p">,</span> <span class="n">elec_price_change_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ba&#39;</span><span class="p">])</span>
+    
+    <span class="n">elec_price_change_traj</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ba&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+
+    <span class="k">return</span> <span class="n">elec_price_change_traj</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="process_wholesale_elec_prices"><a class="viewcode-back" href="../../api.html#python.input_data_functions.process_wholesale_elec_prices">[docs]</a><span class="k">def</span> <span class="nf">process_wholesale_elec_prices</span><span class="p">(</span><span class="n">wholesale_elec_price_traj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the trajectory of the change in wholesale electricity prices over time</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **wholesale_elec_price_traj** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of wholesale electricity prices by year and ReEDS BA</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **wholesale_elec_price_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of annual electricity price change factors from base year</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">county_to_ba_lkup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;county_to_ba_mapping.csv&#39;</span><span class="p">)</span>
+    
+    <span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">2051</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+
+    <span class="n">wholesale_elec_price_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">wholesale_elec_price_traj</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="n">years</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;wholesale_elec_price_dollars_per_kwh&#39;</span><span class="p">)</span>
+
+    <span class="n">wholesale_elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wholesale_elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+ 
+    <span class="n">wholesale_elec_price_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">county_to_ba_lkup</span><span class="p">,</span> <span class="n">wholesale_elec_price_change_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ba&#39;</span><span class="p">])</span>
+    
+    <span class="n">wholesale_elec_price_change_traj</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ba&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">wholesale_elec_price_change_traj</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="process_load_growth"><a class="viewcode-back" href="../../api.html#python.input_data_functions.process_load_growth">[docs]</a><span class="k">def</span> <span class="nf">process_load_growth</span><span class="p">(</span><span class="n">load_growth</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the trajectory of the load growth rates over time relative to a base year of 2014</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **laod_growth** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of annual load growth rates</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    **load_growth_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">        Dataframe of annual load growth rates relative to base year</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">base_year_load_growth</span> <span class="o">=</span> <span class="n">load_growth</span><span class="p">[</span><span class="n">load_growth</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2014</span><span class="p">]</span>
+    
+    <span class="n">base_year_load_growth</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;load_growth_res&#39;</span><span class="p">:</span><span class="s1">&#39;res_base&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;load_growth_com&#39;</span><span class="p">:</span><span class="s1">&#39;com_base&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;load_growth_ind&#39;</span><span class="p">:</span><span class="s1">&#39;ind_base&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">load_growth_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">load_growth</span><span class="p">,</span> <span class="n">base_year_load_growth</span><span class="p">[[</span><span class="s1">&#39;res_base&#39;</span><span class="p">,</span> <span class="s1">&#39;com_base&#39;</span><span class="p">,</span> <span class="s1">&#39;ind_base&#39;</span><span class="p">,</span> <span class="s1">&#39;census_division_abbr&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;census_division_abbr&#39;</span><span class="p">)</span>
+
+    <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_change_res&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_res&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;res_base&#39;</span><span class="p">]</span>
+    <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_change_com&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_com&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;com_base&#39;</span><span class="p">]</span>
+    <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_change_ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;load_growth_ind&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;ind_base&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Melt by sector</span>
+    <span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">res_df</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;load_growth_change_res&#39;</span><span class="p">,</span> <span class="s1">&#39;census_division_abbr&#39;</span><span class="p">]]</span>
+    <span class="n">res_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;load_growth_change_res&#39;</span><span class="p">:</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;res&#39;</span>
+    
+    <span class="n">com_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">com_df</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;load_growth_change_com&#39;</span><span class="p">,</span> <span class="s1">&#39;census_division_abbr&#39;</span><span class="p">]]</span>
+    <span class="n">com_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;load_growth_change_com&#39;</span><span class="p">:</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">com_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com&#39;</span>
+    
+    <span class="n">ind_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">load_growth_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">ind_df</span> <span class="o">=</span> <span class="n">load_growth_change_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;load_growth_change_ind&#39;</span><span class="p">,</span> <span class="s1">&#39;census_division_abbr&#39;</span><span class="p">]]</span>
+    <span class="n">ind_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;load_growth_change_ind&#39;</span><span class="p">:</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ind_df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ind&#39;</span>
+    
+    <span class="n">load_growth_change_traj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">res_df</span><span class="p">,</span> <span class="n">com_df</span><span class="p">,</span> <span class="n">ind_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">load_growth_change_traj</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

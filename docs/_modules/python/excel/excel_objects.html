@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.excel.excel_objects &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.excel.excel_objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.excel.excel_objects</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">openpyxl</span> <span class="k">as</span> <span class="nn">xl</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<div class="viewcode-block" id="ExcelError"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.ExcelError">[docs]</a><span class="k">class</span> <span class="nc">ExcelError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="FancyNamedRange"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.FancyNamedRange">[docs]</a><span class="k">class</span> <span class="nc">FancyNamedRange</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">workbook</span><span class="p">,</span> <span class="n">range_name</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">wb</span> <span class="o">=</span> <span class="n">workbook</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base__</span><span class="p">(</span><span class="n">range_name</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">worksheets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__worksheets__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_worksheets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__count_destination_components__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">worksheets</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count_worksheets</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Named Ranges spanning multiple worksheets are not currently supported&quot;</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">worksheet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worksheets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>            
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cell_ranges__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_cell_ranges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__count_destination_components__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count_cell_ranges</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Named Ranges spanning multiple, non-contiguous cell ranges  are not currently supported&quot;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">topleft</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__topleft__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottomright</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__bottomright__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">cells</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cells__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cell_array__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">rec_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__rec_array__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data_frame__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__colnames_included__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rec_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__rec_array__</span><span class="p">(</span><span class="n">colnames_included</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data_frame__</span><span class="p">(</span><span class="n">colnames_included</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__melt__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__colnames_included__</span><span class="p">()</span>
+        <span class="c1"># find the data type for the column names</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># set the data type for the variable column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__transpose_values__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span><span class="o">.</span><span class="n">T</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rec_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__rec_array__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data_frame__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__base__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">range_name</span><span class="p">):</span>
+        
+        <span class="c1"># get the named range object</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">defined_names</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span>
+        
+        <span class="c1"># raise an error if the named range doesn&#39;t exist</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ExcelError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> named range does not exist.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">range_name</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">base</span>    
+    
+    <span class="k">def</span> <span class="nf">__worksheets__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">worksheets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">destinations</span><span class="p">])[:,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">worksheets</span>
+        
+    <span class="k">def</span> <span class="nf">__cell_ranges__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cell_ranges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">destinations</span><span class="p">])[:,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">cell_ranges</span>
+        
+    
+    <span class="k">def</span> <span class="nf">__count_destination_components__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_component</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">destination_component</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">count</span>
+    
+    <span class="k">def</span> <span class="nf">__topleft__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            
+        <span class="k">return</span> <span class="n">coordinates</span>
+        
+    <span class="k">def</span> <span class="nf">__bottomright__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">coordinates</span>
+    
+<div class="viewcode-block" id="FancyNamedRange.contents_to_array"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.FancyNamedRange.contents_to_array">[docs]</a>    <span class="k">def</span> <span class="nf">contents_to_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+    
+    <span class="k">def</span> <span class="nf">__columns__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topleft</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">__cells__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="n">cell</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">worksheet</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">topleft</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottomright</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">cells</span>
+    
+    <span class="k">def</span> <span class="nf">__cell_array__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cell_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>
+            <span class="n">cell_array</span> <span class="o">=</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">cell_array</span>
+        
+    <span class="k">def</span> <span class="nf">__cell_value__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">floats</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">floats</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">cell</span><span class="o">.</span><span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">!=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cell_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cell_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cell_value</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span>
+        
+        <span class="k">if</span> <span class="n">cell_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cell_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        
+        <span class="k">return</span> <span class="n">cell_value</span>
+    
+    <span class="k">def</span> <span class="nf">__rec_array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colnames_included</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">cell_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__cell_value__</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">colnames_included</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">i_begin</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i_begin</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">cell_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span><span class="p">[</span><span class="n">i_begin</span><span class="p">:,</span> <span class="n">j</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">col</span><span class="p">):</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+            <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        
+        <span class="n">rec_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">fromarrays</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">colnames_included</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">cell_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">floats</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">rec_array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)))</span>
+        
+        <span class="k">return</span> <span class="n">rec_array</span>
+    
+    <span class="k">def</span> <span class="nf">__data_frame__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colnames_included</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rec_array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">colnames_included</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">ncols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ncols</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">df</span>
+        
+<div class="viewcode-block" id="FancyNamedRange.first_value"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.FancyNamedRange.first_value">[docs]</a>    <span class="k">def</span> <span class="nf">first_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">first_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">first_value</span></div>
+
+<div class="viewcode-block" id="FancyNamedRange.to_stringIO"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.FancyNamedRange.to_stringIO">[docs]</a>    <span class="k">def</span> <span class="nf">to_stringIO</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transpose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">columns</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span>
+        
+        <span class="k">if</span> <span class="n">transpose</span><span class="p">:</span>
+            <span class="n">out_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">out_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">header</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">out_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">s</span></div>
+        
+<div class="viewcode-block" id="FancyNamedRange.to_postgres"><a class="viewcode-back" href="../../../python.excel.html#python.excel.excel_objects.FancyNamedRange.to_postgres">[docs]</a>    <span class="k">def</span> <span class="nf">to_postgres</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">transpose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">create</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">overwrite</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">sql_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="n">schema</span><span class="p">,</span> <span class="s1">&#39;table&#39;</span><span class="p">:</span> <span class="n">table</span> <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="n">create</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Creation of a new postgres table is not implemented&#39;</span><span class="p">)</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_stringIO</span><span class="p">(</span><span class="n">transpose</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>        
+
+        <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>           
+        <span class="k">if</span> <span class="n">overwrite</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;DELETE FROM </span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+ 
+        <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">copy_from</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">null</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>    
+        
+        <span class="c1"># release the string io object</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>      </div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dGen Code Base &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="python.agent_mutation package" href="python.agent_mutation.html" />
+    <link rel="prev" title="dGen Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>dGen Code Base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dgen-code-base">
+<h1>dGen Code Base<a class="headerlink" href="#dgen-code-base" title="Permalink to this headline">¶</a></h1>
+<p>The dGen source code is located within the <code class="file docutils literal notranslate"><span class="pre">python/</span></code> directory. This page contains information
+on the classes, functions, attributes, and methods used by dGen. This page is useful for debugging
+errors, or examining how different elements interact incase a special run is desired.</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python.excel.html">python.excel package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-python.config">
+<span id="python-config-module"></span><h2>python.config module<a class="headerlink" href="#module-python.config" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-python.decorators">
+<span id="python-decorators-module"></span><h2>python.decorators module<a class="headerlink" href="#module-python.decorators" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="python.decorators.fid">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.decorators.fn_info">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fn_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">info</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tab_level</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fn_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fn_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.decorators.fn_timer">
+<em class="property">class </em><code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">fn_timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">tab_level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#fn_timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.fn_timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.decorators.shared">
+<code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">shared</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#shared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.shared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.decorators.unshared">
+<code class="sig-prename descclassname">python.decorators.</code><code class="sig-name descname">unshared</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/decorators.html#unshared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.decorators.unshared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.dgen_model">
+<span id="python-dgen-model-module"></span><h2>python.dgen_model module<a class="headerlink" href="#module-python.dgen_model" title="Permalink to this headline">¶</a></h2>
+<p>Distributed Generation Market Demand Model (dGen) - Final Release
+National Renewable Energy Lab</p>
+<dl class="py function">
+<dt id="python.dgen_model.main">
+<code class="sig-prename descclassname">python.dgen_model.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">resume_year</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endyear</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ReEDS_inputs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/dgen_model.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.dgen_model.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.data_functions">
+<span id="python-data-functions-module"></span><h2>python.data_functions module<a class="headerlink" href="#module-python.data_functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions for pulling data</p>
+<dl class="py function">
+<dt id="python.data_functions.create_model_years">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">create_model_years</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_year</span></em>, <em class="sig-param"><span class="n">end_year</span></em>, <em class="sig-param"><span class="n">increment</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#create_model_years"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.create_model_years" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.create_output_schema">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">create_output_schema</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pg_conn_string</span></em>, <em class="sig-param"><span class="n">role</span></em>, <em class="sig-param"><span class="n">suffix</span></em>, <em class="sig-param"><span class="n">scenario_list</span></em>, <em class="sig-param"><span class="n">source_schema</span><span class="o">=</span><span class="default_value">'diffusion_template'</span></em>, <em class="sig-param"><span class="n">include_data</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#create_output_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.create_output_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates output schema that will be dropped into the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**pg_conn_string**</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
+<li><p><strong>**role**</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>**suffix**</strong> (<em>'string'</em>) – String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier</p></li>
+<li><p><strong>**source_schema**</strong> (<em>'SQL schema'</em>) – Schema to be used as template for the output schema</p></li>
+<li><p><strong>**include_data**</strong> (<em>'bool'</em>) – If True includes data from diffusion_shared schema. Default is False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dest_schema</strong> – Output schema that will house the final results</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘SQL schema’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.create_scenario_results_folder">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">create_scenario_results_folder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_scenario</span></em>, <em class="sig-param"><span class="n">scen_name</span></em>, <em class="sig-param"><span class="n">scenario_names</span></em>, <em class="sig-param"><span class="n">out_dir</span></em>, <em class="sig-param"><span class="n">dup_n</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#create_scenario_results_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.create_scenario_results_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates scenario results directories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**input_scenario**</strong> (<em>'directory'</em>) – Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder</p></li>
+<li><p><strong>**scen_name**</strong> (<em>'string'</em>) – Scenario Name</p></li>
+<li><p><strong>**scenario_names**</strong> (<em>'list'</em>) – List of scenario names</p></li>
+<li><p><strong>**out_dir**</strong> (<em>'directory'</em>) – Output directory for scenario subfolders</p></li>
+<li><p><strong>**dup_n**</strong> (<em>'int'</em>) – Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>out_scen_path</strong> (<em>‘directory’</em>) – Path for the scenario subfolders to send results</p></li>
+<li><p><em>**scenario_names**</em> – Populated list of scenario names</p></li>
+<li><p><strong>**dup_n**</strong> (<em>‘int’</em>) – Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.create_tech_subfolders">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">create_tech_subfolders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out_scen_path</span></em>, <em class="sig-param"><span class="n">techs</span></em>, <em class="sig-param"><span class="n">out_subfolders</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#create_tech_subfolders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.create_tech_subfolders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates subfolders for results of each specified technology</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**out_scen_path**</strong> (<em>'directory'</em>) – Path for the scenario folder to send results</p></li>
+<li><p><strong>**techs**</strong> (<em>'string'</em>) – Technology type</p></li>
+<li><p><strong>**out_subfolders**</strong> (<em>'dict'</em>) – Dictionary of empty subfolder paths for solar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out_subfolders</strong> – Dictionary with subfolder paths for solar</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘dict’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.drop_output_schema">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">drop_output_schema</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pg_conn_string</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">delete_output_schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#drop_output_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.drop_output_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes output schema from database if set to true</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**pg_conn_string**</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema that will be deleted</p></li>
+<li><p><strong>**delete_output_schema**</strong> (<em>'bool'</em>) – If set to True in config.py, deletes output schema</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_agent_file_scenario">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_agent_file_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_agent_file_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_agent_file_scenario" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_annual_inflation">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_annual_inflation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_annual_inflation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_annual_inflation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get inflation rate (constant for all years &amp; sectors)</p>
+<p>IN: con - connection to server, schema
+OUT: Float value of inflation rate</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_bass_params">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_bass_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_bass_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_bass_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_input_scenarios">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_input_scenarios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_input_scenarios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_input_scenarios" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_itc_incentives">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_itc_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_itc_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_itc_incentives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_load_growth">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_load_growth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_load_growth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_load_growth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_max_market_share">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_max_market_share</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_max_market_share"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_max_market_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull max market share from dB, select curve based on scenario_options, and interpolate to tenth of a year.
+Use passed parameters to determine ownership type</p>
+<dl class="simple">
+<dt>IN: con - pg con object - connection object</dt><dd><p>schema - string - schema for technology i.e. diffusion_solar</p>
+</dd>
+<dt>OUT: max_market_share  - pd dataframe - dataframe to join on main df to determine max share</dt><dd><p>keys are sector &amp; payback period</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_nem_state">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_nem_state_by_sector">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_state_by_sector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_state_by_sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_state_by_sector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_nem_utility_by_sector">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_utility_by_sector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_utility_by_sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_utility_by_sector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_rate_escalations">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_rate_escalations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_rate_escalations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_rate_escalations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,
+resulting in an average real compounding rate growth. This rate is then used to calculate cash flows</p>
+<p>IN: con - connection to server
+OUT: DataFrame with county_id, sector, year, escalation_factor, and source as columns</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_scenario_options">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_scenario_options</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cur</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">pg_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_scenario_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_scenario_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull scenario options and log the user running the scenario from dB</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_sectors">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_sectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cur</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_sectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_sectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sectors to model from table view in postgres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**cur**</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which the sectors exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**sectors**</strong> – Dictionary of sectors to be modeled in table view in postgres</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘dict’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_selected_scenario">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_selected_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_selected_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_selected_scenario" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_state_incentives">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_incentives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_state_to_model">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_to_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_to_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_to_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_technologies">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technologies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technologies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technologies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_technology_costs_solar">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technology_costs_solar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technology_costs_solar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technology_costs_solar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.make_output_directory_path">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">make_output_directory_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">suffix</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#make_output_directory_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.make_output_directory_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.summarize_scenario">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">summarize_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_settings</span></em>, <em class="sig-param"><span class="n">model_settings</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#summarize_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.summarize_scenario" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.input_data_functions">
+<span id="python-input-data-functions-module"></span><h2>python.input_data_functions module<a class="headerlink" href="#module-python.input_data_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="python.input_data_functions.check_table_exists">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">check_table_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#check_table_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.check_table_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if table exists in schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – SQL schema in which to check if given table exists</p></li>
+<li><p><strong>**table**</strong> (<em>'SQL table'</em>) – SQL table to be searched</p></li>
+<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**True or False**</strong> – Returns True if table exists in schema.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘bool’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.deprec_schedule">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">deprec_schedule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#deprec_schedule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.deprec_schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes depreciation schedule and sorts table fields by depreciation year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**output**</strong> – Dataframe of depreciation schedule sorted by year</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.df_to_psql">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">df_to_psql</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">owner</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">if_exists</span><span class="o">=</span><span class="default_value">'replace'</span></em>, <em class="sig-param"><span class="n">append_transformations</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#df_to_psql"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.df_to_psql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads dataframe to database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to upload to database</p></li>
+<li><p><strong>**engine**</strong> (<em>'SQL table'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to upload df</p></li>
+<li><p><strong>**owner**</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>**name**</strong> (<em>'string'</em>) – Name to be given to table that is uploaded</p></li>
+<li><p><strong>**if_exists**</strong> (<em>'replace</em><em> or </em><em>append'</em>) – If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database.</p></li>
+<li><p><strong>**append_transformations**</strong> (<em>'bool'</em>) – IDK</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**df**</strong> – Dataframe that was uploaded to database</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.get_psql_table_fields">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">get_psql_table_fields</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#get_psql_table_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.get_psql_table_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates numpy array of columns from specified schema and table</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – SQL schema to pull table from</p></li>
+<li><p><strong>**name**</strong> (<em>'string'</em>) – Name of the table from which fields are retrieved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>numpy array</strong> – Numpy array of columns</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘np.array’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.get_scenario_settings">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">get_scenario_settings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#get_scenario_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.get_scenario_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates dataframe of default scenario settings from input_main_scenario_options table</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**df**</strong> – Dataframe of default scenario settings</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.get_userdefined_scenario_settings">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">get_userdefined_scenario_settings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">table_name</span></em>, <em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#get_userdefined_scenario_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.get_userdefined_scenario_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates dataframe of user created scenario settings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**df**</strong> – Dataframe of user created scenario settings</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.import_agent_file">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">import_agent_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_settings</span></em>, <em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">cur</span></em>, <em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">model_settings</span></em>, <em class="sig-param"><span class="n">agent_file_status</span></em>, <em class="sig-param"><span class="n">input_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#import_agent_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.import_agent_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates new agents or uses pre-generated agents from provided .pkl file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**scenario_settings**</strong> (<em>'SQL schema'</em>) – Schema of the scenario settings</p></li>
+<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>**cur**</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
+<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>**model_settings**</strong> (<em>'object'</em>) – Model settings that apply to all scenarios</p></li>
+<li><p><strong>**agent_file_status**</strong> (<em>'attribute'</em>) – Attribute that describes whether to use pre-generated agent file or create new</p></li>
+<li><p><strong>**input_name**</strong> (<em>'string'</em>) – .Pkl file name substring of pre-generated agent table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**solar_agents**</strong> – Instance of Agents class with either user pre-generated or new data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘Class’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.import_table">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">import_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_settings</span></em>, <em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">role</span></em>, <em class="sig-param"><span class="n">input_name</span></em>, <em class="sig-param"><span class="n">csv_import_function</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#import_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.import_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports table from csv given the name of the csv</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**scenario_settings**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>**role**</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>**input_name**</strong> (<em>'string'</em>) – Name of the csv file that should be imported</p></li>
+<li><p><strong>**csv_import_function**</strong> (<em>'function'</em>) – Specific function to import and munge csv</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**df**</strong> – Dataframe of the table that was imported</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.melt_year">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">melt_year</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameter_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#melt_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.melt_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a function to melt dataframe’s columns of years and parameter values to the row axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name**</strong> (<em>**parameter</em>) – Name of the parameter value in dataframe.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**function**</strong> – Function that melts years and parameter value to row axis</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘function’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.process_elec_price_trajectories">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">process_elec_price_trajectories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elec_price_traj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#process_elec_price_trajectories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.process_elec_price_trajectories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the trajectory of the change in electricity prices over time with 2018 as the base year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**elec_price_traj**</strong> (<em>'pd.df'</em>) – Dataframe of electricity prices by year and ReEDS BA</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**elec_price_change_traj**</strong> – Dataframe of annual electricity price change factors from base year</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.process_load_growth">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">process_load_growth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">load_growth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#process_load_growth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.process_load_growth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the trajectory of the load growth rates over time relative to a base year of 2014</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**laod_growth**</strong> (<em>'pd.df'</em>) – Dataframe of annual load growth rates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**load_growth_change_traj**</strong> – Dataframe of annual load growth rates relative to base year</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.process_wholesale_elec_prices">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">process_wholesale_elec_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wholesale_elec_price_traj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#process_wholesale_elec_prices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.process_wholesale_elec_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the trajectory of the change in wholesale electricity prices over time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**wholesale_elec_price_traj**</strong> (<em>'pd.df'</em>) – Dataframe of wholesale electricity prices by year and ReEDS BA</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**wholesale_elec_price_change_traj**</strong> – Dataframe of annual electricity price change factors from base year</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.input_data_functions.stacked_sectors">
+<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">stacked_sectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#stacked_sectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.stacked_sectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes dataframe and sorts table fields by sector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>**output**</strong> – Dataframe of the table that was imported and split by sector</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-python.diffusion_functions_elec">
+<span id="python-diffusion-functions-elec-module"></span><h2>python.diffusion_functions_elec module<a class="headerlink" href="#module-python.diffusion_functions_elec" title="Permalink to this headline">¶</a></h2>
+<p>Name: diffusion_functions
+Purpose: Contains functions to calculate diffusion of distributed wind model</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Determine maximum market size as a function of payback time;</p></li>
+<li><p>Parameterize Bass diffusion curve with diffusion rates (p, q) set by payback time;</p></li>
+<li><p>Determine current stage (equivaluent time) of diffusion based on existing market and current economics</p></li>
+<li><p>Calculate new market share by stepping forward on diffusion curve.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.bass_diffusion">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">bass_diffusion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#bass_diffusion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.bass_diffusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the fraction of population that diffuse into the max_market_share.
+Note that this is different than the fraction of population that will
+adopt, which is the max market share</p>
+<dl class="simple">
+<dt>IN: p,q - numpy arrays - Bass diffusion parameters</dt><dd><p>t - numpy array - Number of years since diffusion began</p>
+</dd>
+<dt>OUT: new_adopt_fraction - numpy array - fraction of overall population</dt><dd><p>that will adopt the technology</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.calc_diffusion">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">calc_diffusion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">cur</span></em>, <em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">techs</span></em>, <em class="sig-param"><span class="n">choose_tech</span></em>, <em class="sig-param"><span class="n">sectors</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">is_first_year</span></em>, <em class="sig-param"><span class="n">bass_params</span></em>, <em class="sig-param"><span class="n">override_p_value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">override_q_value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">override_teq_yr1_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#calc_diffusion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.calc_diffusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the market share (ms) added in the solve year. Market share must be less
+than max market share (mms) except initial ms is greater than the calculated mms.
+For this circumstance, no diffusion allowed until mms &gt; ms. Also, do not allow ms to
+decrease if economics deterioriate. Using the calculated
+market share, relevant quantities are updated.</p>
+<p>IN: df - pd dataframe - Main dataframe</p>
+<dl class="simple">
+<dt>OUT: df - pd dataframe - Main dataframe</dt><dd><p>market_last_year - pd dataframe - market to inform diffusion in next year</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.calc_diffusion_market_share">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">calc_diffusion_market_share</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">is_first_year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#calc_diffusion_market_share"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.calc_diffusion_market_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the fraction of overall population that have adopted the
+technology in the current period. Note that this does not specify the
+actual new adoption fraction without knowing adoption in the previous period.</p>
+<dl class="simple">
+<dt>IN: payback_period - numpy array - payback in years</dt><dd><p>max_market_share - numpy array - maximum market share as decimal
+current_market_share - numpy array - current market share as decimal</p>
+</dd>
+<dt>OUT: new_market_share - numpy array - fraction of overall population</dt><dd><p>that have adopted the technology</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.calc_diffusion_solar">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">calc_diffusion_solar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">is_first_year</span></em>, <em class="sig-param"><span class="n">bass_params</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">override_p_value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">override_q_value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">override_teq_yr1_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#calc_diffusion_solar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.calc_diffusion_solar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the market share (ms) added in the solve year. Market share must be less
+than max market share (mms) except initial ms is greater than the calculated mms.
+For this circumstance, no diffusion allowed until mms &gt; ms. Also, do not allow ms to
+decrease if economics deterioriate. Using the calculated
+market share, relevant quantities are updated.</p>
+<p>IN: df - pd dataframe - Main dataframe</p>
+<dl class="simple">
+<dt>OUT: df - pd dataframe - Main dataframe</dt><dd><p>market_last_year - pd dataframe - market to inform diffusion in next year</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.calc_equiv_time">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">calc_equiv_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#calc_equiv_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.calc_equiv_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the “equivalent time” on the diffusion curve. This defines the
+gradient of adoption.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>IN: msly - numpy array - market share last year [at end of the previous solve] as decimal</dt><dd><p>mms - numpy array - maximum market share as decimal
+p,q - numpy arrays - Bass diffusion parameters</p>
+</dd>
+<dt>OUT: t_eq - numpy array - Equivalent number of years after diffusion</dt><dd><p>started on the diffusion curve</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.diffusion_functions_elec.set_bass_param">
+<code class="sig-prename descclassname">python.diffusion_functions_elec.</code><code class="sig-name descname">set_bass_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">bass_params</span></em>, <em class="sig-param"><span class="n">override_p_value</span></em>, <em class="sig-param"><span class="n">override_q_value</span></em>, <em class="sig-param"><span class="n">override_teq_yr1_value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/diffusion_functions_elec.html#set_bass_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.diffusion_functions_elec.set_bass_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the p &amp; q parameters which define the Bass diffusion curve.
+p is the coefficient of innovation, external influence or advertising effect.
+q is the coefficient of imitation, internal influence or word-of-mouth effect.</p>
+<blockquote>
+<div><p>IN: scaled_metric_value - numpy array - scaled value of economic attractiveness [0-1]
+OUT: p,q - numpy arrays - Bass diffusion parameters</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-python.financial_functions">
+<span id="python-financial-functions-module"></span><h2>python.financial_functions module<a class="headerlink" href="#module-python.financial_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="python.financial_functions.calc_financial_performance">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">calc_financial_performance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#calc_financial_performance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.calc_financial_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to calculate the payback period and join it on the agent dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataframe</strong> (<em>&quot;pd.df&quot;</em>) – Agent dataframe</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>- **dataframe**</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’ - Agent dataframe with payback period joined on dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.calc_max_market_share">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">calc_max_market_share</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">max_market_share_df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#calc_max_market_share"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.calc_max_market_share" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.calc_payback_vectorized">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">calc_payback_vectorized</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfs</span></em>, <em class="sig-param"><span class="n">tech_lifetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#calc_payback_vectorized"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.calc_payback_vectorized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the payback period in years for a given cash flow. Payback is defined as the first year where cumulative cash flows are positive.
+Cash flows that do not result in payback are given a period of 30.1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfs</strong> (<em>&quot;numpy.ndarray&quot;</em>) – Annual cash flows of investment, where 0th index refers to 0th year of investment</p></li>
+<li><p><strong>tech_lifetime</strong> (<em>&quot;numpy.ndarray&quot;</em>) – Number of years to assume for technology lifetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>- **payback_period**</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘numpy.ndarray’ - Payback period in years</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.calc_system_performance">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">calc_system_performance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kw</span></em>, <em class="sig-param"><span class="n">pv</span></em>, <em class="sig-param"><span class="n">utilityrate</span></em>, <em class="sig-param"><span class="n">loan</span></em>, <em class="sig-param"><span class="n">batt</span></em>, <em class="sig-param"><span class="n">costs</span></em>, <em class="sig-param"><span class="n">agent</span></em>, <em class="sig-param"><span class="n">rate_switch_table</span></em>, <em class="sig-param"><span class="n">en_batt</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">batt_simple_dispatch</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#calc_system_performance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.calc_system_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes Battwatts, Utilityrate5, and Cashloan PySAM modules with system sizes (kw) as input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kw</strong> (<em>Capacity</em><em> (</em><em>in kW</em><em>)</em>) – </p></li>
+<li><p><strong>pv</strong> (<em>Dictionary with generation_hourly and consumption_hourly</em>) – </p></li>
+<li><p><strong>utilityrate</strong> (<em>PySAM Utilityrate5 module</em>) – </p></li>
+<li><p><strong>loan</strong> (<em>PySAM Cashloan module</em>) – </p></li>
+<li><p><strong>batt</strong> (<em>PySAM Battwatts module</em>) – </p></li>
+<li><p><strong>costs</strong> (<em>Dictionary with system costs</em>) – </p></li>
+<li><p><strong>agent</strong> (<em>pd.Series with agent attirbutes</em>) – </p></li>
+<li><p><strong>rate_switch_table</strong> (<em>pd.DataFrame with details on how rates will switch with DG/storage adoption</em>) – </p></li>
+<li><p><strong>en_batt</strong> (<em>Enable battery</em>) – </p></li>
+<li><p><strong>batt_simple_dispatch</strong> (<em>batt.Battery.batt_simple_dispatch</em>) – <ul>
+<li><p>batt_simple_dispatch = 0 (peak shaving look ahead)</p></li>
+<li><p>batt_simple_dispatch = 1 (peak shaving look behind)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>-loan.Outputs.npv</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>the negative net present value of system + storage to be optimized for system sizing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.calc_system_size_and_performance">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">calc_system_size_and_performance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">agent</span></em>, <em class="sig-param"><span class="n">sectors</span></em>, <em class="sig-param"><span class="n">rate_switch_table</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#calc_system_size_and_performance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.calc_system_size_and_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the optimal system and battery size and generation profile, and resulting bill savings and financial metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>agent</strong> (<em>'pd.df'</em>) – individual agent object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>agent</strong> – Adds several features to the agent dataframe:</p>
+<ul class="simple">
+<li><p><strong>agent_id</strong></p></li>
+<li><p><strong>system_kw</strong> - system capacity selected by agent</p></li>
+<li><p><strong>batt_kw</strong> - battery capacity selected by agent</p></li>
+<li><p><strong>batt_kwh</strong> - battery energy capacity</p></li>
+<li><p><strong>npv</strong> - net present value of system + storage</p></li>
+<li><p><strong>cash_flow</strong>  - array of annual cash flows from system adoption</p></li>
+<li><p><strong>batt_dispatch_profile</strong> - array of hourly battery dispatch</p></li>
+<li><p><strong>annual_energy_production_kwh</strong> - annual energy production (kwh) of system</p></li>
+<li><p><strong>naep</strong> - normalized annual energy production (kwh/kW) of system</p></li>
+<li><p><strong>capacity_factor</strong> - annual capacity factor</p></li>
+<li><p><strong>first_year_elec_bill_with_system</strong> - first year electricity bill with adopted system ($/yr)</p></li>
+<li><p><strong>first_year_elec_bill_savings</strong> - first year electricity bill savings with adopted system ($/yr)</p></li>
+<li><p><strong>first_year_elec_bill_savings_frac</strong> - fraction of savings on electricity bill in first year of system adoption</p></li>
+<li><p><strong>max_system_kw</strong> - maximum system size allowed as constrained by roof size or not exceeding annual consumption</p></li>
+<li><p><strong>first_year_elec_bill_without_system</strong> - first year electricity bill without adopted system ($/yr)</p></li>
+<li><p><strong>avg_elec_price_cents_per_kwh</strong> - first year electricity price (c/kwh)</p></li>
+<li><p><strong>cbi</strong> - ndarray of capacity-based incentives applicable to agent</p></li>
+<li><p><strong>ibi</strong> - ndarray of investment-based incentives applicable to agent</p></li>
+<li><p><strong>pbi</strong> - ndarray of performance-based incentives applicable to agent</p></li>
+<li><p><strong>cash_incentives</strong> - ndarray of cash-based incentives applicable to agent</p></li>
+<li><p><strong>export_tariff_result</strong> - summary of structure of retail tariff applied to agent</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.check_incentive_constraints">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">check_incentive_constraints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">incentive_data</span></em>, <em class="sig-param"><span class="n">incentive_value</span></em>, <em class="sig-param"><span class="n">system_cost</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#check_incentive_constraints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.check_incentive_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.check_minmax">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">check_minmax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">min_</span></em>, <em class="sig-param"><span class="n">max_</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#check_minmax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.check_minmax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.eqn_builder">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">eqn_builder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">incentive_info</span></em>, <em class="sig-param"><span class="n">info_params</span></em>, <em class="sig-param"><span class="n">default_params</span></em>, <em class="sig-param"><span class="n">additional_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#eqn_builder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.eqn_builder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.eqn_flat_rate">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">eqn_flat_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">incentive_info</span></em>, <em class="sig-param"><span class="n">info_params</span></em>, <em class="sig-param"><span class="n">default_params</span></em>, <em class="sig-param"><span class="n">additional_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#eqn_flat_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.eqn_flat_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.eqn_linear_decay_to_zero">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">eqn_linear_decay_to_zero</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">incentive_info</span></em>, <em class="sig-param"><span class="n">info_params</span></em>, <em class="sig-param"><span class="n">default_params</span></em>, <em class="sig-param"><span class="n">additional_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#eqn_linear_decay_to_zero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.eqn_linear_decay_to_zero" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.get_expiration">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">get_expiration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">end_date</span></em>, <em class="sig-param"><span class="n">current_year</span></em>, <em class="sig-param"><span class="n">timesteps_per_year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#get_expiration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.get_expiration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.process_incentives">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">process_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loan</span></em>, <em class="sig-param"><span class="n">kw</span></em>, <em class="sig-param"><span class="n">batt_kw</span></em>, <em class="sig-param"><span class="n">batt_kwh</span></em>, <em class="sig-param"><span class="n">generation_hourly</span></em>, <em class="sig-param"><span class="n">agent</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#process_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.process_incentives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.financial_functions.process_tariff">
+<code class="sig-prename descclassname">python.financial_functions.</code><code class="sig-name descname">process_tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">utilityrate</span></em>, <em class="sig-param"><span class="n">tariff_dict</span></em>, <em class="sig-param"><span class="n">net_billing_sell_rate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/financial_functions.html#process_tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.financial_functions.process_tariff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the utilityrate5 PySAM model and process the agent’s rate json object to conform with PySAM input formatting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>agent</strong> (<em>'pd.Series'</em>) – Individual agent object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>utilityrate</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘PySAM.Utilityrate5’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-python.settings">
+<span id="python-settings-module"></span><h2>python.settings module<a class="headerlink" href="#module-python.settings" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="python.settings.ModelSettings">
+<em class="property">class </em><code class="sig-prename descclassname">python.settings.</code><code class="sig-name descname">ModelSettings</code><a class="reference internal" href="_modules/python/settings.html#ModelSettings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="python.settings.ModelSettings.add_config">
+<code class="sig-name descname">add_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.add_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.add_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ModelSettings.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ModelSettings.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">attr</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ModelSettings.set_pg_params">
+<code class="sig-name descname">set_pg_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pg_params_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.set_pg_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.set_pg_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ModelSettings.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ModelSettings.validate_property">
+<code class="sig-name descname">validate_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">property_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ModelSettings.validate_property"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ModelSettings.validate_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.settings.ScenarioSettings">
+<em class="property">class </em><code class="sig-prename descclassname">python.settings.</code><code class="sig-name descname">ScenarioSettings</code><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.add_scenario_options">
+<code class="sig-name descname">add_scenario_options</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_options</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.add_scenario_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.add_scenario_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">attr</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.set_tech_mode">
+<code class="sig-name descname">set_tech_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.set_tech_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.set_tech_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.settings.ScenarioSettings.validate_property">
+<code class="sig-name descname">validate_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">property_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#ScenarioSettings.validate_property"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.ScenarioSettings.validate_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.settings.check_type">
+<code class="sig-prename descclassname">python.settings.</code><code class="sig-name descname">check_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">expected_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#check_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.check_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.settings.init_model_settings">
+<code class="sig-prename descclassname">python.settings.</code><code class="sig-name descname">init_model_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#init_model_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.init_model_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.settings.init_scenario_settings">
+<code class="sig-prename descclassname">python.settings.</code><code class="sig-name descname">init_scenario_settings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_file</span></em>, <em class="sig-param"><span class="n">model_settings</span></em>, <em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">cur</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/settings.html#init_scenario_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.settings.init_scenario_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.tariff_functions">
+<span id="python-tariff-functions-module"></span><h2>python.tariff_functions module<a class="headerlink" href="#module-python.tariff_functions" title="Permalink to this headline">¶</a></h2>
+<p>Deprecated. Nullified by new PySAM code and will be taken out in Beta release.</p>
+<dl class="py class">
+<dt id="python.tariff_functions.Export_Tariff">
+<em class="property">class </em><code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">Export_Tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">full_retail_nem</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">prices</span><span class="o">=</span><span class="default_value">array([[0.0]])</span></em>, <em class="sig-param"><span class="n">levels</span><span class="o">=</span><span class="default_value">array([[0.0]])</span></em>, <em class="sig-param"><span class="n">periods_8760</span><span class="o">=</span><span class="default_value">array([0, 0, 0, ..., 0, 0, 0])</span></em>, <em class="sig-param"><span class="n">period_tou_n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Export_Tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Export_Tariff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Structure of compensation for exported generation. Currently only two
+styles: full-retail NEM, and instantanous TOU energy value.</p>
+<dl class="py method">
+<dt id="python.tariff_functions.Export_Tariff.set_constant_sell_price">
+<code class="sig-name descname">set_constant_sell_price</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">price</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Export_Tariff.set_constant_sell_price"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Export_Tariff.set_constant_sell_price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="python.tariff_functions.Tariff">
+<em class="property">class </em><code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">Tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_day</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">urdb_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">json_file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dict_obj</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tariff Attributes:
+-urdb_id: id for utility rate database. US, not international.
+-eia_id: The EIA assigned ID number for the utility associated with this tariff
+-name: tariff name
+-utility: Name of utility this tariff is associated with
+-fixed_charge: Fixed monthly charge in $/mo.
+-peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff
+-peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff
+-kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff
+-kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff
+-sector: residential, commercial, or industrial
+-comments: comments from the urdb
+-description: tariff description from urdb
+-source: uri for the source of the tariff
+-uri: link the the urdb page
+-voltage_category: secondary, primary, transmission
+-d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand.
+-d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.
+-d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+-d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+-d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component
+-d_tou_n = Number of unique tou demand periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+-d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+-d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+-e_exists = Boolean of whether there is a flat (not tou) demand charge component
+-e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component
+-e_n = Number of unique energy periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+-e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.
+-e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.
+-e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+-e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+-d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+-d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+-d_tou_8760
+-e_tou_8760
+-e_prices_no_tier
+-e_max_difference: The maximum energy price differential within any single day
+-energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later
+-demand_rate_unit: kW or kW/day - for guiding the bill calculations later</p>
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_d_flat">
+<code class="sig-name descname">define_d_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_flat_levels</span></em>, <em class="sig-param"><span class="n">d_flat_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_d_flat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_d_flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_d_tou">
+<code class="sig-name descname">define_d_tou</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_wkday_12by24</span></em>, <em class="sig-param"><span class="n">d_wkend_12by24</span></em>, <em class="sig-param"><span class="n">d_tou_levels</span></em>, <em class="sig-param"><span class="n">d_tou_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_d_tou"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_d_tou" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.define_e">
+<code class="sig-name descname">define_e</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">e_wkday_12by24</span></em>, <em class="sig-param"><span class="n">e_wkend_12by24</span></em>, <em class="sig-param"><span class="n">e_levels</span></em>, <em class="sig-param"><span class="n">e_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_e"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_e" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.identify_max_demand_charge">
+<code class="sig-name descname">identify_max_demand_charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.identify_max_demand_charge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.identify_max_demand_charge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="python.tariff_functions.Tariff.write_json">
+<code class="sig-name descname">write_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.write_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.write_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.bill_calculator">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">bill_calculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">load_profile</span></em>, <em class="sig-param"><span class="n">tariff</span></em>, <em class="sig-param"><span class="n">export_tariff</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#bill_calculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.bill_calculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. Nullified by new PySAM code and will be taken out in Beta release</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.build_8760_from_12by24s">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">build_8760_from_12by24s</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wkday_12by24</span></em>, <em class="sig-param"><span class="n">wkend_12by24</span></em>, <em class="sig-param"><span class="n">start_day</span><span class="o">=</span><span class="default_value">6</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#build_8760_from_12by24s"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.build_8760_from_12by24s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start day of 6 equates to a Sunday</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.design_tariff_for_portfolio">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">design_tariff_for_portfolio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">agent_df</span></em>, <em class="sig-param"><span class="n">avg_rev</span></em>, <em class="sig-param"><span class="n">peak_hour_indicies</span></em>, <em class="sig-param"><span class="n">summer_month_indicies</span></em>, <em class="sig-param"><span class="n">rev_f_d</span></em>, <em class="sig-param"><span class="n">rev_f_e</span></em>, <em class="sig-param"><span class="n">rev_f_fixed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#design_tariff_for_portfolio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.design_tariff_for_portfolio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a tariff that would extract a given $/kWh from a portfolio of
+customers.</p>
+<dl class="simple">
+<dt>Inputs:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>agent_df: Dataframe of agents. Must contain load_profile and its</dt><dd><p>weight in the portfolio.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>avg_rev: $/kWh that the tariff would extract from the given portfolio</dt><dd><p>of customers.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_d: revenue strucutre for demand charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from tou charges,
+fraction that comes from flat charges]
+ex: [0.4875, 0.5, 0.5]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_d: revenue strucutre for energy charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from off-peak hours,
+fraction that comes from on-peak hours]
+ex: [0.4875, 0.20, 0.8]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rev_f_fixed: [fraction of revenue from fixed monthly charges].</dt><dd><p>ex: [0.025]</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Assumptions:</dt><dd><ul class="simple">
+<li><p>peak hours are the same between demand and energy.</p></li>
+<li><p>peak hours only occur during the summer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.download_tariffs_from_urdb">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">download_tariffs_from_urdb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em>, <em class="sig-param"><span class="n">sector</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">utility</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_progress</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#download_tariffs_from_urdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.download_tariffs_from_urdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each user should get their own URDB API key: <a class="reference external" href="http://en.openei.org/services/api/signup/">http://en.openei.org/services/api/signup/</a></p>
+<p>Sectors: Residential, Commercial, Industrial, Lighting</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.filter_tariff_df">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">filter_tariff_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tariff_df</span></em>, <em class="sig-param"><span class="n">keyword_list</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keyword_list_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">demand_units_to_exclude</span><span class="o">=</span><span class="default_value">['hp', 'kVA', 'kW daily', 'hp daily', 'kVA daily']</span></em>, <em class="sig-param"><span class="n">remove_expired</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#filter_tariff_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.filter_tariff_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.load_config_params">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">load_config_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_file_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#load_config_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.load_config_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each user should fill in a config_template.json file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.tariff_functions.tiered_calc_vec">
+<code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">tiered_calc_vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">levels</span></em>, <em class="sig-param"><span class="n">prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#tiered_calc_vec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.tiered_calc_vec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python.utility_functions">
+<span id="python-utility-functions-module"></span><h2>python.utility_functions module<a class="headerlink" href="#module-python.utility_functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="python.utility_functions.Timer">
+<em class="property">class </em><code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">Timer</code><a class="reference internal" href="_modules/python/utility_functions.html#Timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.code_profiler">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">code_profiler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out_dir</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#code_profiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.code_profiler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.current_datetime">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">current_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'%Y_%m_%d_%Hh%Mm%Ss'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#current_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.current_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_epoch_time">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_epoch_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_epoch_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_epoch_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_formatted_time">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_formatted_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_formatted_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_formatted_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_logger">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_file_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_pg_engine_params">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_pg_engine_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_pg_engine_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_pg_engine_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.get_pg_params">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_pg_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_pg_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_pg_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.make_con">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">make_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">connection_string</span></em>, <em class="sig-param"><span class="n">role</span></em>, <em class="sig-param"><span class="n">async_</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#make_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.make_con" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.make_engine">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">make_engine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pg_engine_con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#make_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.make_engine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.parse_command_args">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">parse_command_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argv</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#parse_command_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.parse_command_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to parse the command line arguments
+IN:</p>
+<p>-h : help ‘dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;’
+-i : Initiate model for 2010 and quit
+-y: or year= : Resume model solve in passed year</p>
+<p>OUT:</p>
+<p>init_model - Boolean - Should model initiate?
+resume_year - Float - year model should resume</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.pylist_2_pglist">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">pylist_2_pglist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#pylist_2_pglist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.pylist_2_pglist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.shutdown_log">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">shutdown_log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#shutdown_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.shutdown_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="python.utility_functions.wait">
+<code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-python">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-python" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python.agent_mutation.html" class="btn btn-neutral float-right" title="python.agent_mutation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="dGen Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

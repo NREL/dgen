@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.settings &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.settings</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">psycopg2.extras</span> <span class="k">as</span> <span class="nn">pgx</span>
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">data_functions</span> <span class="k">as</span> <span class="nn">datfunc</span>
+<span class="kn">from</span> <span class="nn">excel</span> <span class="kn">import</span> <span class="n">excel_functions</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># Load logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="c1">#==============================================================================</span>
+
+
+<div class="viewcode-block" id="ModelSettings"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings">[docs]</a><span class="k">class</span> <span class="nc">ModelSettings</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_init</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cdate</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out_dir</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># doesn&#39;t exist already, check parent folder exists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_year</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># must = 2014</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_scenarios</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is list, is not empty</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pg_params_file</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># path exists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pg_params</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is dict, includes all elements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pg_conn_string</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pg_params_log</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is text, doesn&#39;t include pw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># path exists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pg_procs</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># int&lt;=16</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local_cores</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># int &lt; cores on machine</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delete_output_schema</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># bool</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dynamic_system_sizing</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># bool</span>
+
+<div class="viewcode-block" id="ModelSettings.set"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_property</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettings.get"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettings.add_config"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.add_config">[docs]</a>    <span class="k">def</span> <span class="nf">add_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;start_year&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">start_year</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;model_path&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">model_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;local_cores&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">local_cores</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_procs&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">pg_procs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_pg_params</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">pg_params_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;delete_output_schema&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">delete_output_schema</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;dynamic_system_sizing&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">dynamic_system_sizing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettings.set_pg_params"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.set_pg_params">[docs]</a>    <span class="k">def</span> <span class="nf">set_pg_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pg_params_file</span><span class="p">):</span>
+
+        <span class="c1"># check that it exists</span>
+        <span class="n">pg_params</span><span class="p">,</span> <span class="n">pg_conn_string</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_pg_params</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">,</span> <span class="n">pg_params_file</span><span class="p">))</span>
+        <span class="n">pg_engine_params</span><span class="p">,</span> <span class="n">pg_engine_string</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_pg_engine_params</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">,</span> <span class="n">pg_params_file</span><span class="p">))</span>
+        <span class="n">pg_params_log</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">pg_params</span><span class="p">])[</span>
+                                   <span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="s1">&#39;dbname&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_json</span><span class="p">()),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_params_file&#39;</span><span class="p">,</span> <span class="n">pg_params_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_params&#39;</span><span class="p">,</span> <span class="n">pg_params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_conn_string&#39;</span><span class="p">,</span> <span class="n">pg_conn_string</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_params_log&#39;</span><span class="p">,</span> <span class="n">pg_params_log</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_engine_params&#39;</span><span class="p">,</span> <span class="n">pg_engine_params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;pg_engine_string&#39;</span><span class="p">,</span> <span class="n">pg_engine_string</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettings.validate_property"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.validate_property">[docs]</a>    <span class="k">def</span> <span class="nf">validate_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">):</span>
+
+        <span class="c1"># for all properties -- check not null</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has not been set&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="c1"># validation for specific properties</span>
+        <span class="k">if</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;model_init&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;cdate&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;out_dir&#39;</span><span class="p">,</span><span class="s1">&#39;input_agent_dir&#39;</span><span class="p">,</span><span class="s1">&#39;input_data_dir&#39;</span><span class="p">]:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;start_year&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># assert equals 2014</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_year</span> <span class="o">!=</span> <span class="mi">2014</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: must be set to 2014&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;input_scenarios&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_scenarios</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Invalid </span><span class="si">{}</span><span class="s2">: No input scenario spreadsheet were found in the input_scenarios folder.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;pg_params_file&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check the path exists</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pg_params_file</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;role&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;pg_params&#39;</span><span class="p">,</span><span class="s1">&#39;pg_engine_params&#39;</span><span class="p">]:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">dict</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check for all values</span>
+            <span class="n">required_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;dbname&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;host&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;port&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;user&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pg_params</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">required_keys</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: missing required keys (</span><span class="si">{1}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">property_name</span><span class="p">,</span> <span class="n">required_keys</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;pg_conn_string&#39;</span><span class="p">,</span><span class="s1">&#39;pg_engine_string&#39;</span><span class="p">]:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;pg_params_log&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check password is not included</span>
+            <span class="k">if</span> <span class="s1">&#39;password&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pg_params_log</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: password shoud not be included&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;model_path&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check the path exists</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;local_cores&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check if too large</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_cores</span> <span class="o">&gt;</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: value exceeds number of CPUs on local machine&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;pg_procs&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># warn if too large</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pg_procs</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;High </span><span class="si">{}</span><span class="s2">: may saturate the resources of the Postgres server&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;delete_output_schema&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">bool</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+                
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;dynamic_system_sizing&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">bool</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No validation method for property </span><span class="si">{}</span><span class="s1"> exists.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ModelSettings.validate"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">property_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">property_name</span> <span class="ow">in</span> <span class="n">property_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_property</span><span class="p">(</span><span class="n">property_name</span><span class="p">)</span>
+
+        <span class="k">return</span></div></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="ScenarioSettings"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings">[docs]</a><span class="k">class</span> <span class="nc">ScenarioSettings</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">scen_name</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type is text, no spaces?</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_year</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_growth</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># valid options only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_generator_seed</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># int</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sectors</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># valid options only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">techs</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># valid options only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_scenario</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># exists on disk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_file_status</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># valid options onl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_years</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># starts at 2014 and ends &lt;= 2050</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tech_mode</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># valid options only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state_to_model</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># valid state</span>
+
+<div class="viewcode-block" id="ScenarioSettings.set"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_property</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ScenarioSettings.get"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ScenarioSettings.add_scenario_options"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.add_scenario_options">[docs]</a>    <span class="k">def</span> <span class="nf">add_scenario_options</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;scen_name&#39;</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">[</span><span class="s1">&#39;scenario_name&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;load_growth&#39;</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">[</span>
+                 <span class="s1">&#39;load_growth&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;random_generator_seed&#39;</span><span class="p">,</span> <span class="n">scenario_options</span><span class="p">[</span>
+                 <span class="s1">&#39;random_generator_seed&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="ScenarioSettings.set_tech_mode"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.set_tech_mode">[docs]</a>    <span class="k">def</span> <span class="nf">set_tech_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">techs</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;wind&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">]]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;tech_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;elec&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">techs</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;du&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;tech_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;du&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">techs</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;ghp&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;tech_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;ghp&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ScenarioSettings.validate_property"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.validate_property">[docs]</a>    <span class="k">def</span> <span class="nf">validate_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">):</span>
+
+        <span class="c1"># check not null</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has not been set&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;scen_name&#39;</span><span class="p">:</span>
+            <span class="c1"># check type</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># confirm no spaces</span>
+            <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">scen_name</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: cannot contain spaces.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;end_year&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># max of 2050</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_year</span> <span class="o">&gt;</span> <span class="mi">2050</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: end_year must be &lt;= 2050&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;region&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;load_growth&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;random_generator_seed&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;sectors&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">dict</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check all values are valid</span>
+            <span class="n">valid_sectors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="p">[(</span><span class="s1">&#39;res&#39;</span><span class="p">,</span> <span class="s1">&#39;Residential&#39;</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;Commercial&#39;</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;ind&#39;</span><span class="p">,</span> <span class="s1">&#39;Industrial&#39;</span><span class="p">)]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">valid_sectors</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid: the only allowable sectors are res, com, ind.&#39;</span><span class="p">)</span>
+            <span class="c1"># if only ind was selected and tehcmode is ghp or du, do not run</span>
+            <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;ind&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tech_mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;ghp&#39;</span><span class="p">,</span> <span class="s1">&#39;du&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: Cannot run industrial sector for </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tech_mode</span><span class="p">))</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s1">&#39;Industrial sector cannot be modeled for geothermal technologies at this time.&#39;</span><span class="p">)</span>
+            <span class="c1"># drop &#39;ind&#39; sector if selected for geo</span>
+            <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;ind&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="s1">&#39;ind&#39;</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tech_mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;ghp&#39;</span><span class="p">,</span> <span class="s1">&#39;du&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ind&#39;</span><span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s1">&#39;Industrial sector cannot be modeled for geothermal technologies at this time and will be ignored.&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;techs&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+            <span class="n">valid_options</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">[</span><span class="s1">&#39;wind&#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s1">&#39;du&#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s1">&#39;ghp&#39;</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">techs</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_options</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid </span><span class="si">{0}</span><span class="s2">: Cannot currently run that combination of technologies. Valid options are: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">property_name</span><span class="p">,</span> <span class="n">valid_options</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;agent_file_status&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;state_to_model&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;input_scenario&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check the path exists</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_scenario</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;schema&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;model_years&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># sort ascending</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_years</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="c1"># make sure starts at 2014</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2014</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: Must begin with 2014.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+            <span class="c1"># last year must be &lt;= 2050</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_years</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2050</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: End year must be &lt;= 2050.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">property_name</span> <span class="o">==</span> <span class="s1">&#39;tech_mode&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">check_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">property_name</span><span class="p">),</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="c1"># check valid options</span>
+            <span class="n">valid_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;elec&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;ghp&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;du&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tech_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_options</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{0}</span><span class="s1">: must be one of </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">valid_options</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No validation method for property </span><span class="si">{}</span><span class="s1"> exists.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ScenarioSettings.validate"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">property_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">property_name</span> <span class="ow">in</span> <span class="n">property_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_property</span><span class="p">(</span><span class="n">property_name</span><span class="p">)</span>
+
+        <span class="k">return</span></div></div>
+
+
+<div class="viewcode-block" id="check_type"><a class="viewcode-back" href="../../api.html#python.settings.check_type">[docs]</a><span class="k">def</span> <span class="nf">check_type</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;object type (</span><span class="si">{0}</span><span class="s1">) does not match expected type (</span><span class="si">{1}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">expected_type</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="init_model_settings"><a class="viewcode-back" href="../../api.html#python.settings.init_model_settings">[docs]</a><span class="k">def</span> <span class="nf">init_model_settings</span><span class="p">():</span>
+    <span class="c1"># initialize Model Settings object (this controls settings that apply to</span>
+    <span class="c1"># all scenarios to be executed)</span>
+    <span class="n">model_settings</span> <span class="o">=</span> <span class="n">ModelSettings</span><span class="p">()</span>
+
+    <span class="c1"># add the config to model settings; set model starting time, output directory based on run time, etc.</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">add_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;model_init&#39;</span><span class="p">,</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_epoch_time</span><span class="p">())</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;postgres&#39;</span><span class="p">)</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;cdate&#39;</span><span class="p">,</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_formatted_time</span><span class="p">())</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;out_dir&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">make_output_directory_path</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">cdate</span><span class="p">))</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;input_data_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/input_data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())))</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;input_agent_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/input_agents&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())))</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;input_scenarios&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_input_scenarios</span><span class="p">())</span>
+    <span class="c1"># validate all model settings</span>
+    <span class="n">model_settings</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">model_settings</span></div>
+
+
+<div class="viewcode-block" id="init_scenario_settings"><a class="viewcode-back" href="../../api.html#python.settings.init_scenario_settings">[docs]</a><span class="k">def</span> <span class="nf">init_scenario_settings</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">):</span>
+    <span class="n">scenario_settings</span> <span class="o">=</span> <span class="n">ScenarioSettings</span><span class="p">()</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;input_scenario&#39;</span><span class="p">,</span> <span class="n">scenario_file</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;-------------Preparing Database-------------&quot;</span><span class="p">)</span>
+    <span class="c1"># =========================================================================</span>
+    <span class="c1"># DEFINE SCENARIO SETTINGS</span>
+    <span class="c1"># =========================================================================</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># create an empty schema from diffusion_template</span>
+        <span class="n">new_schema</span> <span class="o">=</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">create_output_schema</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">role</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">cdate</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">input_scenarios</span><span class="p">,</span> <span class="n">source_schema</span> <span class="o">=</span> <span class="s1">&#39;diffusion_template&#39;</span><span class="p">,</span> <span class="n">include_data</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Creation of output schema failed with the following error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="c1"># set the schema</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;schema&#39;</span><span class="p">,</span> <span class="n">new_schema</span><span class="p">)</span>
+
+    <span class="c1"># load Input Scenario to the new schema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">excel_functions</span><span class="o">.</span><span class="n">load_scenario</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">input_scenario</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Loading failed with the following error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="c1"># read in high level scenario settings</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;techs&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_technologies</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">))</span>
+
+    <span class="c1"># read in settings whether to use pre-generated agent file (&#39;User Defined&#39;- provide pkl file name) or generate new agents</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;agent_file_status&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_agent_file_scenario</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">))</span>
+
+    <span class="c1"># Set scenario output dir</span>
+
+    <span class="c1"># set tech_mode</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set_tech_mode</span><span class="p">()</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;sectors&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_sectors</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">))</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">add_scenario_options</span><span class="p">(</span><span class="n">datfunc</span><span class="o">.</span><span class="n">get_scenario_options</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">pg_params</span><span class="p">))</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;model_years&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">create_model_years</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">start_year</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">end_year</span><span class="p">))</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;state_to_model&#39;</span><span class="p">,</span> <span class="n">datfunc</span><span class="o">.</span><span class="n">get_state_to_model</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">schema</span><span class="p">))</span>
+    <span class="c1"># validate scenario settings</span>
+    <span class="n">scenario_settings</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">scenario_settings</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
