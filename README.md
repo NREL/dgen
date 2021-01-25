@@ -3,6 +3,8 @@
 ## Watch The Webinar and Setup Tutorial
 https://youtu.be/-Te5_KKZR8o
 
+## Formal Documentation Model Code
+[Documentation](https://nrel.github.io/dgen/) 
 
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
