@@ -1,7 +1,7 @@
 ﻿![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
 
 # dGen
-![logo](https://imgur.com/a/K5Kc2bF)
+![logo](https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png)
 
 ## Watch The Webinar and Setup Tutorial
 https://youtu.be/-Te5_KKZR8o
