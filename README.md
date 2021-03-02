@@ -1,4 +1,6 @@
-﻿[![logo](https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png)
+﻿<p align="center">
+ <img src="https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png" />
+</p>
 
 ## Watch The Webinar and Setup Tutorial
 https://youtu.be/-Te5_KKZR8o
