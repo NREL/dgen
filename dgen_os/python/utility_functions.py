@@ -20,6 +20,19 @@ from sqlalchemy.pool import  NullPool
 
 
 def get_logger(log_file_path=None):
+    """
+    Takes depreciation schedule and sorts table fields by depreciation year
+    
+    Parameters
+    ----------
+    log_file_path : 'str' 
+        The log_file_path. 
+    
+    Returns
+    -------
+    logger : 'loggin.logger'
+        logger object for logging
+    """
 
     colorama.init()
     formatter = colorlog.ColoredFormatter("{log_color}{levelname:8}:{reset} {white}{message}",
@@ -109,6 +122,25 @@ def pylist_2_pglist(l):
 
 
 def make_con(connection_string, role, async_=False):
+
+    '''
+    Returns the psql connection and cursor objects to be used with functions that query from the database.
+        
+    Parameters
+    ----------    
+    connection_string : 'SQL connection'
+        Connection string. e.g. "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/dgen_db".       
+    role : 'str'
+        Database role. 'postgres' should be the default role name for the open source codebase. 
+
+    Returns
+    -------
+    con : 'SQL connection'
+        Postgres Database Connection.
+    cur : 'SQL cursor'
+        Postgres Database Cursor.
+    '''
+
     con = pg.connect(connection_string, async_=async_)
     if async_:
         wait(con)
@@ -129,6 +161,22 @@ def make_engine(pg_engine_con):
 
 
 def get_pg_params(json_file):
+
+    """
+    Takes the path to the json file specifying database connection information and returns formatted information.
+    
+    Parameters
+    ----------
+    json_file : 'str' 
+        The path to the json file specifying database connection information. 
+    
+    Returns
+    -------
+    pg_params : 'json'
+        'postgres database connection parameters'
+    pg_conn_str : 'str'
+        Formatted connection string
+    """
 
     pg_params_json = open(json_file, 'r')
     pg_params = json.load(pg_params_json)
@@ -153,18 +201,25 @@ def get_pg_engine_params(json_file):
 #       Miscellaneous Functions
 #==============================================================================
 def parse_command_args(argv):
-    ''' Function to parse the command line arguments
-    IN:
 
-    -h : help 'dg_model.py -i <Initiate Model?> -y <year>'
-    -i : Initiate model for 2010 and quit
-    -y: or year= : Resume model solve in passed year
+    """
+    Function to parse the command line arguments.
+    
+    Parameters
+    ----------
+    argv : 'str' 
+        -h : help 'dg_model.py -i <Initiate Model?> -y <year>'
+        -i : Initiate model for 2010 and quit
+        -y: or year= : Resume model solve in passed year 
+    
+    Returns
+    -------
+    init_model - 'bool'
+        Initialize the model
+    resume_year : 'float'
+        The year the model should resume.
 
-    OUT:
-
-    init_model - Boolean - Should model initiate?
-    resume_year - Float - year model should resume
-    '''
+    """
 
     resume_year = None
     init_model = False

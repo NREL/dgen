@@ -1124,7 +1124,8 @@ def calc_payback_vectorized(cfs, tech_lifetime):
 
     Returns
     -------
-    - **payback_period**: 'numpy.ndarray' - Payback period in years
+    pp_final : 'numpy.ndarray'
+        Payback period in years
     """
     
     years = np.array([np.arange(0, tech_lifetime)] * cfs.shape[0])

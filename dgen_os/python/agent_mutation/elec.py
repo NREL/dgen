@@ -39,6 +39,23 @@ def apply_elec_price_multiplier_and_escalator(dataframe, year, elec_price_change
     Note that many customers will not differentiate between real and nominal,
     and therefore many would overestimate the real escalation of electriicty
     prices.
+
+
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    year : 'int'
+        The year for which you want multiplier values for
+    elec_price_change_traj : 'pd.DataFrame'
+        Dataframe of electricity prices' trajectories over time. See the 
+        'input_elec_prices_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with elec_price_multiplier and elec_price_escalator data merged in.
+
     '''
     
     dataframe = dataframe.reset_index()
@@ -106,6 +123,22 @@ def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_ut
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_pv_tech_performance(dataframe, pv_tech_traj):
 
+    '''
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    pv_tech_traj : 'pd.DataFrame'
+        Dataframe of PV tech performance over time. See the 
+        'input_pv_tech_performance_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with pv tech performance parameters merged in.
+
+    '''
+
     dataframe = dataframe.reset_index()
 
     dataframe = pd.merge(dataframe, pv_tech_traj, how='left', on=['sector_abbr', 'year'])
@@ -134,6 +167,22 @@ def apply_depreciation_schedule(dataframe, deprec_sch):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_pv_prices(dataframe, pv_price_traj):
 
+    '''
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    pv_price_traj : 'pd.DataFrame'
+        Dataframe of PV price trajectories over time. See the 
+        'input_pv_prices_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with pv price parameters merged in.
+
+    '''
+
     dataframe = dataframe.reset_index()
 
     # join the data
@@ -151,6 +200,25 @@ def apply_pv_prices(dataframe, pv_price_traj):
 @decorators.fn_timer(logger = logger, tab_level = 2, prefix = '')
 def apply_batt_prices(dataframe, batt_price_traj, batt_tech_traj, year):
 
+    '''
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    batt_price_traj : 'pd.DataFrame'
+        Dataframe of battery price trajectories over time. See the 
+        'input_batt_prices_user_defined' table in the database.
+    batt_tech_traj : 'pd.DataFrame'
+        Dataframe of battery tech trajectories over time. See the 
+        'input_batt_tech_performance_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with battery price and tech parameters merged in.
+
+    '''
+
     dataframe = dataframe.reset_index()
 
     # Merge on prices
@@ -167,6 +235,25 @@ def apply_batt_prices(dataframe, batt_price_traj, batt_tech_traj, year):
 
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_pv_plus_batt_prices(dataframe, pv_plus_batt_price_traj, batt_tech_traj, year):
+
+    '''
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    pv_plus_batt_price_traj : 'pd.DataFrame'
+        Dataframe of battery price trajectories over time. See the 
+        'input_pv_plus_batt_prices_user_defined' table in the database.
+    batt_tech_traj : 'pd.DataFrame'
+        Dataframe of battery tech trajectories over time. See the 
+        'input_batt_tech_performance_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with pv plus battery price parameters and battery tech parameters merged in.
+
+    '''
     
     dataframe = dataframe.reset_index()
     
@@ -194,6 +281,25 @@ def apply_pv_plus_batt_prices(dataframe, pv_plus_batt_price_traj, batt_tech_traj
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_value_of_resiliency(dataframe, value_of_resiliency):
+
+    '''
+
+    Note, value of resiliency (VOR) is not currently used in the open source version of the model.
+
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    vaule_of_resiliency : 'pd.DataFrame'
+        Dataframe of financials pertaining to the value of resiliency. See the 
+        'input_value_of_resiliency_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with value of resiliency parameters merged in.
+
+    '''
              
     dataframe = dataframe.reset_index()
 
@@ -208,6 +314,22 @@ def apply_value_of_resiliency(dataframe, value_of_resiliency):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_batt_tech_performance(dataframe, batt_tech_traj):
 
+    '''
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    batt_tech_traj : 'pd.DataFrame'
+        Dataframe of battery tech trajectories over time. See the 
+        'input_batt_tech_performance_user_defined' table in the database.
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with battery tech parameters merged in.
+
+    '''
+
     dataframe = dataframe.reset_index()
 
     dataframe = dataframe.merge(batt_tech_traj, how='left', on=['year', 'sector_abbr'])
@@ -220,6 +342,29 @@ def apply_batt_tech_performance(dataframe, batt_tech_traj):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_financial_params(dataframe, financing_terms, itc_options, inflation_rate):
+
+    '''
+
+    Applies financial parameters specified in input sheet to agent dataframe.
+
+    Parameters
+    ----------    
+    dataframe : 'pd.DataFrame'
+        Agent dataframe       
+    financing_terms : 'pd.DataFrame'
+        Dataframe of financing terms.
+    itc_options : 'pd.DataFrame'
+        Dataframe of different ITC (investment tax credit) parameters, namely 'itc_fraction_of_capex'
+        that is merged to the agent dataframe on year, technology, and sector.
+    inflation_rate : 'float'
+        rate of inflation specified in the input sheet as a percentage (e.g. 2.5%).
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with financial parameters merged in.
+
+    '''
 
     dataframe = dataframe.reset_index()
 

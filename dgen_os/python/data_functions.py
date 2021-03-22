@@ -48,11 +48,11 @@ def create_tech_subfolders(out_scen_path, techs, out_subfolders):
     
     Parameters
     ----------
-    **out_scen_path** : 'directory'
+    out_scen_path : 'directory'
         Path for the scenario folder to send results
-    **techs** : 'string'
+    techs : 'string'
         Technology type 
-    **out_subfolders** : 'dict'
+    out_subfolders : 'dict'
         Dictionary of empty subfolder paths for solar
 
     Returns
@@ -77,24 +77,24 @@ def create_scenario_results_folder(input_scenario, scen_name, scenario_names, ou
     
     Parameters
     ----------
-    **input_scenario** : 'directory'
+    input_scenario : 'directory'
         Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder
-    **scen_name** : 'string'
+    scen_name : 'string'
         Scenario Name 
-    **scenario_names** : 'list'
+    scenario_names : 'list'
         List of scenario names
-    **out_dir** : 'directory'
+    out_dir : 'directory'
         Output directory for scenario subfolders
-    **dup_n** : 'int'
+    dup_n : 'int'
         Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.
     
     Returns
     -------
     out_scen_path : 'directory'
         Path for the scenario subfolders to send results
-    **scenario_names**
+    scenario_names
         Populated list of scenario names
-    **dup_n** : 'int'
+    dup_n : 'int'
         Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate
 
     """
@@ -121,15 +121,15 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
     
     Parameters
     ----------
-    **pg_conn_string** : 'string'
+    pg_conn_string : 'string'
         String to connect to pgAdmin database
-    **role** : 'string'
+    role : 'string'
         Owner of schema 
-    **suffix** : 'string'
+    suffix : 'string'
         String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier
-    **source_schema** : 'SQL schema'
+    source_schema : 'SQL schema'
         Schema to be used as template for the output schema
-    **include_data** : 'bool'
+    include_data : 'bool'
         If True includes data from diffusion_shared schema. Default is False
     
     Returns
@@ -176,11 +176,11 @@ def drop_output_schema(pg_conn_string, schema, delete_output_schema):
     
     Parameters
     ----------
-    **pg_conn_string** : 'string'
+    pg_conn_string : 'string'
         String to connect to pgAdmin database
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         Schema that will be deleted
-    **delete_output_schema** : 'bool'
+    delete_output_schema : 'bool'
         If set to True in config.py, deletes output schema
     
     """
@@ -206,14 +206,14 @@ def get_sectors(cur, schema):
         
     Parameters
     ----------    
-    **cur** : 'SQL cursor'
+    cur : 'SQL cursor'
         Cursor
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         Schema in which the sectors exist        
 
     Returns
     -------
-    **sectors** : 'dict'
+    sectors : 'dict'
         Dictionary of sectors to be modeled in table view in postgres
 
     '''
@@ -226,6 +226,23 @@ def get_sectors(cur, schema):
 
 
 def get_technologies(con, schema):
+
+    '''
+    Return the technologies to model from table view in postgres.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection
+    schema : 'SQL schema'
+        Schema in which the technologies exist        
+
+    Returns
+    -------
+    techs : 'list'
+        List of technologies to be modeled in table view in postgres
+
+    '''
 
     sql = """SELECT 
                 CASE WHEN run_tech = 'Solar + Storage' THEN 'solar'::text
@@ -264,6 +281,23 @@ def get_agent_file_scenario(con, schema):
 
 def get_bass_params(con, schema):
 
+    '''
+    Return the bass diffusion parameters to use in the model from table view in postgres.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection
+    schema : 'SQL schema'
+        Schema in which the sectors exist        
+
+    Returns
+    -------
+    bass_df : 'pd.df'
+        Pandas DataFrame of state abbreviation, p, q, teq_yr1 (time equivalency), sector abbreviation, and the technology.
+
+    '''
+
     inputs = locals().copy()
 
     sql = """SELECT state_abbr,
@@ -283,6 +317,21 @@ def get_bass_params(con, schema):
 
 def get_state_incentives(con):
 
+    '''
+    Return the state incentives to use in the model from table view in postgres.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+
+    Returns
+    -------
+    state_incentives : 'pd.df'
+        Pandas DataFrame of state financial incentives.
+
+    '''
+
     # changed from 2019 to 2020
     sql = """SELECT * FROM diffusion_shared.state_incentives_2020;"""
 
@@ -292,6 +341,23 @@ def get_state_incentives(con):
 
 
 def get_itc_incentives(con, schema):
+
+    '''
+    Return the Investment Tax Credit incentives to use in the model from table view in postgres.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema in which the sectors exist 
+
+    Returns
+    -------
+    itc_options : 'pd.df'
+        Pandas DataFrame of ITC financial incentives.
+
+    '''
 
     inputs = locals().copy()
 
@@ -305,15 +371,24 @@ def get_itc_incentives(con, schema):
 
 
 def get_max_market_share(con, schema):
-    ''' Pull max market share from dB, select curve based on scenario_options, and interpolate to tenth of a year.
-        Use passed parameters to determine ownership type
 
-        IN: con - pg con object - connection object
-            schema - string - schema for technology i.e. diffusion_solar
+    '''
+    Return the max market share from database, select curve based on scenario_options,
+    and interpolate to tenth of a year.
+    Use passed parameters to determine ownership typ.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema - string - for technology i.e. diffusion_solar
 
+    Returns
+    -------
+    max_market_share : 'pd.df'
+        Pandas DataFrame to join on main df to determine max share keys are sector & payback period.
 
-        OUT: max_market_share  - pd dataframe - dataframe to join on main df to determine max share
-                                                keys are sector & payback period
     '''
 
     sql = '''SELECT metric_value,
@@ -344,12 +419,23 @@ def get_max_market_share(con, schema):
 
 def get_rate_escalations(con, schema):
     '''
-    Get rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,
-    resulting in an average real compounding rate growth. This rate is then used to calculate cash flows
-    
-    IN: con - connection to server
-    OUT: DataFrame with county_id, sector, year, escalation_factor, and source as columns
-    '''  
+    Return rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,
+    resulting in an average real compounding rate growth. This rate is then used to calculate cash flows.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    rate_escalations : 'pd.df'
+        Pandas DataFrame with county_id, sector, year, escalation_factor, and source as columns.
+    '''
+
+
     inputs = locals().copy()
     
     sql = """SELECT year, county_id, sector_abbr, nerc_region_abbr,
@@ -363,6 +449,22 @@ def get_rate_escalations(con, schema):
 
 def get_load_growth(con, schema):
 
+    '''
+    Return rate load growth values applied to electricity load.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with year, county_id, sector_abbr, nerc_region_abbr, load_multiplier as columns.
+    '''
+
     inputs = locals().copy()
 
     sql = """SELECT year, county_id, sector_abbr, nerc_region_abbr, load_multiplier
@@ -374,6 +476,23 @@ def get_load_growth(con, schema):
 
 
 def get_technology_costs_solar(con, schema):
+
+    '''
+    Return technology costs for solar.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with year, sector_abbr, system_capex_per_kw, system_om_per_kw, system_variable_om_per_kw as columns.
+    '''
+
     
     inputs = locals().copy()
     
@@ -390,11 +509,21 @@ def get_technology_costs_solar(con, schema):
     
 def get_annual_inflation(con, schema):
     '''
-    Get inflation rate (constant for all years & sectors)
+    Return the inflation rate set in the input sheet. Constant for all years & sectors.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        diffusion_shared.input_main_market_inflation 
 
-    IN: con - connection to server, schema
-    OUT: Float value of inflation rate
+    Returns
+    -------
+    df.values[0][0] : 'float'
+        Float object that represents the inflation rate (e.g. 0.025 which corresponds to 2.5%).
     '''
+
     inputs = locals().copy()
     sql = '''SELECT *
              FROM diffusion_shared.input_main_market_inflation;'''.format(**inputs)
@@ -405,6 +534,11 @@ def get_annual_inflation(con, schema):
 
 #%%
 def make_output_directory_path(suffix):
+    '''
+    Creates and returns a directory named 'results' with the timestamp associated with the model run appended. Note, this directory stores 
+    metadata associated with the a model run, however, the results of the model run are in the 'agent_outputs' table within the
+    schema created with each run in the database. 
+    '''
 
     out_dir = '{}/runs/results_{}'.format(os.path.dirname(os.getcwd()), suffix)
 
@@ -412,6 +546,14 @@ def make_output_directory_path(suffix):
 
 
 def get_input_scenarios():
+    '''
+    Returns a list of the input scenario excel files specified in the input_scenarios directory.
+
+    Returns
+    -------
+    scenarios : 'list' 
+        a list of the input scenario excel files specified in the input_scenarios directory.
+    '''
 
     scenarios = [s for s in glob.glob(
         "../input_scenarios/*.xls*") if not '~$' in s]
@@ -421,12 +563,31 @@ def get_input_scenarios():
 
 def create_model_years(start_year, end_year, increment=2):
 
+    '''
+    Return a list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
+        
+    Parameters
+    ----------    
+    start_year : 'int'
+        starting year of the model (e.g. 2014)       
+    end_year : 'int'
+        ending year of the model (e.g. 2050) 
+
+    Returns
+    -------
+    model_years : 'list'
+        list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
+    '''
+
     model_years = list(range(start_year, end_year + 1, increment))
 
     return model_years
 
 
 def summarize_scenario(scenario_settings, model_settings):
+    '''
+    Log high level secenario settings
+    '''
 
     # summarize high level secenario settings
     logger.info('Scenario Settings:')   
@@ -440,7 +601,8 @@ def summarize_scenario(scenario_settings, model_settings):
 
 #%%
 def get_scenario_options(cur, schema, pg_params):
-    ''' Pull scenario options and log the user running the scenario from dB
+    '''
+    Pull scenario options and log the user running the scenario from dB
     '''
     inputs = locals().copy()
     inputs['user'] = str(pg_params.get("user"))
@@ -459,12 +621,52 @@ def get_scenario_options(cur, schema, pg_params):
 
 #%%
 def get_nem_state(con, schema):
+
+    '''
+    Returns net metering data for states with available data. Note, many states don't have net metering and or
+    the data in diffusion_shared.nem_state_limits_2019 may be incomplete or out of date.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with net metering data.
+    '''
+    
     sql = "SELECT *, 'BAU'::text as scenario FROM diffusion_shared.nem_state_limits_2019;"
     df = pd.read_sql(sql, con, coerce_float=False)
     
     return df
 
 def get_nem_state_by_sector(con, schema):
+
+    '''
+    Returns net metering data for states by sector with available data. Note, many states don't have net metering and or
+    the data in diffusion_shared.nem_scenario_bau_2019 may be incomplete or out of date.
+
+    Special handling of DC: System size is unknown until bill calculator runs and differing compensation styles can
+    potentially result in different optimal system sizes. Here we assume only res customers (assumed system_size_kw < 100)
+    are eligible for full retail net metering; com/ind (assumed system_size_kw >= 100) only eligible for net billing.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with net metering data.
+    '''
+
     sql = "SELECT *, 'BAU'::text as scenario FROM diffusion_shared.nem_scenario_bau_2019;"
     df = pd.read_sql(sql, con, coerce_float=False)
     
@@ -480,6 +682,24 @@ def get_nem_state_by_sector(con, schema):
     return df
 
 def get_nem_utility_by_sector(con, schema):
+
+    '''
+    Returns net metering data for utility by sector with available data. Note, many utilities don't have net metering and or
+    the data in diffusion_shared.nem_scenario_bau_by_utility_2019 may be incomplete or out of date.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with net metering data.
+    '''
+
     sql = "SELECT *, 'BAU'::text as scenario FROM diffusion_shared.nem_scenario_bau_by_utility_2019;"
     df = pd.read_sql(sql, con, coerce_float=False)
     
@@ -488,6 +708,24 @@ def get_nem_utility_by_sector(con, schema):
     return df
 
 def get_selected_scenario(con, schema):
+
+    '''
+    Returns net metering scenario selected in the input sheet. Note, net metering data and or scenarios may
+    be incomplete or out of date.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    df : 'pd.df'
+        Pandas DataFrame with net metering data.
+    '''
+
     sql = "SELECT * FROM diffusion_shared.input_main_nem_selected_scenario;".format(schema)
     df = pd.read_sql(sql, con, coerce_float=False)
     value = df['val'][0]
@@ -495,6 +733,26 @@ def get_selected_scenario(con, schema):
     return value
 
 def get_state_to_model(con, schema):
+
+    '''
+    Returns the region to model as specified in the input sheet. Note, selecting an ISO will select the 
+    proper geographies (counties and or states) in import_agent_file() in 'input_data_functions.py'.
+    Selecting the United States (national run) will result in every state, excluding Alaska and Hawaii,
+    but including D.C., being returned as a list.
+        
+    Parameters
+    ----------    
+    con : 'SQL connection'
+        Connection       
+    schema : 'SQL schema'
+        Schema produced when model is run 
+
+    Returns
+    -------
+    state_to_model : 'list'
+        List of states to model.
+    '''
+
     sql = "SELECT * FROM {}.states_to_model;".format(schema)
     df = pd.read_sql(sql, con, coerce_float=False)
 
