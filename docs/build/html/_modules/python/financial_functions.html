@@ -29,7 +29,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -1312,7 +1311,8 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    - **payback_period**: &#39;numpy.ndarray&#39; - Payback period in years</span>
+<span class="sd">    pp_final : &#39;numpy.ndarray&#39;</span>
+<span class="sd">        Payback period in years</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tech_lifetime</span><span class="p">)]</span> <span class="o">*</span> <span class="n">cfs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>

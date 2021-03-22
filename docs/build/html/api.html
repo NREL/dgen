@@ -29,7 +29,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -266,7 +265,22 @@ National Renewable Energy Lab</p>
 <dl class="py function">
 <dt id="python.data_functions.create_model_years">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">create_model_years</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_year</span></em>, <em class="sig-param"><span class="n">end_year</span></em>, <em class="sig-param"><span class="n">increment</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#create_model_years"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.create_model_years" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_year</strong> (<em>'int'</em>) – starting year of the model (e.g. 2014)</p></li>
+<li><p><strong>end_year</strong> (<em>'int'</em>) – ending year of the model (e.g. 2050)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model_years</strong> – list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘list’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.create_output_schema">
@@ -275,11 +289,11 @@ National Renewable Energy Lab</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**pg_conn_string**</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
-<li><p><strong>**role**</strong> (<em>'string'</em>) – Owner of schema</p></li>
-<li><p><strong>**suffix**</strong> (<em>'string'</em>) – String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier</p></li>
-<li><p><strong>**source_schema**</strong> (<em>'SQL schema'</em>) – Schema to be used as template for the output schema</p></li>
-<li><p><strong>**include_data**</strong> (<em>'bool'</em>) – If True includes data from diffusion_shared schema. Default is False</p></li>
+<li><p><strong>pg_conn_string</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
+<li><p><strong>role</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>suffix</strong> (<em>'string'</em>) – String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier</p></li>
+<li><p><strong>source_schema</strong> (<em>'SQL schema'</em>) – Schema to be used as template for the output schema</p></li>
+<li><p><strong>include_data</strong> (<em>'bool'</em>) – If True includes data from diffusion_shared schema. Default is False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -298,18 +312,18 @@ National Renewable Energy Lab</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**input_scenario**</strong> (<em>'directory'</em>) – Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder</p></li>
-<li><p><strong>**scen_name**</strong> (<em>'string'</em>) – Scenario Name</p></li>
-<li><p><strong>**scenario_names**</strong> (<em>'list'</em>) – List of scenario names</p></li>
-<li><p><strong>**out_dir**</strong> (<em>'directory'</em>) – Output directory for scenario subfolders</p></li>
-<li><p><strong>**dup_n**</strong> (<em>'int'</em>) – Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.</p></li>
+<li><p><strong>input_scenario</strong> (<em>'directory'</em>) – Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder</p></li>
+<li><p><strong>scen_name</strong> (<em>'string'</em>) – Scenario Name</p></li>
+<li><p><strong>scenario_names</strong> (<em>'list'</em>) – List of scenario names</p></li>
+<li><p><strong>out_dir</strong> (<em>'directory'</em>) – Output directory for scenario subfolders</p></li>
+<li><p><strong>dup_n</strong> (<em>'int'</em>) – Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>out_scen_path</strong> (<em>‘directory’</em>) – Path for the scenario subfolders to send results</p></li>
-<li><p><em>**scenario_names**</em> – Populated list of scenario names</p></li>
-<li><p><strong>**dup_n**</strong> (<em>‘int’</em>) – Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate</p></li>
+<li><p><em>scenario_names</em> – Populated list of scenario names</p></li>
+<li><p><strong>dup_n</strong> (<em>‘int’</em>) – Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate</p></li>
 </ul>
 </p>
 </dd>
@@ -323,9 +337,9 @@ National Renewable Energy Lab</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**out_scen_path**</strong> (<em>'directory'</em>) – Path for the scenario folder to send results</p></li>
-<li><p><strong>**techs**</strong> (<em>'string'</em>) – Technology type</p></li>
-<li><p><strong>**out_subfolders**</strong> (<em>'dict'</em>) – Dictionary of empty subfolder paths for solar</p></li>
+<li><p><strong>out_scen_path</strong> (<em>'directory'</em>) – Path for the scenario folder to send results</p></li>
+<li><p><strong>techs</strong> (<em>'string'</em>) – Technology type</p></li>
+<li><p><strong>out_subfolders</strong> (<em>'dict'</em>) – Dictionary of empty subfolder paths for solar</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -344,9 +358,9 @@ National Renewable Energy Lab</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**pg_conn_string**</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema that will be deleted</p></li>
-<li><p><strong>**delete_output_schema**</strong> (<em>'bool'</em>) – If set to True in config.py, deletes output schema</p></li>
+<li><p><strong>pg_conn_string</strong> (<em>'string'</em>) – String to connect to pgAdmin database</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema that will be deleted</p></li>
+<li><p><strong>delete_output_schema</strong> (<em>'bool'</em>) – If set to True in config.py, deletes output schema</p></li>
 </ul>
 </dd>
 </dl>
@@ -360,40 +374,115 @@ National Renewable Energy Lab</p>
 <dl class="py function">
 <dt id="python.data_functions.get_annual_inflation">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_annual_inflation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_annual_inflation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_annual_inflation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get inflation rate (constant for all years &amp; sectors)</p>
-<p>IN: con - connection to server, schema
-OUT: Float value of inflation rate</p>
+<dd><p>Return the inflation rate set in the input sheet. Constant for all years &amp; sectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – diffusion_shared.input_main_market_inflation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df.values[0][0]</strong> – Float object that represents the inflation rate (e.g. 0.025 which corresponds to 2.5%).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘float’</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_bass_params">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_bass_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_bass_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_bass_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the bass diffusion parameters to use in the model from table view in postgres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which the sectors exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>bass_df</strong> – Pandas DataFrame of state abbreviation, p, q, teq_yr1 (time equivalency), sector abbreviation, and the technology.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_input_scenarios">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_input_scenarios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_input_scenarios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_input_scenarios" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a list of the input scenario excel files specified in the input_scenarios directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>scenarios</strong> – a list of the input scenario excel files specified in the input_scenarios directory.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>‘list’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_itc_incentives">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_itc_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_itc_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_itc_incentives" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the Investment Tax Credit incentives to use in the model from table view in postgres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which the sectors exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>itc_options</strong> – Pandas DataFrame of ITC financial incentives.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_load_growth">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_load_growth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_load_growth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_load_growth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return rate load growth values applied to electricity load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with year, county_id, sector_abbr, nerc_region_abbr, load_multiplier as columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_max_market_share">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_max_market_share</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_max_market_share"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_max_market_share" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pull max market share from dB, select curve based on scenario_options, and interpolate to tenth of a year.
-Use passed parameters to determine ownership type</p>
-<dl class="simple">
-<dt>IN: con - pg con object - connection object</dt><dd><p>schema - string - schema for technology i.e. diffusion_solar</p>
+<dd><p>Return the max market share from database, select curve based on scenario_options,
+and interpolate to tenth of a year.
+Use passed parameters to determine ownership typ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema - string - for technology i.e. diffusion_solar</p></li>
+</ul>
 </dd>
-<dt>OUT: max_market_share  - pd dataframe - dataframe to join on main df to determine max share</dt><dd><p>keys are sector &amp; payback period</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>max_market_share</strong> – Pandas DataFrame to join on main df to determine max share keys are sector &amp; payback period.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -401,25 +490,88 @@ Use passed parameters to determine ownership type</p>
 <dl class="py function">
 <dt id="python.data_functions.get_nem_state">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_state" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns net metering data for states with available data. Note, many states don’t have net metering and or
+the data in diffusion_shared.nem_state_limits_2019 may be incomplete or out of date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with net metering data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_nem_state_by_sector">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_state_by_sector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_state_by_sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_state_by_sector" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns net metering data for states by sector with available data. Note, many states don’t have net metering and or
+the data in diffusion_shared.nem_scenario_bau_2019 may be incomplete or out of date.</p>
+<p>Special handling of DC: System size is unknown until bill calculator runs and differing compensation styles can
+potentially result in different optimal system sizes. Here we assume only res customers (assumed system_size_kw &lt; 100)
+are eligible for full retail net metering; com/ind (assumed system_size_kw &gt;= 100) only eligible for net billing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with net metering data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_nem_utility_by_sector">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_nem_utility_by_sector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_nem_utility_by_sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_nem_utility_by_sector" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns net metering data for utility by sector with available data. Note, many utilities don’t have net metering and or
+the data in diffusion_shared.nem_scenario_bau_by_utility_2019 may be incomplete or out of date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with net metering data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.data_functions.get_rate_escalations">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_rate_escalations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_rate_escalations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_rate_escalations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,
-resulting in an average real compounding rate growth. This rate is then used to calculate cash flows</p>
-<p>IN: con - connection to server
-OUT: DataFrame with county_id, sector, year, escalation_factor, and source as columns</p>
+<dd><p>Return rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,
+resulting in an average real compounding rate growth. This rate is then used to calculate cash flows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rate_escalations</strong> – Pandas DataFrame with county_id, sector, year, escalation_factor, and source as columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -435,12 +587,12 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**cur**</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which the sectors exist</p></li>
+<li><p><strong>cur</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which the sectors exist</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**sectors**</strong> – Dictionary of sectors to be modeled in table view in postgres</p>
+<dd class="field-even"><p><strong>sectors</strong> – Dictionary of sectors to be modeled in table view in postgres</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘dict’</p>
@@ -451,72 +603,131 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="py function">
 <dt id="python.data_functions.get_selected_scenario">
 <code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_selected_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_selected_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_selected_scenario" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.get_state_incentives">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_incentives" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.get_state_to_model">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_to_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_to_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_to_model" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.get_technologies">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technologies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technologies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technologies" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.get_technology_costs_solar">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technology_costs_solar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technology_costs_solar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technology_costs_solar" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.make_output_directory_path">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">make_output_directory_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">suffix</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#make_output_directory_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.make_output_directory_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="python.data_functions.summarize_scenario">
-<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">summarize_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_settings</span></em>, <em class="sig-param"><span class="n">model_settings</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#summarize_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.summarize_scenario" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="module-python.input_data_functions">
-<span id="python-input-data-functions-module"></span><h2>python.input_data_functions module<a class="headerlink" href="#module-python.input_data_functions" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="python.input_data_functions.check_table_exists">
-<code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">check_table_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#check_table_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.check_table_exists" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if table exists in schema</p>
+<dd><p>Returns net metering scenario selected in the input sheet. Note, net metering data and or scenarios may
+be incomplete or out of date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – SQL schema in which to check if given table exists</p></li>
-<li><p><strong>**table**</strong> (<em>'SQL table'</em>) – SQL table to be searched</p></li>
-<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**True or False**</strong> – Returns True if table exists in schema.</p>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with net metering data.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>‘bool’</p>
+<dd class="field-odd"><p>‘pd.df’</p>
 </dd>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="python.data_functions.get_state_incentives">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_incentives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_incentives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_incentives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state incentives to use in the model from table view in postgres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>state_incentives</strong> – Pandas DataFrame of state financial incentives.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_state_to_model">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_state_to_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_state_to_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_state_to_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the region to model as specified in the input sheet. Note, selecting an ISO will select the
+proper geographies (counties and or states) in import_agent_file() in ‘input_data_functions.py’.
+Selecting the United States (national run) will result in every state, excluding Alaska and Hawaii,
+but including D.C., being returned as a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>state_to_model</strong> – List of states to model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘list’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_technologies">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technologies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technologies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technologies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the technologies to model from table view in postgres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which the technologies exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>techs</strong> – List of technologies to be modeled in table view in postgres</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘list’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.get_technology_costs_solar">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">get_technology_costs_solar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em>, <em class="sig-param"><span class="n">schema</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#get_technology_costs_solar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.get_technology_costs_solar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return technology costs for solar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – Connection</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema produced when model is run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Pandas DataFrame with year, sector_abbr, system_capex_per_kw, system_om_per_kw, system_variable_om_per_kw as columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.df’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.make_output_directory_path">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">make_output_directory_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">suffix</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#make_output_directory_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.make_output_directory_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns a directory named ‘results’ with the timestamp associated with the model run appended. Note, this directory stores
+metadata associated with the a model run, however, the results of the model run are in the ‘agent_outputs’ table within the
+schema created with each run in the database.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="python.data_functions.summarize_scenario">
+<code class="sig-prename descclassname">python.data_functions.</code><code class="sig-name descname">summarize_scenario</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scenario_settings</span></em>, <em class="sig-param"><span class="n">model_settings</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/data_functions.html#summarize_scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.data_functions.summarize_scenario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log high level secenario settings</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-python.input_data_functions">
+<span id="python-input-data-functions-module"></span><h2>python.input_data_functions module<a class="headerlink" href="#module-python.input_data_functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="python.input_data_functions.deprec_schedule">
 <code class="sig-prename descclassname">python.input_data_functions.</code><code class="sig-name descname">deprec_schedule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/input_data_functions.html#deprec_schedule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.input_data_functions.deprec_schedule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes depreciation schedule and sorts table fields by depreciation year</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
+<dd class="field-odd"><p><strong>df</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**output**</strong> – Dataframe of depreciation schedule sorted by year</p>
+<dd class="field-even"><p><strong>output</strong> – Dataframe of depreciation schedule sorted by year</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -531,17 +742,17 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to upload to database</p></li>
-<li><p><strong>**engine**</strong> (<em>'SQL table'</em>) – SQL engine to intepret SQL query</p></li>
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to upload df</p></li>
-<li><p><strong>**owner**</strong> (<em>'string'</em>) – Owner of schema</p></li>
-<li><p><strong>**name**</strong> (<em>'string'</em>) – Name to be given to table that is uploaded</p></li>
-<li><p><strong>**if_exists**</strong> (<em>'replace</em><em> or </em><em>append'</em>) – If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database.</p></li>
-<li><p><strong>**append_transformations**</strong> (<em>'bool'</em>) – IDK</p></li>
+<li><p><strong>df</strong> (<em>'pd.df'</em>) – Dataframe to upload to database</p></li>
+<li><p><strong>engine</strong> (<em>'SQL table'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which to upload df</p></li>
+<li><p><strong>owner</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>name</strong> (<em>'string'</em>) – Name to be given to table that is uploaded</p></li>
+<li><p><strong>if_exists</strong> (<em>'replace</em><em> or </em><em>append'</em>) – If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database.</p></li>
+<li><p><strong>append_transformations</strong> (<em>'bool'</em>) – IDK</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**df**</strong> – Dataframe that was uploaded to database</p>
+<dd class="field-even"><p><strong>df</strong> – Dataframe that was uploaded to database</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -556,9 +767,9 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – SQL schema to pull table from</p></li>
-<li><p><strong>**name**</strong> (<em>'string'</em>) – Name of the table from which fields are retrieved</p></li>
+<li><p><strong>engine</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – SQL schema to pull table from</p></li>
+<li><p><strong>name</strong> (<em>'string'</em>) – Name of the table from which fields are retrieved</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -577,12 +788,12 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
-<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**df**</strong> – Dataframe of default scenario settings</p>
+<dd class="field-even"><p><strong>df</strong> – Dataframe of default scenario settings</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -597,12 +808,12 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**schema**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
-<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>schema</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**df**</strong> – Dataframe of user created scenario settings</p>
+<dd class="field-even"><p><strong>df</strong> – Dataframe of user created scenario settings</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -617,17 +828,17 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**scenario_settings**</strong> (<em>'SQL schema'</em>) – Schema of the scenario settings</p></li>
-<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
-<li><p><strong>**cur**</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
-<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
-<li><p><strong>**model_settings**</strong> (<em>'object'</em>) – Model settings that apply to all scenarios</p></li>
-<li><p><strong>**agent_file_status**</strong> (<em>'attribute'</em>) – Attribute that describes whether to use pre-generated agent file or create new</p></li>
-<li><p><strong>**input_name**</strong> (<em>'string'</em>) – .Pkl file name substring of pre-generated agent table</p></li>
+<li><p><strong>scenario_settings</strong> (<em>'SQL schema'</em>) – Schema of the scenario settings</p></li>
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>cur</strong> (<em>'SQL cursor'</em>) – Cursor</p></li>
+<li><p><strong>engine</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>model_settings</strong> (<em>'object'</em>) – Model settings that apply to all scenarios</p></li>
+<li><p><strong>agent_file_status</strong> (<em>'attribute'</em>) – Attribute that describes whether to use pre-generated agent file or create new</p></li>
+<li><p><strong>input_name</strong> (<em>'string'</em>) – .Pkl file name substring of pre-generated agent table</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**solar_agents**</strong> – Instance of Agents class with either user pre-generated or new data</p>
+<dd class="field-even"><p><strong>solar_agents</strong> – Instance of Agents class with either user pre-generated or new data</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘Class’</p>
@@ -642,16 +853,16 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>**scenario_settings**</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
-<li><p><strong>**con**</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
-<li><p><strong>**engine**</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
-<li><p><strong>**role**</strong> (<em>'string'</em>) – Owner of schema</p></li>
-<li><p><strong>**input_name**</strong> (<em>'string'</em>) – Name of the csv file that should be imported</p></li>
-<li><p><strong>**csv_import_function**</strong> (<em>'function'</em>) – Specific function to import and munge csv</p></li>
+<li><p><strong>scenario_settings</strong> (<em>'SQL schema'</em>) – Schema in which to look for the scenario settings</p></li>
+<li><p><strong>con</strong> (<em>'SQL connection'</em>) – SQL connection to connect to database</p></li>
+<li><p><strong>engine</strong> (<em>'SQL engine'</em>) – SQL engine to intepret SQL query</p></li>
+<li><p><strong>role</strong> (<em>'string'</em>) – Owner of schema</p></li>
+<li><p><strong>input_name</strong> (<em>'string'</em>) – Name of the csv file that should be imported</p></li>
+<li><p><strong>csv_import_function</strong> (<em>'function'</em>) – Specific function to import and munge csv</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**df**</strong> – Dataframe of the table that was imported</p>
+<dd class="field-even"><p><strong>df</strong> – Dataframe of the table that was imported</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -665,10 +876,10 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dd><p>Returns a function to melt dataframe’s columns of years and parameter values to the row axis</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name**</strong> (<em>**parameter</em>) – Name of the parameter value in dataframe.</p>
+<dd class="field-odd"><p><strong>name</strong> (<em>parameter</em>) – Name of the parameter value in dataframe.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**function**</strong> – Function that melts years and parameter value to row axis</p>
+<dd class="field-even"><p><strong>function</strong> – Function that melts years and parameter value to row axis</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘function’</p>
@@ -682,10 +893,10 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dd><p>Returns the trajectory of the change in electricity prices over time with 2018 as the base year</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**elec_price_traj**</strong> (<em>'pd.df'</em>) – Dataframe of electricity prices by year and ReEDS BA</p>
+<dd class="field-odd"><p><strong>elec_price_traj</strong> (<em>'pd.df'</em>) – Dataframe of electricity prices by year and ReEDS BA</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**elec_price_change_traj**</strong> – Dataframe of annual electricity price change factors from base year</p>
+<dd class="field-even"><p><strong>elec_price_change_traj</strong> – Dataframe of annual electricity price change factors from base year</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -699,10 +910,10 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dd><p>Returns the trajectory of the load growth rates over time relative to a base year of 2014</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**laod_growth**</strong> (<em>'pd.df'</em>) – Dataframe of annual load growth rates</p>
+<dd class="field-odd"><p><strong>load_growth</strong> (<em>'pd.df'</em>) – Dataframe of annual load growth rates</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**load_growth_change_traj**</strong> – Dataframe of annual load growth rates relative to base year</p>
+<dd class="field-even"><p><strong>load_growth_change_traj</strong> – Dataframe of annual load growth rates relative to base year</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -716,10 +927,10 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dd><p>Returns the trajectory of the change in wholesale electricity prices over time</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**wholesale_elec_price_traj**</strong> (<em>'pd.df'</em>) – Dataframe of wholesale electricity prices by year and ReEDS BA</p>
+<dd class="field-odd"><p><strong>wholesale_elec_price_traj</strong> (<em>'pd.df'</em>) – Dataframe of wholesale electricity prices by year and ReEDS BA</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**wholesale_elec_price_change_traj**</strong> – Dataframe of annual electricity price change factors from base year</p>
+<dd class="field-even"><p><strong>wholesale_elec_price_change_traj</strong> – Dataframe of annual electricity price change factors from base year</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -733,10 +944,10 @@ OUT: DataFrame with county_id, sector, year, escalation_factor, and source as co
 <dd><p>Takes dataframe and sorts table fields by sector</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**df**</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
+<dd class="field-odd"><p><strong>df</strong> (<em>'pd.df'</em>) – Dataframe to be sorted by sector.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>**output**</strong> – Dataframe of the table that was imported and split by sector</p>
+<dd class="field-even"><p><strong>output</strong> – Dataframe of the table that was imported and split by sector</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>‘pd.df’</p>
@@ -882,10 +1093,10 @@ Cash flows that do not result in payback are given a period of 30.1</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>- **payback_period**</strong></p>
+<dd class="field-even"><p><strong>pp_final</strong> – Payback period in years</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>‘numpy.ndarray’ - Payback period in years</p>
+<dd class="field-odd"><p>‘numpy.ndarray’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1126,45 +1337,47 @@ styles: full-retail NEM, and instantanous TOU energy value.</p>
 <dt id="python.tariff_functions.Tariff">
 <em class="property">class </em><code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">Tariff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_day</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">urdb_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">json_file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dict_obj</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Tariff Attributes:
--urdb_id: id for utility rate database. US, not international.
--eia_id: The EIA assigned ID number for the utility associated with this tariff
--name: tariff name
--utility: Name of utility this tariff is associated with
--fixed_charge: Fixed monthly charge in $/mo.
--peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff
--peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff
--kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff
--kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff
--sector: residential, commercial, or industrial
--comments: comments from the urdb
--description: tariff description from urdb
--source: uri for the source of the tariff
--uri: link the the urdb page
--voltage_category: secondary, primary, transmission
--d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand.
--d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.
--d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
--d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
--d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component
--d_tou_n = Number of unique tou demand periods. Minimum of 1, since I’m counting no-charge periods still as a period.
--d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.
--d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.
--e_exists = Boolean of whether there is a flat (not tou) demand charge component
--e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component
--e_n = Number of unique energy periods. Minimum of 1, since I’m counting no-charge periods still as a period.
--e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.
--e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.
--e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
--e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
--d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
--d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
--d_tou_8760
--e_tou_8760
--e_prices_no_tier
--e_max_difference: The maximum energy price differential within any single day
--energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later
--demand_rate_unit: kW or kW/day - for guiding the bill calculations later</p>
+<dl class="simple">
+<dt>Tariff Attributes:</dt><dd><p>urdb_id: id for utility rate database. US, not international.
+eia_id: The EIA assigned ID number for the utility associated with this tariff
+name: tariff name
+utility: Name of utility this tariff is associated with
+fixed_charge: Fixed monthly charge in $/mo.
+peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff
+peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff
+kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff
+kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff
+sector: residential, commercial, or industrial
+comments: comments from the urdb
+description: tariff description from urdb
+source: uri for the source of the tariff
+uri: link the the urdb page
+voltage_category: secondary, primary, transmission
+d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand.
+d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.
+d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.
+d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component
+d_tou_n = Number of unique tou demand periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.
+e_exists = Boolean of whether there is a flat (not tou) demand charge component
+e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component
+e_n = Number of unique energy periods. Minimum of 1, since I’m counting no-charge periods still as a period.
+e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.
+e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.
+e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.
+d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.
+d_tou_8760
+e_tou_8760
+e_prices_no_tier
+e_max_difference: The maximum energy price differential within any single day
+energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later
+demand_rate_unit: kW or kW/day - for guiding the bill calculations later</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="python.tariff_functions.Tariff.define_d_flat">
 <code class="sig-name descname">define_d_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_flat_levels</span></em>, <em class="sig-param"><span class="n">d_flat_prices</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#Tariff.define_d_flat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.Tariff.define_d_flat" title="Permalink to this definition">¶</a></dt>
@@ -1195,7 +1408,7 @@ styles: full-retail NEM, and instantanous TOU energy value.</p>
 <dl class="py function">
 <dt id="python.tariff_functions.bill_calculator">
 <code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">bill_calculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">load_profile</span></em>, <em class="sig-param"><span class="n">tariff</span></em>, <em class="sig-param"><span class="n">export_tariff</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#bill_calculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.bill_calculator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deprecated. Nullified by new PySAM code and will be taken out in Beta release</p>
+<dd><p>Deprecated. Nullified by new PySAM code and will be taken out.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1209,43 +1422,26 @@ styles: full-retail NEM, and instantanous TOU energy value.</p>
 <code class="sig-prename descclassname">python.tariff_functions.</code><code class="sig-name descname">design_tariff_for_portfolio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">agent_df</span></em>, <em class="sig-param"><span class="n">avg_rev</span></em>, <em class="sig-param"><span class="n">peak_hour_indicies</span></em>, <em class="sig-param"><span class="n">summer_month_indicies</span></em>, <em class="sig-param"><span class="n">rev_f_d</span></em>, <em class="sig-param"><span class="n">rev_f_e</span></em>, <em class="sig-param"><span class="n">rev_f_fixed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/tariff_functions.html#design_tariff_for_portfolio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.tariff_functions.design_tariff_for_portfolio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds a tariff that would extract a given $/kWh from a portfolio of
 customers.</p>
-<dl class="simple">
-<dt>Inputs:</dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>agent_df: Dataframe of agents. Must contain load_profile and its</dt><dd><p>weight in the portfolio.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>avg_rev: $/kWh that the tariff would extract from the given portfolio</dt><dd><p>of customers.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>rev_f_d: revenue strucutre for demand charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from tou charges,
-fraction that comes from flat charges]
-ex: [0.4875, 0.5, 0.5]</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>rev_f_d: revenue strucutre for energy charges. Format is [fraction of</dt><dd><p>total revenue, fraction that comes from off-peak hours,
-fraction that comes from on-peak hours]
-ex: [0.4875, 0.20, 0.8]</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>rev_f_fixed: [fraction of revenue from fixed monthly charges].</dt><dd><p>ex: [0.025]</p>
-</dd>
-</dl>
-</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent_df</strong> (<em>'pd.DataFrame'</em>) – agents as loaded from the agent pkl file.</p></li>
+<li><p><strong>avg_rev</strong> (<em>'float'</em>) – $/kWh that the tariff would extract from the given portfolio of customers.</p></li>
+<li><p><strong>peak_hour_indicies</strong> (<em>'list'</em>) – list of indices corresponding to the peak demand hours. Assumes peak hours are the same between
+demand and energy.</p></li>
+<li><p><strong>summer_month_indicies</strong> (<em>'list'</em>) – list of indices corresponding to the summer peak demand hours. Assumes peak hours only occur during the summer.</p></li>
+<li><p><strong>rev_f_d</strong> (<em>'list'</em>) – revenue strucutre for demand charges. Format is [fraction of total revenue, fraction that
+comes from tou charges, fraction that comes from flat charges] ex: [0.4875, 0.5, 0.5].</p></li>
+<li><p><strong>rev_f_e</strong> (<em>'list'</em>) – revenue strucutre for energy charges. Format is [fraction of total revenue, fraction that
+comes from off-peak hours, fraction that comes from on-peak hours] ex: [0.4875, 0.20, 0.8].</p></li>
+<li><p><strong>rev_f_fixed</strong> (<em>'list'</em>) – [fraction of revenue from fixed monthly charges]. ex: [0.025].</p></li>
 </ul>
 </dd>
-<dt>Assumptions:</dt><dd><ul class="simple">
-<li><p>peak hours are the same between demand and energy.</p></li>
-<li><p>peak hours only occur during the summer</p></li>
-</ul>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tarrif</strong> – Returns tarrif, an object instantiated with the Tarrif class.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘class object’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1305,7 +1501,19 @@ ex: [0.4875, 0.20, 0.8]</p>
 <dl class="py function">
 <dt id="python.utility_functions.get_logger">
 <code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_file_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_logger" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Takes depreciation schedule and sorts table fields by depreciation year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_file_path</strong> (<em>'str'</em>) – The log_file_path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>logger</strong> – logger object for logging</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘loggin.logger’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.utility_functions.get_pg_engine_params">
@@ -1315,12 +1523,41 @@ ex: [0.4875, 0.20, 0.8]</p>
 <dl class="py function">
 <dt id="python.utility_functions.get_pg_params">
 <code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">get_pg_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#get_pg_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.get_pg_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Takes the path to the json file specifying database connection information and returns formatted information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>json_file</strong> (<em>'str'</em>) – The path to the json file specifying database connection information.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pg_params</strong> (<em>‘json’</em>) – ‘postgres database connection parameters’</p></li>
+<li><p><strong>pg_conn_str</strong> (<em>‘str’</em>) – Formatted connection string</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.utility_functions.make_con">
 <code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">make_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">connection_string</span></em>, <em class="sig-param"><span class="n">role</span></em>, <em class="sig-param"><span class="n">async_</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#make_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.make_con" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the psql connection and cursor objects to be used with functions that query from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> (<em>'SQL connection'</em>) – Connection string. e.g. “postgresql+psycopg2://postgres:postgres&#64;127.0.0.1:5432/dgen_db”.</p></li>
+<li><p><strong>role</strong> (<em>'str'</em>) – Database role. ‘postgres’ should be the default role name for the open source codebase.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>con</strong> (<em>‘SQL connection’</em>) – Postgres Database Connection.</p></li>
+<li><p><strong>cur</strong> (<em>‘SQL cursor’</em>) – Postgres Database Cursor.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.utility_functions.make_engine">
@@ -1330,14 +1567,21 @@ ex: [0.4875, 0.20, 0.8]</p>
 <dl class="py function">
 <dt id="python.utility_functions.parse_command_args">
 <code class="sig-prename descclassname">python.utility_functions.</code><code class="sig-name descname">parse_command_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argv</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/utility_functions.html#parse_command_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.utility_functions.parse_command_args" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to parse the command line arguments
-IN:</p>
-<p>-h : help ‘dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;’
+<dd><p>Function to parse the command line arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>argv</strong> (<em>'str'</em>) – -h : help ‘dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;’
 -i : Initiate model for 2010 and quit
 -y: or year= : Resume model solve in passed year</p>
-<p>OUT:</p>
-<p>init_model - Boolean - Should model initiate?
-resume_year - Float - year model should resume</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>init_model - ‘bool’</em> – Initialize the model</p></li>
+<li><p><strong>resume_year</strong> (<em>‘float’</em>) – The year the model should resume.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

@@ -29,7 +29,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -236,11 +235,11 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **out_scen_path** : &#39;directory&#39;</span>
+<span class="sd">    out_scen_path : &#39;directory&#39;</span>
 <span class="sd">        Path for the scenario folder to send results</span>
-<span class="sd">    **techs** : &#39;string&#39;</span>
+<span class="sd">    techs : &#39;string&#39;</span>
 <span class="sd">        Technology type </span>
-<span class="sd">    **out_subfolders** : &#39;dict&#39;</span>
+<span class="sd">    out_subfolders : &#39;dict&#39;</span>
 <span class="sd">        Dictionary of empty subfolder paths for solar</span>
 
 <span class="sd">    Returns</span>
@@ -265,24 +264,24 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **input_scenario** : &#39;directory&#39;</span>
+<span class="sd">    input_scenario : &#39;directory&#39;</span>
 <span class="sd">        Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder</span>
-<span class="sd">    **scen_name** : &#39;string&#39;</span>
+<span class="sd">    scen_name : &#39;string&#39;</span>
 <span class="sd">        Scenario Name </span>
-<span class="sd">    **scenario_names** : &#39;list&#39;</span>
+<span class="sd">    scenario_names : &#39;list&#39;</span>
 <span class="sd">        List of scenario names</span>
-<span class="sd">    **out_dir** : &#39;directory&#39;</span>
+<span class="sd">    out_dir : &#39;directory&#39;</span>
 <span class="sd">        Output directory for scenario subfolders</span>
-<span class="sd">    **dup_n** : &#39;int&#39;</span>
+<span class="sd">    dup_n : &#39;int&#39;</span>
 <span class="sd">        Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out_scen_path : &#39;directory&#39;</span>
 <span class="sd">        Path for the scenario subfolders to send results</span>
-<span class="sd">    **scenario_names**</span>
+<span class="sd">    scenario_names</span>
 <span class="sd">        Populated list of scenario names</span>
-<span class="sd">    **dup_n** : &#39;int&#39;</span>
+<span class="sd">    dup_n : &#39;int&#39;</span>
 <span class="sd">        Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -309,15 +308,15 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **pg_conn_string** : &#39;string&#39;</span>
+<span class="sd">    pg_conn_string : &#39;string&#39;</span>
 <span class="sd">        String to connect to pgAdmin database</span>
-<span class="sd">    **role** : &#39;string&#39;</span>
+<span class="sd">    role : &#39;string&#39;</span>
 <span class="sd">        Owner of schema </span>
-<span class="sd">    **suffix** : &#39;string&#39;</span>
+<span class="sd">    suffix : &#39;string&#39;</span>
 <span class="sd">        String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier</span>
-<span class="sd">    **source_schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    source_schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema to be used as template for the output schema</span>
-<span class="sd">    **include_data** : &#39;bool&#39;</span>
+<span class="sd">    include_data : &#39;bool&#39;</span>
 <span class="sd">        If True includes data from diffusion_shared schema. Default is False</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
@@ -364,11 +363,11 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **pg_conn_string** : &#39;string&#39;</span>
+<span class="sd">    pg_conn_string : &#39;string&#39;</span>
 <span class="sd">        String to connect to pgAdmin database</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema that will be deleted</span>
-<span class="sd">    **delete_output_schema** : &#39;bool&#39;</span>
+<span class="sd">    delete_output_schema : &#39;bool&#39;</span>
 <span class="sd">        If set to True in config.py, deletes output schema</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -394,14 +393,14 @@
 <span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
-<span class="sd">    **cur** : &#39;SQL cursor&#39;</span>
+<span class="sd">    cur : &#39;SQL cursor&#39;</span>
 <span class="sd">        Cursor</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema in which the sectors exist        </span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **sectors** : &#39;dict&#39;</span>
+<span class="sd">    sectors : &#39;dict&#39;</span>
 <span class="sd">        Dictionary of sectors to be modeled in table view in postgres</span>
 
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -414,6 +413,23 @@
 
 
 <div class="viewcode-block" id="get_technologies"><a class="viewcode-back" href="../../api.html#python.data_functions.get_technologies">[docs]</a><span class="k">def</span> <span class="nf">get_technologies</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the technologies to model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the technologies exist        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    techs : &#39;list&#39;</span>
+<span class="sd">        List of technologies to be modeled in table view in postgres</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT </span>
 <span class="s2">                CASE WHEN run_tech = &#39;Solar + Storage&#39; THEN &#39;solar&#39;::text</span>
@@ -452,6 +468,23 @@
 
 <div class="viewcode-block" id="get_bass_params"><a class="viewcode-back" href="../../api.html#python.data_functions.get_bass_params">[docs]</a><span class="k">def</span> <span class="nf">get_bass_params</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the bass diffusion parameters to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the sectors exist        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bass_df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of state abbreviation, p, q, teq_yr1 (time equivalency), sector abbreviation, and the technology.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT state_abbr,</span>
@@ -471,6 +504,21 @@
 
 <div class="viewcode-block" id="get_state_incentives"><a class="viewcode-back" href="../../api.html#python.data_functions.get_state_incentives">[docs]</a><span class="k">def</span> <span class="nf">get_state_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the state incentives to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    state_incentives : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of state financial incentives.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="c1"># changed from 2019 to 2020</span>
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM diffusion_shared.state_incentives_2020;&quot;&quot;&quot;</span>
 
@@ -480,6 +528,23 @@
 
 
 <div class="viewcode-block" id="get_itc_incentives"><a class="viewcode-back" href="../../api.html#python.data_functions.get_itc_incentives">[docs]</a><span class="k">def</span> <span class="nf">get_itc_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the Investment Tax Credit incentives to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the sectors exist </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    itc_options : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of ITC financial incentives.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -493,15 +558,24 @@
 
 
 <div class="viewcode-block" id="get_max_market_share"><a class="viewcode-back" href="../../api.html#python.data_functions.get_max_market_share">[docs]</a><span class="k">def</span> <span class="nf">get_max_market_share</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Pull max market share from dB, select curve based on scenario_options, and interpolate to tenth of a year.</span>
-<span class="sd">        Use passed parameters to determine ownership type</span>
 
-<span class="sd">        IN: con - pg con object - connection object</span>
-<span class="sd">            schema - string - schema for technology i.e. diffusion_solar</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the max market share from database, select curve based on scenario_options,</span>
+<span class="sd">    and interpolate to tenth of a year.</span>
+<span class="sd">    Use passed parameters to determine ownership typ.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema - string - for technology i.e. diffusion_solar</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    max_market_share : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame to join on main df to determine max share keys are sector &amp; payback period.</span>
 
-<span class="sd">        OUT: max_market_share  - pd dataframe - dataframe to join on main df to determine max share</span>
-<span class="sd">                                                keys are sector &amp; payback period</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT metric_value,</span>
@@ -532,12 +606,23 @@
 
 <div class="viewcode-block" id="get_rate_escalations"><a class="viewcode-back" href="../../api.html#python.data_functions.get_rate_escalations">[docs]</a><span class="k">def</span> <span class="nf">get_rate_escalations</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Get rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,</span>
-<span class="sd">    resulting in an average real compounding rate growth. This rate is then used to calculate cash flows</span>
-<span class="sd">    </span>
-<span class="sd">    IN: con - connection to server</span>
-<span class="sd">    OUT: DataFrame with county_id, sector, year, escalation_factor, and source as columns</span>
-<span class="sd">    &#39;&#39;&#39;</span>  
+<span class="sd">    Return rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,</span>
+<span class="sd">    resulting in an average real compounding rate growth. This rate is then used to calculate cash flows.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    rate_escalations : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with county_id, sector, year, escalation_factor, and source as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year, county_id, sector_abbr, nerc_region_abbr,</span>
@@ -551,6 +636,22 @@
 
 <div class="viewcode-block" id="get_load_growth"><a class="viewcode-back" href="../../api.html#python.data_functions.get_load_growth">[docs]</a><span class="k">def</span> <span class="nf">get_load_growth</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return rate load growth values applied to electricity load.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with year, county_id, sector_abbr, nerc_region_abbr, load_multiplier as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year, county_id, sector_abbr, nerc_region_abbr, load_multiplier</span>
@@ -562,6 +663,23 @@
 
 
 <div class="viewcode-block" id="get_technology_costs_solar"><a class="viewcode-back" href="../../api.html#python.data_functions.get_technology_costs_solar">[docs]</a><span class="k">def</span> <span class="nf">get_technology_costs_solar</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return technology costs for solar.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with year, sector_abbr, system_capex_per_kw, system_om_per_kw, system_variable_om_per_kw as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     
@@ -578,11 +696,21 @@
     
 <div class="viewcode-block" id="get_annual_inflation"><a class="viewcode-back" href="../../api.html#python.data_functions.get_annual_inflation">[docs]</a><span class="k">def</span> <span class="nf">get_annual_inflation</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Get inflation rate (constant for all years &amp; sectors)</span>
+<span class="sd">    Return the inflation rate set in the input sheet. Constant for all years &amp; sectors.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        diffusion_shared.input_main_market_inflation </span>
 
-<span class="sd">    IN: con - connection to server, schema</span>
-<span class="sd">    OUT: Float value of inflation rate</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df.values[0][0] : &#39;float&#39;</span>
+<span class="sd">        Float object that represents the inflation rate (e.g. 0.025 which corresponds to 2.5%).</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT *</span>
 <span class="s1">             FROM diffusion_shared.input_main_market_inflation;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
@@ -593,6 +721,11 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="make_output_directory_path"><a class="viewcode-back" href="../../api.html#python.data_functions.make_output_directory_path">[docs]</a><span class="k">def</span> <span class="nf">make_output_directory_path</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Creates and returns a directory named &#39;results&#39; with the timestamp associated with the model run appended. Note, this directory stores </span>
+<span class="sd">    metadata associated with the a model run, however, the results of the model run are in the &#39;agent_outputs&#39; table within the</span>
+<span class="sd">    schema created with each run in the database. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">out_dir</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/runs/results_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span> <span class="n">suffix</span><span class="p">)</span>
 
@@ -600,6 +733,14 @@
 
 
 <div class="viewcode-block" id="get_input_scenarios"><a class="viewcode-back" href="../../api.html#python.data_functions.get_input_scenarios">[docs]</a><span class="k">def</span> <span class="nf">get_input_scenarios</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a list of the input scenario excel files specified in the input_scenarios directory.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scenarios : &#39;list&#39; </span>
+<span class="sd">        a list of the input scenario excel files specified in the input_scenarios directory.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
         <span class="s2">&quot;../input_scenarios/*.xls*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;~$&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
@@ -609,12 +750,31 @@
 
 <div class="viewcode-block" id="create_model_years"><a class="viewcode-back" href="../../api.html#python.data_functions.create_model_years">[docs]</a><span class="k">def</span> <span class="nf">create_model_years</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="p">,</span> <span class="n">increment</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return a list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    start_year : &#39;int&#39;</span>
+<span class="sd">        starting year of the model (e.g. 2014)       </span>
+<span class="sd">    end_year : &#39;int&#39;</span>
+<span class="sd">        ending year of the model (e.g. 2050) </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model_years : &#39;list&#39;</span>
+<span class="sd">        list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">model_years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">increment</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">model_years</span></div>
 
 
 <div class="viewcode-block" id="summarize_scenario"><a class="viewcode-back" href="../../api.html#python.data_functions.summarize_scenario">[docs]</a><span class="k">def</span> <span class="nf">summarize_scenario</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Log high level secenario settings</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="c1"># summarize high level secenario settings</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Scenario Settings:&#39;</span><span class="p">)</span>   
@@ -628,7 +788,8 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="get_scenario_options"><a class="viewcode-back" href="../../api.html#python.data_functions.get_scenario_options">[docs]</a><span class="k">def</span> <span class="nf">get_scenario_options</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">pg_params</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Pull scenario options and log the user running the scenario from dB</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Pull scenario options and log the user running the scenario from dB</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pg_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">))</span>
@@ -647,12 +808,52 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="get_nem_state"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_state">[docs]</a><span class="k">def</span> <span class="nf">get_nem_state</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for states with available data. Note, many states don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_state_limits_2019 may be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_state_limits_2019;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">df</span></div>
 
 <div class="viewcode-block" id="get_nem_state_by_sector"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_state_by_sector">[docs]</a><span class="k">def</span> <span class="nf">get_nem_state_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for states by sector with available data. Note, many states don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_scenario_bau_2019 may be incomplete or out of date.</span>
+
+<span class="sd">    Special handling of DC: System size is unknown until bill calculator runs and differing compensation styles can</span>
+<span class="sd">    potentially result in different optimal system sizes. Here we assume only res customers (assumed system_size_kw &lt; 100)</span>
+<span class="sd">    are eligible for full retail net metering; com/ind (assumed system_size_kw &gt;= 100) only eligible for net billing.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_scenario_bau_2019;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
@@ -668,6 +869,24 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 <div class="viewcode-block" id="get_nem_utility_by_sector"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_utility_by_sector">[docs]</a><span class="k">def</span> <span class="nf">get_nem_utility_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for utility by sector with available data. Note, many utilities don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_scenario_bau_by_utility_2019 may be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_scenario_bau_by_utility_2019;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
@@ -676,6 +895,24 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 <div class="viewcode-block" id="get_selected_scenario"><a class="viewcode-back" href="../../api.html#python.data_functions.get_selected_scenario">[docs]</a><span class="k">def</span> <span class="nf">get_selected_scenario</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering scenario selected in the input sheet. Note, net metering data and or scenarios may</span>
+<span class="sd">    be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM diffusion_shared.input_main_nem_selected_scenario;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -683,6 +920,26 @@
     <span class="k">return</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="get_state_to_model"><a class="viewcode-back" href="../../api.html#python.data_functions.get_state_to_model">[docs]</a><span class="k">def</span> <span class="nf">get_state_to_model</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the region to model as specified in the input sheet. Note, selecting an ISO will select the </span>
+<span class="sd">    proper geographies (counties and or states) in import_agent_file() in &#39;input_data_functions.py&#39;.</span>
+<span class="sd">    Selecting the United States (national run) will result in every state, excluding Alaska and Hawaii,</span>
+<span class="sd">    but including D.C., being returned as a list.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    state_to_model : &#39;list&#39;</span>
+<span class="sd">        List of states to model.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM </span><span class="si">{}</span><span class="s2">.states_to_model;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 

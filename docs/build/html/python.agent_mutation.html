@@ -29,7 +29,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -201,12 +200,44 @@
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_batt_prices">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_batt_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">batt_price_traj</span></em>, <em class="sig-param"><span class="n">batt_tech_traj</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_batt_prices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_batt_prices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>batt_price_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of battery price trajectories over time. See the
+‘input_batt_prices_user_defined’ table in the database.</p></li>
+<li><p><strong>batt_tech_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of battery tech trajectories over time. See the
+‘input_batt_tech_performance_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with battery price and tech parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_batt_tech_performance">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_batt_tech_performance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">batt_tech_traj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_batt_tech_performance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_batt_tech_performance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>batt_tech_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of battery tech trajectories over time. See the
+‘input_batt_tech_performance_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with battery tech parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_carbon_intensities">
@@ -231,6 +262,22 @@ elec_price_escalator = agent’s assumption about future price changes
 Note that many customers will not differentiate between real and nominal,
 and therefore many would overestimate the real escalation of electriicty
 prices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>year</strong> (<em>'int'</em>) – The year for which you want multiplier values for</p></li>
+<li><p><strong>elec_price_change_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of electricity prices’ trajectories over time. See the
+‘input_elec_prices_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with elec_price_multiplier and elec_price_escalator data merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -241,7 +288,25 @@ prices.</p>
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_financial_params">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_financial_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">financing_terms</span></em>, <em class="sig-param"><span class="n">itc_options</span></em>, <em class="sig-param"><span class="n">inflation_rate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_financial_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_financial_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Applies financial parameters specified in input sheet to agent dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>financing_terms</strong> (<em>'pd.DataFrame'</em>) – Dataframe of financing terms.</p></li>
+<li><p><strong>itc_options</strong> (<em>'pd.DataFrame'</em>) – Dataframe of different ITC (investment tax credit) parameters, namely ‘itc_fraction_of_capex’
+that is merged to the agent dataframe on year, technology, and sector.</p></li>
+<li><p><strong>inflation_rate</strong> (<em>'float'</em>) – rate of inflation specified in the input sheet as a percentage (e.g. 2.5%).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with financial parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_load_growth">
@@ -256,17 +321,64 @@ prices.</p>
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_pv_plus_batt_prices">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_pv_plus_batt_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">pv_plus_batt_price_traj</span></em>, <em class="sig-param"><span class="n">batt_tech_traj</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_pv_plus_batt_prices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_pv_plus_batt_prices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>pv_plus_batt_price_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of battery price trajectories over time. See the
+‘input_pv_plus_batt_prices_user_defined’ table in the database.</p></li>
+<li><p><strong>batt_tech_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of battery tech trajectories over time. See the
+‘input_batt_tech_performance_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with pv plus battery price parameters and battery tech parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_pv_prices">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_pv_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">pv_price_traj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_pv_prices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_pv_prices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>pv_price_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of PV price trajectories over time. See the
+‘input_pv_prices_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with pv price parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_pv_tech_performance">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_pv_tech_performance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">pv_tech_traj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_pv_tech_performance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_pv_tech_performance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>pv_tech_traj</strong> (<em>'pd.DataFrame'</em>) – Dataframe of PV tech performance over time. See the
+‘input_pv_tech_performance_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with pv tech performance parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_rate_switch">
@@ -281,7 +393,23 @@ prices.</p>
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_value_of_resiliency">
 <code class="sig-prename descclassname">python.agent_mutation.elec.</code><code class="sig-name descname">apply_value_of_resiliency</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span></em>, <em class="sig-param"><span class="n">value_of_resiliency</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/python/agent_mutation/elec.html#apply_value_of_resiliency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#python.agent_mutation.elec.apply_value_of_resiliency" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Note, value of resiliency (VOR) is not currently used in the open source version of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>'pd.DataFrame'</em>) – Agent dataframe</p></li>
+<li><p><strong>vaule_of_resiliency</strong> (<em>'pd.DataFrame'</em>) – Dataframe of financials pertaining to the value of resiliency. See the
+‘input_value_of_resiliency_user_defined’ table in the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dataframe</strong> – Agent DataFrame with value of resiliency parameters merged in.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>‘pd.DataFrame’</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="python.agent_mutation.elec.apply_wholesale_elec_prices">

@@ -29,7 +29,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -218,44 +217,44 @@
 <div class="viewcode-block" id="Tariff"><a class="viewcode-back" href="../../api.html#python.tariff_functions.Tariff">[docs]</a><span class="k">class</span> <span class="nc">Tariff</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Tariff Attributes:</span>
-<span class="sd">    -urdb_id: id for utility rate database. US, not international. </span>
-<span class="sd">    -eia_id: The EIA assigned ID number for the utility associated with this tariff           </span>
-<span class="sd">    -name: tariff name</span>
-<span class="sd">    -utility: Name of utility this tariff is associated with</span>
-<span class="sd">    -fixed_charge: Fixed monthly charge in $/mo.</span>
-<span class="sd">    -peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff</span>
-<span class="sd">    -peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff</span>
-<span class="sd">    -kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff</span>
-<span class="sd">    -kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff</span>
-<span class="sd">    -sector: residential, commercial, or industrial</span>
-<span class="sd">    -comments: comments from the urdb</span>
-<span class="sd">    -description: tariff description from urdb</span>
-<span class="sd">    -source: uri for the source of the tariff</span>
-<span class="sd">    -uri: link the the urdb page</span>
-<span class="sd">    -voltage_category: secondary, primary, transmission        </span>
-<span class="sd">    -d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand. </span>
-<span class="sd">    -d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.</span>
-<span class="sd">    -d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.</span>
-<span class="sd">    -d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.</span>
-<span class="sd">    -d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component</span>
-<span class="sd">    -d_tou_n = Number of unique tou demand periods. Minimum of 1, since I&#39;m counting no-charge periods still as a period.</span>
-<span class="sd">    -d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.    </span>
-<span class="sd">    -d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.</span>
-<span class="sd">    -e_exists = Boolean of whether there is a flat (not tou) demand charge component</span>
-<span class="sd">    -e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component</span>
-<span class="sd">    -e_n = Number of unique energy periods. Minimum of 1, since I&#39;m counting no-charge periods still as a period.</span>
-<span class="sd">    -e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.    </span>
-<span class="sd">    -e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.</span>
-<span class="sd">    -e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.</span>
-<span class="sd">    -e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.</span>
-<span class="sd">    -d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.</span>
-<span class="sd">    -d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.</span>
-<span class="sd">    -d_tou_8760</span>
-<span class="sd">    -e_tou_8760</span>
-<span class="sd">    -e_prices_no_tier</span>
-<span class="sd">    -e_max_difference: The maximum energy price differential within any single day</span>
-<span class="sd">    -energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later</span>
-<span class="sd">    -demand_rate_unit: kW or kW/day - for guiding the bill calculations later</span>
+<span class="sd">        urdb_id: id for utility rate database. US, not international. </span>
+<span class="sd">        eia_id: The EIA assigned ID number for the utility associated with this tariff           </span>
+<span class="sd">        name: tariff name</span>
+<span class="sd">        utility: Name of utility this tariff is associated with</span>
+<span class="sd">        fixed_charge: Fixed monthly charge in $/mo.</span>
+<span class="sd">        peak_kW_capacity_max: The annual maximum kW of demand that a customer can have and still be on this tariff</span>
+<span class="sd">        peak_kW_capacity_min: The annula minimum kW of demand that a customer can have and still be on this tariff</span>
+<span class="sd">        kWh_useage_max: The maximum kWh of average monthly consumption that a customer can have and still be on this tariff</span>
+<span class="sd">        kWh_useage_min: The minimum kWh of average monthly consumption that a customer can have and still be on this tariff</span>
+<span class="sd">        sector: residential, commercial, or industrial</span>
+<span class="sd">        comments: comments from the urdb</span>
+<span class="sd">        description: tariff description from urdb</span>
+<span class="sd">        source: uri for the source of the tariff</span>
+<span class="sd">        uri: link the the urdb page</span>
+<span class="sd">        voltage_category: secondary, primary, transmission        </span>
+<span class="sd">        d_flat_exists: Boolean of whether there is a flat (not tou) demand charge component. Flat demand is also called monthly or seasonal demand. </span>
+<span class="sd">        d_flat_n: Number of unique flat demand period constructions. Does NOT correspond to width of d_flat_x constructs.</span>
+<span class="sd">        d_flat_prices: The prices of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.</span>
+<span class="sd">        d_flat_levels: The limit (total kW) of each of each tier/period combination for flat demand. Rows are tiers, columns are months. Differs from TOU, where columns are periods.</span>
+<span class="sd">        d_tou_exists = Boolean of whether there is a tou (not flat) demand charge component</span>
+<span class="sd">        d_tou_n = Number of unique tou demand periods. Minimum of 1, since I&#39;m counting no-charge periods still as a period.</span>
+<span class="sd">        d_tou_prices = The prices of each tier/period combination for tou demand. Rows are tiers, columns are periods.    </span>
+<span class="sd">        d_tou_levels = The limit (total kW) of each of each tier/period combination for tou demand. Rows are tiers, columns are periods.</span>
+<span class="sd">        e_exists = Boolean of whether there is a flat (not tou) demand charge component</span>
+<span class="sd">        e_tou_exists = Boolean of whether there is a flat (not tou) demand charge component</span>
+<span class="sd">        e_n = Number of unique energy periods. Minimum of 1, since I&#39;m counting no-charge periods still as a period.</span>
+<span class="sd">        e_prices = The prices of each tier/period combination for flat demand. Rows are tiers, columns are periods.    </span>
+<span class="sd">        e_levels = The limit (total kWh) of each of each tier/period combination for energy. Rows are tiers, columns are periods.</span>
+<span class="sd">        e_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.</span>
+<span class="sd">        e_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.</span>
+<span class="sd">        d_wkday_12by24: 12 by 24 period definition for weekday energy. Rows are months, columns are hours.</span>
+<span class="sd">        d_wkend_12by24: 12 by 24 period definition for weekend energy. Rows are months, columns are hours.</span>
+<span class="sd">        d_tou_8760</span>
+<span class="sd">        e_tou_8760</span>
+<span class="sd">        e_prices_no_tier</span>
+<span class="sd">        e_max_difference: The maximum energy price differential within any single day</span>
+<span class="sd">        energy_rate_unit: kWh or kWh/day - for guiding the bill calculations later</span>
+<span class="sd">        demand_rate_unit: kW or kW/day - for guiding the bill calculations later</span>
 <span class="sd">    &quot;&quot;&quot;</span>
         
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_day</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">urdb_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">json_file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dict_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -888,7 +887,7 @@
 
 <div class="viewcode-block" id="bill_calculator"><a class="viewcode-back" href="../../api.html#python.tariff_functions.bill_calculator">[docs]</a><span class="k">def</span> <span class="nf">bill_calculator</span><span class="p">(</span><span class="n">load_profile</span><span class="p">,</span> <span class="n">tariff</span><span class="p">,</span> <span class="n">export_tariff</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Deprecated. Nullified by new PySAM code and will be taken out in Beta release</span>
+<span class="sd">    Deprecated. Nullified by new PySAM code and will be taken out.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">n_months</span> <span class="o">=</span> <span class="mi">12</span>
@@ -1280,31 +1279,38 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="design_tariff_for_portfolio"><a class="viewcode-back" href="../../api.html#python.tariff_functions.design_tariff_for_portfolio">[docs]</a><span class="k">def</span> <span class="nf">design_tariff_for_portfolio</span><span class="p">(</span><span class="n">agent_df</span><span class="p">,</span> <span class="n">avg_rev</span><span class="p">,</span> <span class="n">peak_hour_indicies</span><span class="p">,</span> <span class="n">summer_month_indicies</span><span class="p">,</span> <span class="n">rev_f_d</span><span class="p">,</span> <span class="n">rev_f_e</span><span class="p">,</span> <span class="n">rev_f_fixed</span><span class="p">):</span>
+
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Builds a tariff that would extract a given $/kWh from a portfolio of </span>
 <span class="sd">    customers.</span>
-<span class="sd">    </span>
-<span class="sd">    Inputs:</span>
-<span class="sd">        - agent_df: Dataframe of agents. Must contain load_profile and its </span>
-<span class="sd">                    weight in the portfolio.</span>
-<span class="sd">        - avg_rev: $/kWh that the tariff would extract from the given portfolio</span>
-<span class="sd">                    of customers.</span>
-<span class="sd">        - rev_f_d: revenue strucutre for demand charges. Format is [fraction of</span>
-<span class="sd">                    total revenue, fraction that comes from tou charges, </span>
-<span class="sd">                    fraction that comes from flat charges]</span>
-<span class="sd">                    ex: [0.4875, 0.5, 0.5]</span>
-<span class="sd">        - rev_f_d: revenue strucutre for energy charges. Format is [fraction of</span>
-<span class="sd">                    total revenue, fraction that comes from off-peak hours, </span>
-<span class="sd">                    fraction that comes from on-peak hours]</span>
-<span class="sd">                    ex: [0.4875, 0.20, 0.8]</span>
-<span class="sd">        - rev_f_fixed: [fraction of revenue from fixed monthly charges].</span>
-<span class="sd">                    ex: [0.025]</span>
 <span class="sd">        </span>
-<span class="sd">    Assumptions:</span>
-<span class="sd">        - peak hours are the same between demand and energy.</span>
-<span class="sd">        - peak hours only occur during the summer</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    agent_df : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        agents as loaded from the agent pkl file.       </span>
+<span class="sd">    avg_rev : &#39;float&#39;</span>
+<span class="sd">        $/kWh that the tariff would extract from the given portfolio of customers. </span>
+<span class="sd">    peak_hour_indicies : &#39;list&#39;</span>
+<span class="sd">        list of indices corresponding to the peak demand hours. Assumes peak hours are the same between </span>
+<span class="sd">        demand and energy.</span>
+<span class="sd">    summer_month_indicies : &#39;list&#39;</span>
+<span class="sd">        list of indices corresponding to the summer peak demand hours. Assumes peak hours only occur during the summer.</span>
+<span class="sd">    rev_f_d : &#39;list&#39;</span>
+<span class="sd">        revenue strucutre for demand charges. Format is [fraction of total revenue, fraction that </span>
+<span class="sd">        comes from tou charges, fraction that comes from flat charges] ex: [0.4875, 0.5, 0.5].</span>
+<span class="sd">    rev_f_e : &#39;list&#39;</span>
+<span class="sd">        revenue strucutre for energy charges. Format is [fraction of total revenue, fraction that </span>
+<span class="sd">        comes from off-peak hours, fraction that comes from on-peak hours] ex: [0.4875, 0.20, 0.8].</span>
+<span class="sd">    rev_f_fixed : &#39;list&#39;</span>
+<span class="sd">        [fraction of revenue from fixed monthly charges]. ex: [0.025].</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tarrif : &#39;class object&#39;</span>
+<span class="sd">        Returns tarrif, an object instantiated with the Tarrif class.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+
+
     
     <span class="c1"># Construct the 12x24 matricies for the given peak hours</span>
     <span class="n">d_wkend_12by24</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>

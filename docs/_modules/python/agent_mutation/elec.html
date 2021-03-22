@@ -29,7 +29,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -227,6 +226,23 @@
 <span class="sd">    Note that many customers will not differentiate between real and nominal,</span>
 <span class="sd">    and therefore many would overestimate the real escalation of electriicty</span>
 <span class="sd">    prices.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    year : &#39;int&#39;</span>
+<span class="sd">        The year for which you want multiplier values for</span>
+<span class="sd">    elec_price_change_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of electricity prices&#39; trajectories over time. See the </span>
+<span class="sd">        &#39;input_elec_prices_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with elec_price_multiplier and elec_price_escalator data merged in.</span>
+
 <span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -294,6 +310,22 @@
 <div class="viewcode-block" id="apply_pv_tech_performance"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_tech_performance">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_pv_tech_performance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_tech_traj</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of PV tech performance over time. See the </span>
+<span class="sd">        &#39;input_pv_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv tech performance parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_tech_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
@@ -322,6 +354,22 @@
 <div class="viewcode-block" id="apply_pv_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_pv_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_price_traj</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of PV price trajectories over time. See the </span>
+<span class="sd">        &#39;input_pv_prices_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv price parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
     <span class="c1"># join the data</span>
@@ -339,6 +387,25 @@
 <div class="viewcode-block" id="apply_batt_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_batt_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_batt_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    batt_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery price trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_prices_user_defined&#39; table in the database.</span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with battery price and tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
     <span class="c1"># Merge on prices</span>
@@ -355,6 +422,25 @@
 
 <div class="viewcode-block" id="apply_pv_plus_batt_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_plus_batt_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_pv_plus_batt_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_plus_batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_plus_batt_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery price trajectories over time. See the </span>
+<span class="sd">        &#39;input_pv_plus_batt_prices_user_defined&#39; table in the database.</span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv plus battery price parameters and battery tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     
@@ -382,6 +468,25 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="apply_value_of_resiliency"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_value_of_resiliency">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_value_of_resiliency</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">value_of_resiliency</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Note, value of resiliency (VOR) is not currently used in the open source version of the model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    vaule_of_resiliency : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of financials pertaining to the value of resiliency. See the </span>
+<span class="sd">        &#39;input_value_of_resiliency_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with value of resiliency parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
              
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
@@ -396,6 +501,22 @@
 <div class="viewcode-block" id="apply_batt_tech_performance"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_batt_tech_performance">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_batt_tech_performance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">):</span>
 
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with battery tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
@@ -408,6 +529,29 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="apply_financial_params"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_financial_params">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">apply_financial_params</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">financing_terms</span><span class="p">,</span> <span class="n">itc_options</span><span class="p">,</span> <span class="n">inflation_rate</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Applies financial parameters specified in input sheet to agent dataframe.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    financing_terms : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of financing terms.</span>
+<span class="sd">    itc_options : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of different ITC (investment tax credit) parameters, namely &#39;itc_fraction_of_capex&#39;</span>
+<span class="sd">        that is merged to the agent dataframe on year, technology, and sector.</span>
+<span class="sd">    inflation_rate : &#39;float&#39;</span>
+<span class="sd">        rate of inflation specified in the input sheet as a percentage (e.g. 2.5%).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with financial parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 

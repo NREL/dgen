@@ -29,7 +29,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -208,6 +207,19 @@
 
 
 <div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../../api.html#python.utility_functions.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">log_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes depreciation schedule and sorts table fields by depreciation year</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    log_file_path : &#39;str&#39; </span>
+<span class="sd">        The log_file_path. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logger : &#39;loggin.logger&#39;</span>
+<span class="sd">        logger object for logging</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">colorama</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
     <span class="n">formatter</span> <span class="o">=</span> <span class="n">colorlog</span><span class="o">.</span><span class="n">ColoredFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{log_color}{levelname:8}</span><span class="s2">:</span><span class="si">{reset}</span><span class="s2"> </span><span class="si">{white}{message}</span><span class="s2">&quot;</span><span class="p">,</span>
@@ -297,6 +309,25 @@
 
 
 <div class="viewcode-block" id="make_con"><a class="viewcode-back" href="../../api.html#python.utility_functions.make_con">[docs]</a><span class="k">def</span> <span class="nf">make_con</span><span class="p">(</span><span class="n">connection_string</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">async_</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the psql connection and cursor objects to be used with functions that query from the database.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    connection_string : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection string. e.g. &quot;postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/dgen_db&quot;.       </span>
+<span class="sd">    role : &#39;str&#39;</span>
+<span class="sd">        Database role. &#39;postgres&#39; should be the default role name for the open source codebase. </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Postgres Database Connection.</span>
+<span class="sd">    cur : &#39;SQL cursor&#39;</span>
+<span class="sd">        Postgres Database Cursor.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">con</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connection_string</span><span class="p">,</span> <span class="n">async_</span><span class="o">=</span><span class="n">async_</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">async_</span><span class="p">:</span>
         <span class="n">wait</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
@@ -317,6 +348,22 @@
 
 
 <div class="viewcode-block" id="get_pg_params"><a class="viewcode-back" href="../../api.html#python.utility_functions.get_pg_params">[docs]</a><span class="k">def</span> <span class="nf">get_pg_params</span><span class="p">(</span><span class="n">json_file</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes the path to the json file specifying database connection information and returns formatted information.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    json_file : &#39;str&#39; </span>
+<span class="sd">        The path to the json file specifying database connection information. </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pg_params : &#39;json&#39;</span>
+<span class="sd">        &#39;postgres database connection parameters&#39;</span>
+<span class="sd">    pg_conn_str : &#39;str&#39;</span>
+<span class="sd">        Formatted connection string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">pg_params_json</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="n">pg_params</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pg_params_json</span><span class="p">)</span>
@@ -341,18 +388,25 @@
 <span class="c1">#       Miscellaneous Functions</span>
 <span class="c1">#==============================================================================</span>
 <div class="viewcode-block" id="parse_command_args"><a class="viewcode-back" href="../../api.html#python.utility_functions.parse_command_args">[docs]</a><span class="k">def</span> <span class="nf">parse_command_args</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Function to parse the command line arguments</span>
-<span class="sd">    IN:</span>
 
-<span class="sd">    -h : help &#39;dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;&#39;</span>
-<span class="sd">    -i : Initiate model for 2010 and quit</span>
-<span class="sd">    -y: or year= : Resume model solve in passed year</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to parse the command line arguments.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    argv : &#39;str&#39; </span>
+<span class="sd">        -h : help &#39;dg_model.py -i &lt;Initiate Model?&gt; -y &lt;year&gt;&#39;</span>
+<span class="sd">        -i : Initiate model for 2010 and quit</span>
+<span class="sd">        -y: or year= : Resume model solve in passed year </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    init_model - &#39;bool&#39;</span>
+<span class="sd">        Initialize the model</span>
+<span class="sd">    resume_year : &#39;float&#39;</span>
+<span class="sd">        The year the model should resume.</span>
 
-<span class="sd">    OUT:</span>
-
-<span class="sd">    init_model - Boolean - Should model initiate?</span>
-<span class="sd">    resume_year - Float - year model should resume</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">resume_year</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">init_model</span> <span class="o">=</span> <span class="kc">False</span>

@@ -29,7 +29,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -200,42 +199,17 @@
 <span class="c1"># Load logger</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
 
-<span class="c1">#%%</span>
-<div class="viewcode-block" id="check_table_exists"><a class="viewcode-back" href="../../api.html#python.input_data_functions.check_table_exists">[docs]</a><span class="k">def</span> <span class="nf">check_table_exists</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Checks if table exists in schema</span>
-<span class="sd">    </span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
-<span class="sd">        SQL schema in which to check if given table exists</span>
-<span class="sd">    **table** : &#39;SQL table&#39;</span>
-<span class="sd">        SQL table to be searched </span>
-<span class="sd">    **con** : &#39;SQL connection&#39;</span>
-<span class="sd">        SQL connection to connect to database</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    **True or False** : &#39;bool&#39;</span>
-<span class="sd">        Returns True if table exists in schema.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT EXISTS (SELECT 1 FROM   information_schema.tables WHERE  table_schema = &#39;</span><span class="si">{}</span><span class="s2">&#39; AND table_name = &#39;</span><span class="si">{}</span><span class="s2">&#39;);&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
-
 <div class="viewcode-block" id="get_psql_table_fields"><a class="viewcode-back" href="../../api.html#python.input_data_functions.get_psql_table_fields">[docs]</a><span class="k">def</span> <span class="nf">get_psql_table_fields</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates numpy array of columns from specified schema and table</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">    engine : &#39;SQL engine&#39;</span>
 <span class="sd">        SQL engine to intepret SQL query</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        SQL schema to pull table from </span>
-<span class="sd">    **name** : &#39;string&#39;</span>
+<span class="sd">    name : &#39;string&#39;</span>
 <span class="sd">        Name of the table from which fields are retrieved</span>
 
 <span class="sd">    Returns</span>
@@ -254,24 +228,24 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe to upload to database</span>
-<span class="sd">    **engine** : &#39;SQL table&#39;</span>
+<span class="sd">    engine : &#39;SQL table&#39;</span>
 <span class="sd">        SQL engine to intepret SQL query </span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema in which to upload df</span>
-<span class="sd">    **owner** : &#39;string&#39;</span>
+<span class="sd">    owner : &#39;string&#39;</span>
 <span class="sd">        Owner of schema</span>
-<span class="sd">    **name** : &#39;string&#39;</span>
+<span class="sd">    name : &#39;string&#39;</span>
 <span class="sd">        Name to be given to table that is uploaded</span>
-<span class="sd">    **if_exists** : &#39;replace or append&#39;</span>
+<span class="sd">    if_exists : &#39;replace or append&#39;</span>
 <span class="sd">        If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database. </span>
-<span class="sd">    **append_transformations** : &#39;bool&#39;</span>
+<span class="sd">    append_transformations : &#39;bool&#39;</span>
 <span class="sd">        IDK</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe that was uploaded to database</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -364,14 +338,14 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema in which to look for the scenario settings</span>
-<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
 <span class="sd">        SQL connection to connect to database</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of default scenario settings</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -388,14 +362,14 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **schema** : &#39;SQL schema&#39;</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema in which to look for the scenario settings</span>
-<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
 <span class="sd">        SQL connection to connect to database</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of user created scenario settings</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -413,22 +387,22 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **scenario_settings** : &#39;SQL schema&#39;</span>
+<span class="sd">    scenario_settings : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema in which to look for the scenario settings</span>
-<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
 <span class="sd">        SQL connection to connect to database</span>
-<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">    engine : &#39;SQL engine&#39;</span>
 <span class="sd">        SQL engine to intepret SQL query</span>
-<span class="sd">    **role** : &#39;string&#39;</span>
+<span class="sd">    role : &#39;string&#39;</span>
 <span class="sd">        Owner of schema</span>
-<span class="sd">    **input_name** : &#39;string&#39;</span>
+<span class="sd">    input_name : &#39;string&#39;</span>
 <span class="sd">        Name of the csv file that should be imported     </span>
-<span class="sd">    **csv_import_function** : &#39;function&#39;</span>
+<span class="sd">    csv_import_function : &#39;function&#39;</span>
 <span class="sd">        Specific function to import and munge csv </span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of the table that was imported</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -444,18 +418,13 @@
         <span class="n">userdefined_table_name</span> <span class="o">=</span> <span class="s2">&quot;input_&quot;</span> <span class="o">+</span> <span class="n">input_name</span> <span class="o">+</span> <span class="s2">&quot;_user_defined&quot;</span>
         <span class="n">scenario_userdefined_name</span> <span class="o">=</span> <span class="n">get_userdefined_scenario_settings</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">userdefined_table_name</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
         <span class="n">scenario_userdefined_value</span> <span class="o">=</span> <span class="n">scenario_userdefined_name</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-          
-        <span class="k">if</span> <span class="n">check_table_exists</span><span class="p">(</span><span class="n">shared_schema</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
-            <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM </span><span class="si">{}</span><span class="s1">.&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shared_schema</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">)</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_data_dir</span><span class="p">,</span> <span class="n">input_name</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_data_dir</span><span class="p">,</span> <span class="n">input_name</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">csv_import_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">csv_import_function</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">csv_import_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">csv_import_function</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-            <span class="n">df_to_psql</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">shared_schema</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">)</span>
+        <span class="n">df_to_psql</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">shared_schema</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">scenario_userdefined_value</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">input_name</span> <span class="o">==</span> <span class="s1">&#39;elec_prices&#39;</span><span class="p">:</span>
@@ -475,12 +444,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe to be sorted by sector. </span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **output** : &#39;pd.df&#39;</span>
+<span class="sd">    output : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of the table that was imported and split by sector</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -515,12 +484,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **df** : &#39;pd.df&#39;</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe to be sorted by sector. </span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **output** : &#39;pd.df&#39;</span>
+<span class="sd">    output : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of depreciation schedule sorted by year</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -547,12 +516,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **parameter name** : &#39;string&#39;</span>
+<span class="sd">    parameter name : &#39;string&#39;</span>
 <span class="sd">        Name of the parameter value in dataframe. </span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **function** : &#39;function&#39;</span>
+<span class="sd">    function : &#39;function&#39;</span>
 <span class="sd">        Function that melts years and parameter value to row axis</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -563,12 +532,12 @@
 <span class="sd">    </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        **df** : &#39;pd.df&#39;</span>
+<span class="sd">        df : &#39;pd.df&#39;</span>
 <span class="sd">            Dataframe to be unpivot. </span>
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        **df_tidy** : &#39;pd.df&#39;</span>
+<span class="sd">        df_tidy : &#39;pd.df&#39;</span>
 <span class="sd">            Dataframe with every other year and the parameter value for that year as rows for each state </span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -592,24 +561,24 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **scenario_settings** : &#39;SQL schema&#39;</span>
+<span class="sd">    scenario_settings : &#39;SQL schema&#39;</span>
 <span class="sd">        Schema of the scenario settings</span>
-<span class="sd">    **con** : &#39;SQL connection&#39;</span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
 <span class="sd">        SQL connection to connect to database</span>
-<span class="sd">    **cur** : &#39;SQL cursor&#39;</span>
+<span class="sd">    cur : &#39;SQL cursor&#39;</span>
 <span class="sd">        Cursor</span>
-<span class="sd">    **engine** : &#39;SQL engine&#39;</span>
+<span class="sd">    engine : &#39;SQL engine&#39;</span>
 <span class="sd">        SQL engine to intepret SQL query</span>
-<span class="sd">    **model_settings** : &#39;object&#39;</span>
+<span class="sd">    model_settings : &#39;object&#39;</span>
 <span class="sd">        Model settings that apply to all scenarios</span>
-<span class="sd">    **agent_file_status** : &#39;attribute&#39;</span>
+<span class="sd">    agent_file_status : &#39;attribute&#39;</span>
 <span class="sd">        Attribute that describes whether to use pre-generated agent file or create new    </span>
-<span class="sd">    **input_name** : &#39;string&#39;</span>
+<span class="sd">    input_name : &#39;string&#39;</span>
 <span class="sd">        .Pkl file name substring of pre-generated agent table </span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **solar_agents** : &#39;Class&#39;</span>
+<span class="sd">    solar_agents : &#39;Class&#39;</span>
 <span class="sd">        Instance of Agents class with either user pre-generated or new data</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -654,12 +623,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **elec_price_traj** : &#39;pd.df&#39;</span>
+<span class="sd">    elec_price_traj : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of electricity prices by year and ReEDS BA</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **elec_price_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">    elec_price_change_traj : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of annual electricity price change factors from base year</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -711,12 +680,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **wholesale_elec_price_traj** : &#39;pd.df&#39;</span>
+<span class="sd">    wholesale_elec_price_traj : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of wholesale electricity prices by year and ReEDS BA</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **wholesale_elec_price_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">    wholesale_elec_price_change_traj : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of annual electricity price change factors from base year</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -744,12 +713,12 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    **laod_growth** : &#39;pd.df&#39;</span>
+<span class="sd">    load_growth : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of annual load growth rates</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    **load_growth_change_traj** : &#39;pd.df&#39;</span>
+<span class="sd">    load_growth_change_traj : &#39;pd.df&#39;</span>
 <span class="sd">        Dataframe of annual load growth rates relative to base year</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
