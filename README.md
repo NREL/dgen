@@ -8,7 +8,7 @@ The Distributed Generation Market Demand (dGen) Model [![](https://img.shields.i
 =====================================================
 
 <p align="center">
- <img src="[![](https://img.shields.io/github/v/release/NREL/dgen)](https://github.com/NREL/dgen/releases/latest)" />
+ [![](https://img.shields.io/github/v/release/NREL/dgen)](https://github.com/NREL/dgen/releases/latest)
 </p>
 
 
