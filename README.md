@@ -17,9 +17,9 @@ The Distributed Generation Market Demand (dGen) Model
 
 
 ## Documentation
-[Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
-[Documentation](https://nrel.github.io/dgen/) 
-[Wiki](https://github.com/NREL/dgen/wiki)
+- [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
+- [Documentation](https://nrel.github.io/dgen/) 
+- [Wiki](https://github.com/NREL/dgen/wiki)
 
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
