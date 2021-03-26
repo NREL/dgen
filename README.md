@@ -2,6 +2,11 @@
  <img src="https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png" />
 </p>
 
+
+
+The Distributed Generation Market Demand (dGen) Model [![](https://img.shields.io/github/v/release/NREL/dgen)](https://github.com/NREL/dgen/releases/latest)
+=====================================================
+
 ## Watch The Webinar and Setup Tutorial
 https://youtu.be/-Te5_KKZR8o
 
