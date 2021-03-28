@@ -1,5 +1,5 @@
 """
-Distributed Generation Market Demand Model (dGen) - Final Release
+Distributed Generation Market Demand Model (dGen) - Open Source Release
 National Renewable Energy Lab
 """
 

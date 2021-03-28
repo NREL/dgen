@@ -261,27 +261,27 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     agent: 'pd.df'
         Adds several features to the agent dataframe:
 
-        - **agent_id**
-        - **system_kw** - system capacity selected by agent
-        - **batt_kw** - battery capacity selected by agent
-        - **batt_kwh** - battery energy capacity
-        - **npv** - net present value of system + storage
-        - **cash_flow**  - array of annual cash flows from system adoption
-        - **batt_dispatch_profile** - array of hourly battery dispatch
-        - **annual_energy_production_kwh** - annual energy production (kwh) of system
-        - **naep** - normalized annual energy production (kwh/kW) of system
-        - **capacity_factor** - annual capacity factor
-        - **first_year_elec_bill_with_system** - first year electricity bill with adopted system ($/yr)
-        - **first_year_elec_bill_savings** - first year electricity bill savings with adopted system ($/yr)
-        - **first_year_elec_bill_savings_frac** - fraction of savings on electricity bill in first year of system adoption
-        - **max_system_kw** - maximum system size allowed as constrained by roof size or not exceeding annual consumption 
-        - **first_year_elec_bill_without_system** - first year electricity bill without adopted system ($/yr)
-        - **avg_elec_price_cents_per_kwh** - first year electricity price (c/kwh)
-        - **cbi** - ndarray of capacity-based incentives applicable to agent
-        - **ibi** - ndarray of investment-based incentives applicable to agent
-        - **pbi** - ndarray of performance-based incentives applicable to agent
-        - **cash_incentives** - ndarray of cash-based incentives applicable to agent
-        - **export_tariff_result** - summary of structure of retail tariff applied to agent
+        - agent_id
+        - system_kw - system capacity selected by agent
+        - batt_kw - battery capacity selected by agent
+        - batt_kwh - battery energy capacity
+        - npv - net present value of system + storage
+        - cash_flow  - array of annual cash flows from system adoption
+        - batt_dispatch_profile - array of hourly battery dispatch
+        - annual_energy_production_kwh - annual energy production (kwh) of system
+        - naep - normalized annual energy production (kwh/kW) of system
+        - capacity_factor - annual capacity factor
+        - first_year_elec_bill_with_system - first year electricity bill with adopted system ($/yr)
+        - first_year_elec_bill_savings - first year electricity bill savings with adopted system ($/yr)
+        - first_year_elec_bill_savings_frac - fraction of savings on electricity bill in first year of system adoption
+        - max_system_kw - maximum system size allowed as constrained by roof size or not exceeding annual consumption 
+        - first_year_elec_bill_without_system - first year electricity bill without adopted system ($/yr)
+        - avg_elec_price_cents_per_kwh - first year electricity price (c/kwh)
+        - cbi - ndarray of capacity-based incentives applicable to agent
+        - ibi - ndarray of investment-based incentives applicable to agent
+        - pbi - ndarray of performance-based incentives applicable to agent
+        - cash_incentives - ndarray of cash-based incentives applicable to agent
+        - export_tariff_result - summary of structure of retail tariff applied to agent
     """
 
 
@@ -1092,7 +1092,7 @@ def calc_financial_performance(dataframe):
 
     Returns
     -------
-    - **dataframe**: 'pd.df' - Agent dataframe with payback period joined on dataframe
+    - dataframe: 'pd.df' - Agent dataframe with payback period joined on dataframe
     """
 
     dataframe = dataframe.reset_index()
