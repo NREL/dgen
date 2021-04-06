@@ -46,8 +46,6 @@ Users need to fork a copy of the dGen repo to their own private github account.
 Next, clone the forked repository to your local machine by running the following in a terminal/powershell/command prompt:
 ```$ git clone https://github.com/<github_username>/dgen.git```
 
-- Create a new branch in this repository by running ```git checkout -b <branch_name_here>```.
-- It is generally a good practice to leave the master branch of a forked repository unchanged for easier updating in future. Create new branches when developing features or performing configurations for unique runs.
 
 # Running and Configuring dGen
 
