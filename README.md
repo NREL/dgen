@@ -17,7 +17,7 @@ The Distributed Generation Market Demand (dGen) Model
 
 ## Documentation
 - [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
-- [Documentation](https://nrel.github.io/dgen/) 
+- [Official dGen Documentation](https://nrel.github.io/dgen/) 
 - [Wiki](https://github.com/NREL/dgen/wiki)
 
 ## Get Your Tools
@@ -79,7 +79,7 @@ After cloning this repository and installing (and running) Docker as well as Ana
 
 Notes:
 - Use the alpha-numeric container id rather than the container name.
-- The container id can be gotten by running ```docker container ls```. If this doesn't display anything try ruinning ```docker container ps```.
+- The container id can be gotten by running ```$ docker container ls```. If this doesn't display anything try running ```$ docker container ps```.
 - If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so because docker can take some time to initialize everything.
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
 
