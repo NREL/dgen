@@ -1,5 +1,5 @@
 ﻿<p align="center">
- <img src="https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png" />
+ <img src="https://github.com/NREL/dgen/blob/master/docs/figs/dGen-logo-lrg.png" />
 </p>
 
 The Distributed Generation Market Demand (dGen) Model
@@ -21,7 +21,7 @@ The Distributed Generation Market Demand (dGen) Model
 - [Wiki](https://github.com/NREL/dgen/wiki)
 
 ## Get Your Tools
-Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
+Install Docker for [(Mac)](https://docs.docker.com/docker-for-mac/install/) or [(Windows)](https://docs.docker.com/docker-for-windows/install/)
 
 - Important: In Docker, go into Docker > Preferences > Resources and up the allocation for disk size image for Docker. 16 GB is recommended for smaller (state level) databasese. 32 GB is recommended for ISO specific databases. 70+GB is required for restoring the national level database. If you get a memory issue then you'll need to up the memory allocation and or will need to prune past failed images/volumes. Running the below docker commands will clear these out and let you start fresh:
 ```
@@ -30,11 +30,11 @@ Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows)
 ``` 
 - Refer to Docker’s website for more details on this.
 
-Install Anaconda Python 3.7 Version: https://www.anaconda.com/distribution/
+Install [Anaconda for Python 3.7](https://www.anaconda.com/distribution/)
 
-Install PgAdmin: https://www.pgadmin.org/download/ (ignore all of the options for docker, python, os host, etc.)
+Install [PgAdmin](https://www.pgadmin.org/download/) (ignore all of the options for docker, python, os host, etc.)
 
-Install Git: If you don't already have git installed, then navigate here to install it for your operating system: https://www.atlassian.com/git/tutorials/install-git
+Install Git: If you don't already have git installed, then navigate [here](https://www.atlassian.com/git/tutorials/install-git) to install it for your operating system.
 
 Windows users: if you don't have UNIX commands enabled for command prompt/powershell then you'll need to install Cygwin or QEMU to run a UNIX terminal.
 
@@ -98,6 +98,8 @@ You will also need to download and unzip the agent files "OS_dGen_Agents.zip", m
 
 #### Windows Users
 
+If you don't have UNIX commands enabled for command prompt/powershell then you'll need to install Cygwin or QEMU to run a UNIX terminal.
+
 In Windows Powershell run the following (make sure to replace 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file):
 
 ```
@@ -120,8 +122,16 @@ Notes:
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
 - The container must be started/running to restore and or access the database (including during model run time).
 
+Troublshooting Container/Database Issues:
+- Make sure the disk size for Docker has been properly allocated (make sure at least 16GB has been allocated for state level databases, at least 32 GB for ISO level databases, and at least 70 GB for the national database). You'll need to restart docker after changing the disk size in Docker's system preferences and will need to make a new container/start from scratch.
+- If making a new container first run ```docker system prune -a``` and ```docker volume prune -f```.
+- Make sure you've specificed the right path to the .sql file and make sure the .sql file is unzipped.
+- Make sure the use the container's alpha-numeric ID rather than the container name. 
+- If on a VPN try turning the VPN off when making the container and restoring the database.
+- Try googling errors.
+
 ### C. Create Local Server:
-Once the database is restored (it will take 45-60 minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
+Once the database is restored (it will take some time), open PgAdmin and create a new server. Name this whatever you want. Input "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
 
 ### D: Activate Environment 
 Activate the dg3n environment and launch spyder by opening a new terminal window and run the following command:
@@ -132,6 +142,11 @@ Activate the dg3n environment and launch spyder by opening a new terminal window
 ```
 
 - In spyder, open the dgen_model.py file. This is what we will run once everything is configured.
+
+Notes:
+- Sometimes Spyder can have issues accessing files. It may be helpful to set the working directory by right clicking the white folder icon in the upper righthand corner and navigating to ```/path_to_where_you_cloned_dgen/dgen_os```.
+- Spyder's kernel can sometimes have issues/stop unexpectedly. Refreshing the kernel might help if you're encountering issues running dgen_model.py.
+- Spyder isn't necessary to use. If you'd rather run dGen by launching python from the dg3n environment then by all means do so.
 
 ### E: Configure Scenario
 1. Open the blank input sheet located in ```dgen_os/excel/input_sheet_v_beta.xlsm ``` (don't forget to enable macros!). This file defines most of the settings for a scenario. Configure it depending on the desired model run and save a copy in the input_scenarios folder, i.e. ```dgen_os/input_scenarios/my_scenario.xlsm```. 
@@ -167,11 +182,13 @@ The cloned repository will have already initialized the default values for the f
 
 
 ### F: Run the Model
-Run the model in the command line:
+
+Open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
+
+Or, launch python from within the dg3n environment and run:
 ```
    $ python dgen_model.py
 ```
-Or, open "dgen_model.py" in the Spyder IDE and hit the large green arrow "play button" near the upper left to run the model.
 
 Results from the model run will be placed in a SQL table called "agent_outputs" within a newly created schema in the connected database. Because the database will not persist once a docker container is terminated, these results will need to be saved locally.
 
