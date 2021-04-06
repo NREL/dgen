@@ -1,10 +1,24 @@
-﻿![dGen outputs in action](https://www.nrel.gov/analysis/dgen/assets/images/hero-hp-dgen.jpg)
+﻿<p align="center">
+ <img src="https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png" />
+</p>
 
-## Watch The Webinar and Setup Tutorial
-https://youtu.be/-Te5_KKZR8o
+The Distributed Generation Market Demand (dGen) Model
+=====================================================
 
-## Formal Documentation Model Code
-[Documentation](https://nrel.github.io/dgen/) 
+<p align="center">
+ <a href="https://github.com/NREL/dgen/releases/latest">
+  <img src="https://img.shields.io/github/v/release/NREL/dgen">
+ </a>
+ <a href="https://nrel.github.io/dgen/">
+  <img src="https://img.shields.io/badge/docs-ready-blue.svg">
+ </a>
+</p>
+
+
+## Documentation
+- [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
+- [Documentation](https://nrel.github.io/dgen/) 
+- [Wiki](https://github.com/NREL/dgen/wiki)
 
 ## Get Your Tools
 Install Docker (Mac): https://docs.docker.com/docker-for-mac/install/; (Windows): https://docs.docker.com/docker-for-windows/install/
@@ -67,6 +81,7 @@ After cloning this repository and installing (and running) Docker as well as Ana
    $ docker exec -it <container id> psql -U postgres
    $ postgres=# CREATE DATABASE dgen_db;
 ```
+- sometimes ```docker container ls``` doesn't display anything. If this is the case try running ```docker container ps```.
 - If you get the error ``` psql: FATAL:  the database system is starting up ``` try rerunning the docker exec command again after a minute or so because docker can take some time to initialize everything.
 
 - ```CREATE DATABASE``` will be printed when the database is created. ```\l``` will display the databases in your server.
@@ -81,22 +96,29 @@ For example, if you want to simulate only California then navigate to the 'ca_fi
 
 You will also need to download and unzip the agent files "OS_dGen_Agents.zip", making sure the use the correct agent file corresponding to the scenario you'd like to run (e.g. commercial agents for California).
 
-Next, run the following in the command line (replacing 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
+#### Windows Users
 
-```
-   $ cat /path_to_where_you_saved_data/dgen_db.sql | docker exec -i <container id> psql -U postgres -d dgen_db
-```
-
-- Note, if on a Windows machine, use Powershell rather than command prompt. If linux commands still aren't working in Powershell, you can copy the data to the docker container and then load the data by running:
+In Windows Powershell run the following (make sure to replace 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file):
 
 ```
    $ docker cp /path_to_where_you_saved_data/dgen_db.sql <container id>:/dgen_db.sql
    $ docker exec -i <container id> psql -U postgres -d dgen_db -f dgen_db.sql
 ```
 
+
+#### Mac Users
+
+In a new terminal widnow run the following (make sure to replace 'path_to_where_you_saved_database_file' below with the actual path where you saved your database file): 
+
+```
+   $ cat /path_to_where_you_saved_data/dgen_db.sql | docker exec -i <container id> psql -U postgres -d dgen_db
+```
+
+Notes:
 - Backing up state/ISO databases will likely take 5-15 minutes. The national database will take 45-60 minutes.
 - Don't close docker at any point while running dGen.
 - The container can be "paused" by running ```$ docker stop <container id>``` and "started" by running ```$ docker start <container id>```
+- The container must be started/running to restore and or access the database (including during model run time).
 
 ### C. Create Local Server:
 Once the database is restored (it will take 45-60 minutes), open PgAdmin and create a new server. Name this whatever you want. Write "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
@@ -129,6 +151,7 @@ See the Input Sheet Wiki page for more details on customizing scenarios.
    }
 ```
 
+- dbname will likely just be "dgen_db" unless you changed the name of this database in postgres
 - Localhost could also be set as "127.0.0.1"
 - Save this file
 - Make sure the role is set as "postgres" in settings.py (it is set as "postgres" already by default)
@@ -140,8 +163,7 @@ The cloned repository will have already initialized the default values for the f
 * ``` start_year = 2014 ``` ( in /../dgen/python/config.py)                    --> start year the model will begin at
 * ``` pg_procs = 2 ``` ( in /../dgen/python/config.py)                              --> number of parallel processes the model will run with
 * ``` cores = 2 ``` ( in /../dgen/python/config.py)                                        --> number of cores the model will run with
-
-* ``` role = "postgres" ``` ( in /../dgen/python/config.py)    --> set role of the restored database
+* ``` role = "postgres" ``` ( in /../dgen/python/config.py)                                    --> set role of the restored database
 
 
 ### F: Run the Model
