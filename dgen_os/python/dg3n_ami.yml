@@ -1,4 +1,4 @@
-name: dg3n
+name: dg3n_ami
 channels:
   - defaults
   - conda-forge
@@ -17,7 +17,6 @@ dependencies:
   - psutil
   - psycopg2
   - scipy
-  - spyder
   - sqlalchemy
   - nrel-pysam 2.1.4
   - nrel-pysam-stubs 2.1.4
