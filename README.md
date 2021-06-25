@@ -183,6 +183,7 @@ Or, launch python from within the dg3n environment and run:
 ```$ python dgen_model.py```
 
 Notes:
+- Only one agent file can be put in the input_agents directory.
 - Results from the model run will be placed in a SQL table called "agent_outputs" within a newly created schema in the connected database. 
 - The database and results will be preserved in the docker container if you stop the container and or close docker. Simply start the container to access the database again.
 - The database will not persist once a docker container is terminated. Results will need to be saved locally by downloading the agent_outputs table from the schema run of interest or by dumping the entire database to a .sql file (see below).
