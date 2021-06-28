@@ -71,7 +71,6 @@ After cloning this repository and installing (and running) Docker as well as Ana
 To setup another docker container with a different database you can run:
 ```$ docker run --name postgis_2 -p 7000:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d mdillon/postgis``` where ```7000``` can be any port number not already in use. 
 
-```
 
 3. Connect to our postgresql DB. In the command line run the following:
 
