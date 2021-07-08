@@ -1,5 +1,5 @@
 ﻿<p align="center">
- <img src="https://github.com/NREL/dgen/blob/documentation/docs/figs/dGen-logo-lrg.png" />
+ <img src="https://github.com/NREL/dgen/blob/master/docs/figs/dGen-logo-lrg.png" />
 </p>
 
 
@@ -18,7 +18,7 @@ The Distributed Generation Market Demand (dGen) Model
 
 ## Documentation
 - [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
-- [Documentation](https://nrel.github.io/dgen/) 
+- [Official dGen Documentation](https://nrel.github.io/dgen/) 
 - [Wiki](https://github.com/NREL/dgen/wiki)
 
 ## Get Your Tools

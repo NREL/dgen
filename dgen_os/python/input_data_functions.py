@@ -12,6 +12,8 @@ import json
 # Load logger
 logger = utilfunc.get_logger()
 
+#%%
+
 def get_psql_table_fields(engine, schema, name):
     """
     Creates numpy array of columns from specified schema and table
