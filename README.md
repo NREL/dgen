@@ -2,7 +2,6 @@
  <img src="https://github.com/NREL/dgen/blob/master/docs/figs/dGen-logo-lrg.png" />
 </p>
 
-
 The Distributed Generation Market Demand (dGen) Model
 =====================================================
 
