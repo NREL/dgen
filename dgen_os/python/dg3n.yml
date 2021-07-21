@@ -8,15 +8,16 @@ dependencies:
   - python=3
   - colorama
   - colorlog
+  - requests
   - matplotlib
   - numpy
   - openpyxl
-  - pandas=1
+  - pandas=1.1.5
   - pyarrow
   - psutil
   - psycopg2
   - scipy
   - spyder
   - sqlalchemy
-  - nrel-pysam
-  - nrel-pysam-stubs
+  - nrel-pysam 2.1.4
+  - nrel-pysam-stubs 2.1.4

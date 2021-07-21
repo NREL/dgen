@@ -10,7 +10,7 @@ import pyarrow.parquet as pq
 model_path = os.path.dirname(os.path.abspath(__file__))
 
 # set the name of the pg_params_file
-pg_params_file = 'pg_params_atlas.json'
+pg_params_file = 'pg_params_connect.json'
 
 #==============================================================================
 #   model start year
@@ -21,6 +21,11 @@ start_year = 2014
 #   set number of parallel processes to run postgres queries
 #==============================================================================
 pg_procs = 2
+
+#==============================================================================
+#   set role for database (default is postgres)
+#==============================================================================
+role = 'postgres'
 
 #==============================================================================
 #   local cores

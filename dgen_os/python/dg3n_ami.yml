@@ -1,0 +1,22 @@
+name: dg3n_ami
+channels:
+  - defaults
+  - conda-forge
+  - anaconda
+  - nrel
+dependencies:
+  - python=3
+  - colorama
+  - colorlog
+  - requests
+  - matplotlib
+  - numpy
+  - openpyxl
+  - pandas=1.1.5
+  - pyarrow
+  - psutil
+  - psycopg2
+  - scipy
+  - sqlalchemy
+  - nrel-pysam 2.1.4
+  - nrel-pysam-stubs 2.1.4

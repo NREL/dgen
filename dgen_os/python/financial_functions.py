@@ -290,7 +290,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
 
     # PV
     pv = dict()
-
+    
     load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
 
     pv['consumption_hourly'] = pd.Series(load_profile_df['consumption_hourly']).iloc[0]
@@ -642,7 +642,8 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
                                              args = (pv, utilityrate, loan, batt, system_costs, agent, rate_switch_table, True, 0),
                                              bounds = (0, max_system_kw),
                                              method = 'bounded',
-                                             tol = tol)
+                                             options={'xatol':tol})
+                                             #tol = tol)
 
     # PySAM Module outputs with battery
     batt_loan_outputs = loan.Outputs.export()
@@ -658,7 +659,8 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
                                            args = (pv, utilityrate, loan, batt, system_costs, agent, rate_switch_table, False, 0),
                                            bounds = (0, max_system_kw),
                                            method = 'bounded',
-                                           tol = tol)
+                                           options={'xatol':tol})
+                                        #    tol = tol)
 
     # PySAM Module outputs without battery
     no_batt_loan_outputs = loan.Outputs.export()

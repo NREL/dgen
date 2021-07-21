@@ -13,29 +13,6 @@ import json
 logger = utilfunc.get_logger()
 
 #%%
-def check_table_exists(schema, table, con):
-    """
-    Checks if table exists in schema
-    
-    Parameters
-    ----------
-    **schema** : 'SQL schema'
-        SQL schema in which to check if given table exists
-    **table** : 'SQL table'
-        SQL table to be searched 
-    **con** : 'SQL connection'
-        SQL connection to connect to database
-
-    Returns
-    -------
-    **True or False** : 'bool'
-        Returns True if table exists in schema.
-
-    """
-
-    sql = """SELECT EXISTS (SELECT 1 FROM   information_schema.tables WHERE  table_schema = '{}' AND table_name = '{}');""".format(schema, table)
-
-    return pd.read_sql(sql, con).values[0][0]
 
 def get_psql_table_fields(engine, schema, name):
     """
@@ -256,18 +233,13 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
         userdefined_table_name = "input_" + input_name + "_user_defined"
         scenario_userdefined_name = get_userdefined_scenario_settings(schema, userdefined_table_name, con)
         scenario_userdefined_value = scenario_userdefined_name['val'].values[0]
-          
-        if check_table_exists(shared_schema, scenario_userdefined_value, con):
-            sql = 'SELECT * FROM {}."{}"'.format(shared_schema, scenario_userdefined_value)
-            df = pd.read_sql(sql, con)
+        
+        df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
 
-        else:
-            df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
+        if csv_import_function is not None:
+            df = csv_import_function(df)
 
-            if csv_import_function is not None:
-                df = csv_import_function(df)
-
-            df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
+        df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
 
     else:
         if input_name == 'elec_prices':

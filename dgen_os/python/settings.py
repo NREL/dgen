@@ -24,6 +24,7 @@ class ModelSettings(object):
         self.cdate = None  # type is text
         self.out_dir = None  # doesn't exist already, check parent folder exists
         self.start_year = None  # must = 2014
+        self.role = None  # type is text
         self.input_scenarios = None  # type is list, is not empty
         self.pg_params_file = None  # path exists
         self.pg_params = None  # type is dict, includes all elements
@@ -50,6 +51,7 @@ class ModelSettings(object):
         self.set('model_path', config.model_path)
         self.set('local_cores', config.local_cores)
         self.set('pg_procs', config.pg_procs)
+        self.set('role', config.role)
         self.set_pg_params(config.pg_params_file)
         self.set('delete_output_schema', config.delete_output_schema)
         self.set('dynamic_system_sizing', config.dynamic_system_sizing)
@@ -129,12 +131,19 @@ class ModelSettings(object):
             # check the path exists
             if os.path.exists(self.pg_params_file) == False:
                 raise ValueError('Invalid {}: does not exist'.format(property_name))
+
         elif property_name == 'role':
             # check type
             try:
                 check_type(self.get(property_name), str)
             except TypeError as e:
                 raise TypeError('Invalid {0}: {1}'.format(property_name, e))
+
+            valid_options = ["postgres","diffusion-writers"]
+
+            if self.role not in valid_options:
+                raise ValueError("Invalid Database {0} as Database Role not supported. Valid options are: '{1}' but role currently set is: '{2}'".format(
+                    property_name, valid_options[0], self.role))
 
         elif property_name in ['pg_params','pg_engine_params']:
             # check type
@@ -444,7 +453,6 @@ def init_model_settings():
     # add the config to model settings; set model starting time, output directory based on run time, etc.
     model_settings.add_config(config)
     model_settings.set('model_init', utilfunc.get_epoch_time())
-    model_settings.set('role', 'postgres')
     model_settings.set('cdate', utilfunc.get_formatted_time())
     model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate))
     model_settings.set('input_data_dir', '{}/input_data'.format(os.path.dirname(os.getcwd())))

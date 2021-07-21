@@ -143,8 +143,7 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
     suffix_microsecond = datetime.now().strftime('%f')
     logger.info('Creating output schema based on {source_schema}'.format(**inputs))
 
-    con, cur = utilfunc.make_con(pg_conn_string, role="postgres")
-    #con, cur = utilfunc.make_con(pg_conn_string, role="diffusion-schema-writers")
+    con, cur = utilfunc.make_con(pg_conn_string, role)
 
     # check that the source schema exists
     sql = """SELECT count(*)
