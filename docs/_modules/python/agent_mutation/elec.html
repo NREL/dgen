@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -26,6 +28,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -263,7 +266,7 @@
     <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;final_year_values&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">final_year</span><span class="o">-</span><span class="n">year_cap</span><span class="p">))</span> <span class="o">-</span> <span class="mf">1.0</span>
 
     <span class="c1"># et upper and lower bounds of escalator at 1.0 and -1.0, based on historic elec price growth rates</span>
-    <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">],</span> <span class="o">-.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">)</span>
+    <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">],</span> <span class="o">-</span><span class="mf">.01</span><span class="p">,</span> <span class="mf">.01</span><span class="p">)</span>
 
     <span class="c1"># merge multiplier and escalator values back to agent dataframe</span>
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">elec_price_multiplier_df</span><span class="p">[[</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">])</span>

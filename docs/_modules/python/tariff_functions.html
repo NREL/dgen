@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -26,6 +28,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -887,7 +890,15 @@
 
 <div class="viewcode-block" id="bill_calculator"><a class="viewcode-back" href="../../api.html#python.tariff_functions.bill_calculator">[docs]</a><span class="k">def</span> <span class="nf">bill_calculator</span><span class="p">(</span><span class="n">load_profile</span><span class="p">,</span> <span class="n">tariff</span><span class="p">,</span> <span class="n">export_tariff</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Deprecated. Nullified by new PySAM code and will be taken out.</span>
+<span class="sd">    Deprecated. Nullified by new PySAM code but kept for reference.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load_profile : 8760 profile of agent</span>
+<span class="sd">    tariff : :class:`python.tariff_functions.Tariff`</span>
+<span class="sd">        Tariff class object</span>
+<span class="sd">    export_tariff : :class:`python.tariff_functions.Export_Tariff`</span>
+<span class="sd">        Export tariff class object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">n_months</span> <span class="o">=</span> <span class="mi">12</span>
@@ -1122,9 +1133,21 @@
 <span class="c1"># Bulk Downloader from URDB API</span>
 <div class="viewcode-block" id="download_tariffs_from_urdb"><a class="viewcode-back" href="../../api.html#python.tariff_functions.download_tariffs_from_urdb">[docs]</a><span class="k">def</span> <span class="nf">download_tariffs_from_urdb</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">sector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">utility</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    API request for URDB rates.</span>
 <span class="sd">    Each user should get their own URDB API key: http://en.openei.org/services/api/signup/</span>
+<span class="sd">    Sectors: Residential, Commercial, Industrial, Lighting </span>
 <span class="sd">    </span>
-<span class="sd">    Sectors: Residential, Commercial, Industrial, Lighting</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    api_key : str</span>
+<span class="sd">        Each user should get their own URDB API key: http://en.openei.org/services/api/signup/</span>
+<span class="sd">    sector : str</span>
+<span class="sd">        One of Residential, Commercial, Industrial, Lighting</span>
+<span class="sd">    utility : str, optional</span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Dataframe of URDB rates.</span>
 <span class="sd">    </span>
 <span class="sd">    &#39;&#39;&#39;</span>
         
@@ -1210,10 +1233,22 @@
                      <span class="n">keyword_list_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">demand_units_to_exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="s1">&#39;kVA&#39;</span><span class="p">,</span> <span class="s1">&#39;kW daily&#39;</span><span class="p">,</span> <span class="s1">&#39;hp daily&#39;</span><span class="p">,</span> <span class="s1">&#39;kVA daily&#39;</span><span class="p">],</span> 
                      <span class="n">remove_expired</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-                         
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Filter tariffs based on inclusion (e.g. keywords), or exclusion (e.g. demand units)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tariff_df : pandas.DataFrame</span>
+<span class="sd">        dataframe of URDB tariffs created by :func:`download_tariffs_from_urdb`.</span>
+<span class="sd">    keyword_list : list of str, optional</span>
+<span class="sd">        list of keywords to search for in rate structure.</span>
+<span class="sd">    keyword_list_file : str</span>
+<span class="sd">        filepath to .txt file containing keywords to search for.</span>
+<span class="sd">    demand_units_to_exclude : list of str</span>
+<span class="sd">        exclude rates from URDB database if the units are contained in this list. Default values are `hp`,`kVA`,`kW daily`,`hp daily`,`kVA daily`</span>
+<span class="sd">    remove_expired : bool</span>
+<span class="sd">        exclude expired rates. Default is `True`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">keyword_list_file</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">keyword_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1253,7 +1288,14 @@
 <span class="c1"># Create 8760 from two 12x24&#39;s</span>
 <div class="viewcode-block" id="build_8760_from_12by24s"><a class="viewcode-back" href="../../api.html#python.tariff_functions.build_8760_from_12by24s">[docs]</a><span class="k">def</span> <span class="nf">build_8760_from_12by24s</span><span class="p">(</span><span class="n">wkday_12by24</span><span class="p">,</span> <span class="n">wkend_12by24</span><span class="p">,</span> <span class="n">start_day</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Start day of 6 equates to a Sunday</span>
+<span class="sd">    Construct long-df (8760) from a weekday and weekend 12by24</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wkday_12by24 : numpy.ndarray</span>
+<span class="sd">    wkend_12by24 : numpy.ndarray</span>
+<span class="sd">    start_day : int</span>
+<span class="sd">        Start day of 6 (default) equates to a Sunday.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">month_hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">744</span><span class="p">,</span> <span class="mi">1416</span><span class="p">,</span> <span class="mi">2160</span><span class="p">,</span> <span class="mi">2880</span><span class="p">,</span> <span class="mi">3624</span><span class="p">,</span> <span class="mi">4344</span><span class="p">,</span> <span class="mi">5088</span><span class="p">,</span> <span class="mi">5832</span><span class="p">,</span> <span class="mi">6552</span><span class="p">,</span> <span class="mi">7296</span><span class="p">,</span> <span class="mi">8016</span><span class="p">,</span> <span class="mi">8760</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>
@@ -1288,6 +1330,12 @@
 <span class="sd">    ----------    </span>
 <span class="sd">    agent_df : &#39;pd.DataFrame&#39;</span>
 <span class="sd">        agents as loaded from the agent pkl file.       </span>
+
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        agent_df.load_profile : numpy.ndarray</span>
+<span class="sd">        agent_df.weight : numpy.ndarray</span>
+
 <span class="sd">    avg_rev : &#39;float&#39;</span>
 <span class="sd">        $/kWh that the tariff would extract from the given portfolio of customers. </span>
 <span class="sd">    peak_hour_indicies : &#39;list&#39;</span>
@@ -1304,6 +1352,11 @@
 <span class="sd">    rev_f_fixed : &#39;list&#39;</span>
 <span class="sd">        [fraction of revenue from fixed monthly charges]. ex: [0.025].</span>
 
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    1)  Peak hours are the same between demand and energy.</span>
+<span class="sd">    2)  Peak hours only occur during the summer.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    tarrif : &#39;class object&#39;</span>
@@ -1311,7 +1364,6 @@
 <span class="sd">    &#39;&#39;&#39;</span>
 
 
-    
     <span class="c1"># Construct the 12x24 matricies for the given peak hours</span>
     <span class="n">d_wkend_12by24</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>
     <span class="n">d_wkday_12by24</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>

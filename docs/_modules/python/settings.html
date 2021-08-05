@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -26,6 +28,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -204,6 +207,31 @@
 
 
 <div class="viewcode-block" id="ModelSettings"><a class="viewcode-back" href="../../api.html#python.settings.ModelSettings">[docs]</a><span class="k">class</span> <span class="nc">ModelSettings</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Class containing the model settings parameters</span>
+<span class="sd">     Attributes</span>
+<span class="sd">     ----------</span>
+<span class="sd">     model_init : float</span>
+<span class="sd">     cdate : str</span>
+<span class="sd">     out_dir : str</span>
+<span class="sd">     input_agent_dir : str</span>
+<span class="sd">     input_data_dir : str</span>
+<span class="sd">     start_year : int</span>
+<span class="sd">     input_scenarios : list</span>
+<span class="sd">     pg_params_file : str</span>
+<span class="sd">     role : str</span>
+<span class="sd">     pg_params : dict</span>
+<span class="sd">     pg_engine_params : dict</span>
+<span class="sd">     pg_conn_string : str</span>
+<span class="sd">     pg_engine_string : str</span>
+<span class="sd">     pg_params_log : str</span>
+<span class="sd">     model_path : bool</span>
+<span class="sd">     local_cores : int</span>
+<span class="sd">     pg_procs : int</span>
+<span class="sd">     delete_output_schema : bool</span>
+<span class="sd">     dynamic_system_sizing : bool</span>
+<span class="sd">     &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -417,6 +445,8 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="ScenarioSettings"><a class="viewcode-back" href="../../api.html#python.settings.ScenarioSettings">[docs]</a><span class="k">class</span> <span class="nc">ScenarioSettings</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Storage of all scenario specific inputs&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -624,6 +654,7 @@
 
 
 <div class="viewcode-block" id="init_model_settings"><a class="viewcode-back" href="../../api.html#python.settings.init_model_settings">[docs]</a><span class="k">def</span> <span class="nf">init_model_settings</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;initialize Model Settings object (this controls settings that apply to all scenarios to be executed)&quot;&quot;&quot;</span>
     <span class="c1"># initialize Model Settings object (this controls settings that apply to</span>
     <span class="c1"># all scenarios to be executed)</span>
     <span class="n">model_settings</span> <span class="o">=</span> <span class="n">ModelSettings</span><span class="p">()</span>
@@ -644,6 +675,7 @@
 
 
 <div class="viewcode-block" id="init_scenario_settings"><a class="viewcode-back" href="../../api.html#python.settings.init_scenario_settings">[docs]</a><span class="k">def</span> <span class="nf">init_scenario_settings</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">cur</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;load scenario specific data and configure output settings&quot;&quot;&quot;</span>
     <span class="n">scenario_settings</span> <span class="o">=</span> <span class="n">ScenarioSettings</span><span class="p">()</span>
     <span class="n">scenario_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;input_scenario&#39;</span><span class="p">,</span> <span class="n">scenario_file</span><span class="p">)</span>
 

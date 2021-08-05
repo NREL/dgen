@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -26,6 +28,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -448,27 +451,27 @@
 <span class="sd">    agent: &#39;pd.df&#39;</span>
 <span class="sd">        Adds several features to the agent dataframe:</span>
 
-<span class="sd">        - **agent_id**</span>
-<span class="sd">        - **system_kw** - system capacity selected by agent</span>
-<span class="sd">        - **batt_kw** - battery capacity selected by agent</span>
-<span class="sd">        - **batt_kwh** - battery energy capacity</span>
-<span class="sd">        - **npv** - net present value of system + storage</span>
-<span class="sd">        - **cash_flow**  - array of annual cash flows from system adoption</span>
-<span class="sd">        - **batt_dispatch_profile** - array of hourly battery dispatch</span>
-<span class="sd">        - **annual_energy_production_kwh** - annual energy production (kwh) of system</span>
-<span class="sd">        - **naep** - normalized annual energy production (kwh/kW) of system</span>
-<span class="sd">        - **capacity_factor** - annual capacity factor</span>
-<span class="sd">        - **first_year_elec_bill_with_system** - first year electricity bill with adopted system ($/yr)</span>
-<span class="sd">        - **first_year_elec_bill_savings** - first year electricity bill savings with adopted system ($/yr)</span>
-<span class="sd">        - **first_year_elec_bill_savings_frac** - fraction of savings on electricity bill in first year of system adoption</span>
-<span class="sd">        - **max_system_kw** - maximum system size allowed as constrained by roof size or not exceeding annual consumption </span>
-<span class="sd">        - **first_year_elec_bill_without_system** - first year electricity bill without adopted system ($/yr)</span>
-<span class="sd">        - **avg_elec_price_cents_per_kwh** - first year electricity price (c/kwh)</span>
-<span class="sd">        - **cbi** - ndarray of capacity-based incentives applicable to agent</span>
-<span class="sd">        - **ibi** - ndarray of investment-based incentives applicable to agent</span>
-<span class="sd">        - **pbi** - ndarray of performance-based incentives applicable to agent</span>
-<span class="sd">        - **cash_incentives** - ndarray of cash-based incentives applicable to agent</span>
-<span class="sd">        - **export_tariff_result** - summary of structure of retail tariff applied to agent</span>
+<span class="sd">        - agent_id</span>
+<span class="sd">        - system_kw - system capacity selected by agent</span>
+<span class="sd">        - batt_kw - battery capacity selected by agent</span>
+<span class="sd">        - batt_kwh - battery energy capacity</span>
+<span class="sd">        - npv - net present value of system + storage</span>
+<span class="sd">        - cash_flow  - array of annual cash flows from system adoption</span>
+<span class="sd">        - batt_dispatch_profile - array of hourly battery dispatch</span>
+<span class="sd">        - annual_energy_production_kwh - annual energy production (kwh) of system</span>
+<span class="sd">        - naep - normalized annual energy production (kwh/kW) of system</span>
+<span class="sd">        - capacity_factor - annual capacity factor</span>
+<span class="sd">        - first_year_elec_bill_with_system - first year electricity bill with adopted system ($/yr)</span>
+<span class="sd">        - first_year_elec_bill_savings - first year electricity bill savings with adopted system ($/yr)</span>
+<span class="sd">        - first_year_elec_bill_savings_frac - fraction of savings on electricity bill in first year of system adoption</span>
+<span class="sd">        - max_system_kw - maximum system size allowed as constrained by roof size or not exceeding annual consumption </span>
+<span class="sd">        - first_year_elec_bill_without_system - first year electricity bill without adopted system ($/yr)</span>
+<span class="sd">        - avg_elec_price_cents_per_kwh - first year electricity price (c/kwh)</span>
+<span class="sd">        - cbi - ndarray of capacity-based incentives applicable to agent</span>
+<span class="sd">        - ibi - ndarray of investment-based incentives applicable to agent</span>
+<span class="sd">        - pbi - ndarray of performance-based incentives applicable to agent</span>
+<span class="sd">        - cash_incentives - ndarray of cash-based incentives applicable to agent</span>
+<span class="sd">        - export_tariff_result - summary of structure of retail tariff applied to agent</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
@@ -1279,7 +1282,7 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    - **dataframe**: &#39;pd.df&#39; - Agent dataframe with payback period joined on dataframe</span>
+<span class="sd">    - dataframe: &#39;pd.df&#39; - Agent dataframe with payback period joined on dataframe</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1341,6 +1344,23 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="calc_max_market_share"><a class="viewcode-back" href="../../api.html#python.financial_functions.calc_max_market_share">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calc_max_market_share</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">max_market_share_df</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the maximum marketshare available for each agent. </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataframe : pandas.DataFrame</span>
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        metric_value : float</span>
+<span class="sd">            </span>
+<span class="sd">    max_market_share_df : pandas.DataFrame</span>
+<span class="sd">        Set by :meth:`settings.ScenarioSettings.get_max_marketshare`.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Input DataFrame with `max_market_share` and `metric` columns joined on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">in_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
