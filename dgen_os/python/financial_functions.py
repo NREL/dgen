@@ -1155,6 +1155,23 @@ def calc_payback_vectorized(cfs, tech_lifetime):
 @decorators.fn_timer(logger = logger, tab_level = 2, prefix = '')
 def calc_max_market_share(dataframe, max_market_share_df):
 
+    """
+    Calculates the maximum marketshare available for each agent. 
+    Parameters
+    ----------
+    dataframe : pandas.DataFrame
+        Attributes
+        ----------
+        metric_value : float
+            
+    max_market_share_df : pandas.DataFrame
+        Set by :meth:`settings.ScenarioSettings.get_max_marketshare`.
+    Returns
+    -------
+    pandas.DataFrame
+        Input DataFrame with `max_market_share` and `metric` columns joined on.
+    """
+
     in_cols = list(dataframe.columns)
     dataframe = dataframe.reset_index()
     

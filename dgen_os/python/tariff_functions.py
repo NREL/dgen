@@ -700,7 +700,15 @@ def tiered_calc_vec(values, levels, prices):
 
 def bill_calculator(load_profile, tariff, export_tariff):
     """
-    Deprecated. Nullified by new PySAM code and will be taken out.
+    Deprecated. Nullified by new PySAM code but kept for reference.
+
+    Parameters
+    ----------
+    load_profile : 8760 profile of agent
+    tariff : :class:`python.tariff_functions.Tariff`
+        Tariff class object
+    export_tariff : :class:`python.tariff_functions.Export_Tariff`
+        Export tariff class object
     """
     
     n_months = 12
@@ -935,9 +943,21 @@ def bill_calculator(load_profile, tariff, export_tariff):
 # Bulk Downloader from URDB API
 def download_tariffs_from_urdb(api_key, sector=None, utility=None, print_progress=False):
     '''
+    API request for URDB rates.
     Each user should get their own URDB API key: http://en.openei.org/services/api/signup/
+    Sectors: Residential, Commercial, Industrial, Lighting 
     
-    Sectors: Residential, Commercial, Industrial, Lighting
+    Parameters
+    ----------
+    api_key : str
+        Each user should get their own URDB API key: http://en.openei.org/services/api/signup/
+    sector : str
+        One of Residential, Commercial, Industrial, Lighting
+    utility : str, optional
+    Return
+    ------
+    pandas.DataFrame
+        Dataframe of URDB rates.
     
     '''
         
@@ -1023,10 +1043,22 @@ def filter_tariff_df(tariff_df,
                      keyword_list_file=None,
                      demand_units_to_exclude=['hp', 'kVA', 'kW daily', 'hp daily', 'kVA daily'], 
                      remove_expired=True):
-                         
-    '''
-    
-    '''
+
+    """
+    Filter tariffs based on inclusion (e.g. keywords), or exclusion (e.g. demand units)
+    Parameters
+    ----------
+    tariff_df : pandas.DataFrame
+        dataframe of URDB tariffs created by :func:`download_tariffs_from_urdb`.
+    keyword_list : list of str, optional
+        list of keywords to search for in rate structure.
+    keyword_list_file : str
+        filepath to .txt file containing keywords to search for.
+    demand_units_to_exclude : list of str
+        exclude rates from URDB database if the units are contained in this list. Default values are `hp`,`kVA`,`kW daily`,`hp daily`,`kVA daily`
+    remove_expired : bool
+        exclude expired rates. Default is `True`.
+    """
     
     if keyword_list_file != None:
         keyword_list = []
@@ -1066,7 +1098,14 @@ def filter_tariff_df(tariff_df,
 # Create 8760 from two 12x24's
 def build_8760_from_12by24s(wkday_12by24, wkend_12by24, start_day=6):
     '''
-    Start day of 6 equates to a Sunday
+    Construct long-df (8760) from a weekday and weekend 12by24
+    
+    Parameters
+    ----------
+    wkday_12by24 : numpy.ndarray
+    wkend_12by24 : numpy.ndarray
+    start_day : int
+        Start day of 6 (default) equates to a Sunday.
     '''
     
     month_hours = np.array([0, 744, 1416, 2160, 2880, 3624, 4344, 5088, 5832, 6552, 7296, 8016, 8760], int)
@@ -1101,6 +1140,12 @@ def design_tariff_for_portfolio(agent_df, avg_rev, peak_hour_indicies, summer_mo
     ----------    
     agent_df : 'pd.DataFrame'
         agents as loaded from the agent pkl file.       
+
+        Attributes
+        ----------
+        agent_df.load_profile : numpy.ndarray
+        agent_df.weight : numpy.ndarray
+
     avg_rev : 'float'
         $/kWh that the tariff would extract from the given portfolio of customers. 
     peak_hour_indicies : 'list'
@@ -1117,6 +1162,11 @@ def design_tariff_for_portfolio(agent_df, avg_rev, peak_hour_indicies, summer_mo
     rev_f_fixed : 'list'
         [fraction of revenue from fixed monthly charges]. ex: [0.025].
 
+    Note
+    ----
+    1)  Peak hours are the same between demand and energy.
+    2)  Peak hours only occur during the summer.
+
     Returns
     -------
     tarrif : 'class object'
@@ -1124,7 +1174,6 @@ def design_tariff_for_portfolio(agent_df, avg_rev, peak_hour_indicies, summer_mo
     '''
 
 
-    
     # Construct the 12x24 matricies for the given peak hours
     d_wkend_12by24 = np.zeros([12,24], int)
     d_wkday_12by24 = np.zeros([12,24], int)
