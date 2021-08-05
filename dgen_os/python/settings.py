@@ -17,6 +17,31 @@ logger = utilfunc.get_logger()
 
 
 class ModelSettings(object):
+    
+    """
+     Class containing the model settings parameters
+     Attributes
+     ----------
+     model_init : float
+     cdate : str
+     out_dir : str
+     input_agent_dir : str
+     input_data_dir : str
+     start_year : int
+     input_scenarios : list
+     pg_params_file : str
+     role : str
+     pg_params : dict
+     pg_engine_params : dict
+     pg_conn_string : str
+     pg_engine_string : str
+     pg_params_log : str
+     model_path : bool
+     local_cores : int
+     pg_procs : int
+     delete_output_schema : bool
+     dynamic_system_sizing : bool
+     """
 
     def __init__(self):
 
@@ -239,6 +264,8 @@ class ModelSettings(object):
 
 #%%
 class ScenarioSettings(object):
+    
+    """Storage of all scenario specific inputs"""
 
     def __init__(self):
 
@@ -446,6 +473,7 @@ def check_type(obj, expected_type):
 
 
 def init_model_settings():
+    """initialize Model Settings object (this controls settings that apply to all scenarios to be executed)"""
     # initialize Model Settings object (this controls settings that apply to
     # all scenarios to be executed)
     model_settings = ModelSettings()
@@ -465,6 +493,7 @@ def init_model_settings():
 
 
 def init_scenario_settings(scenario_file, model_settings, con, cur):
+    """load scenario specific data and configure output settings"""
     scenario_settings = ScenarioSettings()
     scenario_settings.set('input_scenario', scenario_file)
 

@@ -20,11 +20,11 @@ def get_psql_table_fields(engine, schema, name):
     
     Parameters
     ----------
-    **engine** : 'SQL engine'
+    engine : 'SQL engine'
         SQL engine to intepret SQL query
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         SQL schema to pull table from 
-    **name** : 'string'
+    name : 'string'
         Name of the table from which fields are retrieved
 
     Returns
@@ -43,24 +43,24 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     
     Parameters
     ----------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe to upload to database
-    **engine** : 'SQL table'
+    engine : 'SQL table'
         SQL engine to intepret SQL query 
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         Schema in which to upload df
-    **owner** : 'string'
+    owner : 'string'
         Owner of schema
-    **name** : 'string'
+    name : 'string'
         Name to be given to table that is uploaded
-    **if_exists** : 'replace or append'
+    if_exists : 'replace or append'
         If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database. 
-    **append_transformations** : 'bool'
+    append_transformations : 'bool'
         IDK
     
     Returns
     -------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe that was uploaded to database
 
     """
@@ -153,14 +153,14 @@ def get_scenario_settings(schema, con):
     
     Parameters
     ----------
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         Schema in which to look for the scenario settings
-    **con** : 'SQL connection'
+    con : 'SQL connection'
         SQL connection to connect to database
 
     Returns
     -------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe of default scenario settings
 
     """
@@ -177,14 +177,14 @@ def get_userdefined_scenario_settings(schema, table_name, con):
     
     Parameters
     ----------
-    **schema** : 'SQL schema'
+    schema : 'SQL schema'
         Schema in which to look for the scenario settings
-    **con** : 'SQL connection'
+    con : 'SQL connection'
         SQL connection to connect to database
 
     Returns
     -------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe of user created scenario settings
 
     """
@@ -202,22 +202,22 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
     
     Parameters
     ----------
-    **scenario_settings** : 'SQL schema'
+    scenario_settings : 'SQL schema'
         Schema in which to look for the scenario settings
-    **con** : 'SQL connection'
+    con : 'SQL connection'
         SQL connection to connect to database
-    **engine** : 'SQL engine'
+    engine : 'SQL engine'
         SQL engine to intepret SQL query
-    **role** : 'string'
+    role : 'string'
         Owner of schema
-    **input_name** : 'string'
+    input_name : 'string'
         Name of the csv file that should be imported     
-    **csv_import_function** : 'function'
+    csv_import_function : 'function'
         Specific function to import and munge csv 
     
     Returns
     -------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe of the table that was imported
 
     """
@@ -259,12 +259,12 @@ def stacked_sectors(df):
     
     Parameters
     ----------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    **output** : 'pd.df'
+    output : 'pd.df'
         Dataframe of the table that was imported and split by sector
 
     """
@@ -299,12 +299,12 @@ def deprec_schedule(df):
     
     Parameters
     ----------
-    **df** : 'pd.df'
+    df : 'pd.df'
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    **output** : 'pd.df'
+    output : 'pd.df'
         Dataframe of depreciation schedule sorted by year
 
     """
@@ -331,12 +331,12 @@ def melt_year(parameter_name):
     
     Parameters
     ----------
-    **parameter name** : 'string'
+    parameter name : 'string'
         Name of the parameter value in dataframe. 
     
     Returns
     -------
-    **function** : 'function'
+    function : 'function'
         Function that melts years and parameter value to row axis
 
     """
@@ -347,12 +347,12 @@ def melt_year(parameter_name):
     
         Parameters
         ----------
-        **df** : 'pd.df'
+        df : 'pd.df'
             Dataframe to be unpivot. 
     
         Returns
         -------
-        **df_tidy** : 'pd.df'
+        df_tidy : 'pd.df'
             Dataframe with every other year and the parameter value for that year as rows for each state 
 
         """
@@ -376,24 +376,24 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
     
     Parameters
     ----------
-    **scenario_settings** : 'SQL schema'
+    scenario_settings : 'SQL schema'
         Schema of the scenario settings
-    **con** : 'SQL connection'
+    con : 'SQL connection'
         SQL connection to connect to database
-    **cur** : 'SQL cursor'
+    cur : 'SQL cursor'
         Cursor
-    **engine** : 'SQL engine'
+    engine : 'SQL engine'
         SQL engine to intepret SQL query
-    **model_settings** : 'object'
+    model_settings : 'object'
         Model settings that apply to all scenarios
-    **agent_file_status** : 'attribute'
+    agent_file_status : 'attribute'
         Attribute that describes whether to use pre-generated agent file or create new    
-    **input_name** : 'string'
+    input_name : 'string'
         .Pkl file name substring of pre-generated agent table 
     
     Returns
     -------
-    **solar_agents** : 'Class'
+    solar_agents : 'Class'
         Instance of Agents class with either user pre-generated or new data
 
     """
@@ -438,12 +438,12 @@ def process_elec_price_trajectories(elec_price_traj):
     
     Parameters
     ----------
-    **elec_price_traj** : 'pd.df'
+    elec_price_traj : 'pd.df'
         Dataframe of electricity prices by year and ReEDS BA
     
     Returns
     -------
-    **elec_price_change_traj** : 'pd.df'
+    elec_price_change_traj : 'pd.df'
         Dataframe of annual electricity price change factors from base year
 
     """
@@ -495,12 +495,12 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
     
     Parameters
     ----------
-    **wholesale_elec_price_traj** : 'pd.df'
+    wholesale_elec_price_traj : 'pd.df'
         Dataframe of wholesale electricity prices by year and ReEDS BA
     
     Returns
     -------
-    **wholesale_elec_price_change_traj** : 'pd.df'
+    wholesale_elec_price_change_traj : 'pd.df'
         Dataframe of annual electricity price change factors from base year
 
     """
@@ -528,12 +528,12 @@ def process_load_growth(load_growth):
     
     Parameters
     ----------
-    **laod_growth** : 'pd.df'
+    load_growth : 'pd.df'
         Dataframe of annual load growth rates
     
     Returns
     -------
-    **load_growth_change_traj** : 'pd.df'
+    load_growth_change_traj : 'pd.df'
         Dataframe of annual load growth rates relative to base year
 
     """

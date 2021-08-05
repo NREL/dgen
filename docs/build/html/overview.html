@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dGen Overview &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dGen Code Base" href="api.html" />
+    <link rel="prev" title="License" href="license.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>dGen Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dgen-overview">
+<h1>dGen Overview<a class="headerlink" href="#dgen-overview" title="Permalink to this headline">¶</a></h1>
+<p>The dGen model provides users with a way to run the model on pre-generated agents for a sub-set of
+states in the United States. Hawaii and Alaska are excluded from the dataset. For additional
+information on the data needed to run the model, methods used, and other important aspects of
+configuring a model run, please refer to the home page readme and or the wiki on github.</p>
+<div class="section" id="agent-based-model">
+<h2>agent based model<a class="headerlink" href="#agent-based-model" title="Permalink to this headline">¶</a></h2>
+<p>Every dGen analysis starts with a base agent file that uses statistically-sampled agents meant to be
+comprehensive and representative of the modeled population. They are comprehensive in the sense they
+are intended to represent the summation of underlying statistics, e.g. the total retail electricity
+consumed in the state. They are representative in that agents are sampled to represent heterogeneity
+of the population, e.g. variance in the cost of electricity. As described in ( Sigrin et al. 2018)
+“during agent creation, each county in United States is seeded with sets of residential, commercial,
+and industrial agents, each instantiated at population-weighted random locations within the county’s
+geographic boundaries. Agents are referenced against geographic data sets to establish a load profile,
+solar resource availability, a feasible utility rate structure, and other techno-economic attributes
+specific to the agent’s location. Each agent is assigned a weight that is proportional to the number
+of customers the agent represents in its county. In this context, agents can be understood as
+statistically representative population clusters and do not represent individual entities.”</p>
+</div>
+<div class="section" id="dgen-database">
+<h2>dGen Database<a class="headerlink" href="#dgen-database" title="Permalink to this headline">¶</a></h2>
+<p>diffusion_config - This schema contains tables governing the possible configurations present in the
+input sheet.</p>
+<p>diffusion_iso_rto_data - This schema contains tables related to county-state-ISO/RTO topology mapping,
+ISO/RTO load profiles by zone and sector, as well as participation factors.</p>
+<p>diffusion_load_profiles - This schema contains tables relating to the load profiles used by agents
+generated by the NREL Buildings team.</p>
+<p>diffusion_mapping - This schema contains additional tables related to county-state-ISO/RTO-NERC
+topology mapping as well as existing installed capacity.</p>
+<p>diffusion_resource_solar - This schema contains a table, solar_resource_hourly, which contains the
+solar capacity factor for a given geographic-azimuth-tilt combination that matches to the same geographic-azimuth-tilt combination found in the pre-generated agents pickle file.</p>
+<p>diffusion_shared - This schema contains tables used for inputs in the input sheet. Please browse
+these tables as the names of these tables are representative of what these data are.</p>
+<p>diffusion_solar - This schema contains tables with additional data pertaining to modeling solar
+constraints, incentives, and costs.</p>
+<p>diffusion_template - This schema contains tables that are copied to make a new schema upon completing
+a dgen model run. Many of these are populated with data from the input sheet, from various
+joins/functions done within the database, and of course data from the model run.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="dGen Code Base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="license.html" class="btn btn-neutral float-left" title="License" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

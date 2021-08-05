@@ -1,0 +1,1265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.agent_mutation.elec &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.agent_mutation.elec</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.agent_mutation.elec</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">psycopg2</span> <span class="k">as</span> <span class="nn">pg</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">decorators</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">import</span> <span class="nn">concurrent.futures</span> <span class="k">as</span> <span class="nn">concur_f</span>
+<span class="kn">import</span> <span class="nn">tariff_functions</span> <span class="k">as</span> <span class="nn">tFuncs</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+
+<span class="c1"># GLOBAL SETTINGS</span>
+
+<span class="c1"># load logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+
+<span class="c1"># configure psycopg2 to treat numeric values as floats (improves performance of pulling data from the database)</span>
+<span class="n">DEC2FLOAT</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">new_type</span><span class="p">(</span><span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">DECIMAL</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                                   <span class="s1">&#39;DEC2FLOAT&#39;</span><span class="p">,</span>
+                                   <span class="k">lambda</span> <span class="n">value</span><span class="p">,</span> <span class="n">curs</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="n">DEC2FLOAT</span><span class="p">)</span>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_elec_price_multiplier_and_escalator"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_elec_price_multiplier_and_escalator">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_elec_price_multiplier_and_escalator</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">elec_price_change_traj</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Obtain a single scalar multiplier for each agent, that is the cost of</span>
+<span class="sd">    electricity relative to 2016 (when the tariffs were curated).</span>
+<span class="sd">    Also calculate the compound annual growth rate (CAGR) for the price of</span>
+<span class="sd">    electricity from present year to 2050, which will be the escalator that</span>
+<span class="sd">    agents use to project electricity changes in their bill calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    elec_price_multiplier = change in present-year elec cost to 2016</span>
+<span class="sd">    elec_price_escalator = agent&#39;s assumption about future price changes</span>
+<span class="sd">    Note that many customers will not differentiate between real and nominal,</span>
+<span class="sd">    and therefore many would overestimate the real escalation of electriicty</span>
+<span class="sd">    prices.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    year : &#39;int&#39;</span>
+<span class="sd">        The year for which you want multiplier values for</span>
+<span class="sd">    elec_price_change_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of electricity prices&#39; trajectories over time. See the </span>
+<span class="sd">        &#39;input_elec_prices_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with elec_price_multiplier and elec_price_escalator data merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1"># get current year multiplier values</span>
+    <span class="n">elec_price_multiplier_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># copy to the multiplier_df for escalator calcs</span>
+    <span class="n">year_cap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">2040</span><span class="p">)</span>
+    <span class="n">elec_price_escalator_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">year_cap</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># get final year multiplier values and attach to escalator_df</span>
+    <span class="n">final_year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+    <span class="n">final_year_df</span> <span class="o">=</span> <span class="n">elec_price_change_traj</span><span class="p">[</span><span class="n">elec_price_change_traj</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">final_year</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;final_year_values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_year_df</span><span class="p">[</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># calculate CAGR for time period between final year and current year</span>
+    <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;final_year_values&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">final_year</span><span class="o">-</span><span class="n">year_cap</span><span class="p">))</span> <span class="o">-</span> <span class="mf">1.0</span>
+
+    <span class="c1"># et upper and lower bounds of escalator at 1.0 and -1.0, based on historic elec price growth rates</span>
+    <span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">elec_price_escalator_df</span><span class="p">[</span><span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">],</span> <span class="o">-</span><span class="mf">.01</span><span class="p">,</span> <span class="mf">.01</span><span class="p">)</span>
+
+    <span class="c1"># merge multiplier and escalator values back to agent dataframe</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">elec_price_multiplier_df</span><span class="p">[[</span><span class="s1">&#39;elec_price_multiplier&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">])</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">elec_price_escalator_df</span><span class="p">[[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;elec_price_escalator&#39;</span><span class="p">]],</span>
+                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_export_tariff_params"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_export_tariff_params">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_export_tariff_params</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">net_metering_state_df</span><span class="p">,</span> <span class="n">net_metering_utility_df</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    
+    <span class="c1"># specify relevant NEM columns</span>
+    <span class="n">nem_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;compensation_style&#39;</span><span class="p">,</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># check if utility-specific NEM parameters apply to any agents - need to join on state too (e.g. Pacificorp UT vs Pacificorp ID)</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">net_metering_utility_df</span><span class="p">[</span>
+                        <span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">nem_columns</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># filter agents with non-null nem_system_kw_limit - these are agents WITH utility NEM</span>
+    <span class="n">agents_with_utility_nem</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">])]</span>
+    
+    <span class="c1"># filter agents with null nem_system_kw_limit - these are agents WITHOUT utility NEM</span>
+    <span class="n">agents_without_utility_nem</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">])]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">nem_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># merge agents with state-specific NEM parameters</span>
+    <span class="n">agents_without_utility_nem</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">agents_without_utility_nem</span><span class="p">,</span> <span class="n">net_metering_state_df</span><span class="p">[</span>
+                        <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">nem_columns</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># re-combine agents list and fill nan&#39;s</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">agents_with_utility_nem</span><span class="p">,</span> <span class="n">agents_without_utility_nem</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;compensation_style&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_pv_tech_performance"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_tech_performance">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_pv_tech_performance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_tech_traj</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of PV tech performance over time. See the </span>
+<span class="sd">        &#39;input_pv_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv tech performance parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_tech_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+                         
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+    
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_depreciation_schedule"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_depreciation_schedule">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_depreciation_schedule</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">deprec_sch</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">deprec_sch</span><span class="p">[[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;deprec_sch&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]],</span>
+                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+                         
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+    
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_pv_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_pv_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_price_traj</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of PV price trajectories over time. See the </span>
+<span class="sd">        &#39;input_pv_prices_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv price parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1"># join the data</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_price_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+
+    <span class="c1"># apply the capital cost multipliers</span>
+    <span class="c1">#dataframe[&#39;system_capex_per_kw&#39;] = (dataframe[&#39;system_capex_per_kw&#39;] * dataframe[&#39;cap_cost_multiplier&#39;])</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_batt_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_batt_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_batt_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    batt_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery price trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_prices_user_defined&#39; table in the database.</span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with battery price and tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1"># Merge on prices</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">batt_price_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span>
+                                                     <span class="s1">&#39;batt_capex_per_kwh&#39;</span><span class="p">,</span><span class="s1">&#39;batt_capex_per_kw&#39;</span><span class="p">,</span><span class="s1">&#39;linear_constant&#39;</span><span class="p">,</span>
+                                                     <span class="s1">&#39;batt_om_per_kwh&#39;</span><span class="p">,</span><span class="s1">&#39;batt_om_per_kw&#39;</span><span class="p">]],</span>
+                         <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+                     
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<div class="viewcode-block" id="apply_pv_plus_batt_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_pv_plus_batt_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_pv_plus_batt_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_plus_batt_price_traj</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    pv_plus_batt_price_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery price trajectories over time. See the </span>
+<span class="sd">        &#39;input_pv_plus_batt_prices_user_defined&#39; table in the database.</span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with pv plus battery price parameters and battery tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    
+    <span class="c1"># rename cost columns -- PV+batt configuration has distinct costs</span>
+    <span class="n">pv_plus_batt_price_traj</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;system_capex_per_kw&#39;</span><span class="p">:</span><span class="s1">&#39;system_capex_per_kw_combined&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;batt_capex_per_kwh&#39;</span><span class="p">:</span><span class="s1">&#39;batt_capex_per_kwh_combined&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;batt_capex_per_kw&#39;</span><span class="p">:</span><span class="s1">&#39;batt_capex_per_kw_combined&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;linear_constant&#39;</span><span class="p">:</span><span class="s1">&#39;linear_constant_combined&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;batt_om_per_kw&#39;</span><span class="p">:</span><span class="s1">&#39;batt_om_per_kw_combined&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;batt_om_per_kwh&#39;</span><span class="p">:</span><span class="s1">&#39;batt_om_per_kwh_combined&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Merge on prices</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pv_plus_batt_price_traj</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span>
+                                                             <span class="s1">&#39;system_capex_per_kw_combined&#39;</span><span class="p">,</span>
+                                                             <span class="s1">&#39;batt_capex_per_kwh_combined&#39;</span><span class="p">,</span><span class="s1">&#39;batt_capex_per_kw_combined&#39;</span><span class="p">,</span>
+                                                             <span class="s1">&#39;linear_constant_combined&#39;</span><span class="p">,</span>
+                                                             <span class="s1">&#39;batt_om_per_kw_combined&#39;</span><span class="p">,</span><span class="s1">&#39;batt_om_per_kwh_combined&#39;</span><span class="p">]],</span> 
+                         <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_value_of_resiliency"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_value_of_resiliency">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_value_of_resiliency</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">value_of_resiliency</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Note, value of resiliency (VOR) is not currently used in the open source version of the model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    vaule_of_resiliency : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of financials pertaining to the value of resiliency. See the </span>
+<span class="sd">        &#39;input_value_of_resiliency_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with value of resiliency parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+             
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">value_of_resiliency</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;value_of_resiliency_usd&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+             
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+    
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_batt_tech_performance"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_batt_tech_performance">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_batt_tech_performance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">batt_tech_traj</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    batt_tech_traj : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of battery tech trajectories over time. See the </span>
+<span class="sd">        &#39;input_batt_tech_performance_user_defined&#39; table in the database.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with battery tech parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">batt_tech_traj</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_financial_params"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_financial_params">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_financial_params</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">financing_terms</span><span class="p">,</span> <span class="n">itc_options</span><span class="p">,</span> <span class="n">inflation_rate</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Applies financial parameters specified in input sheet to agent dataframe.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent dataframe       </span>
+<span class="sd">    financing_terms : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of financing terms.</span>
+<span class="sd">    itc_options : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Dataframe of different ITC (investment tax credit) parameters, namely &#39;itc_fraction_of_capex&#39;</span>
+<span class="sd">        that is merged to the agent dataframe on year, technology, and sector.</span>
+<span class="sd">    inflation_rate : &#39;float&#39;</span>
+<span class="sd">        rate of inflation specified in the input sheet as a percentage (e.g. 2.5%).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe : &#39;pd.DataFrame&#39;</span>
+<span class="sd">        Agent DataFrame with financial parameters merged in.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">financing_terms</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">itc_options</span><span class="p">[[</span><span class="s1">&#39;itc_fraction_of_capex&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">]],</span> 
+                                <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;inflation_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inflation_rate</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_load_growth"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_load_growth">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_load_growth</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">load_growth_df</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    
+    <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;county_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">county_id</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">load_growth_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># for res, load growth translates to kwh_per_customer change</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_per_customer_in_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;res&#39;</span><span class="p">,</span>
+                                                <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_per_customer_in_bin_initial&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">],</span>
+                                                <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_per_customer_in_bin_initial&#39;</span><span class="p">])</span>
+                                                
+    <span class="c1"># for C&amp;I, load growth translates to customer count change</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;customers_in_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;res&#39;</span><span class="p">,</span>
+                                                <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;customers_in_bin_initial&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">],</span>
+                                                <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;customers_in_bin_initial&#39;</span><span class="p">])</span>
+                                                
+    <span class="c1"># for all sectors, total kwh_in_bin changes</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_in_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_in_bin_initial&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">]</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="calculate_developable_customers_and_load"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.calculate_developable_customers_and_load">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calculate_developable_customers_and_load</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;pct_of_bldgs_developable&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;customers_in_bin&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_load_kwh_in_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;pct_of_bldgs_developable&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;load_kwh_in_bin&#39;</span><span class="p">]</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_electric_rates_json"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_electric_rates_json">[docs]</a><span class="k">def</span> <span class="nf">get_electric_rates_json</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">unique_rate_ids</span><span class="p">):</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># updated urdb3_rate_jsons_201905 to 20200721 version</span>
+
+    <span class="c1"># reformat the rate list for use in postgres query</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;rate_id_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">pylist_2_pglist</span><span class="p">(</span><span class="n">unique_rate_ids</span><span class="p">)</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;rate_id_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;rate_id_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># get (only the required) rate jsons from postgres</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT a.rate_id_alias, a.rate_name, a.eia_id, a.json as rate_json</span>
+<span class="s2">             FROM diffusion_shared.urdb3_rate_jsons_20200721 a</span>
+<span class="s2">             WHERE a.rate_id_alias in (</span><span class="si">{rate_id_list}</span><span class="s2">);&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="filter_nem_year"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.filter_nem_year">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">filter_nem_year</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+
+    <span class="c1"># Filter by Sector Specific Sunset Years</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;first_year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sunset_year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">year</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_nem_settings"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_nem_settings">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_nem_settings</span><span class="p">(</span><span class="n">state_limits</span><span class="p">,</span> <span class="n">state_by_sector</span><span class="p">,</span> <span class="n">utility_by_sector</span><span class="p">,</span> <span class="n">selected_scenario</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">state_capacity_by_year</span><span class="p">,</span> <span class="n">cf_during_peak_demand</span><span class="p">):</span>
+
+    <span class="c1"># Find States That Have Not Sunset</span>
+    <span class="n">valid_states</span> <span class="o">=</span> <span class="n">filter_nem_year</span><span class="p">(</span><span class="n">state_limits</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+    <span class="c1"># Filter States to Those That Have Not Exceeded Cumulative Capacity Constraints</span>
+    <span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;max_reference_year&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+    <span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">][</span><span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;max_reference_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;previous&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">][</span><span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;max_reference_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;current&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+    <span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">][</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">valid_states</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">])]</span> <span class="o">=</span> <span class="n">year</span>
+
+    <span class="n">state_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">state_capacity_by_year</span><span class="p">,</span> <span class="n">valid_states</span> <span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">])</span>
+    <span class="n">state_df</span> <span class="o">=</span> <span class="n">state_df</span><span class="p">[</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;filter_year&#39;</span><span class="p">]</span> <span class="p">]</span>
+    <span class="n">state_df</span> <span class="o">=</span> <span class="n">state_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cf_during_peak_demand</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;state_abbr&#39;</span><span class="p">)</span>
+
+    <span class="n">state_df</span> <span class="o">=</span> <span class="n">state_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_cum_capacity_mw&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_cum_capacity_mw&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_cum_capacity_mw&#39;</span><span class="p">]))]</span>
+    <span class="c1"># Calculate the maximum MW of solar capacity before reaching the NEM cap. MW are determine on a generation basis during the period of peak demand, as determined by ReEDS.</span>
+    <span class="c1"># CF during peak period is based on ReEDS H17 timeslice, assuming average over south-facing 15 degree tilt systems (so this could be improved by using the actual tilts selected)</span>
+    <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_mw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_pct_cum_capacity&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;peak_demand_mw&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;solar_cf_during_peak_demand_period&#39;</span><span class="p">]</span>
+    <span class="n">state_df</span> <span class="o">=</span> <span class="n">state_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_pct_cum_capacity&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_pct_cum_capacity&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;max_mw&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">]))]</span>
+
+    <span class="c1"># Filter state and sector data to those that have not sunset</span>
+    <span class="n">selected_state_by_sector</span> <span class="o">=</span> <span class="n">state_by_sector</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">state_by_sector</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">selected_scenario</span><span class="p">]</span>
+    <span class="n">valid_state_sector</span> <span class="o">=</span> <span class="n">filter_nem_year</span><span class="p">(</span><span class="n">selected_state_by_sector</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+    <span class="c1"># Filter state and sector data to those that match states which have not sunset/reached peak capacity</span>
+    <span class="n">valid_state_sector</span> <span class="o">=</span> <span class="n">valid_state_sector</span><span class="p">[</span><span class="n">valid_state_sector</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span>
+    
+    <span class="c1"># Filter utility and sector data to those that have not sunset</span>
+    <span class="n">selected_utility_by_sector</span> <span class="o">=</span> <span class="n">utility_by_sector</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">utility_by_sector</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">selected_scenario</span><span class="p">]</span>
+    <span class="n">valid_utility_sector</span> <span class="o">=</span> <span class="n">filter_nem_year</span><span class="p">(</span><span class="n">selected_utility_by_sector</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    
+    <span class="c1"># Filter out utility/sector combinations in states where capacity constraints have been reached</span>
+    <span class="c1"># Assumes that utilities adhere to broader state capacity constraints, and not their own</span>
+    <span class="n">valid_utility_sector</span> <span class="o">=</span> <span class="n">valid_utility_sector</span><span class="p">[</span><span class="n">valid_utility_sector</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">state_df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span>
+
+    <span class="c1"># Return State/Sector data (or null) for all combinations of states and sectors</span>
+    <span class="n">full_state_list</span> <span class="o">=</span> <span class="n">state_by_sector</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">state_by_sector</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BAU&#39;</span> <span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">]]</span>
+    <span class="n">state_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span> <span class="n">full_state_list</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">valid_state_sector</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">state_result</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Return Utility/Sector data (or null) for all combinations of utilities and sectors</span>
+    <span class="n">full_utility_list</span> <span class="o">=</span> <span class="n">utility_by_sector</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">utility_by_sector</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BAU&#39;</span> <span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]]</span>
+    <span class="n">utility_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span> <span class="n">full_utility_list</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">valid_utility_sector</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">utility_result</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state_result</span><span class="p">,</span> <span class="n">utility_result</span></div>
+
+
+<div class="viewcode-block" id="get_and_apply_agent_load_profiles"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_and_apply_agent_load_profiles">[docs]</a><span class="k">def</span> <span class="nf">get_and_apply_agent_load_profiles</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">agent</span><span class="p">):</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;bldg_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;bldg_id&#39;</span><span class="p">]</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT bldg_id, sector_abbr, state_abbr,</span>
+<span class="s2">                    kwh_load_profile as consumption_hourly</span>
+<span class="s2">             FROM diffusion_load_profiles.</span><span class="si">{sector_abbr}</span><span class="s2">stock_load_profiles</span>
+<span class="s2">                 WHERE bldg_id = </span><span class="si">{bldg_id}</span><span class="s2"> </span>
+<span class="s2">                 AND sector_abbr = &#39;</span><span class="si">{sector_abbr}</span><span class="s2">&#39;</span>
+<span class="s2">                 AND state_abbr = &#39;</span><span class="si">{state_abbr}</span><span class="s2">&#39;;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+                           
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;consumption_hourly&#39;</span><span class="p">]]</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;load_kwh_per_customer_in_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;load_kwh_per_customer_in_bin&#39;</span><span class="p">]</span>
+
+    <span class="c1"># scale the normalized profile to sum to the total load</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scale_array_sum</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span>
+        <span class="s1">&#39;consumption_hourly&#39;</span><span class="p">,</span> <span class="s1">&#39;load_kwh_per_customer_in_bin&#39;</span><span class="p">))</span>
+    
+    
+    <span class="k">return</span> <span class="n">df</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_and_apply_normalized_hourly_resource_solar"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar">[docs]</a><span class="k">def</span> <span class="nf">get_and_apply_normalized_hourly_resource_solar</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">agent</span><span class="p">):</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;solar_re_9809_gid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;solar_re_9809_gid&#39;</span><span class="p">]</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;tilt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;tilt&#39;</span><span class="p">]</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">]</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT solar_re_9809_gid, tilt, azimuth,</span>
+<span class="s2">                    cf as generation_hourly,</span>
+<span class="s2">                    1e6 as scale_offset</span>
+<span class="s2">            FROM diffusion_resource_solar.solar_resource_hourly</span>
+<span class="s2">                WHERE solar_re_9809_gid = &#39;</span><span class="si">{solar_re_9809_gid}</span><span class="s2">&#39;</span>
+<span class="s2">                AND tilt = &#39;</span><span class="si">{tilt}</span><span class="s2">&#39;</span>
+<span class="s2">                AND azimuth = &#39;</span><span class="si">{azimuth}</span><span class="s2">&#39;;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;generation_hourly&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_offset&#39;</span><span class="p">]]</span>
+
+    <span class="c1"># rename the column generation_hourly to solar_cf_profile</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;generation_hourly&#39;</span><span class="p">:</span><span class="s1">&#39;solar_cf_profile&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+          
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="scale_array_precision"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.scale_array_precision">[docs]</a><span class="k">def</span> <span class="nf">scale_array_precision</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">array_col</span><span class="p">,</span> <span class="n">prec_offset_col</span><span class="p">):</span>
+
+    <span class="n">row</span><span class="p">[</span><span class="n">array_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="n">row</span><span class="p">[</span><span class="n">array_col</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">row</span><span class="p">[</span><span class="n">prec_offset_col</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">row</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="scale_array_sum"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.scale_array_sum">[docs]</a><span class="k">def</span> <span class="nf">scale_array_sum</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">array_col</span><span class="p">,</span> <span class="n">scale_col</span><span class="p">):</span>
+
+    <span class="n">hourly_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">array_col</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="n">array_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">hourly_array</span> <span class="o">/</span> \
+        <span class="n">hourly_array</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">scale_col</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">row</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="interpolate_array"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.interpolate_array">[docs]</a><span class="k">def</span> <span class="nf">interpolate_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">array_1_col</span><span class="p">,</span> <span class="n">array_2_col</span><span class="p">,</span> <span class="n">interp_factor_col</span><span class="p">,</span> <span class="n">out_col</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">interp_factor_col</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">interpolated</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">interp_factor_col</span><span class="p">]</span> <span class="o">*</span> \
+            <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">array_2_col</span><span class="p">]</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="n">array_1_col</span><span class="p">])</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="n">array_1_col</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">interpolated</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">array_1_col</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="n">out_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">interpolated</span>
+
+    <span class="k">return</span> <span class="n">row</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_carbon_intensities"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_carbon_intensities">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_carbon_intensities</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">carbon_intensities</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">carbon_intensities</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+    
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_wholesale_elec_prices"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_wholesale_elec_prices">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_wholesale_elec_prices</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">wholesale_elec_prices</span><span class="p">):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">wholesale_elec_prices</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;county_id&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_state_starting_capacities"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_state_starting_capacities">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_state_starting_capacities</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># sql = &quot;&quot;&quot;SELECT *</span>
+    <span class="c1">#          FROM {schema}.state_starting_capacities_to_model;&quot;&quot;&quot;.format(**inputs)</span>
+    <span class="c1"># df = pd.read_sql(sql, con)</span>
+
+
+    <span class="c1"># get state starting capacities for both solar and storage, distinguished by column names</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;WITH all_combos AS(</span>
+<span class="s2">                 SELECT state_abbr, unnest(ARRAY[&#39;res&#39;,&#39;com&#39;,&#39;ind&#39;]) as sector_abbr</span>
+<span class="s2">                 FROM diffusion_shared.state_abbr_lkup</span>
+<span class="s2">                 WHERE state_abbr NOT IN (&#39;AK&#39;,&#39;HI&#39;,&#39;PR&#39;)</span>
+<span class="s2">             ), solar AS(</span>
+<span class="s2">                 SELECT sector_abbr, state_abbr, system_mw, systems_count AS pv_systems_count</span>
+<span class="s2">                 FROM </span><span class="si">{schema}</span><span class="s2">.state_starting_capacities_to_model</span>
+<span class="s2">                 WHERE tech = &#39;solar&#39;</span>
+<span class="s2">             ), storage AS(</span>
+<span class="s2">                 SELECT sector_abbr, state_abbr, system_mw AS batt_mw, system_mwh as batt_mwh, systems_count AS batt_systems_count</span>
+<span class="s2">                 FROM </span><span class="si">{schema}</span><span class="s2">.state_starting_capacities_to_model</span>
+<span class="s2">                 WHERE tech = &#39;storage&#39;</span>
+<span class="s2">             )</span>
+<span class="s2">             SELECT a.state_abbr, a.sector_abbr, b.system_mw, c.batt_mw, c.batt_mwh, b.pv_systems_count, c.batt_systems_count</span>
+<span class="s2">             FROM all_combos a</span>
+<span class="s2">             LEFT JOIN solar b</span>
+<span class="s2">                 ON a.state_abbr = b.state_abbr AND a.sector_abbr = b.sector_abbr</span>
+<span class="s2">             LEFT JOIN storage c</span>
+<span class="s2">                 ON a.state_abbr = c.state_abbr AND a.sector_abbr = c.sector_abbr;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_state_incentives"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_state_incentives">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_state_incentives</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">state_incentives</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">start_year</span><span class="p">,</span> <span class="n">state_capacity_by_year</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2029</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1"># Fill in missing end_dates</span>
+    <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">end_date</span><span class="p">):</span>
+        <span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">][</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">])]</span> <span class="o">=</span> <span class="n">end_date</span>
+
+    <span class="c1">#Adjust incenctives to account for reduced values as adoption increases</span>
+    <span class="n">yearly_escalation_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">value</span><span class="p">,</span> <span class="n">end_year</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">value</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">end_year</span> <span class="o">-</span> <span class="n">start_year</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="n">start_year</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;pbi_usd_p_kwh&#39;</span><span class="p">,</span><span class="s1">&#39;cbi_usd_p_w&#39;</span><span class="p">,</span><span class="s1">&#39;ibi_pct&#39;</span><span class="p">,</span><span class="s1">&#39;cbi_usd_p_wh&#39;</span><span class="p">]:</span>
+        <span class="n">state_incentives</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">state_incentives</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">yearly_escalation_function</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        
+    <span class="c1"># Filter Incentives by the Years in which they are valid</span>
+    <span class="n">state_incentives</span> <span class="o">=</span> <span class="n">state_incentives</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;start_date&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;start_date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="n">year</span><span class="p">)]</span>
+    <span class="n">state_incentives</span> <span class="o">=</span> <span class="n">state_incentives</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">state_incentives</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="n">year</span><span class="p">)]</span>
+
+    <span class="c1"># Combine valid incentives with the cumulative metrics for each state up until the current year</span>
+    <span class="n">state_incentives_mg</span> <span class="o">=</span> <span class="n">state_incentives</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">state_capacity_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">state_capacity_by_year</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">],</span>
+                                                 <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state_abbr&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Filter where the states have not exceeded their cumulative installed capacity (by mw or pct generation) or total program budget</span>
+    <span class="c1">#state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg[&#39;incentive_cap_total_pct&#39;]) | (state_incentives_mg[&#39;cum_capacity_pct&#39;] &lt; state_incentives_mg[&#39;incentive_cap_total_pct&#39;])]</span>
+    <span class="n">state_incentives_mg</span> <span class="o">=</span> <span class="n">state_incentives_mg</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;incentive_cap_total_mw&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;incentive_cap_total_mw&#39;</span><span class="p">])]</span>
+    <span class="n">state_incentives_mg</span> <span class="o">=</span> <span class="n">state_incentives_mg</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;budget_total_usd&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;cum_incentive_spending_usd&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">state_incentives_mg</span><span class="p">[</span><span class="s1">&#39;budget_total_usd&#39;</span><span class="p">])]</span>
+
+    <span class="n">output</span>  <span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">state_incentives_mg</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">]):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">state</span><span class="p">,</span> <span class="n">sector</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">:</span><span class="n">state</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">:</span><span class="n">sector</span><span class="p">,</span><span class="s2">&quot;state_incentives&quot;</span><span class="p">:</span><span class="n">row</span><span class="p">})</span>
+
+    <span class="n">state_inc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;state_incentives&#39;</span><span class="p">])</span>
+    <span class="n">state_inc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">state_inc_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">output</span><span class="p">)],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">state_inc_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="estimate_initial_market_shares"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.estimate_initial_market_shares">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">estimate_initial_market_shares</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">state_starting_capacities_df</span><span class="p">):</span>
+
+    <span class="c1"># record input columns</span>
+    <span class="n">in_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="c1"># find the total number of customers in each state (by technology and</span>
+    <span class="c1"># sector)</span>
+    <span class="n">state_total_developable_customers</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">state_total_agents</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">,</span> <span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="c1"># rename the final columns</span>
+    <span class="n">state_total_developable_customers</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">state_total_developable_customers</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;developable_customers_in_state&#39;</span><span class="p">)</span>
+    <span class="n">state_total_agents</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">state_total_agents</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;agent_count&#39;</span><span class="p">)</span>
+    <span class="c1"># merge together</span>
+    <span class="n">state_denominators</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">state_total_developable_customers</span><span class="p">,</span> <span class="n">state_total_agents</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span>
+                                  <span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">])</span>
+
+    <span class="c1"># merge back to the main dataframe</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">state_denominators</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span>
+                         <span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;tech&#39;</span><span class="p">])</span>
+
+    <span class="c1"># merge in the state starting capacities</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">state_starting_capacities_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                         <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span>
+
+    <span class="c1"># dataframe = pd.merge(dataframe, state_starting_capacities_df, how=&#39;left&#39;,</span>
+    <span class="c1">#                      on=[&#39;tech&#39;, &#39;state_abbr&#39;, &#39;sector_abbr&#39;])</span>
+
+    <span class="c1"># determine the portion of initial load and systems that should be allocated to each agent</span>
+    <span class="c1"># (when there are no developable agnets in the state, simply apportion evenly to all agents)</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_customers_in_state&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+                                             <span class="n">dataframe</span><span class="p">[</span>
+                                                 <span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_customers_in_state&#39;</span><span class="p">],</span>
+                                             <span class="mf">1.</span> <span class="o">/</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;agent_count&#39;</span><span class="p">])</span>
+
+    <span class="c1"># apply the agent&#39;s portion to the total to calculate starting capacity and systems</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;pv_systems_count&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_adopters_cum_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_systems_count&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;system_mw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_mw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.0</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;portion_of_state&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_mwh&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.0</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                                                   <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;developable_agent_weight&#39;</span><span class="p">])</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;market_value_last_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;system_capex_per_kw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">]</span>
+
+    <span class="c1"># reproduce these columns as &quot;initial&quot; columns too</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_pv_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_batt_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum_last_year&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_batt_kwh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum_last_year&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_market_share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">]</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_market_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># isolate the return columns</span>
+    <span class="n">return_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">,</span><span class="s1">&#39;initial_pv_kw&#39;</span><span class="p">,</span><span class="s1">&#39;initial_batt_kw&#39;</span><span class="p">,</span><span class="s1">&#39;initial_batt_kwh&#39;</span><span class="p">,</span><span class="s1">&#39;initial_market_share&#39;</span><span class="p">,</span><span class="s1">&#39;initial_market_value&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;adopters_cum_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;system_kw_cum_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kw_cum_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;batt_kwh_cum_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;market_share_last_year&#39;</span><span class="p">,</span><span class="s1">&#39;market_value_last_year&#39;</span><span class="p">]</span>
+
+    <span class="c1"># return_cols = [&#39;initial_number_of_adopters&#39;, &#39;initial_pv_kw&#39;, &#39;initial_market_share&#39;, &#39;initial_market_value&#39;,</span>
+    <span class="c1">#                &#39;adopters_cum_last_year&#39;, &#39;system_kw_cum_last_year&#39;, &#39;batt_kw_cum_last_year&#39;, &#39;batt_kwh_cum_last_year&#39;, &#39;market_share_last_year&#39;, &#39;market_value_last_year&#39;]</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="n">return_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">return_cols</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">out_cols</span> <span class="o">=</span> <span class="n">in_cols</span> <span class="o">+</span> <span class="n">return_cols</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">out_cols</span><span class="p">]</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_market_last_year"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_market_last_year">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">apply_market_last_year</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">market_last_year_df</span><span class="p">):</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">market_last_year_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;agent_id&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="estimate_total_generation"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.estimate_total_generation">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">estimate_total_generation</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;total_gen_twh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;number_of_adopters&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_number_of_adopters&#39;</span><span class="p">])</span>
+                                  <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;annual_energy_production_kwh&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.23</span> <span class="o">*</span> <span class="mi">8760</span> <span class="o">*</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;initial_pv_kw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-6</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<span class="c1">#%%   </span>
+<div class="viewcode-block" id="calc_state_capacity_by_year"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.calc_state_capacity_by_year">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calc_state_capacity_by_year</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">load_growth</span><span class="p">,</span> <span class="n">peak_demand_mw</span><span class="p">,</span> <span class="n">is_first_year</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span><span class="n">solar_agents</span><span class="p">,</span> <span class="n">last_year_installed_capacity</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">is_first_year</span><span class="p">:</span>
+        <span class="c1"># get state starting capacities for solar &amp; storage and sum by state</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">last_year_installed_capacity</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">)[[</span><span class="s1">&#39;system_mw&#39;</span><span class="p">,</span><span class="s1">&#39;batt_mw&#39;</span><span class="p">,</span><span class="s1">&#39;batt_mwh&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;system_mw&#39;</span><span class="p">:</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_mw&#39;</span><span class="p">:</span><span class="s1">&#39;cum_batt_mw&#39;</span><span class="p">,</span> <span class="s1">&#39;batt_mwh&#39;</span><span class="p">:</span><span class="s1">&#39;cum_batt_mwh&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="c1"># Not all states have starting capacity, don&#39;t want to drop any states thus left join on peak_demand</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">peak_demand_mw</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># rename columns</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;peak_demand_mw_2014&#39;</span><span class="p">:</span><span class="s1">&#39;peak_demand_mw&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">last_year_installed_capacity</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_kw_cum&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cum_batt_mw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kw_cum&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cum_batt_mwh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;batt_kwh_cum&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+<span class="c1">#        # Load growth is resolved by census region, so a lookup table is needed</span>
+<span class="c1">#        df = df.merge(census_division_lkup, on = &#39;state_abbr&#39;)</span>
+        <span class="n">load_growth_this_year</span> <span class="o">=</span> <span class="n">load_growth</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">load_growth</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">load_growth</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;res&#39;</span><span class="p">)]</span>
+        <span class="n">load_growth_this_year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">solar_agents</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;county_id&#39;</span><span class="p">]],</span> <span class="n">load_growth_this_year</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;county_id&#39;</span><span class="p">])</span>
+        <span class="n">load_growth_this_year</span> <span class="o">=</span> <span class="n">load_growth_this_year</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">)[</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">load_growth_this_year</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;state_abbr&#39;</span><span class="p">)</span>
+        
+        <span class="n">df</span> <span class="o">=</span> <span class="n">peak_demand_mw</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;peak_demand_mw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;peak_demand_mw_2014&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;load_multiplier&#39;</span><span class="p">]</span>
+
+    <span class="c1"># TODO: drop cum_capacity_pct from table (misnomer)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cum_capacity_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># TODO: enforce program spending cap</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cum_incentive_spending_usd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;cum_system_mw&#39;</span><span class="p">,</span><span class="s1">&#39;cum_batt_mw&#39;</span><span class="p">,</span><span class="s1">&#39;cum_batt_mwh&#39;</span><span class="p">,</span><span class="s1">&#39;cum_capacity_pct&#39;</span><span class="p">,</span><span class="s1">&#39;cum_incentive_spending_usd&#39;</span><span class="p">,</span><span class="s1">&#39;peak_demand_mw&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">]]</span>
+    
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_rate_switch_table"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.get_rate_switch_table">[docs]</a><span class="k">def</span> <span class="nf">get_rate_switch_table</span><span class="p">(</span><span class="n">con</span><span class="p">):</span>
+    
+    <span class="c1"># get rate switch table from database</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM diffusion_shared.rate_switch_lkup_2020;&quot;&quot;&quot;</span>
+    <span class="c1"># sql = &quot;&quot;&quot;SELECT * FROM diffusion_shared.rate_switch_lkup_2019;&quot;&quot;&quot;</span>
+    <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">rate_switch_table</span></div>
+
+<div class="viewcode-block" id="apply_rate_switch"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.apply_rate_switch">[docs]</a><span class="k">def</span> <span class="nf">apply_rate_switch</span><span class="p">(</span><span class="n">rate_switch_table</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">system_size_kw</span><span class="p">,</span> <span class="n">tech</span><span class="o">=</span><span class="s1">&#39;solar&#39;</span><span class="p">):</span>
+    
+    <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;tech&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tech</span><span class="p">]</span>
+    <span class="n">rate_switch_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rate_id_alias&#39;</span><span class="p">:</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span><span class="s1">&#39;tariff_dict&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="p">[(</span><span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;eia_id&#39;</span><span class="p">])</span> <span class="o">&amp;</span>
+                                          <span class="p">(</span><span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;res_com&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span>
+                                          <span class="p">(</span><span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;min_kw_limit&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">system_size_kw</span><span class="p">)</span> <span class="o">&amp;</span>
+                                          <span class="p">(</span><span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;max_kw_limit&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">system_size_kw</span><span class="p">)]</span>
+
+    <span class="n">rate_switch_table</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># check if a DG rate is applicable to agent</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">system_size_kw</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_switch_table</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># if valid DG rate available to agent, force NEM on</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e6</span>
+        <span class="c1"># update agent attributes to DG rate</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s1">&#39;tariff_dict&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;tariff_dict&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># return any one time charges (e.g., interconnection fees)</span>
+        <span class="n">one_time_charge</span> <span class="o">=</span> <span class="n">rate_switch_table</span><span class="p">[</span><span class="s1">&#39;one_time_charge&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># don&#39;t update agent attributes, return one time charge of $0</span>
+        <span class="n">one_time_charge</span> <span class="o">=</span> <span class="mf">0.</span>
+    
+    
+    <span class="k">return</span> <span class="n">agent</span><span class="p">,</span> <span class="n">one_time_charge</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="reassign_agent_tariffs"><a class="viewcode-back" href="../../../python.agent_mutation.html#python.agent_mutation.elec.reassign_agent_tariffs">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">reassign_agent_tariffs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">con</span><span class="p">):</span>
+
+    <span class="c1"># define rates to use in replacement of incorrect tariffs</span>
+    
+    <span class="c1"># map res/com tariffs based on most likely tariff in state</span>
+    <span class="n">res_tariffs</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;AL&#39;</span><span class="p">:</span><span class="mi">17279</span><span class="p">,</span> <span class="c1"># Family Dwelling Service</span>
+                    <span class="s1">&#39;AR&#39;</span><span class="p">:</span><span class="mi">16671</span><span class="p">,</span> <span class="c1"># Optional Residential Time-Of-Use (RT) Single Phase</span>
+                    <span class="s1">&#39;AZ&#39;</span><span class="p">:</span><span class="mi">15704</span><span class="p">,</span> <span class="c1"># Residential Time of Use (Saver Choice) TOU-E</span>
+                    <span class="s1">&#39;CA&#39;</span><span class="p">:</span><span class="mi">15747</span><span class="p">,</span> <span class="c1"># E-1 -Residential Service Baseline Region P</span>
+                    <span class="s1">&#39;CO&#39;</span><span class="p">:</span><span class="mi">17078</span><span class="p">,</span> <span class="c1"># Residential Service (Schedule R)</span>
+                    <span class="s1">&#39;CT&#39;</span><span class="p">:</span><span class="mi">16678</span><span class="p">,</span> <span class="c1"># Rate 1 - Residential Electric Service</span>
+                    <span class="s1">&#39;DC&#39;</span><span class="p">:</span><span class="mi">16806</span><span class="p">,</span> <span class="c1"># Residential - Schedule R</span>
+                    <span class="s1">&#39;DE&#39;</span><span class="p">:</span><span class="mi">11569</span><span class="p">,</span> <span class="c1"># Residential Service</span>
+                    <span class="s1">&#39;FL&#39;</span><span class="p">:</span><span class="mi">16986</span><span class="p">,</span> <span class="c1"># RS-1 Residential Service</span>
+                    <span class="s1">&#39;GA&#39;</span><span class="p">:</span><span class="mi">16649</span><span class="p">,</span> <span class="c1"># SCHEDULE R-22 RESIDENTIAL SERVICE</span>
+                    <span class="s1">&#39;IA&#39;</span><span class="p">:</span><span class="mi">11693</span><span class="p">,</span> <span class="c1"># Optional Residential Service</span>
+                    <span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="mi">16227</span><span class="p">,</span> <span class="c1"># Schedule 1: Residential Rates</span>
+                    <span class="s1">&#39;IL&#39;</span><span class="p">:</span><span class="mi">16045</span><span class="p">,</span> <span class="c1"># DS-1 Residential Zone 1</span>
+                    <span class="s1">&#39;IN&#39;</span><span class="p">:</span><span class="mi">15491</span><span class="p">,</span> <span class="c1"># RS - Residential Service</span>
+                    <span class="s1">&#39;KS&#39;</span><span class="p">:</span><span class="mi">8178</span><span class="p">,</span> <span class="c1"># M System Residential Service</span>
+                    <span class="s1">&#39;KY&#39;</span><span class="p">:</span><span class="mi">16566</span><span class="p">,</span> <span class="c1"># Residential Service</span>
+                    <span class="s1">&#39;LA&#39;</span><span class="p">:</span><span class="mi">16352</span><span class="p">,</span> <span class="c1"># Residential and Farm Service - Single Phase (RS-L)</span>
+                    <span class="s1">&#39;MA&#39;</span><span class="p">:</span><span class="mi">15953</span><span class="p">,</span> <span class="c1"># Greater Boston Residential R-1 (A1)</span>
+                    <span class="s1">&#39;MD&#39;</span><span class="p">:</span><span class="mi">14779</span><span class="p">,</span> <span class="c1"># Residential Service (R)</span>
+                    <span class="s1">&#39;ME&#39;</span><span class="p">:</span><span class="mi">15984</span><span class="p">,</span> <span class="c1"># A Residential Standard Offer Service (Bundled)</span>
+                    <span class="s1">&#39;MI&#39;</span><span class="p">:</span><span class="mi">16265</span><span class="p">,</span> <span class="c1"># Residential Service - Secondary (Rate RS)</span>
+                    <span class="s1">&#39;MN&#39;</span><span class="p">:</span><span class="mi">15556</span><span class="p">,</span> <span class="c1"># Residential Service - Overhead Standard (A01)</span>
+                    <span class="s1">&#39;MO&#39;</span><span class="p">:</span><span class="mi">17207</span><span class="p">,</span> <span class="c1"># 1(M) Residential Service Rate</span>
+                    <span class="s1">&#39;MS&#39;</span><span class="p">:</span><span class="mi">16788</span><span class="p">,</span> <span class="c1"># Residential Service Single Phase (RS-38C)</span>
+                    <span class="s1">&#39;MT&#39;</span><span class="p">:</span><span class="mi">5216</span><span class="p">,</span> <span class="c1"># Single Phase</span>
+                    <span class="s1">&#39;NC&#39;</span><span class="p">:</span><span class="mi">16938</span><span class="p">,</span> <span class="c1"># Residential Service (RES-41) Single Phase</span>
+                    <span class="s1">&#39;ND&#39;</span><span class="p">:</span><span class="mi">14016</span><span class="p">,</span> <span class="c1"># Residential Service Rate 10</span>
+                    <span class="s1">&#39;NE&#39;</span><span class="p">:</span><span class="mi">13817</span><span class="p">,</span> <span class="c1"># Residential Service</span>
+                    <span class="s1">&#39;NH&#39;</span><span class="p">:</span><span class="mi">16605</span><span class="p">,</span> <span class="c1"># Residential Service</span>
+                    <span class="s1">&#39;NJ&#39;</span><span class="p">:</span><span class="mi">16229</span><span class="p">,</span> <span class="c1"># RS - Residential Service</span>
+                    <span class="s1">&#39;NM&#39;</span><span class="p">:</span><span class="mi">8692</span><span class="p">,</span> <span class="c1"># 1A (Residential Service)</span>
+                    <span class="s1">&#39;NV&#39;</span><span class="p">:</span><span class="mi">16701</span><span class="p">,</span> <span class="c1"># D-1 (Residential Service)</span>
+                    <span class="s1">&#39;NY&#39;</span><span class="p">:</span><span class="mi">16902</span><span class="p">,</span> <span class="c1"># SC1- Zone A</span>
+                    <span class="s1">&#39;OH&#39;</span><span class="p">:</span><span class="mi">16892</span><span class="p">,</span> <span class="c1"># RS (Residential Service)</span>
+                    <span class="s1">&#39;OK&#39;</span><span class="p">:</span><span class="mi">15258</span><span class="p">,</span> <span class="c1"># Residential Service (R-1)</span>
+                    <span class="s1">&#39;OR&#39;</span><span class="p">:</span><span class="mi">15847</span><span class="p">,</span> <span class="c1"># Schedule 4 - Residential (Single Phase)</span>
+                    <span class="s1">&#39;PA&#39;</span><span class="p">:</span><span class="mi">17237</span><span class="p">,</span> <span class="c1"># RS (Residential Service)</span>
+                    <span class="s1">&#39;RI&#39;</span><span class="p">:</span><span class="mi">16598</span><span class="p">,</span> <span class="c1"># A-16 (Residential Service)</span>
+                    <span class="s1">&#39;SC&#39;</span><span class="p">:</span><span class="mi">15744</span><span class="p">,</span> <span class="c1"># Residential - RS (SC)</span>
+                    <span class="s1">&#39;SD&#39;</span><span class="p">:</span><span class="mi">1216</span><span class="p">,</span> <span class="c1"># Town and Rural Residential Rate</span>
+                    <span class="s1">&#39;TN&#39;</span><span class="p">:</span><span class="mi">15149</span><span class="p">,</span> <span class="c1"># Residential Electric Service</span>
+                    <span class="s1">&#39;TX&#39;</span><span class="p">:</span><span class="mi">16710</span><span class="p">,</span> <span class="c1"># Residential Service - Time Of Day</span>
+                    <span class="s1">&#39;UT&#39;</span><span class="p">:</span><span class="mi">15847</span><span class="p">,</span> <span class="c1"># Schedule 4 - Residential (Single Phase)</span>
+                    <span class="s1">&#39;VA&#39;</span><span class="p">:</span><span class="mi">17067</span><span class="p">,</span> <span class="c1"># Residential Schedule 1</span>
+                    <span class="s1">&#39;VT&#39;</span><span class="p">:</span><span class="mi">16544</span><span class="p">,</span> <span class="c1"># Rate 01 Residential Service</span>
+                    <span class="s1">&#39;WA&#39;</span><span class="p">:</span><span class="mi">16305</span><span class="p">,</span> <span class="c1"># 10 (Residential and Farm Primary General Service)</span>
+                    <span class="s1">&#39;WI&#39;</span><span class="p">:</span><span class="mi">15543</span><span class="p">,</span> <span class="c1"># Residential Rg-1</span>
+                    <span class="s1">&#39;WV&#39;</span><span class="p">:</span><span class="mi">15515</span><span class="p">,</span> <span class="c1"># Residential Service A</span>
+                    <span class="s1">&#39;WY&#39;</span><span class="p">:</span><span class="mi">15847</span> <span class="c1"># Schedule 4 - Residential (Single Phase)</span>
+                    <span class="p">}</span>
+    
+    <span class="n">com_tariffs</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;AL&#39;</span><span class="p">:</span><span class="mi">15494</span><span class="p">,</span> <span class="c1"># BTA - BUSINESS TIME ADVANTAGE (OPTIONAL) - Primary</span>
+                    <span class="s1">&#39;AR&#39;</span><span class="p">:</span><span class="mi">16674</span><span class="p">,</span> <span class="c1"># Small General Service (SGS)</span>
+                    <span class="s1">&#39;AZ&#39;</span><span class="p">:</span><span class="mi">10742</span><span class="p">,</span> <span class="c1"># LGS-TOU- N - Large General Service Time-of-Use</span>
+                    <span class="s1">&#39;CA&#39;</span><span class="p">:</span><span class="mi">17057</span><span class="p">,</span> <span class="c1"># A-10 Medium General Demand Service (Secondary Voltage)</span>
+                    <span class="s1">&#39;CO&#39;</span><span class="p">:</span><span class="mi">17102</span><span class="p">,</span> <span class="c1"># Commercial Service (Schedule C)</span>
+                    <span class="s1">&#39;CT&#39;</span><span class="p">:</span><span class="mi">16684</span><span class="p">,</span> <span class="c1"># Rate 35 Intermediate General Electric Service</span>
+                    <span class="s1">&#39;DC&#39;</span><span class="p">:</span><span class="mi">15336</span><span class="p">,</span> <span class="c1"># General Service (Schedule GS)</span>
+                    <span class="s1">&#39;DE&#39;</span><span class="p">:</span><span class="mi">1199</span><span class="p">,</span> <span class="c1"># Schedule LC-P Large Commercial Primary</span>
+                    <span class="s1">&#39;FL&#39;</span><span class="p">:</span><span class="mi">13790</span><span class="p">,</span> <span class="c1"># SDTR-1 (Option A)</span>
+                    <span class="s1">&#39;GA&#39;</span><span class="p">:</span><span class="mi">1905</span><span class="p">,</span> <span class="c1"># SCHEDULE TOU-MB-4 TIME OF USE - MULTIPLE BUSINESS</span>
+                    <span class="s1">&#39;IA&#39;</span><span class="p">:</span><span class="mi">11705</span><span class="p">,</span> <span class="c1"># Three Phase Farm</span>
+                    <span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="mi">14782</span><span class="p">,</span> <span class="c1"># Large General Service (3 Phase)-Schedule 21</span>
+                    <span class="s1">&#39;IL&#39;</span><span class="p">:</span><span class="mi">1567</span><span class="p">,</span> <span class="c1"># General Service Three Phase standard</span>
+                    <span class="s1">&#39;IN&#39;</span><span class="p">:</span><span class="mi">15492</span><span class="p">,</span> <span class="c1"># CS - Commercial Service</span>
+                    <span class="s1">&#39;KS&#39;</span><span class="p">:</span><span class="mi">14736</span><span class="p">,</span> <span class="c1"># Generation Substitution Service</span>
+                    <span class="s1">&#39;KY&#39;</span><span class="p">:</span><span class="mi">17179</span><span class="p">,</span> <span class="c1"># General Service (Single Phase)</span>
+                    <span class="s1">&#39;LA&#39;</span><span class="p">:</span><span class="mi">17220</span><span class="p">,</span> <span class="c1"># Large General Service (LGS-L)</span>
+                    <span class="s1">&#39;MA&#39;</span><span class="p">:</span><span class="mi">16005</span><span class="p">,</span> <span class="c1"># Western Massachusetts Primary General Service G-2</span>
+                    <span class="s1">&#39;MD&#39;</span><span class="p">:</span><span class="mi">2659</span><span class="p">,</span> <span class="c1"># Commercial</span>
+                    <span class="s1">&#39;ME&#39;</span><span class="p">:</span><span class="mi">16125</span><span class="p">,</span> <span class="c1"># General Service Rate</span>
+                    <span class="s1">&#39;MI&#39;</span><span class="p">:</span><span class="mi">5355</span><span class="p">,</span> <span class="c1"># Large Power Service (LP4)</span>
+                    <span class="s1">&#39;MN&#39;</span><span class="p">:</span><span class="mi">15566</span><span class="p">,</span> <span class="c1"># General Service (A14) Secondary Voltage</span>
+                    <span class="s1">&#39;MO&#39;</span><span class="p">:</span><span class="mi">17208</span><span class="p">,</span> <span class="c1"># 2(M) Small General Service - Single phase</span>
+                    <span class="s1">&#39;MS&#39;</span><span class="p">:</span><span class="mi">13427</span><span class="p">,</span> <span class="c1"># General Service - Low Voltage Single-Phase (GS-LVS-14)</span>
+                    <span class="s1">&#39;MT&#39;</span><span class="p">:</span><span class="mi">10707</span><span class="p">,</span> <span class="c1"># Three Phase</span>
+                    <span class="s1">&#39;NC&#39;</span><span class="p">:</span><span class="mi">16947</span><span class="p">,</span> <span class="c1"># General Service (GS-41)</span>
+                    <span class="s1">&#39;ND&#39;</span><span class="p">:</span><span class="mi">14035</span><span class="p">,</span> <span class="c1"># Small General Electric Service rate 20 (Demand Metered; Non-Demand)</span>
+                    <span class="s1">&#39;NE&#39;</span><span class="p">:</span><span class="mi">13818</span><span class="p">,</span> <span class="c1"># General Service Single-Phase</span>
+                    <span class="s1">&#39;NH&#39;</span><span class="p">:</span><span class="mi">16620</span><span class="p">,</span> <span class="c1"># GV Commercial and Industrial Service</span>
+                    <span class="s1">&#39;NJ&#39;</span><span class="p">:</span><span class="mi">17095</span><span class="p">,</span> <span class="c1"># AGS Secondary- BGS-RSCP</span>
+                    <span class="s1">&#39;NM&#39;</span><span class="p">:</span><span class="mi">15769</span><span class="p">,</span> <span class="c1"># 2A (Small Power Service)</span>
+                    <span class="s1">&#39;NV&#39;</span><span class="p">:</span><span class="mi">13724</span><span class="p">,</span> <span class="c1"># OGS-2-TOU</span>
+                    <span class="s1">&#39;NY&#39;</span><span class="p">:</span><span class="mi">15940</span><span class="p">,</span> <span class="c1"># SC-9 - General Large High Tension Service [Westchester]</span>
+                    <span class="s1">&#39;OH&#39;</span><span class="p">:</span><span class="mi">16873</span><span class="p">,</span> <span class="c1"># GS (General Service-Secondary)</span>
+                    <span class="s1">&#39;OK&#39;</span><span class="p">:</span><span class="mi">17144</span><span class="p">,</span> <span class="c1"># GS-TOU (General Service Time-Of-Use)</span>
+                    <span class="s1">&#39;OR&#39;</span><span class="p">:</span><span class="mi">15829</span><span class="p">,</span> <span class="c1"># Small Non-Residential Direct Access Service, Single Phase (Rate 532)</span>
+                    <span class="s1">&#39;PA&#39;</span><span class="p">:</span><span class="mi">7066</span><span class="p">,</span> <span class="c1"># Large Power 2 (LP2)</span>
+                    <span class="s1">&#39;RI&#39;</span><span class="p">:</span><span class="mi">16600</span><span class="p">,</span> <span class="c1"># G-02 (General C &amp; I Rate)</span>
+                    <span class="s1">&#39;SC&#39;</span><span class="p">:</span><span class="mi">16207</span><span class="p">,</span> <span class="c1"># 3 (Municipal  Power Service)</span>
+                    <span class="s1">&#39;SD&#39;</span><span class="p">:</span><span class="mi">3650</span><span class="p">,</span> <span class="c1"># Small Commercial</span>
+                    <span class="s1">&#39;TN&#39;</span><span class="p">:</span><span class="mi">15154</span><span class="p">,</span> <span class="c1"># Medium General Service (Primary)</span>
+                    <span class="s1">&#39;TX&#39;</span><span class="p">:</span><span class="mi">6001</span><span class="p">,</span> <span class="c1"># Medium Non-Residential LSP POLR</span>
+                    <span class="s1">&#39;UT&#39;</span><span class="p">:</span><span class="mi">3478</span><span class="p">,</span> <span class="c1"># SCHEDULE GS - 3 Phase General Service</span>
+                    <span class="s1">&#39;VA&#39;</span><span class="p">:</span><span class="mi">16557</span><span class="p">,</span> <span class="c1"># Small General Service Schedule 5</span>
+                    <span class="s1">&#39;VT&#39;</span><span class="p">:</span><span class="mi">16543</span><span class="p">,</span> <span class="c1"># Rate 06: General Service</span>
+                    <span class="s1">&#39;WA&#39;</span><span class="p">:</span><span class="mi">16306</span><span class="p">,</span> <span class="c1"># 40 (Large Demand General Service over 3MW - Primary)</span>
+                    <span class="s1">&#39;WI&#39;</span><span class="p">:</span><span class="mi">6620</span><span class="p">,</span> <span class="c1"># Cg-7 General Service Time-of-Day (Primary)</span>
+                    <span class="s1">&#39;WV&#39;</span><span class="p">:</span><span class="mi">15518</span><span class="p">,</span> <span class="c1"># General Service C</span>
+                    <span class="s1">&#39;WY&#39;</span><span class="p">:</span><span class="mi">3878</span> <span class="c1"># General Service (GS)-Three phase</span>
+                    <span class="p">}</span>
+    
+    <span class="c1"># map industrial tariffs based on census division</span>
+    <span class="n">ind_tariffs</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;SA&#39;</span><span class="p">:</span><span class="mi">16657</span><span class="p">,</span> <span class="c1"># Georgia Power Co, Schedule TOU-GSD-10 Time Of Use - General Service Demand</span>
+                    <span class="s1">&#39;WSC&#39;</span><span class="p">:</span><span class="mi">15919</span><span class="p">,</span> <span class="c1"># Southwestern Public Service Co (Texas), Large General Service - Inside City Limits 115 KV</span>
+                    <span class="s1">&#39;PAC&#39;</span><span class="p">:</span><span class="mi">15864</span><span class="p">,</span> <span class="c1"># PacifiCorp (Oregon), Schedule 47 - Secondary (Less than 4000 kW)</span>
+                    <span class="s1">&#39;MA&#39;</span><span class="p">:</span><span class="mi">16525</span><span class="p">,</span> <span class="c1"># New York State Elec &amp; Gas Corp, All Regions - SERVICE CLASSIFICATION NO. 7-1 Large General Service TOU - Secondary -ESCO                   </span>
+                    <span class="s1">&#39;MTN&#39;</span><span class="p">:</span><span class="mi">17101</span><span class="p">,</span> <span class="c1"># Public Service Co of Colorado, Secondary General Service (Schedule SG)                   </span>
+                    <span class="s1">&#39;ENC&#39;</span><span class="p">:</span><span class="mi">15526</span><span class="p">,</span> <span class="c1"># Wisconsin Power &amp; Light Co, Industrial Power Cp-1 (Secondary)                   </span>
+                    <span class="s1">&#39;NE&#39;</span><span class="p">:</span><span class="mi">16635</span><span class="p">,</span> <span class="c1"># Delmarva Power, General Service - Primary                   </span>
+                    <span class="s1">&#39;ESC&#39;</span><span class="p">:</span><span class="mi">15490</span><span class="p">,</span> <span class="c1"># Alabama Power Co, LPM - LIGHT AND POWER SERVICE - MEDIUM                   </span>
+                    <span class="s1">&#39;WNC&#39;</span><span class="p">:</span><span class="mi">6642</span> <span class="c1"># Northern States Power Co - Wisconsin, Cg-9.1 Large General Time-of-Day Primary Mandatory Customers</span>
+                   <span class="p">}</span>
+    
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1"># separate agents with incorrect and correct rates</span>
+    <span class="n">bad_rates</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">4145</span><span class="p">,</span> <span class="mi">7111</span><span class="p">,</span> <span class="mi">8498</span><span class="p">,</span> <span class="mi">10953</span><span class="p">,</span> <span class="mi">10954</span><span class="p">,</span> <span class="mi">12003</span><span class="p">])]</span>
+    <span class="n">good_rates</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">4145</span><span class="p">,</span> <span class="mi">7111</span><span class="p">,</span> <span class="mi">8498</span><span class="p">,</span> <span class="mi">10953</span><span class="p">,</span> <span class="mi">10954</span><span class="p">,</span> <span class="mi">12003</span><span class="p">])]</span>
+    
+    <span class="c1"># if incorrect rates exist, grab the correct ones from the rates table</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bad_rates</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        
+        <span class="c1"># set new tariff_id based on location</span>
+        <span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;res&#39;</span><span class="p">,</span>
+                                          <span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">res_tariffs</span><span class="p">),</span>
+                                          <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;com&#39;</span><span class="p">,</span>
+                                                   <span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">com_tariffs</span><span class="p">),</span>
+                                                   <span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;census_division_abbr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">ind_tariffs</span><span class="p">)))</span>
+        
+        <span class="c1"># get json objects for new rates and rename columns in preparation for merge</span>
+        <span class="n">new_rates_json_df</span> <span class="o">=</span> <span class="n">get_electric_rates_json</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">bad_rates</span><span class="p">[</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">new_rates_json_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_rates_json_df</span>
+                             <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;rate_name&#39;</span><span class="p">,</span><span class="s1">&#39;eia_id&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+                             <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rate_id_alias&#39;</span><span class="p">:</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">,</span><span class="s1">&#39;rate_json&#39;</span><span class="p">:</span><span class="s1">&#39;tariff_dict&#39;</span><span class="p">})</span>
+                            <span class="p">)</span>
+        
+        <span class="c1"># drop bad tariff_dict from agent dataframe and merge correct one</span>
+        <span class="n">bad_rates</span> <span class="o">=</span> <span class="n">bad_rates</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;tariff_dict&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+        <span class="n">bad_rates</span> <span class="o">=</span> <span class="n">bad_rates</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">new_rates_json_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;tariff_id&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># reconstruct full agent dataframe</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">good_rates</span><span class="p">,</span> <span class="n">bad_rates</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;agent_id&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

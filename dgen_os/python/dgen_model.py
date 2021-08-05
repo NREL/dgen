@@ -1,6 +1,9 @@
 """
-Distributed Generation Market Demand Model (dGen) - Final Release
+Distributed Generation Market Demand Model (dGen) - Open Source Release
 National Renewable Energy Lab
+
+This is the main module of the dGen Model. 
+Running this module requires a properly installed environment with applicable scenario files. 
 """
 
 import time
@@ -15,6 +18,7 @@ import agent_mutation
 import diffusion_functions_elec
 import financial_functions
 import input_data_functions as iFuncs
+import PySAM
 
 #==============================================================================
 # raise  numpy and pandas warnings as exceptions
@@ -24,11 +28,17 @@ pd.set_option('mode.chained_assignment', None)
 
 
 def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
+    """
+    Compute the economic adoption of distributed generation resources on an agent-level basis.
+    Model output is saved to a `/runs` file within the dGen directory as well as in the "agent_outputs"
+    table within the new schema created upon each model run.
+    """
 
     try:
         # =====================================================================
         # SET UP THE MODEL TO RUN
         # =====================================================================
+
         # initialize Model Settings object
         # (this controls settings that apply to all scenarios to be executed)
         model_settings = settings.init_model_settings()
@@ -51,6 +61,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
         # =====================================================================
         # LOOP OVER SCENARIOS
         # =====================================================================
+        
         # variables used to track outputs
         scenario_names = []
         dup_n = 1

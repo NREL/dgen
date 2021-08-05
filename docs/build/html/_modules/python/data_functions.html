@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>python.data_functions &mdash; dgen  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> dgen
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">dGen Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#agent-based-model">agent based model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview.html#dgen-database">dGen Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dGen Code Base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../python.agent_mutation.html">python.agent_mutation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation.elec">python.agent_mutation.elec module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.agent_mutation.html#module-python.agent_mutation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.excel.html">python.excel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel.excel_objects">python.excel.excel_objects module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python.excel.html#module-python.excel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.config">python.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.decorators">python.decorators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.dgen_model">python.dgen_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.data_functions">python.data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.input_data_functions">python.input_data_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.diffusion_functions_elec">python.diffusion_functions_elec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.financial_functions">python.financial_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.settings">python.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.tariff_functions">python.tariff_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python.utility_functions">python.utility_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-python">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contribution Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#issue-overview">Issue overview</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dgen</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>python.data_functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for python.data_functions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions for pulling data</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span> <span class="k">as</span> <span class="nn">pg</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">JoinableQueue</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
+<span class="kn">import</span> <span class="nn">decorators</span>
+<span class="kn">import</span> <span class="nn">utility_functions</span> <span class="k">as</span> <span class="nn">utilfunc</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">imp</span>
+<span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">logging</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># Load logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="c1">#==============================================================================</span>
+
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># configure psycopg2 to treat numeric values as floats (improves</span>
+<span class="c1"># performance of pulling data from the database)</span>
+<span class="n">DEC2FLOAT</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">new_type</span><span class="p">(</span>
+    <span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">DECIMAL</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;DEC2FLOAT&#39;</span><span class="p">,</span>
+    <span class="k">lambda</span> <span class="n">value</span><span class="p">,</span> <span class="n">curs</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pg</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="n">DEC2FLOAT</span><span class="p">)</span>
+<span class="c1">#==============================================================================</span>
+
+
+<div class="viewcode-block" id="create_tech_subfolders"><a class="viewcode-back" href="../../api.html#python.data_functions.create_tech_subfolders">[docs]</a><span class="k">def</span> <span class="nf">create_tech_subfolders</span><span class="p">(</span><span class="n">out_scen_path</span><span class="p">,</span> <span class="n">techs</span><span class="p">,</span> <span class="n">out_subfolders</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates subfolders for results of each specified technology</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    out_scen_path : &#39;directory&#39;</span>
+<span class="sd">        Path for the scenario folder to send results</span>
+<span class="sd">    techs : &#39;string&#39;</span>
+<span class="sd">        Technology type </span>
+<span class="sd">    out_subfolders : &#39;dict&#39;</span>
+<span class="sd">        Dictionary of empty subfolder paths for solar</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_subfolders : &#39;dict&#39;</span>
+<span class="sd">        Dictionary with subfolder paths for solar</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">tech</span> <span class="ow">in</span> <span class="n">techs</span><span class="p">:</span>
+        <span class="c1"># set output subfolders</span>
+        <span class="n">out_tech_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_scen_path</span><span class="p">,</span> <span class="n">tech</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_tech_path</span><span class="p">)</span>
+        <span class="n">out_subfolders</span><span class="p">[</span><span class="n">tech</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out_tech_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out_subfolders</span></div>
+
+
+<div class="viewcode-block" id="create_scenario_results_folder"><a class="viewcode-back" href="../../api.html#python.data_functions.create_scenario_results_folder">[docs]</a><span class="k">def</span> <span class="nf">create_scenario_results_folder</span><span class="p">(</span><span class="n">input_scenario</span><span class="p">,</span> <span class="n">scen_name</span><span class="p">,</span> <span class="n">scenario_names</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">dup_n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates scenario results directories</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_scenario : &#39;directory&#39;</span>
+<span class="sd">        Scenario inputs pulled from excel file within diffusion/inputs_scenarios folder</span>
+<span class="sd">    scen_name : &#39;string&#39;</span>
+<span class="sd">        Scenario Name </span>
+<span class="sd">    scenario_names : &#39;list&#39;</span>
+<span class="sd">        List of scenario names</span>
+<span class="sd">    out_dir : &#39;directory&#39;</span>
+<span class="sd">        Output directory for scenario subfolders</span>
+<span class="sd">    dup_n : &#39;int&#39;</span>
+<span class="sd">        Number to track duplicate scenarios in scenario_names. Default is 0 unless otherwise specified.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_scen_path : &#39;directory&#39;</span>
+<span class="sd">        Path for the scenario subfolders to send results</span>
+<span class="sd">    scenario_names</span>
+<span class="sd">        Populated list of scenario names</span>
+<span class="sd">    dup_n : &#39;int&#39;</span>
+<span class="sd">        Number to track duplicate scenarios, stepped up by 1 from original value if there is a duplicate</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">scen_name</span> <span class="ow">in</span> <span class="n">scenario_names</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Warning: Scenario name </span><span class="si">{0}</span><span class="s2"> is a duplicate. Renaming to </span><span class="si">{1}</span><span class="s2">_</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span>
+            <span class="n">scen_name</span><span class="p">,</span> <span class="n">scen_name</span><span class="p">,</span> <span class="n">dup_n</span><span class="p">)))</span>
+        <span class="n">scen_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">scen_name</span><span class="p">,</span> <span class="n">dup_n</span><span class="p">))</span>
+        <span class="n">dup_n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">scenario_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scen_name</span><span class="p">)</span>
+    <span class="n">out_scen_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">scen_name</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_scen_path</span><span class="p">)</span>
+    <span class="c1"># copy the input scenario spreadsheet</span>
+    <span class="k">if</span> <span class="n">input_scenario</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">input_scenario</span><span class="p">,</span> <span class="n">out_scen_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out_scen_path</span><span class="p">,</span> <span class="n">scenario_names</span><span class="p">,</span> <span class="n">dup_n</span></div>
+
+
+<div class="viewcode-block" id="create_output_schema"><a class="viewcode-back" href="../../api.html#python.data_functions.create_output_schema">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_output_schema</span><span class="p">(</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">scenario_list</span><span class="p">,</span> <span class="n">source_schema</span><span class="o">=</span><span class="s1">&#39;diffusion_template&#39;</span><span class="p">,</span> <span class="n">include_data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates output schema that will be dropped into the database</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pg_conn_string : &#39;string&#39;</span>
+<span class="sd">        String to connect to pgAdmin database</span>
+<span class="sd">    role : &#39;string&#39;</span>
+<span class="sd">        Owner of schema </span>
+<span class="sd">    suffix : &#39;string&#39;</span>
+<span class="sd">        String to mark the time that model is kicked off. Added to end of schema to act as a unique indentifier</span>
+<span class="sd">    source_schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema to be used as template for the output schema</span>
+<span class="sd">    include_data : &#39;bool&#39;</span>
+<span class="sd">        If True includes data from diffusion_shared schema. Default is False</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dest_schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Output schema that will house the final results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">suffix</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">get_formatted_time</span><span class="p">()</span>
+    <span class="n">suffix_microsecond</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating output schema based on </span><span class="si">{source_schema}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">))</span>
+
+    <span class="n">con</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">make_con</span><span class="p">(</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">)</span>
+    <span class="c1">#con, cur = utilfunc.make_con(pg_conn_string, role=&quot;diffusion-schema-writers&quot;)</span>
+
+    <span class="c1"># check that the source schema exists</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT count(*)</span>
+<span class="s2">            FROM pg_catalog.pg_namespace</span>
+<span class="s2">            WHERE nspname = &#39;</span><span class="si">{source_schema}</span><span class="s2">&#39;;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Specified source_schema (</span><span class="si">{source_schema}</span><span class="s2">) does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">scen_suffix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">scenario_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;.xlsm&#39;</span><span class="p">)</span>
+
+    <span class="n">dest_schema</span> <span class="o">=</span> <span class="s1">&#39;diffusion_results_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">suffix</span><span class="o">+</span><span class="n">suffix_microsecond</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">scen_suffix</span><span class="p">)</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;dest_schema&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dest_schema</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT diffusion_shared.clone_schema(&#39;</span><span class="si">{source_schema}</span><span class="s1">&#39;, &#39;</span><span class="si">{dest_schema}</span><span class="s1">&#39;, &#39;</span><span class="si">{role}</span><span class="s1">&#39;, </span><span class="si">{include_data}</span><span class="s1">);&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Output schema is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dest_schema</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">dest_schema</span></div>
+
+
+<div class="viewcode-block" id="drop_output_schema"><a class="viewcode-back" href="../../api.html#python.data_functions.drop_output_schema">[docs]</a><span class="nd">@decorators</span><span class="o">.</span><span class="n">fn_timer</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">tab_level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">drop_output_schema</span><span class="p">(</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">delete_output_schema</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes output schema from database if set to true</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pg_conn_string : &#39;string&#39;</span>
+<span class="sd">        String to connect to pgAdmin database</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema that will be deleted</span>
+<span class="sd">    delete_output_schema : &#39;bool&#39;</span>
+<span class="sd">        If set to True in config.py, deletes output schema</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">delete_output_schema</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Dropping the Output Schema (</span><span class="si">{}</span><span class="s1">) from Database&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">))</span>
+
+        <span class="n">con</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">utilfunc</span><span class="o">.</span><span class="n">make_con</span><span class="p">(</span><span class="n">pg_conn_string</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">)</span>
+        <span class="c1">#con, cur = utilfunc.make_con(pg_conn_string, role=&quot;diffusion-schema-writers&quot;)</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;DROP SCHEMA IF EXISTS </span><span class="si">{schema}</span><span class="s1"> CASCADE;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;The output schema  (</span><span class="si">%(schema)s</span><span class="s2">) has not been deleted. Please delete manually when you are finished analyzing outputs.&quot;</span> <span class="o">%</span> <span class="n">inputs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_sectors"><a class="viewcode-back" href="../../api.html#python.data_functions.get_sectors">[docs]</a><span class="k">def</span> <span class="nf">get_sectors</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the sectors to model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    cur : &#39;SQL cursor&#39;</span>
+<span class="sd">        Cursor</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the sectors exist        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sectors : &#39;dict&#39;</span>
+<span class="sd">        Dictionary of sectors to be modeled in table view in postgres</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT sectors</span>
+<span class="s1">              FROM </span><span class="si">{}</span><span class="s1">.sectors_to_model;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="n">sectors</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="s1">&#39;sectors&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sectors</span></div>
+
+
+<div class="viewcode-block" id="get_technologies"><a class="viewcode-back" href="../../api.html#python.data_functions.get_technologies">[docs]</a><span class="k">def</span> <span class="nf">get_technologies</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the technologies to model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the technologies exist        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    techs : &#39;list&#39;</span>
+<span class="sd">        List of technologies to be modeled in table view in postgres</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT </span>
+<span class="s2">                CASE WHEN run_tech = &#39;Solar + Storage&#39; THEN &#39;solar&#39;::text</span>
+<span class="s2">                END AS tech</span>
+<span class="s2">            FROM </span><span class="si">{}</span><span class="s2">.input_main_scenario_options;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+    <span class="c1"># get the data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="c1"># convert to a simple list</span>
+    <span class="n">techs</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">tech</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">techs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;No technologies were selected to be run in the input sheet.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">techs</span></div>
+
+
+
+<div class="viewcode-block" id="get_agent_file_scenario"><a class="viewcode-back" href="../../api.html#python.data_functions.get_agent_file_scenario">[docs]</a><span class="k">def</span> <span class="nf">get_agent_file_scenario</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT agent_file as agent_file_status</span>
+<span class="s2">            FROM </span><span class="si">{}</span><span class="s2">.input_main_scenario_options;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+    <span class="c1"># get the data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="c1"># convert to a simple list</span>
+    <span class="n">agent_file_status</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">agent_file_status</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">agent_file_status</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;No pre-generated pkl agent file was provided to be run in the input sheet.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">agent_file_status</span></div>
+
+
+<div class="viewcode-block" id="get_bass_params"><a class="viewcode-back" href="../../api.html#python.data_functions.get_bass_params">[docs]</a><span class="k">def</span> <span class="nf">get_bass_params</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the bass diffusion parameters to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection</span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the sectors exist        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bass_df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of state abbreviation, p, q, teq_yr1 (time equivalency), sector abbreviation, and the technology.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT state_abbr,</span>
+<span class="s2">                    p,</span>
+<span class="s2">                    q,</span>
+<span class="s2">                    teq_yr1,</span>
+<span class="s2">                    sector_abbr,</span>
+<span class="s2">                    tech</span>
+<span class="s2">             FROM </span><span class="si">{schema}</span><span class="s2">.input_solar_bass_params;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="n">bass_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bass_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="s1">&#39;bass_param_p&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;q&#39;</span><span class="p">:</span><span class="s1">&#39;bass_param_q&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">bass_df</span></div>
+
+
+<div class="viewcode-block" id="get_state_incentives"><a class="viewcode-back" href="../../api.html#python.data_functions.get_state_incentives">[docs]</a><span class="k">def</span> <span class="nf">get_state_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the state incentives to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    state_incentives : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of state financial incentives.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># changed from 2019 to 2020</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM diffusion_shared.state_incentives_2020;&quot;&quot;&quot;</span>
+
+    <span class="n">state_incentives</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state_incentives</span></div>
+
+
+<div class="viewcode-block" id="get_itc_incentives"><a class="viewcode-back" href="../../api.html#python.data_functions.get_itc_incentives">[docs]</a><span class="k">def</span> <span class="nf">get_itc_incentives</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the Investment Tax Credit incentives to use in the model from table view in postgres.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema in which the sectors exist </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    itc_options : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame of ITC financial incentives.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year, substring(lower(sector), 1, 3) as sector_abbr,</span>
+<span class="s2">                    itc_fraction, tech, min_size_kw, max_size_kw</span>
+<span class="s2">             FROM </span><span class="si">{schema}</span><span class="s2">.input_main_itc_options;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">itc_options</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="n">itc_options</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;itc_fraction&#39;</span><span class="p">:</span><span class="s1">&#39;itc_fraction_of_capex&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">itc_options</span></div>
+
+
+<div class="viewcode-block" id="get_max_market_share"><a class="viewcode-back" href="../../api.html#python.data_functions.get_max_market_share">[docs]</a><span class="k">def</span> <span class="nf">get_max_market_share</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the max market share from database, select curve based on scenario_options,</span>
+<span class="sd">    and interpolate to tenth of a year.</span>
+<span class="sd">    Use passed parameters to determine ownership typ.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema - string - for technology i.e. diffusion_solar</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    max_market_share : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame to join on main df to determine max share keys are sector &amp; payback period.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT metric_value,</span>
+<span class="s1">                    sector_abbr,</span>
+<span class="s1">                    max_market_share,</span>
+<span class="s1">                    metric,</span>
+<span class="s1">                    source,</span>
+<span class="s1">                    business_model</span>
+<span class="s1">             FROM </span><span class="si">{0}</span><span class="s1">.max_market_curves_to_model</span>
+
+<span class="s1">             UNION ALL</span>
+
+<span class="s1">            SELECT 30.1 as metric_value,</span>
+<span class="s1">                    sector_abbr,</span>
+<span class="s1">                    0::NUMERIC as max_market_share,</span>
+<span class="s1">                    metric,</span>
+<span class="s1">                    source,</span>
+<span class="s1">                    business_model</span>
+<span class="s1">            FROM </span><span class="si">{1}</span><span class="s1">.max_market_curves_to_model</span>
+<span class="s1">            WHERE metric_value = 30</span>
+<span class="s1">            AND metric = &#39;payback_period&#39;</span>
+<span class="s1">            AND business_model = &#39;host_owned&#39;;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+    <span class="n">max_market_share</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="n">max_market_share</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;metric_value&#39;</span><span class="p">:</span><span class="s1">&#39;payback_period&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">max_market_share</span></div>
+
+
+<div class="viewcode-block" id="get_rate_escalations"><a class="viewcode-back" href="../../api.html#python.data_functions.get_rate_escalations">[docs]</a><span class="k">def</span> <span class="nf">get_rate_escalations</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return rate escalation multipliers from database. Escalations are filtered and applied in calc_economics,</span>
+<span class="sd">    resulting in an average real compounding rate growth. This rate is then used to calculate cash flows.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    rate_escalations : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with county_id, sector, year, escalation_factor, and source as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year, county_id, sector_abbr, nerc_region_abbr,</span>
+<span class="s2">                    escalation_factor as elec_price_multiplier</span>
+<span class="s2">            FROM </span><span class="si">{schema}</span><span class="s2">.rate_escalations_to_model</span>
+<span class="s2">            ORDER BY year, county_id, sector_abbr&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">rate_escalations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">rate_escalations</span></div>
+
+
+<div class="viewcode-block" id="get_load_growth"><a class="viewcode-back" href="../../api.html#python.data_functions.get_load_growth">[docs]</a><span class="k">def</span> <span class="nf">get_load_growth</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return rate load growth values applied to electricity load.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with year, county_id, sector_abbr, nerc_region_abbr, load_multiplier as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year, county_id, sector_abbr, nerc_region_abbr, load_multiplier</span>
+<span class="s2">            FROM </span><span class="si">{schema}</span><span class="s2">.load_growth_to_model;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="get_technology_costs_solar"><a class="viewcode-back" href="../../api.html#python.data_functions.get_technology_costs_solar">[docs]</a><span class="k">def</span> <span class="nf">get_technology_costs_solar</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return technology costs for solar.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with year, sector_abbr, system_capex_per_kw, system_om_per_kw, system_variable_om_per_kw as columns.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT year,</span>
+<span class="s2">                    sector_abbr,</span>
+<span class="s2">                    system_capex_per_kw,</span>
+<span class="s2">                    system_om_per_kw,</span>
+<span class="s2">                    system_variable_om_per_kw</span>
+<span class="s2">            FROM </span><span class="si">{schema}</span><span class="s2">.input_pv_prices_to_model;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span> </div>
+
+    
+<div class="viewcode-block" id="get_annual_inflation"><a class="viewcode-back" href="../../api.html#python.data_functions.get_annual_inflation">[docs]</a><span class="k">def</span> <span class="nf">get_annual_inflation</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the inflation rate set in the input sheet. Constant for all years &amp; sectors.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        diffusion_shared.input_main_market_inflation </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df.values[0][0] : &#39;float&#39;</span>
+<span class="sd">        Float object that represents the inflation rate (e.g. 0.025 which corresponds to 2.5%).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT *</span>
+<span class="s1">             FROM diffusion_shared.input_main_market_inflation;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;inflation&#39;</span><span class="p">:</span><span class="s1">&#39;inflation_rate&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Just want the inflation as a float (for now)</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="make_output_directory_path"><a class="viewcode-back" href="../../api.html#python.data_functions.make_output_directory_path">[docs]</a><span class="k">def</span> <span class="nf">make_output_directory_path</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Creates and returns a directory named &#39;results&#39; with the timestamp associated with the model run appended. Note, this directory stores </span>
+<span class="sd">    metadata associated with the a model run, however, the results of the model run are in the &#39;agent_outputs&#39; table within the</span>
+<span class="sd">    schema created with each run in the database. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">out_dir</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/runs/results_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span> <span class="n">suffix</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out_dir</span></div>
+
+
+<div class="viewcode-block" id="get_input_scenarios"><a class="viewcode-back" href="../../api.html#python.data_functions.get_input_scenarios">[docs]</a><span class="k">def</span> <span class="nf">get_input_scenarios</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a list of the input scenario excel files specified in the input_scenarios directory.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scenarios : &#39;list&#39; </span>
+<span class="sd">        a list of the input scenario excel files specified in the input_scenarios directory.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
+        <span class="s2">&quot;../input_scenarios/*.xls*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;~$&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">scenarios</span></div>
+
+
+<div class="viewcode-block" id="create_model_years"><a class="viewcode-back" href="../../api.html#python.data_functions.create_model_years">[docs]</a><span class="k">def</span> <span class="nf">create_model_years</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="p">,</span> <span class="n">increment</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return a list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    start_year : &#39;int&#39;</span>
+<span class="sd">        starting year of the model (e.g. 2014)       </span>
+<span class="sd">    end_year : &#39;int&#39;</span>
+<span class="sd">        ending year of the model (e.g. 2050) </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model_years : &#39;list&#39;</span>
+<span class="sd">        list of model years ranging between the specified model start year and end year that increments by 2 year time steps.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">model_years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">increment</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">model_years</span></div>
+
+
+<div class="viewcode-block" id="summarize_scenario"><a class="viewcode-back" href="../../api.html#python.data_functions.summarize_scenario">[docs]</a><span class="k">def</span> <span class="nf">summarize_scenario</span><span class="p">(</span><span class="n">scenario_settings</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Log high level secenario settings</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># summarize high level secenario settings</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Scenario Settings:&#39;</span><span class="p">)</span>   
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Scenario Name: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">scen_name</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Region: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">region</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Sectors: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">sectors</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Technologies: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scenario_settings</span><span class="o">.</span><span class="n">techs</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Years: </span><span class="si">{0}</span><span class="s1"> - </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_settings</span><span class="o">.</span><span class="n">start_year</span><span class="p">,</span> <span class="n">scenario_settings</span><span class="o">.</span><span class="n">end_year</span><span class="p">))</span>
+
+    <span class="k">return</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_scenario_options"><a class="viewcode-back" href="../../api.html#python.data_functions.get_scenario_options">[docs]</a><span class="k">def</span> <span class="nf">get_scenario_options</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">pg_params</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Pull scenario options and log the user running the scenario from dB</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pg_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">))</span>
+
+    <span class="c1"># log username to identify the user running the particular scenario</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;ALTER TABLE </span><span class="si">{schema}</span><span class="s1">.input_main_scenario_options ADD COLUMN scenario_user text;</span>
+<span class="s1">            UPDATE </span><span class="si">{schema}</span><span class="s1">.input_main_scenario_options SET scenario_user = &#39;</span><span class="si">{user}</span><span class="s1">&#39; WHERE scenario_name IS NOT NULL&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT *</span>
+<span class="s1">             FROM </span><span class="si">{schema}</span><span class="s1">.input_main_scenario_options;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_nem_state"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_state">[docs]</a><span class="k">def</span> <span class="nf">get_nem_state</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for states with available data. Note, many states don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_state_limits_2019 may be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_state_limits_2019;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="get_nem_state_by_sector"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_state_by_sector">[docs]</a><span class="k">def</span> <span class="nf">get_nem_state_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for states by sector with available data. Note, many states don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_scenario_bau_2019 may be incomplete or out of date.</span>
+
+<span class="sd">    Special handling of DC: System size is unknown until bill calculator runs and differing compensation styles can</span>
+<span class="sd">    potentially result in different optimal system sizes. Here we assume only res customers (assumed system_size_kw &lt; 100)</span>
+<span class="sd">    are eligible for full retail net metering; com/ind (assumed system_size_kw &gt;= 100) only eligible for net billing.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_scenario_bau_2019;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># special handling of DC: we don&#39;t know system size until bill calculator and differing compensation styles will</span>
+    <span class="c1"># potentially result in different optimal system sizes. Here we assume only res customers (assumed system_size_kw &lt; 100)</span>
+    <span class="c1"># are eligible for full retail net metering; com/ind (assumed system_size_kw &gt;= 100) only eligible for net billing.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;DC&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;res&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensation_style&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;net billing&#39;</span><span class="p">))]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;DC&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;res&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensation_style&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;net metering&#39;</span><span class="p">))]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;min_pv_kw_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;DC&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sector_abbr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;res&#39;</span><span class="p">)),</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;min_pv_kw_limit&#39;</span><span class="p">])</span>
+    
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;max_pv_kw_limit&#39;</span><span class="p">:</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="get_nem_utility_by_sector"><a class="viewcode-back" href="../../api.html#python.data_functions.get_nem_utility_by_sector">[docs]</a><span class="k">def</span> <span class="nf">get_nem_utility_by_sector</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering data for utility by sector with available data. Note, many utilities don&#39;t have net metering and or</span>
+<span class="sd">    the data in diffusion_shared.nem_scenario_bau_by_utility_2019 may be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT *, &#39;BAU&#39;::text as scenario FROM diffusion_shared.nem_scenario_bau_by_utility_2019;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;max_pv_kw_limit&#39;</span><span class="p">:</span><span class="s1">&#39;nem_system_kw_limit&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="get_selected_scenario"><a class="viewcode-back" href="../../api.html#python.data_functions.get_selected_scenario">[docs]</a><span class="k">def</span> <span class="nf">get_selected_scenario</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns net metering scenario selected in the input sheet. Note, net metering data and or scenarios may</span>
+<span class="sd">    be incomplete or out of date.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : &#39;pd.df&#39;</span>
+<span class="sd">        Pandas DataFrame with net metering data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM diffusion_shared.input_main_nem_selected_scenario;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="get_state_to_model"><a class="viewcode-back" href="../../api.html#python.data_functions.get_state_to_model">[docs]</a><span class="k">def</span> <span class="nf">get_state_to_model</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the region to model as specified in the input sheet. Note, selecting an ISO will select the </span>
+<span class="sd">    proper geographies (counties and or states) in import_agent_file() in &#39;input_data_functions.py&#39;.</span>
+<span class="sd">    Selecting the United States (national run) will result in every state, excluding Alaska and Hawaii,</span>
+<span class="sd">    but including D.C., being returned as a list.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    con : &#39;SQL connection&#39;</span>
+<span class="sd">        Connection       </span>
+<span class="sd">    schema : &#39;SQL schema&#39;</span>
+<span class="sd">        Schema produced when model is run </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    state_to_model : &#39;list&#39;</span>
+<span class="sd">        List of states to model.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM </span><span class="si">{}</span><span class="s2">.states_to_model;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">coerce_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">state_to_model</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">state_abbr</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">state_to_model</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, NREL
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

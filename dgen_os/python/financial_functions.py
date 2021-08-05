@@ -11,6 +11,7 @@ import agent_mutation
 import pyarrow as pa
 import pyarrow.parquet as pq
 
+import PySAM
 import PySAM.Battwatts as battery
 import PySAM.BatteryTools as batt_tools
 import PySAM.Utilityrate5 as utility
@@ -260,27 +261,27 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     agent: 'pd.df'
         Adds several features to the agent dataframe:
 
-        - **agent_id**
-        - **system_kw** - system capacity selected by agent
-        - **batt_kw** - battery capacity selected by agent
-        - **batt_kwh** - battery energy capacity
-        - **npv** - net present value of system + storage
-        - **cash_flow**  - array of annual cash flows from system adoption
-        - **batt_dispatch_profile** - array of hourly battery dispatch
-        - **annual_energy_production_kwh** - annual energy production (kwh) of system
-        - **naep** - normalized annual energy production (kwh/kW) of system
-        - **capacity_factor** - annual capacity factor
-        - **first_year_elec_bill_with_system** - first year electricity bill with adopted system ($/yr)
-        - **first_year_elec_bill_savings** - first year electricity bill savings with adopted system ($/yr)
-        - **first_year_elec_bill_savings_frac** - fraction of savings on electricity bill in first year of system adoption
-        - **max_system_kw** - maximum system size allowed as constrained by roof size or not exceeding annual consumption 
-        - **first_year_elec_bill_without_system** - first year electricity bill without adopted system ($/yr)
-        - **avg_elec_price_cents_per_kwh** - first year electricity price (c/kwh)
-        - **cbi** - ndarray of capacity-based incentives applicable to agent
-        - **ibi** - ndarray of investment-based incentives applicable to agent
-        - **pbi** - ndarray of performance-based incentives applicable to agent
-        - **cash_incentives** - ndarray of cash-based incentives applicable to agent
-        - **export_tariff_result** - summary of structure of retail tariff applied to agent
+        - agent_id
+        - system_kw - system capacity selected by agent
+        - batt_kw - battery capacity selected by agent
+        - batt_kwh - battery energy capacity
+        - npv - net present value of system + storage
+        - cash_flow  - array of annual cash flows from system adoption
+        - batt_dispatch_profile - array of hourly battery dispatch
+        - annual_energy_production_kwh - annual energy production (kwh) of system
+        - naep - normalized annual energy production (kwh/kW) of system
+        - capacity_factor - annual capacity factor
+        - first_year_elec_bill_with_system - first year electricity bill with adopted system ($/yr)
+        - first_year_elec_bill_savings - first year electricity bill savings with adopted system ($/yr)
+        - first_year_elec_bill_savings_frac - fraction of savings on electricity bill in first year of system adoption
+        - max_system_kw - maximum system size allowed as constrained by roof size or not exceeding annual consumption 
+        - first_year_elec_bill_without_system - first year electricity bill without adopted system ($/yr)
+        - avg_elec_price_cents_per_kwh - first year electricity price (c/kwh)
+        - cbi - ndarray of capacity-based incentives applicable to agent
+        - ibi - ndarray of investment-based incentives applicable to agent
+        - pbi - ndarray of performance-based incentives applicable to agent
+        - cash_incentives - ndarray of cash-based incentives applicable to agent
+        - export_tariff_result - summary of structure of retail tariff applied to agent
     """
 
 
@@ -1093,7 +1094,7 @@ def calc_financial_performance(dataframe):
 
     Returns
     -------
-    - **dataframe**: 'pd.df' - Agent dataframe with payback period joined on dataframe
+    - dataframe: 'pd.df' - Agent dataframe with payback period joined on dataframe
     """
 
     dataframe = dataframe.reset_index()
@@ -1125,7 +1126,8 @@ def calc_payback_vectorized(cfs, tech_lifetime):
 
     Returns
     -------
-    - **payback_period**: 'numpy.ndarray' - Payback period in years
+    pp_final : 'numpy.ndarray'
+        Payback period in years
     """
     
     years = np.array([np.arange(0, tech_lifetime)] * cfs.shape[0])
@@ -1154,6 +1156,23 @@ def calc_payback_vectorized(cfs, tech_lifetime):
 #%%
 @decorators.fn_timer(logger = logger, tab_level = 2, prefix = '')
 def calc_max_market_share(dataframe, max_market_share_df):
+
+    """
+    Calculates the maximum marketshare available for each agent. 
+    Parameters
+    ----------
+    dataframe : pandas.DataFrame
+        Attributes
+        ----------
+        metric_value : float
+            
+    max_market_share_df : pandas.DataFrame
+        Set by :meth:`settings.ScenarioSettings.get_max_marketshare`.
+    Returns
+    -------
+    pandas.DataFrame
+        Input DataFrame with `max_market_share` and `metric` columns joined on.
+    """
 
     in_cols = list(dataframe.columns)
     dataframe = dataframe.reset_index()
