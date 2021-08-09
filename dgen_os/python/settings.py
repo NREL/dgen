@@ -482,7 +482,7 @@ def init_model_settings():
     model_settings.add_config(config)
     model_settings.set('model_init', utilfunc.get_epoch_time())
     model_settings.set('cdate', utilfunc.get_formatted_time())
-    model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate))
+    model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate[:-6]))
     model_settings.set('input_data_dir', '{}/input_data'.format(os.path.dirname(os.getcwd())))
     model_settings.set('input_agent_dir', '{}/input_agents'.format(os.path.dirname(os.getcwd())))
     model_settings.set('input_scenarios', datfunc.get_input_scenarios())
