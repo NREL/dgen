@@ -20,6 +20,8 @@ The Distributed Generation Market Demand (dGen) Model
 - [Official dGen Documentation](https://nrel.github.io/dgen/) 
 - [Wiki](https://github.com/NREL/dgen/wiki)
 
+Note, after September 30th 2021 the model will be updated to version 2.0.0 and use parquet, rather than pickle (.pkl) formatted agent files. The agent data will be unchanged and the new parquet agent files can be found in [OEDI](https://data.openei.org/submissions/1931). If you wish to continue using version 1.0.0 with the pickle formatted agent files then you can find these agent files [here](https://data.nrel.gov/submissions/169).
+
 ## Get Your Tools
 Install Docker for [(Mac)](https://docs.docker.com/docker-for-mac/install/) or [(Windows)](https://docs.docker.com/docker-for-windows/install/)
 
