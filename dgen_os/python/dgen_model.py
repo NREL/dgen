@@ -25,7 +25,14 @@ import PySAM
 #==============================================================================
 pd.set_option('mode.chained_assignment', None)
 #==============================================================================
+# Suppress warnings from Pandas
+'''Should be re-visted if/when Pandas supports psycopg2 or when work can be done 
+to update code to use SQLalchemy instead'''
 
+import warnings
+
+warnings.simplefilter("ignore")
+#============================================================================== 
 
 def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
     """

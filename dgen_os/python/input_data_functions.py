@@ -319,7 +319,7 @@ def deprec_schedule(df):
 
     for year in missing_years:
         last_entry['year'] = year
-        df = df.append(last_entry)
+        df = pd.concat([df,last_entry], ignore_index=True, sort=False)
 
 
     return df.loc[:,['year','sector_abbr','deprec_sch']]
