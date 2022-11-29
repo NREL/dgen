@@ -5,7 +5,6 @@ channels:
   - anaconda
   - nrel
 dependencies:
-  - python
   - colorama
   - colorlog
   - requests
