@@ -27,22 +27,24 @@ class FancyDataFrame(pd.DataFrame):
         s.seek(0)
         
         return s
-        
+            
     def to_postgres(self, connection, cursor, schema, table, transpose = False, columns = None, create = False, overwrite = True):
-        
-        sql_dict = {'schema': schema, 'table': table}
+        sql_dict = {'schema': schema, 'table': table }
         
         if create == True:
             raise NotImplementedError('Creation of a new postgres table is not implemented')
         
         s = self.to_stringIO(transpose, columns)        
-        
+
+        connection.commit()           
         if overwrite == True:
-            sql = 'DELETE FROM {schema}.{table};'.format(**sql_dict)
+            sql = 'DELETE FROM {}.{};'.format(schema, table)
             cursor.execute(sql)
-        
-        sql = '{schema}.{table}'.format(**sql_dict)
-        cursor.copy_from(s, sql, sep = ',', null = '')
+            connection.commit()
+ 
+        f = "COPY {}.{} FROM STDIN WITH DELIMITER AS ',' NULL AS ''".format(schema, table)
+
+        cursor.copy_expert(f, s)
         connection.commit()    
         
         # release the string io object
