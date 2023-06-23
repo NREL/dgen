@@ -201,8 +201,9 @@ class FancyNamedRange(object):
             cursor.execute(sql)
             connection.commit()
  
-        sql = '{}.{}'.format(schema, table)
-        cursor.copy_from(s, sql, sep = ',', null = '')
+        f = "COPY {}.{} FROM STDIN WITH DELIMITER AS ',' NULL AS ''".format(schema, table)
+
+        cursor.copy_expert(f, s)
         connection.commit()    
         
         # release the string io object
