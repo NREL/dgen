@@ -1,6 +1,6 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
+name: dGen Issue Template
+about: For general issue support
 title: ''
 labels: ''
 assignees: ''
