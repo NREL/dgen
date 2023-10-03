@@ -14,7 +14,7 @@ dependencies:
   - pandas
   - pyarrow
   - psutil
-  - psycopg2=2.8.6
+  - psycopg2
   - scipy
   - spyder
   - sqlalchemy
