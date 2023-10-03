@@ -5,14 +5,13 @@ channels:
   - anaconda
   - nrel
 dependencies:
-  - python=3
   - colorama
   - colorlog
   - requests
   - matplotlib
   - numpy
   - openpyxl
-  - pandas=1.1.5
+  - pandas
   - pyarrow
   - psutil
   - psycopg2

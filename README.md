@@ -59,6 +59,7 @@ After cloning this repository and installing (and running) Docker as well as Ana
 ```$ conda env create -f dg3n.yml```
 
 - This will create the conda environment needed to run the dgen model.
+- The dgen model is optimized for Python v3 and above. Run ```$ conda list ``` to verify you have this version.
 
 2. This command will create a container with PostgreSQL initialized.
 
