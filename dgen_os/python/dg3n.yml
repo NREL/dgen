@@ -1,4 +1,4 @@
-name: dg3n_test
+name: dg3n
 channels:
   - defaults
   - conda-forge
