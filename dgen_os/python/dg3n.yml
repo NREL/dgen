@@ -1,4 +1,4 @@
-name: dg3n
+name: dg3n_test
 channels:
   - defaults
   - conda-forge
@@ -12,10 +12,13 @@ dependencies:
   - numpy
   - openpyxl
   - pandas
+  - pip
   - psutil
   - psycopg2
   - scipy
   - spyder
   - sqlalchemy
   - nrel-pysam=4.2.0
+  - pip:
+    - nrel-pysam-stubs
 
