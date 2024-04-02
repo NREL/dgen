@@ -139,8 +139,6 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
     """
 
     inputs = locals().copy()
-    suffix = utilfunc.get_formatted_time()
-    suffix_microsecond = datetime.now().strftime('%f')
     logger.info('Creating output schema based on {source_schema}'.format(**inputs))
 
     con, cur = utilfunc.make_con(pg_conn_string, role)
@@ -156,7 +154,7 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
 
     scen_suffix = os.path.split(scenario_list[0])[1].split('_')[2].rstrip('.xlsm')
 
-    dest_schema = 'diffusion_results_{}'.format(suffix+suffix_microsecond+'_'+scen_suffix)
+    dest_schema = 'diffusion_results_{0}_{1}'.format(suffix, scen_suffix)
     inputs['dest_schema'] = dest_schema
 
     sql = '''SELECT diffusion_shared.clone_schema('{source_schema}', '{dest_schema}', '{role}', {include_data});'''.format(**inputs)
