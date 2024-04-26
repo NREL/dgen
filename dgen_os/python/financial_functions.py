@@ -110,8 +110,7 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
             net_billing_sell_rate = agent.loc['wholesale_elec_price_dollars_per_kwh'] * agent.loc['elec_price_multiplier']
         
         utilityrate = process_tariff(utilityrate, agent.loc['tariff_dict'], net_billing_sell_rate)
-        utilityrate.SystemOutput.gen = batt.SystemOutput.gen #not sure if this should be battery output + pv output or only pv output
-
+        utilityrate.SystemOutput.gen = batt.SystemOutput.gen 
         loan.BatterySystem.en_batt = 1
         loan.BatterySystem.batt_computed_bank_capacity = batt.Outputs.batt_bank_installed_capacity
         loan.BatterySystem.batt_bank_replacement = batt.Outputs.batt_bank_replacement
@@ -364,7 +363,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     ######################################
     
     # Use single monthly peak for TOU demand charge; options: 0=use TOU peak,1=use flat peak
-    utilityrate.ElectricityRates.TOU_demand_single_peak = 0 # ?
+    utilityrate.ElectricityRates.TOU_demand_single_peak = 0 
     
     # Optionally enable/disable electricity_rate [years]
     utilityrate.ElectricityRates.en_electricity_rates = 1
@@ -517,7 +516,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
 
     batt_kw = batt.BatterySystem.batt_power_charge_max_kwdc
     batt_kwh = batt.Outputs.batt_bank_installed_capacity
-    batt_dispatch_profile = batt.Outputs.batt_power # ?
+    batt_dispatch_profile = batt.Outputs.batt_power 
     npv_w_batt = batt_loan_outputs['npv']
 
     # Run without battery
@@ -544,7 +543,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
 
         npv = npv_w_batt
 
-        cash_flow = list(batt_loan_outputs['cf_payback_with_expenses']) # ?
+        cash_flow = list(batt_loan_outputs['cf_payback_with_expenses']) 
         payback = batt_loan_outputs['payback']
         cbi_total = batt_loan_outputs['cbi_total']
         cbi_total_fed = batt_loan_outputs['cbi_total_fed']
@@ -1070,7 +1069,7 @@ def calc_max_market_share(dataframe, max_market_share_df):
 
 
 #%%
-# system_costs --> ssytem_cost look for error in later commits?
+
 def check_incentive_constraints(incentive_data, incentive_value, system_cost):
     # Reduce the incentive if is is more than the max allowable payment (by percent total costs)
     if not pd.isnull(incentive_data['max_incentive_usd']):
