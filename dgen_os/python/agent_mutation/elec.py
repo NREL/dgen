@@ -115,7 +115,7 @@ def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_ut
     dataframe['nem_system_kw_limit'].fillna(0, inplace=True)
     
     dataframe = dataframe.set_index('agent_id')
-
+    dataframe = dataframe.drop_duplicates(subset='pgid')
     return dataframe
 
 
@@ -376,7 +376,7 @@ def apply_financial_params(dataframe, financing_terms, itc_options, inflation_ra
     dataframe['inflation_rate'] = inflation_rate
     
     dataframe = dataframe.set_index('agent_id')
-    
+    dataframe = dataframe.drop_duplicates(subset='pgid')
     return dataframe
 
 
@@ -387,9 +387,11 @@ def apply_load_growth(dataframe, load_growth_df):
     dataframe = dataframe.reset_index()
     
     dataframe["county_id"] = dataframe.county_id.astype(int)
-
     dataframe = pd.merge(dataframe, load_growth_df, how='left', on=['year', 'sector_abbr', 'county_id'])
-    
+
+    # Drop any duplicated rows based on pgid 
+    dataframe = dataframe.drop_duplicates(subset='pgid')
+
     # for res, load growth translates to kwh_per_customer change
     dataframe['load_kwh_per_customer_in_bin'] = np.where(dataframe['sector_abbr']=='res',
                                                 dataframe['load_kwh_per_customer_in_bin_initial'] * dataframe['load_multiplier'],
@@ -399,10 +401,10 @@ def apply_load_growth(dataframe, load_growth_df):
     dataframe['customers_in_bin'] = np.where(dataframe['sector_abbr']!='res',
                                                 dataframe['customers_in_bin_initial'] * dataframe['load_multiplier'],
                                                 dataframe['customers_in_bin_initial'])
-                                                
+    
     # for all sectors, total kwh_in_bin changes
     dataframe['load_kwh_in_bin'] = dataframe['load_kwh_in_bin_initial'] * dataframe['load_multiplier']
-    
+
     dataframe = dataframe.set_index('agent_id')
 
     return dataframe
@@ -518,7 +520,7 @@ def get_and_apply_agent_load_profiles(con, agent):
                  AND state_abbr = '{state_abbr}';""".format(**inputs)
                            
     df = pd.read_sql(sql, con, coerce_float=False)
-    
+
     df = df[['consumption_hourly']]
     
     df['load_kwh_per_customer_in_bin'] = agent.loc['load_kwh_per_customer_in_bin']
