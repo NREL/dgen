@@ -12,11 +12,13 @@ dependencies:
   - numpy
   - openpyxl
   - pandas
-  - pyarrow
+  - pip
   - psutil
   - psycopg2
   - scipy
   - spyder
   - sqlalchemy
-  - nrel-pysam 2.1.4
-  - nrel-pysam-stubs 2.1.4
+  - nrel-pysam=4.2.0
+  - pip:
+    - nrel-pysam-stubs
+
