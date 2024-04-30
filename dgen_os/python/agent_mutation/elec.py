@@ -95,10 +95,9 @@ def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_ut
     
     # specify relevant NEM columns
     nem_columns = ['compensation_style','nem_system_kw_limit']
-    
+    net_metering_utility_df = net_metering_utility_df[['eia_id','sector_abbr','state_abbr']+nem_columns]
     # check if utility-specific NEM parameters apply to any agents - need to join on state too (e.g. Pacificorp UT vs Pacificorp ID)
-    temp_df = pd.merge(dataframe, net_metering_utility_df[
-                        ['eia_id','sector_abbr','state_abbr']+nem_columns], how='left', on=['eia_id','sector_abbr','state_abbr'])
+    temp_df = pd.merge(dataframe, net_metering_utility_df, how='left', on=['eia_id','sector_abbr','state_abbr'])
     
     # filter agents with non-null nem_system_kw_limit - these are agents WITH utility NEM
     agents_with_utility_nem = temp_df[pd.notnull(temp_df['nem_system_kw_limit'])]
@@ -106,8 +105,8 @@ def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_ut
     # filter agents with null nem_system_kw_limit - these are agents WITHOUT utility NEM
     agents_without_utility_nem = temp_df[pd.isnull(temp_df['nem_system_kw_limit'])].drop(nem_columns, axis=1)
     # merge agents with state-specific NEM parameters
-    agents_without_utility_nem = pd.merge(agents_without_utility_nem, net_metering_state_df[
-                        ['state_abbr', 'sector_abbr']+nem_columns], how='left', on=['state_abbr', 'sector_abbr'])
+    net_metering_state_df =  net_metering_state_df[['state_abbr', 'sector_abbr']+nem_columns]
+    agents_without_utility_nem = pd.merge(agents_without_utility_nem, net_metering_state_df, how='left', on=['state_abbr', 'sector_abbr'])
     
     # re-combine agents list and fill nan's
     dataframe = pd.concat([agents_with_utility_nem, agents_without_utility_nem], sort=False)
@@ -115,7 +114,7 @@ def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_ut
     dataframe['nem_system_kw_limit'].fillna(0, inplace=True)
     
     dataframe = dataframe.set_index('agent_id')
-    dataframe = dataframe.drop_duplicates(subset='pgid')
+    # dataframe = dataframe.drop_duplicates(subset=dataframe.columns.difference(['tariff_dict']))
     return dataframe
 
 
@@ -365,18 +364,17 @@ def apply_financial_params(dataframe, financing_terms, itc_options, inflation_ra
         Agent DataFrame with financial parameters merged in.
 
     '''
-
     dataframe = dataframe.reset_index()
 
     dataframe = dataframe.merge(financing_terms, how='left', on=['year', 'sector_abbr'])
 
     dataframe = dataframe.merge(itc_options[['itc_fraction_of_capex', 'year', 'tech', 'sector_abbr']], 
                                 how='left', on=['year', 'tech', 'sector_abbr'])
+    
 
     dataframe['inflation_rate'] = inflation_rate
-    
     dataframe = dataframe.set_index('agent_id')
-    dataframe = dataframe.drop_duplicates(subset='pgid')
+
     return dataframe
 
 
@@ -388,9 +386,6 @@ def apply_load_growth(dataframe, load_growth_df):
     
     dataframe["county_id"] = dataframe.county_id.astype(int)
     dataframe = pd.merge(dataframe, load_growth_df, how='left', on=['year', 'sector_abbr', 'county_id'])
-
-    # Drop any duplicated rows based on pgid 
-    dataframe = dataframe.drop_duplicates(subset='pgid')
 
     # for res, load growth translates to kwh_per_customer change
     dataframe['load_kwh_per_customer_in_bin'] = np.where(dataframe['sector_abbr']=='res',
@@ -406,7 +401,6 @@ def apply_load_growth(dataframe, load_growth_df):
     dataframe['load_kwh_in_bin'] = dataframe['load_kwh_in_bin_initial'] * dataframe['load_multiplier']
 
     dataframe = dataframe.set_index('agent_id')
-
     return dataframe
 
 
@@ -495,12 +489,12 @@ def get_nem_settings(state_limits, state_by_sector, utility_by_sector, selected_
 
     # Return State/Sector data (or null) for all combinations of states and sectors
     full_state_list = state_by_sector.loc[ state_by_sector['scenario'] == 'BAU' ].loc[:, ['state_abbr', 'sector_abbr']]
-    state_result = pd.merge( full_state_list.drop_duplicates(), valid_state_sector, how='left', on=['state_abbr','sector_abbr'] )
+    state_result = pd.merge( full_state_list, valid_state_sector, how='left', on=['state_abbr','sector_abbr'] )
     state_result['nem_system_kw_limit'].fillna(0, inplace=True)
     
     # Return Utility/Sector data (or null) for all combinations of utilities and sectors
     full_utility_list = utility_by_sector.loc[ utility_by_sector['scenario'] == 'BAU' ].loc[:, ['eia_id','sector_abbr','state_abbr']]
-    utility_result = pd.merge( full_utility_list.drop_duplicates(), valid_utility_sector, how='left', on=['eia_id','sector_abbr','state_abbr'] )
+    utility_result = pd.merge( full_utility_list, valid_utility_sector, how='left', on=['eia_id','sector_abbr','state_abbr'] )
     utility_result['nem_system_kw_limit'].fillna(0, inplace=True)
 
     return state_result, utility_result
@@ -672,11 +666,12 @@ def apply_state_incentives(dataframe, state_incentives, year, start_year, state_
         pd.isnull(state_incentives['start_date']) | (pd.to_datetime(state_incentives['start_date']).dt.year <= year)]
     state_incentives = state_incentives.loc[
         pd.isnull(state_incentives['end_date']) | (pd.to_datetime(state_incentives['end_date']).dt.year >= year)]
-
+    
     # Combine valid incentives with the cumulative metrics for each state up until the current year
-    state_incentives_mg = state_incentives.merge(state_capacity_by_year.loc[state_capacity_by_year['year'] == year],
+    state_capacity_by_year = state_capacity_by_year.loc[state_capacity_by_year['year'] == year]
+    state_incentives_mg = state_incentives.merge(state_capacity_by_year,
                                                  how='left', on=["state_abbr"])
-
+ 
     # Filter where the states have not exceeded their cumulative installed capacity (by mw or pct generation) or total program budget
     #state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['incentive_cap_total_pct']) | (state_incentives_mg['cum_capacity_pct'] < state_incentives_mg['incentive_cap_total_pct'])]
     state_incentives_mg = state_incentives_mg.loc[pd.isnull(state_incentives_mg['incentive_cap_total_mw']) | (state_incentives_mg['cum_system_mw'] < state_incentives_mg['incentive_cap_total_mw'])]
@@ -690,11 +685,10 @@ def apply_state_incentives(dataframe, state_incentives, year, start_year, state_
 
     state_inc_df = pd.DataFrame(columns=['state_abbr', 'sector_abbr', 'state_incentives'])
     state_inc_df = pd.concat([state_inc_df, pd.DataFrame.from_records(output)], sort=False)
-    
+
     dataframe = pd.merge(dataframe, state_inc_df, on=['state_abbr','sector_abbr'], how='left')
     
     dataframe = dataframe.set_index('agent_id')
-
     return dataframe
 
 #%%
@@ -726,12 +720,10 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
     # merge in the state starting capacities
     dataframe = pd.merge(dataframe, state_starting_capacities_df, how='left',
                          on=['state_abbr', 'sector_abbr'])
-
-    # dataframe = pd.merge(dataframe, state_starting_capacities_df, how='left',
-    #                      on=['tech', 'state_abbr', 'sector_abbr'])
+    
 
     # determine the portion of initial load and systems that should be allocated to each agent
-    # (when there are no developable agnets in the state, simply apportion evenly to all agents)
+    # (when there are no developable agents in the state, simply apportion evenly to all agents)
     dataframe['portion_of_state'] = np.where(dataframe['developable_customers_in_state'] > 0,
                                              dataframe[
                                                  'developable_agent_weight'] / dataframe['developable_customers_in_state'],
@@ -760,9 +752,6 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
     # isolate the return columns
     return_cols = ['initial_number_of_adopters','initial_pv_kw','initial_batt_kw','initial_batt_kwh','initial_market_share','initial_market_value',
                    'adopters_cum_last_year','system_kw_cum_last_year','batt_kw_cum_last_year','batt_kwh_cum_last_year','market_share_last_year','market_value_last_year']
-
-    # return_cols = ['initial_number_of_adopters', 'initial_pv_kw', 'initial_market_share', 'initial_market_value',
-    #                'adopters_cum_last_year', 'system_kw_cum_last_year', 'batt_kw_cum_last_year', 'batt_kwh_cum_last_year', 'market_share_last_year', 'market_value_last_year']
 
     dataframe[return_cols] = dataframe[return_cols].fillna(0)
 
@@ -810,8 +799,7 @@ def calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_fir
         df['cum_system_mw'] = df['system_kw_cum']/1000
         df['cum_batt_mw'] = df['batt_kw_cum']/1000
         df['cum_batt_mwh'] = df['batt_kwh_cum']/1000
-#        # Load growth is resolved by census region, so a lookup table is needed
-#        df = df.merge(census_division_lkup, on = 'state_abbr')
+
         load_growth_this_year = load_growth.loc[(load_growth['year'] == year) & (load_growth['sector_abbr'] == 'res')]
         load_growth_this_year = pd.merge(solar_agents.df[['state_abbr', 'county_id']], load_growth_this_year, how='left', on=['county_id'])
         load_growth_this_year = load_growth_this_year.groupby('state_abbr')['load_multiplier'].mean().reset_index()
@@ -836,7 +824,7 @@ def get_rate_switch_table(con):
     
     # get rate switch table from database
     sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2020;"""
-    # sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2019;"""
+
     rate_switch_table = pd.read_sql(sql, con, coerce_float=False)
     rate_switch_table = rate_switch_table.reset_index(drop=True)
     
