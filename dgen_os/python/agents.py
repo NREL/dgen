@@ -283,10 +283,7 @@ class Agents(object):
             apply_func = partial(func, **kwargs)
             results_df = self.df.apply(apply_func, axis=1)
         else:
-            if 'ix' not in os.name:
-                EXECUTOR = cf.ThreadPoolExecutor
-            else:
-                EXECUTOR = cf.ProcessPoolExecutor
+            EXECUTOR = cf.ProcessPoolExecutor
 
             futures = []
             with EXECUTOR(max_workers=cores) as executor:
@@ -329,10 +326,7 @@ class Agents(object):
             apply_func = partial(func, **kwargs)
             results_df = self.df.apply(apply_func, axis=1)
         else:
-            if 'ix' not in os.name:
-                EXECUTOR = cf.ThreadPoolExecutor
-            else:
-                EXECUTOR = cf.ProcessPoolExecutor
+            EXECUTOR = cf.ProcessPoolExecutor
 
             logger.info('Number of Workers inside chunk_on_row is {}'.format(cores)) 
             futures = []
