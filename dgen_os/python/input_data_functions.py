@@ -132,8 +132,9 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     if if_exists == 'append':
         fields = [i.lower() for i in get_psql_table_fields(engine, schema, name)]
         for f in list(set(df.columns.values) - set(fields)):
-            sql = "ALTER TABLE {}.{} ADD COLUMN {} {}".format(schema, name, f, sql_type[f])
-            conn.execute(sql)
+            with conn.begin():
+                sql = "ALTER TABLE {}.{} ADD COLUMN {} {}".format(schema, name, f, sql_type[f])
+                conn.execute(sql)
         
     df.to_sql(name, engine, schema=schema, index=False, dtype=d_types, if_exists=if_exists)
     sql = 'ALTER TABLE {}."{}" OWNER to "{}"'.format(schema, name, owner)
