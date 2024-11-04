@@ -24,6 +24,8 @@ logger = utilfunc.get_logger()
 def calc_diffusion_solar(df, is_first_year, bass_params, year,
                            override_p_value = None, override_q_value = None, override_teq_yr1_value = None):
     """
+    
+
     Calculates the market share (ms) added in the solve year. Market share must be less
     than max market share (mms) except initial ms is greater than the calculated mms.
     For this circumstance, no diffusion allowed until mms > ms. Also, do not allow ms to
