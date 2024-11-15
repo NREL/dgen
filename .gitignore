@@ -1,3 +1,6 @@
+# ignore venv
+venv
+
 # ignore thumbs.db
 *.db
 
