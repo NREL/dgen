@@ -1,4 +1,5 @@
 import pandas as pd
+
 import numpy as np
 import os
 import sqlalchemy
@@ -133,8 +134,9 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     if if_exists == 'append':
         fields = [i.lower() for i in get_psql_table_fields(engine, schema, name)]
         for f in list(set(df.columns.values) - set(fields)):
-            sql = text("ALTER TABLE {}.{} ADD COLUMN {} {}".format(schema, name, f, sql_type[f]))
-            conn.execute(sql)
+            with conn.begin():
+                sql = text("ALTER TABLE {}.{} ADD COLUMN {} {}".format(schema, name, f, sql_type[f]))
+                conn.execute(sql)
         
     df.to_sql(name, engine, schema=schema, index=False, dtype=d_types, if_exists=if_exists)
     sql = text('ALTER TABLE {}."{}" OWNER to "{}"'.format(schema, name, owner))
@@ -423,7 +425,6 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
             raise ValueError('Region not present within pre-generated agent file - Edit Inputsheet')
             
         solar_agents = Agents(solar_agents_df)
-
         solar_agents.on_frame(agent_mutation.elec.reassign_agent_tariffs, con)
 
     else:
