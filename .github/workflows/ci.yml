@@ -35,7 +35,7 @@ jobs:
       - name: environment setup
         id: env-setup
         continue-on-error: true
-        uses: actions/checkout@v3 #mamba-org/setup-micromamba@v2
+        uses: conda-incubator/setup-miniconda@v3 # Use miniconda as conda action has issue with macos-latest
         with:
           environment-file: build_envs/environment.yml
           cache-environment: true
@@ -45,7 +45,7 @@ jobs:
 
       - name: retry environment set up if failed
         if: steps.env-setup.outcome == 'failure'
-        uses: mamba-org/setup-micromamba@v2
+        uses: mamba-org/setup-micromamba@v2 # If miniconda fails, use mamba as backup option
         with:
           download-micromamba: false
           environment-file: build_envs/environment.yml
