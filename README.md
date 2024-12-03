@@ -1,4 +1,4 @@
-﻿| CI           | [![GitHub Workflow Status][github-ci-badge]][github-ci-link]
+﻿| CI           | [![GitHub Workflow Status][github-ci-badge]][github-ci-link] |
 
 <p align="center">
  <img src="https://github.com/NREL/dgen/blob/master/docs/figs/dGen-logo-lrg.png" />
