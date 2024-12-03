@@ -1,4 +1,8 @@
-﻿| CI           | [![GitHub Workflow Status][github-ci-badge]][github-ci-link] |
+﻿| CI           |  [![GitHub Workflow Status][github-ci-badge]][github-ci-link] |
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Docs**     |                                                                    [![Documentation Status][rtd-badge]][rtd-link]                                                                    |
+| **Version**  |                            [![Version][version-badge]][version-link] |
+
 
 <p align="center">
  <img src="https://github.com/NREL/dgen/blob/master/docs/figs/dGen-logo-lrg.png" />
@@ -6,15 +10,6 @@
 
 The Distributed Generation Market Demand (dGen) Model
 =====================================================
-
-<p align="center">
- <a href="https://github.com/NREL/dgen/releases/latest">
-  <img src="https://img.shields.io/github/v/release/NREL/dgen">
- </a>
- <a href="https://nrel.github.io/dgen/">
-  <img src="https://img.shields.io/badge/docs-ready-blue.svg">
- </a>
-</p>
 
 
 ## Documentation
@@ -206,3 +201,7 @@ Notes:
 
 [github-ci-badge]: https://img.shields.io/github/actions/workflow/status/NREL/dgen/ci.yml?branch=master&style=for-the-badge&label=CI
 [github-ci-link]: https://github.com/NREL/dgen/actions/workflows/ci.yml
+[rtd-badge]: https://img.shields.io/badge/docs-ready-blue.svg
+[rtd-link]: https://nrel.github.io/dgen/
+[version-link]: https://github.com/NREL/dgen/releases/latest
+[version-badge]: https://img.shields.io/github/v/release/NREL/dgen
