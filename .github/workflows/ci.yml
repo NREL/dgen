@@ -38,16 +38,12 @@ jobs:
         uses: conda-incubator/setup-miniconda@v3 # Use miniconda as conda action has issue with macos-latest
         with:
           environment-file: build_envs/environment.yml
-          cache-environment: true
-          cache-environment-key: "CI ${{runner.os}}-${{runner.arch}}-py${{matrix.python-version}}-${{env.TODAY}}"
-          create-args: >-
-            python=${{matrix.python-version}}
 
       - name: retry environment set up if failed
         if: steps.env-setup.outcome == 'failure'
         uses: mamba-org/setup-micromamba@v2 # If miniconda fails, use mamba as backup option
         with:
-          download-micromamba: false
+          download-micromamba: true
           environment-file: build_envs/environment.yml
           cache-environment: true
           cache-environment-key: "CI ${{runner.os}}-${{runner.arch}}-py${{matrix.python-version}}-${{env.TODAY}}"
