@@ -1,8 +1,6 @@
 name: dg3n
 channels:
-  - defaults
   - conda-forge
-  - anaconda
   - nrel
 dependencies:
   - colorama
@@ -18,7 +16,6 @@ dependencies:
   - scipy
   - spyder
   - sqlalchemy
-  - nrel-pysam=4.2.0
-  - pip:
-    - nrel-pysam-stubs
+  - nrel-pysam
+
 

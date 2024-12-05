@@ -16,6 +16,4 @@ dependencies:
   - scipy
   - spyder
   - sqlalchemy
-  - nrel-pysam=4.2.0
-  - pip:
-    - nrel-pysam-stubs
+  - nrel-pysam>=5.1.0
