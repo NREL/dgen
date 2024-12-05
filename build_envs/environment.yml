@@ -1,0 +1,21 @@
+name: dg3n_build
+channels:
+  - conda-forge
+  - nrel
+dependencies:
+  - colorama
+  - colorlog
+  - requests
+  - matplotlib
+  - numpy
+  - openpyxl
+  - pandas
+  - pip
+  - psutil
+  - psycopg2
+  - scipy
+  - spyder
+  - sqlalchemy
+  - nrel-pysam=4.2.0
+  - pip:
+    - nrel-pysam-stubs
