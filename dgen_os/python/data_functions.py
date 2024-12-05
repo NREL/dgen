@@ -20,8 +20,6 @@ import glob
 import pickle
 import sys
 import logging
-import imp
-imp.reload(logging)
 import sqlalchemy
 import json
 

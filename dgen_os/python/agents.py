@@ -126,6 +126,7 @@ class Agents(object):
             self.df = results_df
             self.df.set_index('agent_id', drop=True)
             self.update_attrs
+            
         else:
             results_df.set_index('agent_id', drop=True)
             return results_df
@@ -139,8 +140,10 @@ class Agents(object):
             self.df = results_df
             self.df.set_index('agent_id', inplace=True, drop=True)
             self.update_attrs
+
         else:
             results_df.set_index('agent_id', inplace=True, drop=True)
+
             return results_df
     
     def run_with_runtime_tests(self, how_to_apply, func, func_args=None, cores=None, **kwargs):
@@ -194,10 +197,11 @@ class Agents(object):
         elif how_to_apply == 'chunk_on_row':
             results_df = self.apply_chunk_on_row(func, cores=cores, **kwargs)
             results_df['agent_id'] = results_df['agent_id'].astype(int)
-            results_df = pd.merge(self.df, results_df, on='agent_id')
+            results_df = pd.merge(self.df, results_df.drop_duplicates(subset='agent_id'), on='agent_id')
+
         elif how_to_apply == 'on_frame':
             results_df = self.apply_on_frame(func, func_args=func_args, **kwargs)
-
+     
         # --- Drop any bad columns added by function ---
         results_df = results_df.drop(['level_0','index'], axis='columns', errors='ignore')
         
@@ -227,6 +231,7 @@ class Agents(object):
         #check for NaNs in new columns
         null_columns = results_df[new_columns].columns[results_df[new_columns].isna().any()].tolist()
         null_columns = [c for c in null_columns if c not in config.NULL_COLUMN_EXCEPTIONS]
+
         if len(null_columns) > 0:
             null_agents = []
             for i in null_columns:
@@ -283,10 +288,8 @@ class Agents(object):
             apply_func = partial(func, **kwargs)
             results_df = self.df.apply(apply_func, axis=1)
         else:
-            if 'ix' not in os.name:
-                EXECUTOR = cf.ThreadPoolExecutor
-            else:
-                EXECUTOR = cf.ProcessPoolExecutor
+
+            EXECUTOR = cf.ProcessPoolExecutor
 
             futures = []
             with EXECUTOR(max_workers=cores) as executor:
@@ -323,16 +326,13 @@ class Agents(object):
             Dataframe of agents after application of func
         """
         print('\t\t\t============ APPLY CHUNK ON ROW ============')
-
+        
         # --- apply function ---
         if cores is None:
             apply_func = partial(func, **kwargs)
             results_df = self.df.apply(apply_func, axis=1)
         else:
-            if 'ix' not in os.name:
-                EXECUTOR = cf.ThreadPoolExecutor
-            else:
-                EXECUTOR = cf.ProcessPoolExecutor
+            EXECUTOR = cf.ProcessPoolExecutor
 
             logger.info('Number of Workers inside chunk_on_row is {}'.format(cores)) 
             futures = []
@@ -378,7 +378,7 @@ class Agents(object):
             results_df = func(self.df, *func_args, **kwargs)
         else:
             results_df = func(self.df, func_args, **kwargs)
-        
+
         return results_df
 
     def to_pickle(self, file_name):

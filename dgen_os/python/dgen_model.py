@@ -49,7 +49,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
         # initialize Model Settings object
         # (this controls settings that apply to all scenarios to be executed)
         model_settings = settings.init_model_settings()
-
+        
         # make output directory
         os.makedirs(model_settings.out_dir)
         # create the logger
@@ -99,7 +99,6 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                                                              
             # get other datasets needed for the model run
             logger.info('Getting various scenario parameters')
-
             schema = scenario_settings.schema
             max_market_share = datfunc.get_max_market_share(con, schema)
             load_growth_scenario = scenario_settings.load_growth.lower()
@@ -121,7 +120,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # =========================================================   
                            
                 solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')   
-
+                
+                
                 # Get set of columns that define agent's immutable attributes
                 cols_base = list(solar_agents.df.columns)
 
@@ -172,7 +172,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
 
                     # is it the first model year?
                     is_first_year = year == model_settings.start_year
-
+                    
                     # get and apply load growth
                     solar_agents.on_frame(agent_mutation.elec.apply_load_growth, (load_growth))
 
@@ -221,10 +221,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     # Apply host-owned financial parameters
                     solar_agents.on_frame(agent_mutation.elec.apply_financial_params, [financing_terms, itc_options, inflation_rate])
 
-                    if 'ix' not in os.name: 
-                        cores = None
-                    else:
-                        cores = model_settings.local_cores
+                    cores = model_settings.local_cores
 
                     # Apply state incentives
                     solar_agents.on_frame(agent_mutation.elec.apply_state_incentives, [state_incentives, year, model_settings.start_year, state_capacity_by_year])
