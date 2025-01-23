@@ -1,5 +1,4 @@
 import pandas as pd
-
 import numpy as np
 import os
 import sqlalchemy
@@ -7,7 +6,7 @@ from sqlalchemy import text
 import data_functions as datfunc
 import utility_functions as utilfunc
 import agent_mutation
-from agents import Agents, Solar_Agents
+from agents import Agents
 from pandas import DataFrame
 import json
 
@@ -15,29 +14,34 @@ import json
 logger = utilfunc.get_logger()
 
 #%%
-
 def get_psql_table_fields(engine, schema, name):
     """
     Creates numpy array of columns from specified schema and table
     
     Parameters
     ----------
-    engine : 'SQL engine'
+    engine : Sofware (SQL engine)
         SQL engine to intepret SQL query
-    schema : 'SQL schema'
+
+    schema : Composite (string)
         SQL schema to pull table from 
-    name : 'string'
+
+    name : Composite (string)
         Name of the table from which fields are retrieved
 
     Returns
     -------
-    numpy array : 'np.array'
+    array : Composite (numpy array)
         Numpy array of columns
+    
+    Raises
+    ------
+    None
 
     """
-
     sql = "SELECT column_name FROM information_schema.columns WHERE table_schema = '{}' AND table_name   = '{}'".format(schema, name)
-    return np.concatenate(pd.read_sql_query(sql, engine).values)
+    array=np.concatenate(pd.read_sql_query(sql, engine).values)
+    return array
 
 def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_transformations=False):
     """
@@ -45,26 +49,36 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : Composite (pandas dataframe)
         Dataframe to upload to database
-    engine : 'SQL table'
+
+    engine : Software (SQL engine)
         SQL engine to intepret SQL query 
-    schema : 'SQL schema'
+
+    schema : Composite (string)
         Schema in which to upload df
-    owner : 'string'
+
+    owner : Composite (string)
         Owner of schema
-    name : 'string'
+
+    name : Composite (string)
         Name to be given to table that is uploaded
-    if_exists : 'replace or append'
-        If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database. 
-    append_transformations : 'bool'
-        IDK
+
+    if_exists : Composite (string)
+        If table exists and if `if_exists` set to `replace`, replaces table in database. If table exists and if `if_exists` set to `append`, appends table in database. 
+
+    append_transformations : Scalar (bool)
+        Not sure what this does. 
     
     Returns
     -------
-    df : 'pd.df'
+    df : Composite (pandas dataframe)
         Dataframe that was uploaded to database
 
+    Raises
+    ------
+    None
+    
     """
 
     d_types = {}
@@ -156,16 +170,21 @@ def get_scenario_settings(schema, con):
     
     Parameters
     ----------
-    schema : 'SQL schema'
+    schema : Composite (string)
         Schema in which to look for the scenario settings
-    con : 'SQL connection'
+
+    con : Composite (SQL connection object)
         SQL connection to connect to database
 
     Returns
     -------
-    df : 'pd.df'
+    df : Composite (dataframe)
         Dataframe of default scenario settings
 
+    Raises
+    ------
+    None
+    
     """
 
     sql = "SELECT * FROM {}.input_main_scenario_options".format(schema)
@@ -180,16 +199,24 @@ def get_userdefined_scenario_settings(schema, table_name, con):
     
     Parameters
     ----------
-    schema : 'SQL schema'
+    schema : Composite (string)
         Schema in which to look for the scenario settings
-    con : 'SQL connection'
+    
+    table_name : Composite (string)
+        Name of the table from which fields are retrieved
+    
+    con : Composite (SQL connection object)
         SQL connection to connect to database
 
     Returns
     -------
-    df : 'pd.df'
+    df : Composite (pandas dataframe)
         Dataframe of user created scenario settings
 
+    Raises
+    ------
+    None
+    
     """
 
     sql = "SELECT * FROM {}.{}".format(schema, table_name)
@@ -205,23 +232,32 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
     
     Parameters
     ----------
-    scenario_settings : 'SQL schema'
-        Schema in which to look for the scenario settings
-    con : 'SQL connection'
+    scenario_settings : Composite (ScenarioSetting object)
+        Custom object in which to look for the scenario settings
+
+    con : Composite (SQL connection object)
         SQL connection to connect to database
-    engine : 'SQL engine'
-        SQL engine to intepret SQL query
-    role : 'string'
+
+    engine : Software (SQL engine)
+        SQL engine to intepret SQL query 
+
+    role : Composite (string)
         Owner of schema
-    input_name : 'string'
-        Name of the csv file that should be imported     
-    csv_import_function : 'function'
+
+    input_name : Composite (string)
+        Name of the csv file that should be imported   
+
+    csv_import_function : Function
         Specific function to import and munge csv 
     
     Returns
     -------
-    df : 'pd.df'
+    df : Composite (dataframe)
         Dataframe of the table that was imported
+
+    Raises
+    ------
+    None
 
     """
 
@@ -262,12 +298,12 @@ def stacked_sectors(df):
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : Composite (pandas dataframe)
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : 'pd.df'
+    output : Composite (pandas dataframe)
         Dataframe of the table that was imported and split by sector
 
     """
@@ -302,12 +338,12 @@ def deprec_schedule(df):
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : Composite (dataframe)
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : 'pd.df'
+    output : Composite (dataframe)
         Dataframe of depreciation schedule sorted by year
 
     """
@@ -324,7 +360,6 @@ def deprec_schedule(df):
         last_entry['year'] = year
         df = pd.concat([df,last_entry], ignore_index=True, sort=False)
 
-
     return df.loc[:,['year','sector_abbr','deprec_sch']]
 
 #%%
@@ -334,12 +369,12 @@ def melt_year(parameter_name):
     
     Parameters
     ----------
-    parameter name : 'string'
+    parameter_name : Composite (string)
         Name of the parameter value in dataframe. 
     
     Returns
     -------
-    function : 'function'
+    function : Function
         Function that melts years and parameter value to row axis
 
     """
@@ -350,12 +385,12 @@ def melt_year(parameter_name):
     
         Parameters
         ----------
-        df : 'pd.df'
+        df : Composite (dataframe)
             Dataframe to be unpivot. 
     
         Returns
         -------
-        df_tidy : 'pd.df'
+        df_tidy : Composite (dataframe)
             Dataframe with every other year and the parameter value for that year as rows for each state 
 
         """
@@ -373,31 +408,45 @@ def melt_year(parameter_name):
 
 
 #%%
-def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name):
+def import_agent_file(scenario_settings, con, model_settings, agent_file_status, input_name):
     """
     Generates new agents or uses pre-generated agents from provided .pkl file
     
     Parameters
     ----------
-    scenario_settings : 'SQL schema'
-        Schema of the scenario settings
-    con : 'SQL connection'
+    scenario_settings : Composite (ScenarioSetting object)
+        Custom object in which to look for the scenario settings
+
+    con : Composite (psycopg2 connection object)
         SQL connection to connect to database
-    cur : 'SQL cursor'
-        Cursor
-    engine : 'SQL engine'
-        SQL engine to intepret SQL query
-    model_settings : 'object'
+
+    model_settings : Composite (ModelSettings object)
         Model settings that apply to all scenarios
-    agent_file_status : 'attribute'
-        Attribute that describes whether to use pre-generated agent file or create new    
-    input_name : 'string'
+
+    agent_file_status : Composite (string)
+        Attribute that describes whether to use pre-generated agent file or create new  
+
+    input_name : Composite (string)
         .Pkl file name substring of pre-generated agent table 
     
     Returns
     -------
-    solar_agents : 'Class'
-        Instance of Agents class with either user pre-generated or new data
+    solar_agents : Composite (class)
+        Instance of Agents class with either user pre-generated or user generated agent 
+
+    Raises
+    ------
+        ValueError 
+            Raised if region in the pickle file  
+            "Region not present within pre-generated agent file - Edit Inputsheet"
+        ValueError
+            Raised if agent supplied does not confirm to correct standards. See references for the template
+            "Generating agents is not supported at this time. Please select "Use pre-generated Agents" in the input sheet')"
+    is this how value error should be reported? 
+
+    References
+    ----------
+    Pre-generated agents for selected region as a pickle file can be downloaded from here: https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F
 
     """
 
@@ -432,7 +481,6 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
 
     return solar_agents
 
-
 #%%
 def process_elec_price_trajectories(elec_price_traj):
     """
@@ -440,13 +488,17 @@ def process_elec_price_trajectories(elec_price_traj):
     
     Parameters
     ----------
-    elec_price_traj : 'pd.df'
-        Dataframe of electricity prices by year and ReEDS BA
+    elec_price_traj : Composite (dataframe)
+        Dataframe of electricity prices by year and ReEDS balancing areas
     
     Returns
     -------
-    elec_price_change_traj : 'pd.df'
+    elec_price_change_traj : Composite (dataframe)
         Dataframe of annual electricity price change factors from base year
+
+    Notes
+    -----
+    The price trajectory is calculated at the balancing areas level. With county mapped to balancing areas. 
 
     """
 
@@ -497,13 +549,17 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
     
     Parameters
     ----------
-    wholesale_elec_price_traj : 'pd.df'
+    wholesale_elec_price_traj : Composite (dataframe)
         Dataframe of wholesale electricity prices by year and ReEDS BA
     
     Returns
     -------
-    wholesale_elec_price_change_traj : 'pd.df'
+    wholesale_elec_price_change_traj : Composite (dataframe)
         Dataframe of annual electricity price change factors from base year
+
+    Notes
+    -----
+    The price change is calculated at the balancing areas level. With county mapped to balancing areas. 
 
     """
 
@@ -524,50 +580,50 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
 
 
 #%%
-def process_load_growth(load_growth):
-    """
-    Returns the trajectory of the load growth rates over time relative to a base year of 2014
+# def process_load_growth(load_growth):
+#     """
+#     Returns the trajectory of the load growth rates over time relative to a base year of 2014
     
-    Parameters
-    ----------
-    load_growth : 'pd.df'
-        Dataframe of annual load growth rates
+#     Parameters
+#     ----------
+#     load_growth : 'pd.df'
+#         Dataframe of annual load growth rates
     
-    Returns
-    -------
-    load_growth_change_traj : 'pd.df'
-        Dataframe of annual load growth rates relative to base year
+#     Returns
+#     -------
+#     load_growth_change_traj : 'pd.df'
+#         Dataframe of annual load growth rates relative to base year
 
-    """
+#     """
 
-    base_year_load_growth = load_growth[load_growth['year']==2014]
+#     base_year_load_growth = load_growth[load_growth['year']==2014]
     
-    base_year_load_growth.rename(columns={'load_growth_res':'res_base',
-                                     'load_growth_com':'com_base',
-                                     'load_growth_ind':'ind_base'}, inplace=True)
+#     base_year_load_growth.rename(columns={'load_growth_res':'res_base',
+#                                      'load_growth_com':'com_base',
+#                                      'load_growth_ind':'ind_base'}, inplace=True)
     
-    load_growth_change_traj = pd.merge(load_growth, base_year_load_growth[['res_base', 'com_base', 'ind_base', 'census_division_abbr']], on='census_division_abbr')
+#     load_growth_change_traj = pd.merge(load_growth, base_year_load_growth[['res_base', 'com_base', 'ind_base', 'census_division_abbr']], on='census_division_abbr')
 
-    load_growth_change_traj['load_growth_change_res'] = load_growth_change_traj['load_growth_res'] / load_growth_change_traj['res_base']
-    load_growth_change_traj['load_growth_change_com'] = load_growth_change_traj['load_growth_com'] / load_growth_change_traj['com_base']
-    load_growth_change_traj['load_growth_change_ind'] = load_growth_change_traj['load_growth_ind'] / load_growth_change_traj['ind_base']
+#     load_growth_change_traj['load_growth_change_res'] = load_growth_change_traj['load_growth_res'] / load_growth_change_traj['res_base']
+#     load_growth_change_traj['load_growth_change_com'] = load_growth_change_traj['load_growth_com'] / load_growth_change_traj['com_base']
+#     load_growth_change_traj['load_growth_change_ind'] = load_growth_change_traj['load_growth_ind'] / load_growth_change_traj['ind_base']
 
-    # Melt by sector
-    res_df = pd.DataFrame(load_growth_change_traj['year'])
-    res_df = load_growth_change_traj[['year', 'load_growth_change_res', 'census_division_abbr']]
-    res_df.rename(columns={'load_growth_change_res':'load_multiplier'}, inplace=True)
-    res_df['sector_abbr'] = 'res'
+#     # Melt by sector
+#     res_df = pd.DataFrame(load_growth_change_traj['year'])
+#     res_df = load_growth_change_traj[['year', 'load_growth_change_res', 'census_division_abbr']]
+#     res_df.rename(columns={'load_growth_change_res':'load_multiplier'}, inplace=True)
+#     res_df['sector_abbr'] = 'res'
     
-    com_df = pd.DataFrame(load_growth_change_traj['year'])
-    com_df = load_growth_change_traj[['year', 'load_growth_change_com', 'census_division_abbr']]
-    com_df.rename(columns={'load_growth_change_com':'load_multiplier'}, inplace=True)
-    com_df['sector_abbr'] = 'com'
+#     com_df = pd.DataFrame(load_growth_change_traj['year'])
+#     com_df = load_growth_change_traj[['year', 'load_growth_change_com', 'census_division_abbr']]
+#     com_df.rename(columns={'load_growth_change_com':'load_multiplier'}, inplace=True)
+#     com_df['sector_abbr'] = 'com'
     
-    ind_df = pd.DataFrame(load_growth_change_traj['year'])
-    ind_df = load_growth_change_traj[['year', 'load_growth_change_ind', 'census_division_abbr']]
-    ind_df.rename(columns={'load_growth_change_ind':'load_multiplier'}, inplace=True)
-    ind_df['sector_abbr'] = 'ind'
+#     ind_df = pd.DataFrame(load_growth_change_traj['year'])
+#     ind_df = load_growth_change_traj[['year', 'load_growth_change_ind', 'census_division_abbr']]
+#     ind_df.rename(columns={'load_growth_change_ind':'load_multiplier'}, inplace=True)
+#     ind_df['sector_abbr'] = 'ind'
     
-    load_growth_change_traj = pd.concat([res_df, com_df, ind_df], ignore_index=True, sort=False)
+#     load_growth_change_traj = pd.concat([res_df, com_df, ind_df], ignore_index=True, sort=False)
 
-    return load_growth_change_traj
+#     return load_growth_change_traj

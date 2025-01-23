@@ -832,6 +832,42 @@ def get_rate_switch_table(con):
 
 def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
+    """
+    The function updates the tariff rates and associated attributes when an utility has a rate switch when adopting DG
+    
+    Parameters
+    ----------
+    rate_switch_table : Composite (pandas dataframe)
+        Has details on how utility rates will switch with DG/storage adoption
+    
+    agent : Composite (pandas series)
+        Attributes of a single agent 
+        
+    system_size_kw : Scalar (float)
+        PV System size or PV Capacity (in kW) 
+    
+    tech : Composite (string)
+        technology label to classify if the model is doing solar only or solar and storage 
+
+    Returns
+    -------
+    agent : Composite (pandas series)
+        attributes of a sigle agent updated with tariff-related attributes 
+        
+    one_time_charge : Scalar (float)
+    
+    Notes
+    -----
+    1) rate switch only occurs when system size is greater than zero. 
+    2) in addition to rate switch, an one time charge is also updated to the agent. 
+    3) the rate switch table is maintained manually and needs periodic update. MORE INFO can be provided here. 
+
+    Raises
+    ------
+    None
+
+    """
+
     rate_switch_table = rate_switch_table.loc[rate_switch_table['tech'] == tech]
     rate_switch_table.rename(columns={'rate_id_alias':'tariff_id', 'json':'tariff_dict'}, inplace=True)
     rate_switch_table = rate_switch_table[(rate_switch_table['eia_id'] == agent.loc['eia_id']) &
@@ -853,7 +889,6 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     else:
         # don't update agent attributes, return one time charge of $0
         one_time_charge = 0.
-    
     
     return agent, one_time_charge
 
