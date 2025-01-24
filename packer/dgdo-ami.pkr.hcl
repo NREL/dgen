@@ -28,7 +28,8 @@ variable "instance_type" {
 }
 
 variable "ami_users" {
-  default = ""
+  type    = list(string)
+  default = []
 }
 
 variable "subnet_id" {
@@ -61,7 +62,7 @@ variable "run_tags" {
 variable "tags" {
   type = map(string)
   default = {
-    Name       = var.ami_name
+    Name = "dgdo-server"
   }
 }
 
@@ -72,13 +73,14 @@ source "amazon-ebs" "dgdo_ami" {
       name                = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"
       virtualization-type = "hvm"
       architecture        = "x86_64"
+      root-device-type    = "ebs"
     }
     owners      = ["099720109477"] # Canonical
     most_recent = true
   }
   instance_type             = var.instance_type
   ssh_username              = var.ssh_username
-  ami_name                  = var.ami_name
+  ami_name                  = "${var.ami_name}-${formatdate("20060102150405", timestamp())}"
   ami_description           = var.ami_description
   tags                      = var.tags
   run_tags                  = var.run_tags
@@ -88,6 +90,7 @@ source "amazon-ebs" "dgdo_ami" {
   security_group_id         = var.security_group_id
   ami_users                 = var.ami_users
   ssh_interface             = var.ssh_interface
+  ssh_pty                   = "true"
 }
 
 build {
@@ -98,11 +101,16 @@ build {
     destination = "/home/ubuntu/dgen"
   }
 
+  provisioner "file" {
+    source      = "install_dgen.sh"
+    destination = "/home/ubuntu/install_dgen.sh"
+  }
+
   provisioner "shell" {
     inline = [
       "sudo apt-get update -y",
       "sudo apt-get upgrade -y",
-      "sudo apt-get install -y docker-ce docker-ce-cli containerd.io"
+      "sudo chmod 755 /home/ubuntu/install_dgen.sh && /home/ubuntu/install_dgen.sh"
     ]
   }
 }

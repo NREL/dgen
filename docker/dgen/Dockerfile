@@ -1,11 +1,14 @@
 FROM continuumio/miniconda3
 
-# Setup Data
-RUN mkdir -p /data
-RUN chmod 755 /data
+# Setup dgen user
+RUN groupadd --gid 1000 dgen && useradd --uid 1000 --gid dgen --create-home dgen
 
-# Copy dgen files
+# Setup Data directory
+RUN mkdir -p /data && chmod 755 /data
+
+# Copy dgen files and setup permissions
 COPY ./dgen_os/ /opt/dgen_os/
+RUN chown -R dgen: /opt/dgen_os /data
 
 # Install dgen
 RUN conda env create -f /opt/dgen_os/python/dg3n.yml
@@ -15,8 +18,22 @@ COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-dgen.sh
 
 # Initialize Conda in the Docker environment
-RUN echo "conda activate dg3n" >> ~/.bashrc
-RUN echo "cd /opt/dgen_os/python/" >> ~/.bashrc
-RUN echo "/docker-entrypoint-initdb.d/init-dgen.sh" >> ~/.bashrc
+RUN cat <<EOF >> ~dgen/.bashrc
+if [[ -z \${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START:-0} -eq 0 ]]; then
+    conda activate dg3n
+    cd /opt/dgen_os/python/
+    /docker-entrypoint-initdb.d/init-dgen.sh
+fi
+EOF
+
+# Change ownership of the bashrc file
+RUN chown dgen: ~dgen/.bashrc
+
+# Setup default input_sheet_final.xlsm (Deleware residential)
+COPY docker/dgen/input_sheet_final.xlsm /opt/dgen_os/excel/input_sheet_final.xlsm
+RUN chmod 755 /opt/dgen_os/excel/input_sheet_final.xlsm && chown dgen: /opt/dgen_os/excel/input_sheet_final.xlsm
+
+# Switch to non-root user
+USER dgen
 
 CMD ["bash", "--login"]

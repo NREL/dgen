@@ -10,32 +10,39 @@ This guide provides instructions on how to use Packer to build an AMI with the p
 
 1. **Clone the repository and Packer init**
 
-   ```sh
+   ```bash
    git clone https://github.com/your-repo/dgen.git
    cd dgen/packer
    packer init .
    ```
 
-2. **Validate the Packer template**
-
-   ```sh
-   packer validate dgdo-ami.pkr.hcl
-   ```
-
-3. **Build the AMI**
+2. **Customize Variables and Build the AMI**
 
    Use Packer to build the AMI. This will create an instance, provision it, and create an AMI from it.
 
-   ```sh
-   packer build -var-file=example-vars.pkrvars.hcl dgdo-ami.pkr.hcl
+   Override variables in example-vars.pkrvars.hcl that are specific for your environment.
+
+   ```bash
+   cp example-vars.pkrvars.hcl ~/dgdo-vars.pkrvars.hcl
+   packer validate -var-file=~/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
+   packer build -var-file=~/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
    ```
 
-## Configuration
+## Tests
 
-The Packer template is configured to use the latest Ubuntu AMI and install Apache2. You can modify the template as needed.
+You can run automated tests on the Packer config using the below test script.  It should be ran from the packer directory.
 
-- **Region**: The AWS region where the AMI will be created. Default is `us-west-2`.
-- **Instance Type**: The instance type used for building the AMI. Default is `t3.micro`.
+```bash
+cd packer
+./tests/test_packer.sh
+```
+
+## Usage
+
+```bash
+ssh -i <your_ssh_key> ubuntu@<your_server_ip>
+(dg3n) root@0b702babc2ce:/opt/dgen_os/python# python dgen_model.py
+```
 
 ## Troubleshooting
 
