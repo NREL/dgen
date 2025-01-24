@@ -27,7 +27,7 @@ This guide provides instructions on how to use Packer to build an AMI with the p
    Use Packer to build the AMI. This will create an instance, provision it, and create an AMI from it.
 
    ```sh
-   packer build dgdo-ami.pkr.hcl
+   packer build -var-file=example-vars.pkrvars.hcl dgdo-ami.pkr.hcl
    ```
 
 ## Configuration
