@@ -1,8 +1,10 @@
-# Packer AMI Usage Guide
+# dGen Packer AMI Usage Guide
 
 This guide provides instructions on how to use the dGen AWS AMI as well as how to use Packer to build your own AWS AMI.
 
-## Usage
+## dGen AMI Usage
+
+#### Getting Started
 
 Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh to the instance, by default you will be dropped into a dgen shell.
 
@@ -14,7 +16,15 @@ ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
 
  The first time running `~ubuntu/dgen_start.sh`, dgen will build the Docker images and download the default dataset.  `This may take 10-15 minutes depending on your network connection.`
 
-You can completely remove all the data for a fresh start with the below script and commands.
+#### Using a new dataset
+
+Edit the docker-compose file `/home/ubuntu/dgen/docker/docker-compose.yml`.  See `using a new dataset` in the [dgen Docker Usage Guide](../docker/README.md).
+
+One challenge you must consider when using an EC2 instance is if the `/data/input_sheet_final.xlsm` needs to be edited, you must copy this file to a system with Excel that can edit the document, then you need to copy it back to the instance.
+
+#### Warning: This will remove old running containers and data volumes.  This may be required if you need space.
+
+You can completely remove all the data for a fresh start with the below script and commands. `This will result in loss in your dgen data and provide a fresh start`
 
 ```bash
 $ ~/dgen_prune_all_data.sh
@@ -45,21 +55,6 @@ Override variables in example-vars.pkrvars.hcl that are specific for your enviro
 $ cp example-vars.pkrvars.hcl /tmp/dgdo-vars.pkrvars.hcl
 $ packer validate -var-file=/tmp/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
 $ packer build -var-file=/tmp/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
-```
-
-#### Using a new dataset
-
-Edit the docker-compose file `/home/ubuntu/dgen/docker/docker-compose.yml`.  See `using a new dataset` in the [dgen Docker Usage Guide](../dgen/README.md).
-
-One challenge you must consider when using an EC2 instance is if the `/data/input_sheet_final.xlsm` needs to be edited, you must copy this file to a system with Excel that can edit the document, then you need to copy it back to the instance.
-
-#### Disable auto start of dgen at login
-
-To diable auto start of dgen at login, comment out the `dgen_start.sh` script in `~ubuntu/.bashrc`.
-
-```bash
-$ nano ~ubuntu/.bashrc
-# source ~ubuntu/dgen_start.sh
 ```
 
 ## Troubleshooting
