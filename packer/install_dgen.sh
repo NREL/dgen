@@ -29,7 +29,7 @@ cat <<EOF >> ~ubuntu/dgen_start.sh
 mkdir -p ~/dgen_data/ && chmod 755 ~/dgen_data/
 cd ~/dgen/docker/
 docker-compose up --build -d
-docker attach dgen
+docker attach dgen_1
 EOF
 chmod 755 ~ubuntu/dgen_start.sh
 
