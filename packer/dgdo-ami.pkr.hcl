@@ -66,6 +66,10 @@ variable "tags" {
   }
 }
 
+locals {
+ timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+}
+
 source "amazon-ebs" "dgdo_ami" {
   region                    = var.aws_region
   source_ami_filter {
@@ -80,7 +84,7 @@ source "amazon-ebs" "dgdo_ami" {
   }
   instance_type             = var.instance_type
   ssh_username              = var.ssh_username
-  ami_name                  = "${var.ami_name}-${formatdate("20060102150405", timestamp())}"
+  ami_name                  = "${var.ami_name}-${local.timestamp}"
   ami_description           = var.ami_description
   tags                      = var.tags
   run_tags                  = var.run_tags
@@ -108,9 +112,8 @@ build {
 
   provisioner "shell" {
     inline = [
-      "sudo apt-get update -y",
-      "sudo apt-get upgrade -y",
-      "sudo chmod 755 /home/ubuntu/install_dgen.sh && /home/ubuntu/install_dgen.sh"
+      "sudo chmod 755 /home/ubuntu/install_dgen.sh",
+      "sudo /home/ubuntu/install_dgen.sh"
     ]
   }
 }
