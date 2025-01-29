@@ -19,7 +19,7 @@ services:
       dockerfile: docker/postgis/Dockerfile
     container_name: postgis_1
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - ~/dgen_data/:/data
     environment:
