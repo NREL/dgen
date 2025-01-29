@@ -27,7 +27,7 @@ chmod 755 ~ubuntu/dgen_prune_all_data.sh
 
 # Create dGen start script
 cat <<EOF > ~ubuntu/dgen_start.sh
-mkdir -p ~/dgen_data/ && chmod 755 ~/dgen_data/ && chown $(id -un): ~/dgen_data/
+mkdir -p ~/dgen_data/ && chmod 755 ~/dgen_data/ && chown \$(id -un): ~/dgen_data/
 cd ~/dgen/docker/
 docker-compose up --build -d
 docker attach dgen_1
