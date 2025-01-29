@@ -1,14 +1,32 @@
 # Packer AMI Usage Guide
 
-This guide provides instructions on how to use Packer to build a dgen AWS AMI with the provided configuration.
+This guide provides instructions on how to use the dGen AWS AMI as well as how to use Packer to build your own AWS AMI.
 
-## Prerequisites
+## Usage
+
+Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh to the instance, by default you will be dropped into a dgen shell.
+
+```bash
+$ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
+$ source ~ubuntu/dgen_start.sh
+$ (dg3n) dgen@0b702babc2ce:/opt/dgen_os/python$ python dgen_model.py
+```
+
+At first login, dgen will build the Docker images and download the default dataset.  This may take 10-15 minutes depending on your network connection.
+
+You can completely remove all the data for a fresh start with the below script and commands.
+
+```bash
+$ ~/dgen_prune_all_data.sh
+```
+
+## Building an AWS AMI with Packer
+
+#### Prerequisites
 
 - [Packer](https://www.packer.io/downloads) installed
 - AWS account with appropriate permissions to create AMIs
 - AWS credentials configured (e.g., using `aws configure`)
-
-## Building an AWS AMI with Packer
 
 #### Packer Init
 
@@ -28,17 +46,6 @@ $ cp example-vars.pkrvars.hcl /tmp/dgdo-vars.pkrvars.hcl
 $ packer validate -var-file=/tmp/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
 $ packer build -var-file=/tmp/dgdo-vars.pkrvars.hcl dgdo-ami.pkr.hcl
 ```
-
-## Usage
-
-Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh to the instance, by default you will be dropped into a dgen shell.
-
-```bash
-$ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
-$ (dg3n) root@0b702babc2ce:/opt/dgen_os/python# python dgen_model.py
-```
-
-At first login, dgen will build the Docker images and download the default dataset.  This may take 5-10 minutes depending on your network connection.
 
 #### Using a new dataset
 
