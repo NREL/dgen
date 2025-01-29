@@ -29,7 +29,7 @@ cat <<EOF >> ~ubuntu/dgen_start.sh
 mkdir -p ~/dgen_data/ && chmod 755 ~/dgen_data/
 cd ~/dgen/docker/
 docker-compose up --build -d
-docker attach $(sudo docker ps --filter "name=dgen" --format "{{.ID}}")
+docker attach dgen
 EOF
 chmod 755 ~ubuntu/dgen_start.sh
 
