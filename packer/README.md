@@ -12,7 +12,7 @@ ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
 (dg3n) dgen@0b702cabc2ce:/opt/dgen_os/python$ python dgen_model.py
 ```
 
-At first login, dgen will build the Docker images and download the default dataset.  This may take 10-15 minutes depending on your network connection.
+ The first time running `~ubuntu/dgen_start.sh`, dgen will build the Docker images and download the default dataset.  `This may take 10-15 minutes depending on your network connection.`
 
 You can completely remove all the data for a fresh start with the below script and commands.
 
