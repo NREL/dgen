@@ -73,7 +73,7 @@ You can find more datasets using the links below:
 - [DGen Dataset Submissions on OpenEI](https://data.openei.org/submissions/1931)
 - [DGen Dataset S3 Viewer](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F)
 
-You can customize the dataset used by overriding the DGEN_DATAFILE_URL variable in `docker-compose.yml` and then editing `~/dgen_data/input_sheet_final.xlsm` using Excel.
+You can customize the dataset used by overriding the DGEN_DATAFILE_URL and DGEN_AGENTFILE_URL variables in `docker-compose.yml` and then editing `~/dgen_data/input_sheet_final.xlsm` using Excel.
 
 Below will walk through the process of using the [Colorado residential dataset](https://oedi-data-lake.s3.amazonaws.com/dgen/co_final_db/dgen_db.sql).
 

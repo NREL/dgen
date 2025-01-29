@@ -8,8 +8,8 @@ Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh t
 
 ```bash
 $ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
-$ source ~ubuntu/dgen_start.sh
-$ (dg3n) dgen@0b702babc2ce:/opt/dgen_os/python$ python dgen_model.py
+ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
+(dg3n) dgen@0b702cabc2ce:/opt/dgen_os/python$ python dgen_model.py
 ```
 
 At first login, dgen will build the Docker images and download the default dataset.  This may take 10-15 minutes depending on your network connection.
