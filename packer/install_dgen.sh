@@ -17,6 +17,11 @@ sudo apt-get update -y
 # Install Docker Engine
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
 
+# Setup /data directory, 999 is the container users
+mkdir -p ~ubuntu/dgen_data/
+chown ubuntu:999 ~ubuntu/dgen_data/
+chmod 770 ~ubuntu/dgen_data/
+
 # Install dGen as part of the user login for ubuntu
 sudo usermod -aG docker ubuntu
 cat <<EOF > ~ubuntu/dgen_prune_all_data.sh
@@ -27,7 +32,6 @@ chmod 755 ~ubuntu/dgen_prune_all_data.sh
 
 # Create dGen start script
 cat <<EOF > ~ubuntu/dgen_start.sh
-mkdir -p ~/dgen_data/ && chmod 755 ~/dgen_data/ && chown \$(id -un): ~/dgen_data/
 cd ~/dgen/docker/
 docker-compose up --build -d
 docker attach dgen_1

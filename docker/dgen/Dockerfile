@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 # Setup dgen user
-RUN groupadd --gid 1000 dgen && useradd --uid 1000 --gid dgen --create-home dgen
+RUN groupadd --gid 999 dgen && useradd --uid 999 --gid dgen --create-home dgen
 
 # Setup Data directory
 RUN mkdir -p /data && chmod 755 /data
