@@ -40,3 +40,6 @@ chmod 755 ~ubuntu/dgen_start.sh
 
 # Add default start path for dgen
 echo "cd ~/dgen/docker/" >> ~ubuntu/.bashrc
+
+# Add dgen usage to login message
+echo -e "\e[1;32mTo launch dgen run:\e[0m \e[1;36msource ~/dgen_start.sh\e[0m" | sudo tee -a /etc/motd
