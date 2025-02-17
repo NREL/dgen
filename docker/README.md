@@ -54,7 +54,7 @@ $ docker volume prune -f
 
 ### Disabling auto-start for the dGen virtual environment
 
-By default, logging into the `dgen` container automatically activates the `dgen` virtual environment.  For ease of use, its recommended to leave this the default.
+By default, logging into the `dgen` container automatically activates the `dg3n` Conda environment.  For ease of use, its recommended to leave this the default.
 
 To disable this behavior, edit the `docker-compose.yml` file in this directory and set the following environment variable:
 
