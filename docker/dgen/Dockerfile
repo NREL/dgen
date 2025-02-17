@@ -29,7 +29,7 @@ EOF
 # Change ownership of the bashrc file
 RUN chown dgen: ~dgen/.bashrc
 
-# Setup default input_sheet_final.xlsm (Deleware residential)
+# Setup default input_sheet_final.xlsm (Delaware residential agent file and SQL database)
 COPY docker/dgen/input_sheet_final.xlsm /opt/dgen_os/excel/input_sheet_final.xlsm
 RUN chmod 755 /opt/dgen_os/excel/input_sheet_final.xlsm && chown dgen: /opt/dgen_os/excel/input_sheet_final.xlsm
 
