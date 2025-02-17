@@ -43,7 +43,7 @@ Wait 5-10 minutes for the postgres database to finish starting.
 
 #### General errors and issues
 
-Try clearing your `~/dgen_data` and starting over. Make sure to provide time for the datasets to fully download on the re-attempt.
+Try removing any datasets from your `~/dgen_data` and starting over. Make sure to provide time for the datasets to fully download on the re-attempt.
 
 ```bash
 $ docker-compose down
