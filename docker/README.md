@@ -69,7 +69,7 @@ services:
 
 By default, the dGen container uses the [Delaware residential agent file and SQL database](https://oedi-data-lake.s3.amazonaws.com/dgen/de_final_db/dgen_db.sql).
 
-You can find more datasets using the links below:
+You can find additional agent files and their matching SQL database files for the contiguous United states using the links below:
 - [dGen Dataset Submissions on OpenEI](https://data.openei.org/submissions/1931)
 - [dGen Dataset S3 Viewer](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F)
 
