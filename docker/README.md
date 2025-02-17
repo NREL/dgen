@@ -75,7 +75,7 @@ You can find more datasets using the links below:
 
 You can customize the dataset used by overriding the DGEN_DATAFILE_URL and DGEN_AGENTFILE_URL variables in `docker-compose.yml` and then editing `~/dgen_data/input_sheet_final.xlsm` using Excel.
 
-Below will walk through the process of using the [Colorado residential dataset](https://oedi-data-lake.s3.amazonaws.com/dgen/co_final_db/dgen_db.sql).
+Below will walk through the process of updating the `docker-compose.yml` file to use the [Colorado residential agent file and SQL database file](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2Fco_final_db%2F).
 
 First, copy the link addresses from the download links of the desired agent file and the relevant SQL database file. Then, update `docker-compose.yml` to download and use the files of choice for the model runs by inserting the copied agent file link next to `DGEN_DATAFILE_URL:` and the copied SQL database file link next to `DGEN_AGENTFILE_URL:`. If this is not the first time you are setting up the Docker Container, set the `DGEN_FORCE_DELETE_DATABASE` variable to `1` to force remove any previously created database. This will result in dataloss from previous runs; if this is a concern, please make backups before proceeding with the following steps.
 
