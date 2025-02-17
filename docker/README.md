@@ -28,7 +28,7 @@ $ docker-compose up --build -d
 
 ##### Connect to the running containers
 ``` bash
-$ docker attach dgen_1 # Attach to dGen environment container
+$ docker attach dgen_1 # Attach to dGen container
 $ docker attach $(sudo docker ps --filter "name=dgen" --format "{{.ID}}") # If dgen_1 is not found
 (dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ python dgen_model.py # Run scenario
 (dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ exit # to exit
