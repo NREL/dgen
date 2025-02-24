@@ -18,13 +18,11 @@ COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-dgen.sh
 
 # Initialize Conda in the Docker environment
-RUN cat <<EOF >> ~dgen/.bashrc
-if [[ -z \${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START:-0} -eq 0 ]]; then
-    conda activate dg3n
-    cd /opt/dgen_os/python/
-    /docker-entrypoint-initdb.d/init-dgen.sh
-fi
-EOF
+RUN echo 'if [[ -z ${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START:-0} -eq 0 ]]; then \
+    conda activate dg3n && \
+    cd /opt/dgen_os/python/ && \
+    /docker-entrypoint-initdb.d/init-dgen.sh; \
+fi' >> ~dgen/.bashrc
 
 # Change ownership of the bashrc file
 RUN chown dgen: ~dgen/.bashrc
