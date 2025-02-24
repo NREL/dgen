@@ -124,7 +124,7 @@ Troublshooting Container/Database Issues:
 - Try googling errors.
 
 ### C. Create Local Server:
-Once the database is restored (it will take some time), open PgAdmin and create a new server. To do this, right-click on "Servers" (located in top-left corner of application), and then click on Register --> Server. In the "General" tab, name this whatever you want (e.g., "dgen_db"). In the "Connection" tab, input "localhost" (or 127.0.0.1) in the "Host name/address" cell and "postgres" in both the "Username" and "Password" cells. Hit the "Save" button in the bottom-right corner of the dialogue box. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
+Once the database is restored (it will take some time), open PgAdmin and create a new server. To do this, right-click on "Servers" (located in top-left corner of application), and then click on Register --> Server. In the "General" tab, name this whatever you want (e.g., "dgen_db"). In the "Connection" tab, input "localhost" (or 127.0.0.1) in the "Host name/address" cell and "postgres" in both the "Username" and "Password" cells. "Port" is defaulted to `5432`, but if you used a different port number while setting up the database, update this to match that port number. Next, click the "Save" button in the bottom-right corner of the dialogue box. Finally, right-click "Servers" and then the "Refresh" option. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
 
 Note: the system might prompt you to install the "hstore" extension for sql in PgAdmin if needed. 
 
