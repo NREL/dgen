@@ -30,7 +30,7 @@ Install Docker for [(Mac)](https://docs.docker.com/docker-for-mac/install/) or [
 
 - Install [Anaconda for Python 3.7](https://www.anaconda.com/download/success). Users with VPNs may need to turn their VPNs off while installing or updating Anaconda.
 
-- Install [PgAdmin](https://www.pgadmin.org/download/). Download pgAdmin 4 based on your operating system (i.e., macOS, Windows, etc.).
+- Install [PgAdmin](https://www.pgadmin.org/download/). Download pgAdmin 4 based on your operating system (i.e., macOS, Windows, etc.). If prompted, ignore all of the options for installing docker, python, os host, etc.
 
 - Install Git: If you don't already have git installed, then navigate [here](https://www.atlassian.com/git/tutorials/install-git) to install it for your operating system.
 
