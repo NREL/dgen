@@ -20,18 +20,18 @@ def get_psql_table_fields(engine, schema, name):
     
     Parameters
     ----------
-    engine : Sofware (SQL engine)
+    engine : :class: `sqlalchemy.Engine`
         SQL engine to intepret SQL query
 
-    schema : Composite (string)
+    schema : `string`
         SQL schema to pull table from 
 
-    name : Composite (string)
+    name : `string`
         Name of the table from which fields are retrieved
 
     Returns
     -------
-    array : Composite (numpy array)
+    array : :class: `numpy.array`
         Numpy array of columns
     
     Raises
@@ -49,30 +49,30 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     
     Parameters
     ----------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe to upload to database
 
-    engine : Software (SQL engine)
+    engine : :class: `sqlalchemy.Engine`
         SQL engine to intepret SQL query 
 
-    schema : Composite (string)
+    schema : `string`
         Schema in which to upload df
 
-    owner : Composite (string)
+    owner : `string`
         Owner of schema
 
-    name : Composite (string)
+    name : `string`
         Name to be given to table that is uploaded
 
-    if_exists : Composite (string)
+    if_exists : `string`
         If table exists and if `if_exists` set to `replace`, replaces table in database. If table exists and if `if_exists` set to `append`, appends table in database. 
 
-    append_transformations : Scalar (bool)
+    append_transformations : `bool`
         Not sure what this does. 
     
     Returns
     -------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe that was uploaded to database
 
     Raises
@@ -170,15 +170,15 @@ def get_scenario_settings(schema, con):
     
     Parameters
     ----------
-    schema : Composite (string)
+    schema : `string`
         Schema in which to look for the scenario settings
 
-    con : Composite (SQL connection object)
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
 
     Returns
     -------
-    df : Composite (dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe of default scenario settings
 
     Raises
@@ -199,18 +199,18 @@ def get_userdefined_scenario_settings(schema, table_name, con):
     
     Parameters
     ----------
-    schema : Composite (string)
+    schema : `string`
         Schema in which to look for the scenario settings
     
-    table_name : Composite (string)
+    table_name : `string`
         Name of the table from which fields are retrieved
     
-    con : Composite (SQL connection object)
+    con : :clas: `psycopg2.connection`
         SQL connection to connect to database
 
     Returns
     -------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe of user created scenario settings
 
     Raises
@@ -232,27 +232,27 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
     
     Parameters
     ----------
-    scenario_settings : Composite (ScenarioSetting object)
+    scenario_settings : :class: `settings.ScenarioSettings`
         Custom object in which to look for the scenario settings
 
-    con : Composite (SQL connection object)
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
 
-    engine : Software (SQL engine)
+    engine : :class: `sqlalchemy.Engine`
         SQL engine to intepret SQL query 
 
-    role : Composite (string)
+    role : `string`
         Owner of schema
 
-    input_name : Composite (string)
+    input_name : `string`
         Name of the csv file that should be imported   
 
-    csv_import_function : Function
+    csv_import_function : `function`
         Specific function to import and munge csv 
     
     Returns
     -------
-    df : Composite (dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe of the table that was imported
 
     Raises
@@ -298,12 +298,12 @@ def stacked_sectors(df):
     
     Parameters
     ----------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : Composite (pandas dataframe)
+    output : :class: `pandas.DataFrame`
         Dataframe of the table that was imported and split by sector
 
     """
@@ -338,12 +338,12 @@ def deprec_schedule(df):
     
     Parameters
     ----------
-    df : Composite (dataframe)
+    df : :class: `pandas.DataFrame`
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : Composite (dataframe)
+    output : :class: `pandas.DataFrame`
         Dataframe of depreciation schedule sorted by year
 
     """
@@ -369,12 +369,12 @@ def melt_year(parameter_name):
     
     Parameters
     ----------
-    parameter_name : Composite (string)
+    parameter_name : `string`
         Name of the parameter value in dataframe. 
     
     Returns
     -------
-    function : Function
+    function : `function`
         Function that melts years and parameter value to row axis
 
     """
@@ -385,12 +385,12 @@ def melt_year(parameter_name):
     
         Parameters
         ----------
-        df : Composite (dataframe)
+        df : :class: `pandas.DataFrame`
             Dataframe to be unpivot. 
     
         Returns
         -------
-        df_tidy : Composite (dataframe)
+        df_tidy : :class: `pandas.DataFrame`
             Dataframe with every other year and the parameter value for that year as rows for each state 
 
         """
@@ -414,24 +414,24 @@ def import_agent_file(scenario_settings, con, model_settings, agent_file_status,
     
     Parameters
     ----------
-    scenario_settings : Composite (ScenarioSetting object)
+    scenario_settings : :class: `settings.ScenarioSettings`
         Custom object in which to look for the scenario settings
 
-    con : Composite (psycopg2 connection object)
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
 
-    model_settings : Composite (ModelSettings object)
+    model_settings : :class: `settings.ModelSettings`
         Model settings that apply to all scenarios
 
-    agent_file_status : Composite (string)
+    agent_file_status : `string`
         Attribute that describes whether to use pre-generated agent file or create new  
 
-    input_name : Composite (string)
+    input_name : `string`
         .Pkl file name substring of pre-generated agent table 
     
     Returns
     -------
-    solar_agents : Composite (class)
+    solar_agents : :class: `agents.Agents`
         Instance of Agents class with either user pre-generated or user generated agent 
 
     Raises
@@ -442,7 +442,6 @@ def import_agent_file(scenario_settings, con, model_settings, agent_file_status,
         ValueError
             Raised if agent supplied does not confirm to correct standards. See references for the template
             "Generating agents is not supported at this time. Please select "Use pre-generated Agents" in the input sheet')"
-    is this how value error should be reported? 
 
     References
     ----------
@@ -488,12 +487,12 @@ def process_elec_price_trajectories(elec_price_traj):
     
     Parameters
     ----------
-    elec_price_traj : Composite (dataframe)
+    elec_price_traj : :class: `pandas.DataFrame`
         Dataframe of electricity prices by year and ReEDS balancing areas
     
     Returns
     -------
-    elec_price_change_traj : Composite (dataframe)
+    elec_price_change_traj : :class: `pandas.DataFrame`
         Dataframe of annual electricity price change factors from base year
 
     Notes
@@ -549,12 +548,12 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
     
     Parameters
     ----------
-    wholesale_elec_price_traj : Composite (dataframe)
+    wholesale_elec_price_traj : :class: `pandas.DataFrame`
         Dataframe of wholesale electricity prices by year and ReEDS BA
     
     Returns
     -------
-    wholesale_elec_price_change_traj : Composite (dataframe)
+    wholesale_elec_price_change_traj : :class: `pandas.DataFrame`
         Dataframe of annual electricity price change factors from base year
 
     Notes

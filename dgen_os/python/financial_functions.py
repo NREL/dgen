@@ -25,39 +25,39 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
     
     Parameters
     ----------
-    kw : float
+    kw : `float64`
         PV System size or PV Capacity (in kW) 
 
-    pv : :class:`Pandas.DataFrame` 
+    pv : `dict` 
         Contains two attributes of the agent, hourly PV generation profile and hourly PV consumption, as an array (float) in kW for the whole year (8760)
 
-    utilityrate : Module (PySAM Utilityrate5 object) #Object (PySAM Utilityrate5 object)
-        It is the utility rate assigned to each agent used for assessing the system performance
+    utilityrate : :class: `Utilityrate5` 
+        PySAM utility rate module that contais the utility rate assigned to each agent used for assessing the system performance
 
-    loan : Module (PySAM Cashloan module)
-        It contains the finanancial paramters used for calculating the system performance 
+    loan : :class: `Cashloan`
+        PySAM module that contains the finanancial paramters used for calculating the system performance
 
-    batt : Module (PySAM Battwatts module)
+    batt : :class: `Battery`
         It is the simplified battery storage model from PySAM used for evaluating the system performance
 
-    costs : Composite (dictionary)
+    costs : `dict`
         Maps the cost components for Solar PV and the Battery systems as a scalar (float) value (?maps the cost component for the technology in questions?)
 
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         Contains the attributes of one agent 
 
-    rate_switch_table : Composite (pandas dataframe) 
+    rate_switch_table : :class: `pandas.DataFrame`
         Has details on how utility rates will switch with DG/storage adoption
 
-    en_batt : Scalar (boolean)
+    en_batt : `bool`
         When this arguement is True, battery is included in the analysis and vice versa when False. 
 
-    batt_dispatch : Scalar (string)
+    batt_dispatch : `str`
         Parameters contains the battery dispatch model to be used in the analysis 
                 
     Returns
     -------
-    -loan.Outputs.npv : Scalar (float)
+    -loan.Outputs.npv : `float`
         the negative net present value of the system modeled
     
     Notes 
@@ -275,15 +275,15 @@ def calc_system_size_and_performance(agent, rate_switch_table):
     
     Parameters
     ----------
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         Contains the attributes of one agent 
         
-    rate_switch_table : Composite (pandas dataframe) 
+    rate_switch_table : :class: `pandas.DataFrame` 
         Has details on how utility rates will switch with DG/storage adoption
     
     Returns
     -------
-    agent[out_cols] : Composite (pandas series)
+    agent[out_cols] : :class: `pandas.Series`
         Updated agent object with new attributes, that represents the financial characteristics of the system to be adopted. Check function notes for list of new attribtes.
         
     Notes
@@ -891,21 +891,21 @@ def process_incentives(loan, generation_hourly, agent):
     
     Parameters
     ----------
-    loan : Module (PySAM Cashloan module)
+    loan : :class: `Cashloan`
         It contains the finanancial paramters used for calculating the system performance 
 
-    kw : Scalar (float) 
+    kw : `float`
         PV System size or PV Capacity (in kW) 
 
-    generation_hourly : Composite (pandas series)
+    generation_hourly : :class: `pandas.Series`
         Contains hourly PV generation profile , as an array (float) in kW for the whole year (8760)
 
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         Contains the attributes of one agent as an object 
     
     Returns
     -------
-    loan : Module (PySAM Cashloan module) 
+    loan : :class: `Cashloan` 
         It contains the finanancial paramters used for calculating the system performance. The module has been updated with respective incentive applicable for the agent. 
     
     Raises

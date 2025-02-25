@@ -27,24 +27,24 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
 
     Parameters
     ----------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Input agent file with all agent attributes
 
-    is_first_year : Scalar (bool)
+    is_first_year : bool
         Passed to :func:`diffusion_functions_elec.calc_diffusion_market_share` to determine the increment of `teq`
 
-    bass_params : Composite (pandas dataframe)
+    bass_params : :class: `pandas.DataFrame`
         DataFrame generally loaded from :func:`datfunc.get_bass_params`, includes the following attributes: `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
     
-    year : Scalar (int)
+    year : int
         contains the year the model is simulating adoption 
 
     Returns
     -------    
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Agent dataframe that contains attributes associated with adoption.
 
-    market_last_year : Composite (pandas dataframe)
+    market_last_year : :class: `pandas.DataFrame`
         Dataframe that is used for comparing with next iteration for market share. 
 
     Notes
@@ -71,10 +71,6 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
 
     Issues
     ------
-    The earlier code contained optional parameters override_p_value = None, override_q_value = None, override_teq_yr1_value = None. 
-        They were removed because the parameters were not used anywhere in the current code. 
-    
-    The has several files that are loaded directly instead of at :func: `data_functions`. 
 
     """
     
@@ -279,21 +275,21 @@ def calc_diffusion_market_share(df, is_first_year):
 
     Parameters
     ----------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         The agent dataframe. The following three parameters are used from the dataframe. 
-            df.bass_param_p : Composite (pandas series)
+            df.bass_param_p : :class: `pandas.Series`
                 Bass diffusion parameter defining the coeffieicent of innovation.
-            df.bass_param_q : Composite (pandas series)
+            df.bass_param_q : :class: `pandas.Series`
                 Bass diffusion parameter definint the coefficient of imitation.
-            df.teq_yr1 : Composite (pandas series)
+            df.teq_yr1 : :class: `pandas.Series`
                 Number of years since the diffusion model began.
 
-    is_first_year : Scalar (bool)
+    is_first_year : bool
         Passed from :func:`diffusion_functions_elec.calc_diffusion_solar` to determine the increment of `teq`
 
     Returns
     -------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         Input dataframe with `new_adopt_fraction` column added. `new_adopt_fraction` represents the proportion of the overall population that will adopt the technology.
     
     Notes
@@ -357,18 +353,18 @@ def bass_diffusion(df):
     
     Parameters
     ----------
-    df : Composite (dataframe) 
+    df : :class: `pandas.DataFrame`
         contains agents with all their attributes. The important attributes used in this function are: 
-            df.bass_param_p : Composite (pandas series)
+            df.bass_param_p : :class: `pandas.Series`
                 Bass diffusion parameter defining the coeffieicent of innovation.
-            df.bass_param_q : Composite (pandas series)
+            df.bass_param_q : :class: `pandas.Series`
                 Bass diffusion parameter defining the coeffieicent of imitation.
-            teq2 : Composite (pandas series)
+            teq2 : :class: `pandas.Series`
                 equivalent number of years since the model began plus 2 years 
         
     Returns
     -------
-    df : Composite (dataframe)
+    df : :class: `pandas.DataFrame`
         Agent dataframe with `new_adopt_fraction` attribute added. 
     
     Notes
@@ -394,20 +390,20 @@ def calc_equiv_time(df):
 
     Parameters
     ----------
-    df : Composite (pandas dataframe)
+    df : :class: `pandas.DataFrame`
         full agent dataframe, the important attributes used are: 
-            df.market_share_last_year : numpy.ndarray
+            df.market_share_last_year : :class: `numpy.ndarray`
                 Market share last year [at end of the previous solve] as decimal
-            df.maximum_market_share : numpy.ndarray
+            df.maximum_market_share : :class: `numpy.ndarray`
                 Maximum market share as a decimal percentage.
-            df.bass_param_p : numpy.ndarray
+            df.bass_param_p : :class: `numpy.ndarray`
                 Bass diffusion parameter defining the coefficient of innovation.
-            df.bass_param_q : numpy.ndarray
+            df.bass_param_q : :class: `numpy.ndarray` 
                 Bass diffusion paramter defining the coefficient of imitation.
         
     Returns
     -------
-    df : Composite (pandas dataFrame)
+    df : :class: `pandas.DataFrame`
         Input dataframe with `bass_params_teq` column added. `bass_params_teq` is the equivalent number of years after diffusion started on the diffusion curve
     
     Notes
