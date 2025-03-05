@@ -1,5 +1,7 @@
 FROM continuumio/miniconda3
 
+RUN apt-get update && apt-get install dos2unix -y
+
 # Setup dgen user
 RUN groupadd --gid 999 dgen && useradd --uid 999 --gid dgen --create-home dgen
 
@@ -16,6 +18,7 @@ RUN conda env create -f /opt/dgen_os/python/dg3n.yml
 # Setup Init script
 COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-dgen.sh
+RUN dos2unix /docker-entrypoint-initdb.d/init-dgen.sh
 
 # Initialize Conda in the Docker environment
 RUN echo 'if [[ -z ${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START:-0} -eq 0 ]]; then \
