@@ -12,6 +12,9 @@ RUN mkdir -p /data && chmod 755 /data
 COPY ./dgen_os/ /opt/dgen_os/
 RUN chown -R dgen: /opt/dgen_os /data
 
+# Required for Windows
+RUN find /opt/dgen_os/ -type d -exec chmod u+rwx {} \;
+
 # Setup Init script
 COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
 RUN chmod 755 /docker-entrypoint-initdb.d/init-dgen.sh
