@@ -12,12 +12,9 @@ RUN mkdir -p /data && chmod 755 /data
 COPY ./dgen_os/ /opt/dgen_os/
 RUN chown -R dgen: /opt/dgen_os /data
 
-# Install dgen
-RUN conda env create -f /opt/dgen_os/python/dg3n.yml
-
 # Setup Init script
 COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
-RUN chmod +x /docker-entrypoint-initdb.d/init-dgen.sh
+RUN chmod 755 /docker-entrypoint-initdb.d/init-dgen.sh
 RUN dos2unix /docker-entrypoint-initdb.d/init-dgen.sh
 
 # Initialize Conda in the Docker environment
@@ -26,8 +23,6 @@ RUN echo 'if [[ -z ${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START
     cd /opt/dgen_os/python/ && \
     /docker-entrypoint-initdb.d/init-dgen.sh; \
 fi' >> ~dgen/.bashrc
-
-# Change ownership of the bashrc file
 RUN chown dgen: ~dgen/.bashrc
 
 # Setup default input_sheet_final.xlsm (Delaware residential agent file and SQL database)
@@ -36,5 +31,8 @@ RUN chmod 755 /opt/dgen_os/excel/input_sheet_final.xlsm && chown dgen: /opt/dgen
 
 # Switch to non-root user
 USER dgen
+
+# Install dgen
+RUN conda env create -f /opt/dgen_os/python/dg3n.yml
 
 CMD ["bash", "--login"]
