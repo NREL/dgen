@@ -22,6 +22,7 @@ services:
       - "127.0.0.1:5432:5432"
     volumes:
       - ~/dgen_data/:/data
+      - dgen_postgis_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -29,3 +30,7 @@ services:
       DGEN_AGENTFILE_URL: https://oedi-data-lake.s3.amazonaws.com/dgen/de_final_db/agent_df_base_res_de_revised.pkl
       DGEN_FORCE_DELETE_DATABASE: 0 # Set to 1 to drop the database and clear all the data for a fresh load
     restart: unless-stopped
+
+volumes:
+  dgen_postgis_data:
+    driver: local
