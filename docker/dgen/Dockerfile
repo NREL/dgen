@@ -20,6 +20,11 @@ COPY docker/dgen/init.sh /docker-entrypoint-initdb.d/init-dgen.sh
 RUN chmod 755 /docker-entrypoint-initdb.d/init-dgen.sh
 RUN dos2unix /docker-entrypoint-initdb.d/init-dgen.sh
 
+# Setup dgen-utility script
+COPY docker/dgen/dgen-utility.py /bin/dgen-utility
+RUN chmod 755 /bin/dgen-utility
+RUN dos2unix /bin/dgen-utility
+
 # Initialize Conda in the Docker environment
 RUN echo 'if [[ -z ${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START:-0} -eq 0 ]]; then \
     conda activate dg3n && \

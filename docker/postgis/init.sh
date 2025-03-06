@@ -24,12 +24,14 @@ fi
 # Check if the data file already exists, download if not
 if [[ ! -f ${DB_AGENT_FILE} ]]; then
     echo "Downloading data file..."
+    echo "${DB_AGENT_FILE}" > /data/DB_AGENT_FILE_URL.tmp
     curl -o ${DB_AGENT_FILE} ${DB_AGENT_FILE_URL}
 fi
 
 # Check if the data file already exists, download if not
 if [[ ! -f ${DB_SQL_FILE} ]]; then
     echo "Downloading data file..."
+    echo "${DB_SQL_FILE_URL}" > /data/DB_SQL_FILE_URL.tmp
     curl -o ${DB_SQL_FILE} ${DB_SQL_FILE_URL}
 fi
 

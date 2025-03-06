@@ -30,8 +30,11 @@ $ docker-compose up --build -d
 ``` bash
 $ docker attach dgen_1 # Attach to dGen container
 $ docker attach $(sudo docker ps --filter "name=dgen" --format "{{.ID}}") # If dgen_1 is not found
+
+(dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ dgen-utility --check # Check dgen has downloaded the models, this can take 15 minutes or so depending on your internet speed.
 (dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ python dgen_model.py # Run scenario
 (dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ exit # to exit
+
 $ docker-compose up -d # If you exit, you have to re-up the container if you want to re-attach
 ```
 
