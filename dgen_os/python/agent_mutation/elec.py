@@ -843,7 +843,7 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     agent : :class: pandas.Series
         Attributes of a single agent 
         
-    system_size_kw : Scalar (float)
+    system_size_kw : float
         PV System size or PV Capacity (in kW) 
     
     tech : string, default 'solar'
