@@ -846,7 +846,7 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     system_size_kw : Scalar (float)
         PV System size or PV Capacity (in kW) 
     
-    tech : Composite (string)
+    tech : string, default 'solar'
         technology label to classify if the model is doing solar only or solar and storage 
 
     Returns
