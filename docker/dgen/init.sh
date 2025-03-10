@@ -9,6 +9,11 @@ if [ ! -z "${DATABASE_HOSTNAME}" ]; then
     sed -i "s/127.0.0.1/${DATABASE_HOSTNAME}/g" /opt/dgen_os/python/pg_params_connect.json
 fi
 
+# Update the database connection parameters if using a different database port
+if [ ! -z "${DGEN_DB_PORT}" ]; then
+    sed -i "s/5432/${DGEN_DB_PORT}/g" /opt/dgen_os/python/pg_params_connect.json
+fi
+
 # Setup Default Input Scenarios
 if [[ ! -f /data/input_sheet_final.xlsm ]]; then
     cp /opt/dgen_os/excel/input_sheet_final.xlsm /data/input_sheet_final.xlsm
