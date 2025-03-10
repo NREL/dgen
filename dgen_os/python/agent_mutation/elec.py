@@ -837,7 +837,7 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
     Parameters
     ----------
-    rate_switch_table : Composite (pandas dataframe)
+    rate_switch_table : :class: pandas.DataFrame
         Has details on how utility rates will switch with DG/storage adoption
     
     agent : Composite (pandas series)
