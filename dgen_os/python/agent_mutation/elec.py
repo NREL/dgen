@@ -852,7 +852,7 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
 
     Returns
     -------
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         attributes of a sigle agent updated with tariff-related attributes 
         
     one_time_charge : Scalar (float)
