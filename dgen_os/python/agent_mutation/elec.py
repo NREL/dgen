@@ -832,6 +832,44 @@ def get_rate_switch_table(con):
 
 def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
+    """
+    Updates the tariff rates and associated attributes for the agent when an utility has a rate switch when adopting distributed generation and/or storage technologies
+    
+    Parameters
+    ----------
+    rate_switch_table : :class: pandas.DataFrame
+        DataFrame containing details on how utility rates will switch due to adoption of distributed generation and/or storage adoption
+    
+    agent : :class: pandas.Series
+        Attributes of a single agent 
+        
+    system_size_kw : float
+        PV System size or PV Capacity (in kW) 
+    
+    tech : string, default 'solar'
+        Technology label to classify if the model is doing solar only or solar and storage 
+        Options: 'solar' and 'storage'
+
+    Returns
+    -------
+    agent : :class: `pandas.Series`
+        Single agent updated with rate switch related attributes
+        
+    one_time_charge : float
+        One time charge value for relevant tariff rates used by agent
+    
+    Notes
+    -----
+    1) Rate switch only occurs when system size is greater than zero. When system size is greater than 0, the agent is updated with values for Net Energy Metering (set to 1e6), the relevant (new) tariff ID, and new tariff dictionary of rates.
+    2) Regardless of the system size, a one time charge is also created and set for the model to use for the agent. For system sizes > 0, the one time charge is taken from the rate switch table. For system sizes = 0, the one time charge is set to 0.
+    3) the rate switch table is maintained manually and needs periodic update. MORE INFO can be provided here. 
+
+    Raises
+    ------
+    None
+
+    """
+
     rate_switch_table = rate_switch_table.loc[rate_switch_table['tech'] == tech]
     rate_switch_table.rename(columns={'rate_id_alias':'tariff_id', 'json':'tariff_dict'}, inplace=True)
     rate_switch_table = rate_switch_table[(rate_switch_table['eia_id'] == agent.loc['eia_id']) &
@@ -853,7 +891,6 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     else:
         # don't update agent attributes, return one time charge of $0
         one_time_charge = 0.
-    
     
     return agent, one_time_charge
 

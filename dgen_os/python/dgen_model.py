@@ -101,7 +101,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
             logger.info('Getting various scenario parameters')
             schema = scenario_settings.schema
             max_market_share = datfunc.get_max_market_share(con, schema)
-            load_growth_scenario = scenario_settings.load_growth.lower()
+            #load_growth_scenario = scenario_settings.load_growth.lower()
             inflation_rate = datfunc.get_annual_inflation(con, scenario_settings.schema)
             bass_params = datfunc.get_bass_params(con, scenario_settings.schema)
 
@@ -119,7 +119,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # Initialize agents
                 # =========================================================   
                            
-                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')   
+                solar_agents = iFuncs.import_agent_file(scenario_settings, con, model_settings, agent_file_status, input_name='agent_file')   
                 
                 
                 # Get set of columns that define agent's immutable attributes
@@ -227,7 +227,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     solar_agents.on_frame(agent_mutation.elec.apply_state_incentives, [state_incentives, year, model_settings.start_year, state_capacity_by_year])
                     
                     # Calculate System Financial Performance
-                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
+                    #solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
+                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, cores=cores, rate_switch_table=rate_switch_table)
 
                     # Calculate the financial performance of the S+S systems
                     #solar_agents.on_frame(financial_functions.calc_financial_performance)
