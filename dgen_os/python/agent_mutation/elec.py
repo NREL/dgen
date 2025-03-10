@@ -833,7 +833,7 @@ def get_rate_switch_table(con):
 def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
     """
-    The function updates the tariff rates and associated attributes when an utility has a rate switch when adopting DG
+    Updates the tariff rates and associated attributes for the agent when an utility has a rate switch when adopting distributed generation and/or storage technologies
     
     Parameters
     ----------
