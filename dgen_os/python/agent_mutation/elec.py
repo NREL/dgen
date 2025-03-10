@@ -860,7 +860,7 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
     Notes
     -----
-    1) rate switch only occurs when system size is greater than zero. 
+    1) Rate switch only occurs when system size is greater than zero. When system size is greater than 0, the agent is updated with values for Net Energy Metering (set to 1e6), the relevant (new) tariff ID, and new tariff dictionary of rates.
     2) in addition to rate switch, an one time charge is also updated to the agent. 
     3) the rate switch table is maintained manually and needs periodic update. MORE INFO can be provided here. 
 
