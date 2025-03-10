@@ -855,7 +855,8 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     agent : :class: `pandas.Series`
         Single agent updated with rate switch related attributes
         
-    one_time_charge : Scalar (float)
+    one_time_charge : float
+        One time charge value for relevant tariff rates used by agent
     
     Notes
     -----
