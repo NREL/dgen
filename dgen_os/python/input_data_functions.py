@@ -426,7 +426,7 @@ def import_agent_file(scenario_settings, con, model_settings, agent_file_status,
     agent_file_status : `string`
         Attribute that describes whether to use pre-generated agent file or create new  
 
-    input_name : `string`
+    input_name : str
         .Pkl file name substring of pre-generated agent table 
     
     Returns
