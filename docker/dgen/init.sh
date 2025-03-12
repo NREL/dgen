@@ -27,7 +27,7 @@ ln -s /data/input_sheet_final.xlsm /opt/dgen_os/input_scenarios/input_sheet_fina
 rm -f /opt/dgen_os/input_agents/*
 ln -s ${DB_AGENT_FILE} /opt/dgen_os/input_agents/$(basename "${DB_AGENT_FILE}")
 
-# Check if the symlink was already created
+# Check if the symlink was already created, write runs to ~/dgen_data/runs/
 if [ ! -L /opt/dgen_os/runs ]; then
     rm -rf /opt/dgen_os/runs/* /opt/dgen_os/runs
     ln -s /data/runs /opt/dgen_os/runs
