@@ -123,11 +123,15 @@ $ docker attach dgen_1
 (dg3n) dgen@cc6e2e5f70b5:/opt/dgen_os/python$ exit # to exit
 ```
 
-Run outputs are written on your host to ~/dgen_data/runs/.
+On your host, run outputs are written to ~/dgen_data/runs/. Within the dgen container, run outputs are written to /data/runs/.
 
 ```bash
 $ ls -l ~/dgen_data/runs/
 drwxr-xr-x  5 username  group  160 Mar 12 15:14 results_20250312_211405
+```
+```bash
+(dg3n) dgen@1b1fce587396:/opt/dgen_os/python$ ls -l /data/runs/
+drwxr-xr-x 5 dgen dgen 160 Mar 12 21:14 results_20250312_211405
 ```
 
 ### Stop running containers
