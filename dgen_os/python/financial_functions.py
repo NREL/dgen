@@ -1033,7 +1033,7 @@ def calc_max_market_share(dataframe, max_market_share_df):
 
     in_cols = list(dataframe.columns)
     dataframe = dataframe.reset_index()
-    
+    print("in df: ",  dataframe, dataframe.columns)
     dataframe['business_model'] = 'host_owned'
     dataframe['metric'] = 'payback_period'
     
@@ -1060,11 +1060,11 @@ def calc_max_market_share(dataframe, max_market_share_df):
     max_market_share_df['payback_period_as_factor'] = (max_market_share_df['payback_period'] * 100).round().astype('int')
 
     # Join the max_market_share table and dataframe in order to select the ultimate mms based on the metric value. 
-    dataframe = pd.merge(dataframe, max_market_share_df[['sector_abbr', 'max_market_share', 'metric', 'payback_period_as_factor', 'business_model']], 
-        how = 'left', on = ['sector_abbr', 'metric','payback_period_as_factor','business_model'])
-    
-    out_cols = in_cols + ['max_market_share', 'metric']    
+    dataframe = pd.merge(dataframe, max_market_share_df.drop_duplicates(), 
+        how = 'left', on = ['sector_abbr', 'metric','payback_period_as_factor', 'payback_period', 'business_model'])
 
+    out_cols = in_cols + ['max_market_share', 'metric']    
+ 
     return dataframe[out_cols]
 
 
