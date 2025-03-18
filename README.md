@@ -16,6 +16,8 @@ The Distributed Generation Market Demand (dGen) Model
 - [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
 - [Official dGen Documentation](https://nrel.github.io/dgen/) 
 - [Wiki](https://github.com/NREL/dgen/wiki)
+- [dGen Docker Usage Guide](./docker/README.md)
+- [dGen Packer Usage Guide](./packer/README.md)
 
 
 ## Get Your Tools
