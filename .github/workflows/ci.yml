@@ -49,3 +49,33 @@ jobs:
           cache-environment-key: "CI ${{runner.os}}-${{runner.arch}}-py${{matrix.python-version}}-${{env.TODAY}}"
           create-args: >-
             python=${{matrix.python-version}}
+  
+  docker_compose:
+    runs-on: ubuntu-latest
+    name: Tests a client by running a docker compose
+    container: docker
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: create data directory
+        run: |
+          mkdir -p ~/dgen_data/ 
+          chmod 755 ~/dgen_data/
+
+      # - name: change datat dir permissions
+      #   run: chmod 755 ~/dgen_data/
+
+      - name: "Builds the docker composed image"
+        id: build
+        working-directory: ./docker/dgen
+        run: |
+          docker-compose up --build -d
+          docker attach dgen_1
+
+
+
+
+      
+
+
+  
