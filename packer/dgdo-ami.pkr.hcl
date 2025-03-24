@@ -71,7 +71,6 @@ locals {
 }
 
 source "amazon-ebs" "dgdo_ami" {
-  region                    = var.aws_region
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"
@@ -82,6 +81,15 @@ source "amazon-ebs" "dgdo_ami" {
     owners      = ["099720109477"] # Canonical
     most_recent = true
   }
+
+  launch_block_device_mappings {
+    device_name           = "/dev/sda1"
+    volume_size           = 80
+    volume_type           = "gp3"
+    delete_on_termination = true
+  }
+
+  region                    = var.aws_region
   instance_type             = var.instance_type
   ssh_username              = var.ssh_username
   ami_name                  = "${var.ami_name}-${local.timestamp}"
