@@ -8,6 +8,8 @@ This guide provides instructions on how to use the dGen AWS AMI as well as how t
 
 Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh to the instance, by default you will be dropped into a dgen shell.
 
+We recommend using an instance type of **t3.medium or higher** for optimal performance. Using an instance type with too little memory will result in an error during the `conda env create -f` step, if you run into an error during the `conda env` step then try a larger instance type.
+
 ```bash
 $ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
 ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
