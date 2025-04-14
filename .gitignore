@@ -39,3 +39,4 @@ python/pg_params*.json
 
 # Unchanging reference documents that are large enough to warrant not committing
 timeslice_8760_wH17.csv
+dgen_os/python/pg_params_connect.json

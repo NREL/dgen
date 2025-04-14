@@ -43,17 +43,17 @@ def apply_elec_price_multiplier_and_escalator(dataframe, year, elec_price_change
 
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pd.DataFrame`
         Agent dataframe       
-    year : 'int'
+    year : `int`
         The year for which you want multiplier values for
-    elec_price_change_traj : 'pd.DataFrame'
+    elec_price_change_traj : :class: `pd.DataFrame`
         Dataframe of electricity prices' trajectories over time. See the 
         'input_elec_prices_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pd.DataFrame`
         Agent DataFrame with elec_price_multiplier and elec_price_escalator data merged in.
 
     '''
@@ -91,6 +91,25 @@ def apply_elec_price_multiplier_and_escalator(dataframe, year, elec_price_change
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_export_tariff_params(dataframe, net_metering_state_df, net_metering_utility_df):
 
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+
     dataframe = dataframe.reset_index()
     
     # specify relevant NEM columns
@@ -125,16 +144,16 @@ def apply_pv_tech_performance(dataframe, pv_tech_traj):
     '''
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    pv_tech_traj : 'pd.DataFrame'
+    pv_tech_traj : :class: `pandas.DataFrame`
         Dataframe of PV tech performance over time. See the 
         'input_pv_tech_performance_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
-        Agent DataFrame with pv tech performance parameters merged in.
+    dataframe : :class: `pandas.DataFrame`
+        Agent DataFrame with depreciation schedule  parameters merged in.
 
     '''
 
@@ -150,14 +169,27 @@ def apply_pv_tech_performance(dataframe, pv_tech_traj):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_depreciation_schedule(dataframe, deprec_sch):
+    
+    '''
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    deprec_sch : :class: `pandas.DataFrame`
+        Dataframe of depreciation scehdule 
+
+    Returns
+    -------
+    dataframe : :class: `pandas.DataFrame`
+        Agent DataFrame with pv tech performance parameters merged in.
+
+    '''
 
     dataframe = dataframe.reset_index()
-
     dataframe = pd.merge(dataframe, deprec_sch[['sector_abbr', 'deprec_sch', 'year']],
                          how='left', on=['sector_abbr', 'year'])
                          
     dataframe = dataframe.set_index('agent_id')
-
 
     return dataframe
 
@@ -169,15 +201,15 @@ def apply_pv_prices(dataframe, pv_price_traj):
     '''
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    pv_price_traj : 'pd.DataFrame'
+    pv_price_traj : :class: `pandas.DataFrame`
         Dataframe of PV price trajectories over time. See the 
         'input_pv_prices_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with pv price parameters merged in.
 
     '''
@@ -202,18 +234,18 @@ def apply_batt_prices(dataframe, batt_price_traj, batt_tech_traj, year):
     '''
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    batt_price_traj : 'pd.DataFrame'
+    batt_price_traj : :class: `pandas.DataFrame`
         Dataframe of battery price trajectories over time. See the 
         'input_batt_prices_user_defined' table in the database.
-    batt_tech_traj : 'pd.DataFrame'
+    batt_tech_traj : :class: `pandas.DataFrame`
         Dataframe of battery tech trajectories over time. See the 
         'input_batt_tech_performance_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with battery price and tech parameters merged in.
 
     '''
@@ -238,18 +270,18 @@ def apply_pv_plus_batt_prices(dataframe, pv_plus_batt_price_traj, batt_tech_traj
     '''
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    pv_plus_batt_price_traj : 'pd.DataFrame'
+    pv_plus_batt_price_traj : :class: `pandas.DataFrame`
         Dataframe of battery price trajectories over time. See the 
         'input_pv_plus_batt_prices_user_defined' table in the database.
-    batt_tech_traj : 'pd.DataFrame'
+    batt_tech_traj : :class: `pandas.DataFrame`
         Dataframe of battery tech trajectories over time. See the 
         'input_batt_tech_performance_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with pv plus battery price parameters and battery tech parameters merged in.
 
     '''
@@ -282,20 +314,19 @@ def apply_pv_plus_batt_prices(dataframe, pv_plus_batt_price_traj, batt_tech_traj
 def apply_value_of_resiliency(dataframe, value_of_resiliency):
 
     '''
-
     Note, value of resiliency (VOR) is not currently used in the open source version of the model.
 
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    vaule_of_resiliency : 'pd.DataFrame'
+    vaule_of_resiliency : :class: `pandas.DataFrame`
         Dataframe of financials pertaining to the value of resiliency. See the 
         'input_value_of_resiliency_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with value of resiliency parameters merged in.
 
     '''
@@ -316,15 +347,15 @@ def apply_batt_tech_performance(dataframe, batt_tech_traj):
     '''
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    batt_tech_traj : 'pd.DataFrame'
+    batt_tech_traj : :class: `pandas.DataFrame`
         Dataframe of battery tech trajectories over time. See the 
         'input_batt_tech_performance_user_defined' table in the database.
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with battery tech parameters merged in.
 
     '''
@@ -348,19 +379,19 @@ def apply_financial_params(dataframe, financing_terms, itc_options, inflation_ra
 
     Parameters
     ----------    
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent dataframe       
-    financing_terms : 'pd.DataFrame'
+    financing_terms : :class: `pandas.DataFrame`
         Dataframe of financing terms.
-    itc_options : 'pd.DataFrame'
+    itc_options ::class: `pandas.DataFrame`
         Dataframe of different ITC (investment tax credit) parameters, namely 'itc_fraction_of_capex'
         that is merged to the agent dataframe on year, technology, and sector.
-    inflation_rate : 'float'
+    inflation_rate : `float`
         rate of inflation specified in the input sheet as a percentage (e.g. 2.5%).
 
     Returns
     -------
-    dataframe : 'pd.DataFrame'
+    dataframe : :class: `pandas.DataFrame`
         Agent DataFrame with financial parameters merged in.
 
     '''
@@ -381,6 +412,23 @@ def apply_financial_params(dataframe, financing_terms, itc_options, inflation_ra
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_load_growth(dataframe, load_growth_df):
+
+    """
+    Applies a load growth factor to agent loads when iterating over the years
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    load_growth_df : :class: `pandas.DataFrame`
+        Dataframe that contans the load growth multiplier at the county, sector, region, and year level. 
+
+    Returns
+    -------
+    dataframe : 'pd.DataFrame'
+        Agent DataFrame with load growth factored in. 
+
+    """
 
     dataframe = dataframe.reset_index()
     
@@ -408,6 +456,25 @@ def apply_load_growth(dataframe, load_growth_df):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def calculate_developable_customers_and_load(dataframe):
 
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+
     dataframe = dataframe.reset_index()
 
     dataframe['developable_agent_weight'] = dataframe['pct_of_bldgs_developable'] * dataframe['customers_in_bin']
@@ -421,6 +488,25 @@ def calculate_developable_customers_and_load(dataframe):
 #%%
 def get_electric_rates_json(con, unique_rate_ids):
 
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+    
     inputs = locals().copy()
 
     # updated urdb3_rate_jsons_201905 to 20200721 version
@@ -443,6 +529,23 @@ def get_electric_rates_json(con, unique_rate_ids):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def filter_nem_year(df, year):
 
+    """
+    Filter the data for program end date 
+
+    Parameters
+    ----------    
+    df : :class: `pandas.DataFrame`
+        The dataframe contains the state-level net energy metering program details       
+    year : `int`
+        The year of simulation 
+
+    Returns
+    -------
+    df : :class: `pd.DataFrame`
+        Final NEM dataset that is filtered for the current simulation year  
+
+    """
+
     # Filter by Sector Specific Sunset Years
     df = df.loc[(df['first_year'] <= year) & (df['sunset_year'] >= year)]
 
@@ -452,6 +555,42 @@ def filter_nem_year(df, year):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def get_nem_settings(state_limits, state_by_sector, utility_by_sector, selected_scenario, year, state_capacity_by_year, cf_during_peak_demand):
+
+    """
+    Reads the rate switch table from a SQL database
+    
+    Parameters
+    ----------
+    state_limits : :class: `pandas.DataFrame`
+        the dataframe summarizes any limits that are associated to ongoing solar programs at the state level 
+
+    state_by_sector : :class: `pandas.DataFrame`
+        the dataframe tables, at state and sectoral level, the solar program characteristics 
+
+    utility_by_sector : :class: `pandas.DataFrame`
+        the dataframe summarizes any limits that are associated to ongoing solar programs at the utility level
+
+    selected_scenario : `string`
+        text describing the scenatio using which the programs are evaluated over time 
+
+    year : `int`
+        the year of sumulation 
+
+    state_capacity_by_year : :class: `pandas.DataFrame`
+        dataframe summarizes the cumulative adoption characteristcs at the state level  
+
+    cf_during_peak_demand : :class: `pandas.DataFrame`
+        state level solar capacity factor during peak demand 
+
+    Returns
+    -------
+    state_result:class: `pandas.DataFrame`
+        a datafram that has updated net energy metering data based on current adoption levels 
+    
+    utility_result: :class: `pandas.DataFrame`
+        a datafram that has updated net energy metering data based on current adoption levels 
+    
+    """
 
     # Find States That Have Not Sunset
     valid_states = filter_nem_year(state_limits, year)
@@ -555,7 +694,24 @@ def get_and_apply_normalized_hourly_resource_solar(con, agent):
 
 #%%
 def scale_array_precision(row, array_col, prec_offset_col):
+    """
+    Apply DER export tariffs if there are any 
 
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
     row[array_col] = np.array(
         row[array_col], dtype='float64') / row[prec_offset_col]
 
@@ -564,6 +720,24 @@ def scale_array_precision(row, array_col, prec_offset_col):
 
 #%%
 def scale_array_sum(row, array_col, scale_col):
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
 
     hourly_array = np.array(row[array_col], dtype='float64')
     row[array_col] = hourly_array / \
@@ -574,6 +748,25 @@ def scale_array_sum(row, array_col, scale_col):
 
 #%%
 def interpolate_array(row, array_1_col, array_2_col, interp_factor_col, out_col):
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+
 
     if row[interp_factor_col] != 0:
         interpolated = row[interp_factor_col] * \
@@ -589,6 +782,25 @@ def interpolate_array(row, array_1_col, array_2_col, interp_factor_col, out_col)
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_carbon_intensities(dataframe, carbon_intensities):
 
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+
     dataframe = dataframe.reset_index()
 
     dataframe = pd.merge(dataframe, carbon_intensities, how='left', on=['state_abbr', 'year'])
@@ -602,6 +814,25 @@ def apply_carbon_intensities(dataframe, carbon_intensities):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_wholesale_elec_prices(dataframe, wholesale_elec_prices):
 
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
+
     dataframe = dataframe.reset_index()
 
     dataframe = pd.merge(dataframe, wholesale_elec_prices, how='left', on=['county_id', 'year'])
@@ -614,7 +845,24 @@ def apply_wholesale_elec_prices(dataframe, wholesale_elec_prices):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def get_state_starting_capacities(con, schema):
+    
+    """
+    Get the starting capacities
 
+    Parameters
+    ----------    
+    con : :class: `psycopg2.connection`
+        SQL connection to connect to database 
+   
+    schema : `str`
+        The name of the schema to be imported
+
+    Returns
+    -------
+    df : :class: `pandas.DataFrame`
+        DataFrame that contains the starting capacity of the DERs
+
+    """ 
     inputs = locals().copy()
 
     # sql = """SELECT *
@@ -649,6 +897,25 @@ def get_state_starting_capacities(con, schema):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_state_incentives(dataframe, state_incentives, year, start_year, state_capacity_by_year, end_date = datetime.date(2029, 1, 1)):
+
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
 
     dataframe = dataframe.reset_index()
 
@@ -694,6 +961,25 @@ def apply_state_incentives(dataframe, state_incentives, year, start_year, state_
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
+
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
 
     # record input columns
     in_cols = list(dataframe.columns)
@@ -764,6 +1050,22 @@ def estimate_initial_market_shares(dataframe, state_starting_capacities_df):
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def apply_market_last_year(dataframe, market_last_year_df):
     
+    """
+    Apply the adoption data from last year market simulation 
+    
+    Parameters
+    ----------
+    dataframe : :class: `pandas.DataFrame`
+        The agent dataframe 
+
+    market_last_year_df: :class: `pandas.DataFrame`
+
+    Returns
+    -------
+    dataframe : :class: `pandas.DataFrame`
+
+    """
+
     dataframe = dataframe.merge(market_last_year_df, on=['agent_id'], how='left')
     return dataframe
 
@@ -771,6 +1073,25 @@ def apply_market_last_year(dataframe, market_last_year_df):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def estimate_total_generation(dataframe):
+
+    """
+    Apply DER export tariffs if there are any 
+
+    Parameters
+    ----------    
+    dataframe : :class: `pandas.DataFrame`
+        Agent dataframe       
+    net_metering_state_df : :class: `pandas.DataFrame`
+        Dataframe that contains the state level export tariffs 
+    net_metering_utility_df : :class: `pandas.DataFrame`
+        Dataframe that contains the utility level export tariffs 
+
+    Returns
+    -------
+    dataframe : :class: `pd.DataFrame`
+        Agent dataFrame with DER export tariffs appended
+
+    """
 
     dataframe['total_gen_twh'] = ((dataframe['number_of_adopters'] - dataframe['initial_number_of_adopters'])
                                   * dataframe['annual_energy_production_kwh'] * 1e-9) + (0.23 * 8760 * dataframe['initial_pv_kw'] * 1e-6)
@@ -781,6 +1102,38 @@ def estimate_total_generation(dataframe):
 #%%   
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_first_year, year,solar_agents, last_year_installed_capacity):
+    
+    """
+    Calculate the state capacity to perform validation 
+    
+    Parameters
+    ----------
+    con : :class: `psycopg2.connection`
+        SQL connection to connect to database
+    
+    schema : `string`
+        The name of the schema 
+    
+    load_growth : :class: `pandas.DataFrame`
+        Dataframe that contans the load growth multiplier at the county, sector, region, and year level. 
+
+    peak_demand_mw : :class: `pandas.DataFrame`
+        state level peak demand based on 2104 data 
+    
+    is_first_year : `bool`
+        boolean to say if this is first year 
+    
+    year : `int`
+        The year of simulation 
+    
+    solar_agents : :class: `agents.Agents`
+        Agent file that is of the class "agents" 
+    
+    Returns
+    -------
+    df : :class: `pandas.DataFrame`
+
+    """
 
     if is_first_year:
         # get state starting capacities for solar & storage and sum by state
@@ -822,6 +1175,21 @@ def calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_fir
 #%%
 def get_rate_switch_table(con):
     
+    """
+    Reads the rate switch table from a SQL database
+    
+    Parameters
+    ----------
+    con : :class: `psycopg2.connection`
+        SQL connection to connect to database
+
+    Returns
+    -------
+    rate_switch_table: :class: `pandas.DataFrame`
+        a dataframe that has the cross walk to switch rate ids when DERs are adopted. 
+    
+    """
+
     # get rate switch table from database
     sql = """SELECT * FROM diffusion_shared.rate_switch_lkup_2020;"""
 
@@ -837,24 +1205,24 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
     
     Parameters
     ----------
-    rate_switch_table : Composite (pandas dataframe)
+    rate_switch_table : :class: `pandas.DataFrame`
         Has details on how utility rates will switch with DG/storage adoption
     
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         Attributes of a single agent 
         
-    system_size_kw : Scalar (float)
+    system_size_kw : `float`
         PV System size or PV Capacity (in kW) 
     
-    tech : Composite (string)
+    tech : `string`
         technology label to classify if the model is doing solar only or solar and storage 
 
     Returns
     -------
-    agent : Composite (pandas series)
+    agent : :class: `pandas.Series`
         attributes of a sigle agent updated with tariff-related attributes 
         
-    one_time_charge : Scalar (float)
+    one_time_charge : `float`
     
     Notes
     -----
@@ -896,6 +1264,32 @@ def apply_rate_switch(rate_switch_table, agent, system_size_kw, tech='solar'):
 #%%
 @decorators.fn_timer(logger=logger, tab_level=2, prefix='')
 def reassign_agent_tariffs(dataframe, con):
+
+    """
+    The function reassigns any tariffs that are wrong. 
+    
+    Parameters
+    ----------
+    dataframe : :class: `pandas.DataFrame`
+        The agent dataframe. 
+
+    con: :class: `psycopg2.connection`
+        the connection variable using psycopg2. 
+
+    Returns
+    -------
+    dataframe : :class: `pandas.DataFrame`
+        The agent dataframe. 
+
+    Notes
+    -----
+    None
+
+    Raises
+    ------
+    None
+
+    """
 
     # define rates to use in replacement of incorrect tariffs
     
