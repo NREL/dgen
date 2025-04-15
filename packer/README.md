@@ -1,14 +1,20 @@
-# dGen Packer AMI Usage Guide
+# Using the dGen AWS AMI
 
 This guide provides instructions on how to use the dGen AWS AMI as well as how to use Packer to build your own AWS AMI.
 
 ## dGen AMI Usage
 
+#### System Requirements
+
+- **Min CPUs**: 8 cores
+- **Min Memory**: 16 GB
+- **Min Disk Storage**: 80 GB
+
+We recommend using an instance type of **c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, or higher** for optimal performance. Using an instance type with too little memory will result in an error during the `conda env create -f` step, if you run into an error during the `conda env` step then try a larger instance type.
+
 #### Getting Started
 
-Launch an EC2 instance in AWS using the AMI built by Packer.  You can then ssh to the instance, by default you will be dropped into a dgen shell.
-
-We recommend using an instance type of **t3.medium or higher** for optimal performance. Using an instance type with too little memory will result in an error during the `conda env create -f` step, if you run into an error during the `conda env` step then try a larger instance type.
+Launch an EC2 instance in AWS using the AMI built by Packer.  Once the EC2 instance has started, you can then ssh to the instance.
 
 ```bash
 $ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
@@ -23,6 +29,19 @@ ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
 Edit the docker-compose file `/home/ubuntu/dgen/docker/docker-compose.yml`.  See `using a new dataset` in the [dgen Docker Usage Guide](../docker/README.md).
 
 One challenge you must consider when using an EC2 instance is if the `/data/input_sheet_final.xlsm` needs to be edited, you must copy this file to a system with Excel that can edit the document, then you need to copy it back to the instance.
+
+Below is an example of how you must copy the input_sheet_final to make edits using a Mac.
+
+```bash
+# Copy the current input sheet to your local system
+$ scp -i ~/.ssh/your_ssh_key ubuntu@192.168.1.1:~/dgen_data/input_sheet_final.xlsm /tmp/input_sheet_final.xlsm
+
+# Edit the file using Excel
+$ open /tmp/input_sheet_final.xlsm
+
+# Copy the input sheet back to the EC2 instance
+$ scp -i ~/.ssh/your_ssh_key /tmp/input_sheet_final.xlsm ubuntu@192.168.1.1:~/dgen_data/input_sheet_final.xlsm
+```
 
 #### Warning: This will remove old running containers and data volumes.  This may be required if you need space.
 

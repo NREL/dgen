@@ -89,6 +89,13 @@ source "amazon-ebs" "dgdo_ami" {
     delete_on_termination = true
   }
 
+  ami_block_device_mappings {
+    device_name           = "/dev/sda1"
+    volume_size           = 80
+    volume_type           = "gp3"
+    delete_on_termination = true
+  }
+
   region                    = var.aws_region
   instance_type             = var.instance_type
   ssh_username              = var.ssh_username
