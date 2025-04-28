@@ -285,15 +285,15 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
 
     # Battwatts
     if agent.loc['sector_abbr'] == 'res':
-        batt = battery.default("GenericBatteryResidential")
+        batt = battery.default("CustomGenerationBatteryResidential")
     else:
-        batt = battery.default("GenericBatteryCommercial")
+        batt = battery.default("CustomGenerationBatteryCommercial")
 
     # Instantiate utilityrate5 model based on agent sector
     if agent.loc['sector_abbr'] == 'res':
-        utilityrate = utility.from_existing(batt, "GenericBatteryResidential")
+        utilityrate = utility.from_existing(batt, "CustomGenerationBatteryResidential")
     else:
-        utilityrate = utility.from_existing(batt, "GenericBatteryCommercial")
+        utilityrate = utility.from_existing(batt, "CustomGenerationBatteryCommercial")
     tariff_dict = agent.loc['tariff_dict']
     
 
@@ -384,11 +384,11 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     # Assume res agents do not evaluate depreciation at all
     # Assume non-res agents only evaluate federal depreciation (not state)
     if agent.loc['sector_abbr'] == 'res':
-        loan = cashloan.from_existing(utilityrate, "GenericBatteryResidential")
+        loan = cashloan.from_existing(utilityrate, "CustomGenerationBatteryResidential")
         loan.FinancialParameters.market = 0
 
     else:
-        loan = cashloan.from_existing(utilityrate, "GenericBatteryCommercial")
+        loan = cashloan.from_existing(utilityrate, "CustomGenerationBatteryCommercial")
         loan.FinancialParameters.market = 1
 
     loan.FinancialParameters.analysis_period = agent.loc['economic_lifetime_yrs']
