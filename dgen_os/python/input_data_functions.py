@@ -236,13 +236,17 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
         userdefined_table_name = "input_" + input_name + "_user_defined"
         scenario_userdefined_name = get_userdefined_scenario_settings(schema, userdefined_table_name, con)
         scenario_userdefined_value = scenario_userdefined_name['val'].values[0]
-        
-        df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
 
-        if csv_import_function is not None:
-            df = csv_import_function(df)
+        try:
+            df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
 
-        df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
+            if csv_import_function is not None:
+                df = csv_import_function(df)
+
+            df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
+
+        except FileNotFoundError:
+            df = pd.read_sql('SELECT * FROM {}."{}"'.format(shared_schema, scenario_userdefined_value), con)
 
     else:
         if input_name == 'elec_prices':
