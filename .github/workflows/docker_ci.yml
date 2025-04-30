@@ -3,17 +3,27 @@ on: push
 jobs:
 
   docker_compose:
-    runs-on: macos-latest
-    name: Tests a client by running a docker compose
+    runs-on: ubuntu-latest #macos-latest
+    name: Tests Dockerfile 
     container: docker
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+    
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
+
       - name: create data directory
         working-directory: ./docker_actions
         run: |
-          mkdir -p ./dgen_data/ 
-          chmod 755 ./dgen_data/
+          mkdir -p ~/dgen_data/ 
+          chmod 755 ~/dgen_data/
+          ls -l ~/dgen_data/
 
       - name: "Builds the docker composed image"
         id: build
@@ -25,10 +35,9 @@ jobs:
       
       - name: "Brings up the docker compose and runs the tests"
         id: run-test
+        working-directory: ./docker_actions/dgen
         run: |
-          docker compose up --abort-on-container-exit --exit-code-from client
-        
-          sleep 10s
+          docker compose up --abort-on-container-exit 
           docker attach test_dgen
           exit
         
