@@ -1,0 +1,59 @@
+name: docker-compose-actions-workflow
+on: push
+jobs:
+
+  docker_compose:
+    runs-on: macos-latest
+    name: Tests a client by running a docker compose
+    container: docker
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: create data directory
+        working-directory: ./docker_actions
+        run: |
+          mkdir -p ./dgen_data/ 
+          chmod 755 ./dgen_data/
+
+      - name: "Builds the docker composed image"
+        id: build
+        working-directory: ./docker_actions/dgen
+        run: |
+          pwd
+          docker-compose up --build -d
+        # docker attach test_dgen
+      
+      - name: "Brings up the docker compose and runs the tests"
+        id: run-test
+        run: |
+          docker compose up --abort-on-container-exit --exit-code-from client
+        
+          sleep 10s
+          docker attach test_dgen
+          exit
+        
+      # - name: "pause for database to finish set up"
+      #   shell: bash
+      #   run: |
+      #     echo sleeping now
+      #     sleep 30s
+      #     exit
+        
+
+      # - name: run python script
+      #   working-directory: ./docker_actions/dgen
+      #   run: |
+      #     sleep 300s
+      #     echo "sleeping"
+      #     python dgen_model.py
+          
+          
+
+      # - name: connect to containers
+      #   run: docker attach dgen_5
+      # - name: "Brings up the docker compose and runs the tests"
+      #   id: run-test
+      #   run: docker compose up --abort-on-container-exit --exit-code-from client
+
+      # - name: Test
+      #   run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
