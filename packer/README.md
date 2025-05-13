@@ -4,6 +4,12 @@ This guide provides instructions on how to use the dGen AWS AMI as well as how t
 
 ## dGen AMI Usage
 
+### ✅ Launch with CloudFormation
+
+Click the button to launch the stack in your AWS Console: [![Launch Stack](https://img.shields.io/badge/Launch%20Stack-CloudFormation-blue?logo=amazon-aws)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://your-s3-bucket.s3.amazonaws.com/nrel-dgen-aws-quick-start.yaml&stackName=NREL-dgen-quickStart)
+
+Alternatively, launch an AWS EC2 instance using the AMI: `ami-0a2cf43f7e3f2606e`.
+
 #### System Requirements
 
 - **Min CPUs**: 8 cores
@@ -18,7 +24,13 @@ Launch an EC2 instance in AWS using the AMI built by Packer.  Once the EC2 insta
 
 ```bash
 $ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+```
+```bash
 ubuntu@ip-1-2-3-4:~/dgen/docker$ source ~ubuntu/dgen_start.sh
+```
+```bash
 (dg3n) dgen@0b702cabc2ce:/opt/dgen_os/python$ python dgen_model.py
 ```
 
@@ -52,6 +64,8 @@ $ ~/dgen_prune_all_data.sh
 ```
 
 ## Building an AWS AMI with Packer
+
+Building the dgen AMI with packer is not required for usage. Building the image with Packer is for experts only where there is a need to customize the image.
 
 #### Prerequisites
 

@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  AWS Quick Start for NREL Distributed Generation (dgen) - EC2 Instance
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Type: AWS::EC2::KeyPair::KeyName
+
+  VpcId:
+    Description: VPC ID where the EC2 instance will be launched
+    Type: AWS::EC2::VPC::Id
+
+  PrivateSubnetId:
+    Description: Private Subnet ID in the selected VPC
+    Type: AWS::EC2::Subnet::Id
+
+  AssignElasticIP:
+    Description: Whether to allocate and associate an Elastic IP (true/false)
+    Type: String
+    AllowedValues: [true, false]
+    Default: false
+
+Conditions:
+  UseElasticIP: !Equals [!Ref AssignElasticIP, true]
+
+Resources:
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0  # Consider restricting this in production
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: c6i.2xlarge
+      ImageId: ami-0a2cf43f7e3f2606e
+      KeyName: !Ref KeyName
+      NetworkInterfaces:
+        - SubnetId: !Ref PrivateSubnetId
+          DeviceIndex: 0
+          AssociatePublicIpAddress: false
+          GroupSet:
+            - !Ref InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: NREL-dgen-quickstart
+
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Condition: UseElasticIP
+    Properties:
+      Domain: vpc
+
+  EIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Condition: UseElasticIP
+    Properties:
+      InstanceId: !Ref EC2Instance
+      EIP: !Ref ElasticIP
+
+Outputs:
+  InstanceId:
+    Description: EC2 Instance ID
+    Value: !Ref EC2Instance
+
+  AZ:
+    Description: Availability Zone
+    Value: !GetAtt EC2Instance.AvailabilityZone
+
+  PublicIP:
+    Condition: UseElasticIP
+    Description: Public IP assigned to the instance (via Elastic IP)
+    Value: !Ref ElasticIP
