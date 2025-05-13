@@ -63,6 +63,17 @@ Metadata:
 Conditions:
   UseElasticIP: !Equals [!Ref AssignElasticIP, true]
 
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-06011bf884306bc59
+    us-east-2:
+      AMI: ami-02846882ee9d36fc9
+    us-west-1:
+      AMI: ami-012a44053086ad026
+    us-west-2:
+      AMI: ami-0f0d578d0aac21c08
+
 Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -79,7 +90,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref InstanceType
-      ImageId: ami-0a2cf43f7e3f2606e
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
       KeyName: !Ref KeyName
       NetworkInterfaces:
         - SubnetId: !Ref PrivateSubnetId
