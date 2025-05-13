@@ -6,7 +6,7 @@ This guide provides instructions on how to use the dGen AWS AMI as well as how t
 
 ### ✅ Launch with CloudFormation
 
-Click the button to launch the stack in your AWS Console: [![Launch Stack](https://img.shields.io/badge/Launch%20Stack-CloudFormation-blue?logo=amazon-aws)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://your-s3-bucket.s3.amazonaws.com/nrel-dgen-aws-quick-start.yaml&stackName=NREL-dgen-quickStart)
+Click the button to launch the stack in your AWS Console: [![Launch Stack](https://img.shields.io/badge/Launch%20Stack-CloudFormation-blue?logo=amazon-aws)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://nrel-dgen-quickstart.s3.amazonaws.com/nrel-dgen-aws-quick-start.yaml&stackName=NREL-dgen-quickStart)
 
 Alternatively, launch an AWS EC2 instance using the AMI:
 - us-east-1: `ami-06011bf884306bc59`
