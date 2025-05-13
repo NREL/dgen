@@ -2,4 +2,12 @@ File: 2024_v3_Workbook.xlsx
      Year: 2024
      Source: NREL Annual Technology Baseline (ATB)
      URL: https://atb.nrel.gov/electricity/2024/data
+     Folder: ATB_Data
      Data: pv_prices, batt_prices, batt_tech_performance, pv_plus_batt_prices, financial_terms, depreciation_schedules
+
+File: Cambium24_Workbook.xlsx
+     Year: 2024
+     Source: NREL Cambium Dataset
+     URL: https://data.nrel.gov/submissions/289
+     Folder: Cambium_Data
+     Data: carbon_intensities
