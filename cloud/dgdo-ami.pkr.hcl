@@ -87,6 +87,7 @@ source "amazon-ebs" "dgdo_ami" {
     volume_size           = 80
     volume_type           = "gp3"
     delete_on_termination = true
+    encrypted             = false # So the AMI can be public, if built internally make it true
   }
 
   ami_block_device_mappings {
@@ -94,6 +95,7 @@ source "amazon-ebs" "dgdo_ami" {
     volume_size           = 80
     volume_type           = "gp3"
     delete_on_termination = true
+    encrypted             = false # So the AMI can be public, if built internally make it true
   }
 
   region                    = var.aws_region

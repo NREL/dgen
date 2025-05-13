@@ -21,6 +21,45 @@ Parameters:
     AllowedValues: [true, false]
     Default: false
 
+  InstanceType:
+    Description: EC2 instance type for the dgen instance
+    Type: String
+    Default: c6i.2xlarge
+
+  SSHAccessCIDR:
+    Description: CIDR range for SSH access to the instance
+    Type: String
+    Default: 0.0.0.0/0
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: "Network Configuration"
+        Parameters:
+          - VpcId
+          - PrivateSubnetId
+          - SSHAccessCIDR
+      - Label:
+          default: "Instance Configuration"
+        Parameters:
+          - KeyName
+          - InstanceType
+          - AssignElasticIP
+    ParameterLabels:
+      VpcId:
+        default: "VPC ID"
+      PrivateSubnetId:
+        default: "Private Subnet ID"
+      SSHAccessCIDR:
+        default: "SSH Access CIDR"
+      KeyName:
+        default: "EC2 Key Pair"
+      InstanceType:
+        default: "Instance Type"
+      AssignElasticIP:
+        default: "Assign Elastic IP"
+
 Conditions:
   UseElasticIP: !Equals [!Ref AssignElasticIP, true]
 
@@ -34,12 +73,12 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 0.0.0.0/0  # Consider restricting this in production
+          CidrIp: !Ref SSHAccessCIDR
 
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: c6i.2xlarge
+      InstanceType: !Ref InstanceType
       ImageId: ami-0a2cf43f7e3f2606e
       KeyName: !Ref KeyName
       NetworkInterfaces:
@@ -57,6 +96,9 @@ Resources:
     Condition: UseElasticIP
     Properties:
       Domain: vpc
+      Tags:
+        - Key: Name
+          Value: NREL-dgen-EIP
 
   EIPAssociation:
     Type: AWS::EC2::EIPAssociation
