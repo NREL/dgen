@@ -8,7 +8,7 @@ This guide provides instructions on how to use the dGen AWS AMI as well as how t
 
 Click the button to launch the stack in your AWS Console: [![Launch Stack](https://img.shields.io/badge/Launch%20Stack-CloudFormation-blue?logo=amazon-aws)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://nrel-dgen-quickstart.s3.amazonaws.com/nrel-dgen-aws-quick-start.yaml&stackName=NREL-dgen-quickStart)
 
-Alternatively, launch an AWS EC2 instance using the AMI:
+Alternatively, launch an AWS EC2 instance using the dgen AMI:
 - us-east-1: `ami-06011bf884306bc59`
 - us-east-2: `ami-02846882ee9d36fc9`
 - us-west-1: `ami-012a44053086ad026`
@@ -24,7 +24,7 @@ We recommend using an instance type of **c6i.4xlarge, c6i.8xlarge, c6i.12xlarge,
 
 #### Getting Started
 
-Launch an EC2 instance in AWS using the AMI built by Packer.  Once the EC2 instance has started, you can then ssh to the instance.
+Launch an EC2 instance in AWS using the quick start or AMI above.  Once the EC2 instance has started, you can then ssh to the instance.
 
 ```bash
 $ ssh -i <your_ssh_key> ubuntu@<your_server_ip>
