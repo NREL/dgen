@@ -4,7 +4,7 @@ services:
       context: ../
       dockerfile: docker/dgen/Dockerfile
     stdin_open: true
-    tty: false
+    tty: true
     container_name: dgen_1
     volumes:
       - ~/dgen_data/:/data
