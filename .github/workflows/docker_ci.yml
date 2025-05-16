@@ -1,68 +1,70 @@
 name: docker-compose-actions-workflow
-on: push
+on:
+  push:
+  pull_request:
 jobs:
 
   docker_compose:
-    runs-on: ubuntu-latest #macos-latest
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     name: Tests Dockerfile 
     container: docker
 
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-    
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
 
+      - name: Install rsync
+        run: apk update && apk add --no-cache rsync
+
       - name: create data directory
-        working-directory: ./docker_actions
+        working-directory: ./
         run: |
-          mkdir -p ~/dgen_data/ 
-          chmod 755 ~/dgen_data/
-          ls -l ~/dgen_data/
+          mkdir -p ./docker_actions/
+          chmod 755 ./docker_actions/
+          ls -ld ./docker_actions/
+          ls -l ./docker_actions/
 
-      - name: "Builds the docker composed image"
+          rsync -a --exclude='docker-compose.yml' ./docker/ ./docker_actions/
+          ls -l ./docker_actions/docker-compose.yml
+          cat ./docker_actions/docker-compose.yml
+
+          rm -rf ./docker_actions/dgen_data/
+          mkdir -p ./docker_actions/dgen_data/
+          chmod 755 ./docker_actions/dgen_data/
+          chown -R 999:999 ./docker_actions/dgen_data/
+          ls -ld ./docker_actions/dgen_data/
+          ls -l ./docker_actions/dgen_data/
+
+      - name: "Builds the docker composed image and the docker compose"
         id: build
-        working-directory: ./docker_actions/dgen
+        working-directory: ./docker_actions/
         run: |
-          pwd
-          docker-compose up --build -d
-        # docker attach test_dgen
+          docker compose down
+          docker system prune -a -f # remove all stopped containers and dangling images
+          docker volume prune -f    # remove all dangling volumes
+          docker compose up --build -d
       
-      - name: "Brings up the docker compose and runs the tests"
-        id: run-test
-        working-directory: ./docker_actions/dgen
+      - name: "Pause for database to finish set up"
         run: |
-          docker compose up --abort-on-container-exit 
-          docker attach test_dgen
-          exit
+          echo "Sleeping for 5 minutes to download files and allow the database to set up"
+          sleep 300s # 5 minutes may not be long enough if internet is slow
         
-      # - name: "pause for database to finish set up"
-      #   shell: bash
-      #   run: |
-      #     echo sleeping now
-      #     sleep 30s
-      #     exit
-        
-
-      # - name: run python script
-      #   working-directory: ./docker_actions/dgen
-      #   run: |
-      #     sleep 300s
-      #     echo "sleeping"
-      #     python dgen_model.py
-          
-          
-
-      # - name: connect to containers
-      #   run: docker attach dgen_5
-      # - name: "Brings up the docker compose and runs the tests"
-      #   id: run-test
-      #   run: docker compose up --abort-on-container-exit --exit-code-from client
-
-      # - name: Test
-      #   run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
+      - name: "Test running dgen model python script"
+        working-directory: ./docker_actions/
+        run: |
+          export CONTAINER_ID=$(docker ps -q --filter "name=dgen")
+          echo "Container ID: ${CONTAINER_ID}"
+          result=$(docker exec -u dgen "${CONTAINER_ID}" bash -c ' \
+                              source ~/.bashrc \
+                              && cd /opt/dgen_os/python \
+                              && /docker-entrypoint-initdb.d/init-dgen.sh \
+                              && source /opt/conda/bin/activate dg3n \
+                              && python dgen_model.py \
+                              && echo "Success: $?"')
+          if [[ $(printf result |grep -c "Success: 0") -eq 0 ]]; then
+            echo "Dgen model script failed."
+            exit 1
+          else
+            echo "Dgen model script executed successfully."
+          fi
