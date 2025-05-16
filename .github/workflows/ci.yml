@@ -24,7 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
-        python-version: ["3.12"] # "3.10", "3.11",
+        python-version: ["3.10", "3.11", "3.12"]
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -49,32 +49,3 @@ jobs:
           cache-environment-key: "CI ${{runner.os}}-${{runner.arch}}-py${{matrix.python-version}}-${{env.TODAY}}"
           create-args: >-
             python=${{matrix.python-version}}
-  
-  docker_compose:
-    runs-on: ubuntu-latest
-    name: Tests a client by running a docker compose
-    container: docker
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v3
-      - name: create data directory
-        run: |
-          mkdir -p ~/dgen_data/ 
-          chmod 755 ~/dgen_data/
-
-      - name: "Builds the docker composed image"
-        id: build
-        working-directory: ./docker/dgen
-        run: |
-          docker-compose up --build -d
-          docker attach dgen_1
-          python dgen_model.py
-          exit
-
-
-
-
-      
-
-
-  
