@@ -1,6 +1,8 @@
 FROM continuumio/miniconda3
 
-RUN apt-get update && apt-get install dos2unix -y
+# Install common cli tools needed, dos2unix is required for Windows
+RUN apt-get update && \
+    apt-get install -y dos2unix vim nano
 
 # Setup dgen user
 RUN groupadd --gid 999 dgen && useradd --uid 999 --gid dgen --create-home dgen
