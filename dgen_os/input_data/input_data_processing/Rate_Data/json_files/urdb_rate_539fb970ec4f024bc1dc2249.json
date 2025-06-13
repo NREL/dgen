@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "This rate is available for commercial surge protection to any Coldwater Board of Public Utilities customer with 120/240VAC, 100A - 200A, single-phase service or 208/220/240/277 VAC three-phase service. Subject to approval by the Utility and proper execution of contract.",
+      "eiaid": 3915,
+      "fixedchargefirstmeter": 9.99,
+      "fixedchargeunits": "$/month",
+      "label": "539fb970ec4f024bc1dc2249",
+      "name": "Rate CSP - Commercial Surge Protection Service",
+      "revisions": [
+        1372861906,
+        1372861941,
+        1406020793,
+        1406020810,
+        1427405190
+      ],
+      "sector": "Commercial",
+      "source": "http://www.coldwater.org/Content/documents/2014Rulesandregulations.pdf",
+      "sourceparent": "http://www.coldwater.org/Departments/Electric_Service.html",
+      "startdate": 1063954800,
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fb970ec4f024bc1dc2249",
+      "utility": "Coldwater Board of Public Util"
+    }
+  ]
+}

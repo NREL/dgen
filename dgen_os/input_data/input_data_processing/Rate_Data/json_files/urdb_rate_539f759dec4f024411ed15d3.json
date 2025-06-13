@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "Flat Rate Service\nSchedule FE - Signal Amplifiers\n\n* Small devices attached to the City's electric distribution system for the purpose of amplifying cable TV and telephone signals or operating automatic sprinkler controls in remote locations after June 1, 1992, will not require metering and will be billed on a flat monthly rate. Accounts existing prior to June 1, 1992, shall continue to be metered and billed at their present rate unless the customer requests conversion to the flat rate set forth in this schedule.\n\n* Flat Rate = $25.70 \n* Payment-in-lieu-of-taxes (PILT)Charge= $1.53\n\n* Conditions: Signal amplifiers (Signal amplifiers can be no greater than 5 amps per device)",
+      "eiaid": 11256,
+      "enddate": 1388494800,
+      "fixedchargefirstmeter": 27.23,
+      "fixedchargeunits": "$/month",
+      "label": "539f759dec4f024411ed15d3",
+      "name": "Flat Rate, Signal Amplifiers",
+      "revisions": [
+        1329762473,
+        1329762558,
+        1334962751,
+        1339610058,
+        1339612190,
+        1339612412,
+        1341292936,
+        1354889147,
+        1400252478,
+        1427405195
+      ],
+      "sector": "Commercial",
+      "source": "http://www.ci.loveland.co.us/modules/showdocument.aspx?documentid=620",
+      "startdate": 1293886800,
+      "uri": "https://apps.openei.org/IURDB/rate/view/539f759dec4f024411ed15d3",
+      "utility": "City of Loveland, Colorado (Utility Company)"
+    }
+  ]
+}

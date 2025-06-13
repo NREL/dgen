@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "Company determines on peak/off peak. Off Peak will be at least 8 hours a day, and always at least two consecutive hours.",
+      "eiaid": 13685,
+      "energyattrs": [
+        {
+          "Company determined on peak/kWh": "$0.15366"
+        },
+        {
+          "Company Determined Off Peak/kWh": "$0.05379"
+        }
+      ],
+      "fixedchargefirstmeter": 27,
+      "fixedchargeunits": "$/month",
+      "flatdemandunit": "kW",
+      "label": "539f6b35ec4f024411ec9a21",
+      "name": "Single Phase Time of Use- Commercial",
+      "phasewiring": "Single Phase",
+      "revisions": [
+        1402430034,
+        1402430218,
+        1407406504,
+        1427405193
+      ],
+      "sector": "Commercial",
+      "source": "psc.state.wy.us/htdocs/tariffs/wy_nio1/0001a.pdf",
+      "sourceparent": "http://psc.state.wy.us/htdocs/Wy_Utility_Tariffs_new.htm",
+      "startdate": 1370070000,
+      "supersedes": "539fb412ec4f024bc1dbe535",
+      "uri": "https://apps.openei.org/IURDB/rate/view/539f6b35ec4f024411ec9a21",
+      "utility": "Niobrara Electric Assn, Inc",
+      "voltagecategory": "Secondary"
+    }
+  ]
+}

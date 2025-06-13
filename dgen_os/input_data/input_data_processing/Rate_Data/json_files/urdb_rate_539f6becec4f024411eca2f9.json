@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "Available to Non-Farming Business and Commercial enterprises, schools and any other non-residential service (not covered in Sch.A) requiring up to 100 kVA of transformer capacity, for all uses subject to the established rules and regulations of the Cooperative. Single phase at available secondary voltages. Three phase service available at the option of the Cooperative.\r\nDemand shall be based on rolling demand.\r\n\r\nThe minimum monthly charge under these rate schedules shall be $ 20.00 where kva transformer capacityis 25kva or less. Minimum charge shall increase by $1.00 per kva for each additional kva or fraction thereof required over 25 kva or as set by contractual agreement. **Demand charge is applied on GS or 3-phase F&R accounts exceeding 50kwmetered demand.",
+      "eiaid": 9186,
+      "flatdemandunit": "kW",
+      "label": "539f6becec4f024411eca2f9",
+      "name": "General Service",
+      "revisions": [
+        1402671136,
+        1402671399,
+        1402674409,
+        1407770402,
+        1427405206
+      ],
+      "sector": "Commercial",
+      "source": "http://iclp.coopwebbuilder2.com/sites/iclp/files//images/ICLP/Electric%20Rate%20Schedules%20-%201-14.pdf",
+      "sourceparent": "http://www.iclp.coop/",
+      "startdate": 1388563200,
+      "supersedes": "539f6a0aec4f024411ec8aeb",
+      "uri": "https://apps.openei.org/IURDB/rate/view/539f6becec4f024411eca2f9",
+      "utility": "Idaho Cnty L&P Coop Assn, Inc"
+    }
+  ]
+}

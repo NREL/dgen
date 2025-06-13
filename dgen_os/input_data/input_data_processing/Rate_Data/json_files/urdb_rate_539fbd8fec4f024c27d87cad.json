@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "To other utilities and certain entities which may occupy public right-of-way and who attach communication cable and other communication appliances on District owned poles where such attachments are made in accordance with National Electrical Safety Code (NESC), and local laws; and are in compliance with the provisions of an applicable Pole Attachment Contract,  if any.",
+      "eiaid": 13664,
+      "fixedchargefirstmeter": 10.33,
+      "fixedchargeunits": "$/month",
+      "label": "539fbd8fec4f024c27d87cad",
+      "name": "SCHEDULE 20 - POLE ATTACHMENT",
+      "revisions": [
+        1339685461,
+        1339685520,
+        1339685553,
+        1354954862,
+        1406552184,
+        1427405205
+      ],
+      "sector": "Commercial",
+      "source": "http://www.norrisppd.com/business/downloads/Schedule%2020%20-%20Pole%20Attachment%202013.pdf",
+      "sourceparent": "http://www.norrisppd.com/business/rate/",
+      "startdate": 1358668800,
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fbd8fec4f024c27d87cad",
+      "utility": "Norris Public Power District"
+    }
+  ]
+}

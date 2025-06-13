@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "Schedule C: General Power Service\r\nThree Phase\r\n\r\n* Available for all non-residential general power requirements with kilowatt (kW) demands less than 50 kW subject to established rules and regulations of the distributor. \r\n\r\n* The minimum monthly charge shall be $50.14 three phase.",
+      "eiaid": 3687,
+      "fixedchargefirstmeter": 50.14,
+      "fixedchargeunits": "$/month",
+      "flatdemandunit": "kW",
+      "label": "539fb504ec4f024bc1dbf003",
+      "name": "General Power Service - Three Phase",
+      "phasewiring": "3-Phase",
+      "revisions": [
+        1340219902,
+        1340220025,
+        1354962453,
+        1401312167,
+        1408692911,
+        1427405183,
+        1435050413
+      ],
+      "sector": "Commercial",
+      "source": "http://www.clarkenergy.com/wp-content/themes/clark/documents/RateC_000.pdf",
+      "sourceparent": "http://www.clarkenergy.com/rates/",
+      "startdate": 1306911600,
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fb504ec4f024bc1dbf003",
+      "utility": "Clark Energy Coop Inc"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "*The Public Benefits Charge is 2.85% of the retail charge to a customer for electric service.",
+      "eiaid": 2507,
+      "label": "539fcac2ec4f024d2f53ff02",
+      "name": "Public Benefits Charge",
+      "revisions": [
+        1342107222,
+        1342107324,
+        1354944954,
+        1427405182
+      ],
+      "sector": "Commercial",
+      "source": "http://www.burbankwaterandpower.com/electric/commercial-and-industrial-electric-rates",
+      "startdate": 1341147600,
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fcac2ec4f024d2f53ff02",
+      "utility": "City of Burbank Water and Power, California (Utility Company)"
+    }
+  ]
+}

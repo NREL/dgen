@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "eiaid": 16164,
+      "energycomments": "Peak hours are not defined",
+      "flatdemandunit": "kW",
+      "label": "53bea6e2ec4f021a29fcc497",
+      "name": "Time of Day- single phase",
+      "phasewiring": "Single Phase",
+      "revisions": [
+        1402013902,
+        1402014046,
+        1402611872,
+        1404439117,
+        1427405212
+      ],
+      "sector": "Residential",
+      "source": "http://rooseveltppd.com/sites/rooseveltppd.coopwebbuilder.com/files/2014_rates_0.pdf",
+      "sourceparent": "http://www.rooseveltppd.com/content/rates",
+      "startdate": 1401973200,
+      "supersedes": "539fc032ec4f024c27d8995b",
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fc032ec4f024c27d8995b",
+      "utility": "Roosevelt Public Power Dist"
+    }
+  ]
+}

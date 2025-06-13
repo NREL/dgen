@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "approved": true,
+      "country": "USA",
+      "demandrateunit": "kW",
+      "demandunits": "kW",
+      "description": "Applicable to industrial chippers having an expected peak demand of 1500 kVa (1875 kW) or greater.",
+      "eiaid": 4327,
+      "label": "539fbe45ec4f024c27d884b7",
+      "name": "Large Commercial (0016)",
+      "revisions": [
+        1337794974,
+        1337795150,
+        1354884921,
+        1408538638,
+        1427405198,
+        1432886411
+      ],
+      "sector": "Commercial",
+      "source": "http://www.coosavalleyec.com/schedulerates.aspx#0016",
+      "uri": "https://apps.openei.org/IURDB/rate/view/539fbe45ec4f024c27d884b7",
+      "utility": "Coosa Valley Electric Coop Inc"
+    }
+  ]
+}
