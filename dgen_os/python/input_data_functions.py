@@ -360,7 +360,7 @@ def melt_year(parameter_name):
 
         """
     
-        years = np.arange(2014, 2051, 2)
+        years = np.arange(2014, 2051, 1)
         years = [str(year) for year in years]
 
         df_tidy = pd.melt(df, id_vars='state_abbr', value_vars=years, var_name='year', value_name=parameter_name)
@@ -509,7 +509,7 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
 
     county_to_ba_lkup = pd.read_csv('county_to_ba_mapping.csv')
     
-    years = np.arange(2014, 2051, 2)
+    years = np.arange(2014, 2051, 1)
     years = [str(year) for year in years]
 
     wholesale_elec_price_change_traj = pd.melt(wholesale_elec_price_traj, id_vars='ba', value_vars=years, var_name='year', value_name='wholesale_elec_price_dollars_per_kwh')

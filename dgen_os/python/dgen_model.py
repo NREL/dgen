@@ -268,8 +268,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                                    'first_year_elec_bill_savings_frac', 'metric', 'developable_load_kwh_in_bin', 'initial_number_of_adopters', 'initial_pv_kw', 
                                    'initial_market_share', 'initial_market_value', 'market_value_last_year', 'teq_yr1', 'mms_fix_zeros', 'ratio', 
                                    'teq2', 'f', 'new_adopt_fraction', 'bass_market_share', 'diffusion_market_share', 'new_market_value', 'market_value', 'total_gen_twh',
-                                   'consumption_hourly', 'solar_cf_profile', 'tariff_dict', 'deprec_sch', 'batt_dispatch_profile',
-                                   'cash_flow', 'cbi', 'ibi', 'pbi', 'cash_incentives', 'state_incentives', 'export_tariff_results']
+                                   'tariff_dict', 'deprec_sch', 'cash_flow', 'cbi', 'ibi', 'pbi', 'cash_incentives', 'state_incentives', 'export_tariff_results']
                     drop_fields = [x for x in drop_fields if x in solar_agents.df.columns]
                     df_write = solar_agents.df.drop(drop_fields, axis=1)
 
