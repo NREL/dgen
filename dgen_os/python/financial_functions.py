@@ -274,6 +274,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     load_profile_df = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
 
     pv['consumption_hourly'] = pd.Series(load_profile_df['consumption_hourly']).iloc[0]
+    agent.loc['consumption_hourly'] = pv['consumption_hourly'].tolist()
     del load_profile_df
 
     # Using the scale offset factor of 1E6 for capacity factors
@@ -281,6 +282,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     pv['generation_hourly'] = pd.Series(norm_scaled_pv_cf_profiles_df['solar_cf_profile'].iloc[0]) /  1e6
     del norm_scaled_pv_cf_profiles_df
     
+    agent.loc['generation_hourly'] = pv['generation_hourly'].tolist()
     agent.loc['naep'] = float(np.sum(pv['generation_hourly']))
 
     # Battwatts
@@ -517,6 +519,13 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     batt_kw = batt.BatterySystem.batt_power_charge_max_kwdc
     batt_kwh = batt.Outputs.batt_bank_installed_capacity
     batt_dispatch_profile = batt.Outputs.batt_power 
+
+    # Converting the battery dispatch profile to a list for output
+    if hasattr(batt_dispatch_profile, 'tolist'):
+        dispatch_list = batt_dispatch_profile.tolist()
+    else:
+        dispatch_list = []     
+
     npv_w_batt = batt_loan_outputs['npv']
 
     # Run without battery
@@ -621,7 +630,7 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
     agent.loc['avg_elec_price_cents_per_kwh'] = avg_elec_price_cents_per_kwh
     agent.loc['batt_kw'] = batt_kw
     agent.loc['batt_kwh'] = batt_kwh
-    agent.loc['batt_dispatch_profile'] = batt_dispatch_profile
+    agent.loc['batt_dispatch_profile'] = dispatch_list
 
     # Financial outputs (find out which ones to include): 
     agent.loc['cbi'] = np.array({'cbi_total': cbi_total,
@@ -666,7 +675,9 @@ def calc_system_size_and_performance(agent, sectors, rate_switch_table=None):
                 'ibi',
                 'pbi',
                 'cash_incentives',
-                'export_tariff_results'
+                'export_tariff_results',
+                'generation_hourly',
+                'consumption_hourly'
                 ]
 
     return agent[out_cols]

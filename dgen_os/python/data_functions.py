@@ -558,10 +558,10 @@ def get_input_scenarios():
     return scenarios
 
 
-def create_model_years(start_year, end_year, increment=2):
-
+def create_model_years(start_year, end_year, increment=1):
     '''
-    Return a list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
+    Return a list of model years ranging between the specified model start year and end year that increments by 1 year time steps.
+    Removes 2015 as we are missing input data for that year.
         
     Parameters
     ----------    
@@ -575,10 +575,11 @@ def create_model_years(start_year, end_year, increment=2):
     model_years : 'list'
         list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
     '''
-
-    model_years = list(range(start_year, end_year + 1, increment))
-
-    return model_years
+    years = list(range(start_year, end_year + 1, increment))
+    # if 2015 sneaks in (e.g. when increment=1), pull it back out
+    if 2015 in years:
+        years.remove(2015)
+    return years
 
 
 def summarize_scenario(scenario_settings, model_settings):
