@@ -561,6 +561,7 @@ def get_input_scenarios():
 def create_model_years(start_year, end_year, increment=1):
     '''
     Return a list of model years ranging between the specified model start year and end year that increments by 1 year time steps.
+    Removes 2015 as we are missing input data for that year.
         
     Parameters
     ----------    
