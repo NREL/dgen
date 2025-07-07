@@ -182,7 +182,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     if is_first_year:
                         last_year_installed_capacity = agent_mutation.elec.get_state_starting_capacities(con, schema)
 
-                    state_capacity_by_year = agent_mutation.elec.calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_first_year, year,solar_agents,last_year_installed_capacity)
+                    state_capacity_by_year = agent_mutation.elec.calc_state_capacity_by_year(load_growth, peak_demand_mw, is_first_year, year,solar_agents,last_year_installed_capacity)
                     
                     #Apply net metering parameters
                     net_metering_state_df, net_metering_utility_df = agent_mutation.elec.get_nem_settings(nem_state_capacity_limits, nem_state_and_sector_attributes, nem_utility_and_sector_attributes, nem_selected_scenario, year, state_capacity_by_year, cf_during_peak_demand)
@@ -203,8 +203,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
 
                     # Apply technology prices
                     solar_agents.on_frame(agent_mutation.elec.apply_pv_prices, pv_price_traj)
-                    solar_agents.on_frame(agent_mutation.elec.apply_batt_prices, [batt_price_traj, batt_tech_traj, year])
-                    solar_agents.on_frame(agent_mutation.elec.apply_pv_plus_batt_prices, [pv_plus_batt_price_traj, batt_tech_traj, year])
+                    solar_agents.on_frame(agent_mutation.elec.apply_batt_prices, [batt_price_traj])
+                    solar_agents.on_frame(agent_mutation.elec.apply_pv_plus_batt_prices, [pv_plus_batt_price_traj])
 
                     # Apply value of resiliency
                     solar_agents.on_frame(agent_mutation.elec.apply_value_of_resiliency, value_of_resiliency)
