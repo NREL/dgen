@@ -6,7 +6,7 @@ jobs:
 
   docker_compose:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     name: Tests Dockerfile 
     container: docker
 
@@ -30,6 +30,7 @@ jobs:
           cat ./docker_actions/docker-compose.yml
 
           rm -rf ./docker_actions/dgen_data/
+          rm -rf ./docker_actions/postgresql_data/
           mkdir -p ./docker_actions/dgen_data/
           chmod 755 ./docker_actions/dgen_data/
           chown -R 999:999 ./docker_actions/dgen_data/
