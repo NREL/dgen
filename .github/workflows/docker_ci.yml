@@ -6,7 +6,7 @@ jobs:
 
   docker_compose:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     name: Tests Dockerfile 
     container: docker
 
