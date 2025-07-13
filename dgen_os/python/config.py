@@ -20,7 +20,7 @@ start_year = 2014
 #==============================================================================
 #   set number of parallel processes to run postgres queries
 #==============================================================================
-pg_procs = 2
+pg_procs = 12
 
 #==============================================================================
 #   set role for database (default is postgres)
@@ -30,7 +30,7 @@ role = 'postgres'
 #==============================================================================
 #   local cores
 #==============================================================================
-local_cores = multiprocessing.cpu_count()//2
+local_cores = multiprocessing.cpu_count()
 
 #==============================================================================
 #  Should the output schema be deleted after the model run
