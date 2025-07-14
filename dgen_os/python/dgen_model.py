@@ -163,7 +163,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 solar_agents.on_frame(agent_mutation.elec.apply_state_incentives,
                                        [state_incentives, year, model_settings.start_year, state_capacity_by_year])
 
-                # parallel system-sizing
+                # ── parallel system‐sizing ──
                 if os.name == 'posix':
                     cores = model_settings.local_cores
                 else:
@@ -178,17 +178,40 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     )
                 else:
                     from multiprocessing import get_context
+
+                    # build a forked Pool with a DB connection in each worker
                     pool = get_context('fork').Pool(
                         processes=cores,
                         initializer=_init_worker,
                         initargs=(model_settings.pg_conn_string, model_settings.role)
                     )
-                    chunks = np.array_split(solar_agents.df, cores)
-                    tasks = [(chunk, scenario_settings.sectors, rate_switch_table)
-                             for chunk in chunks]
-                    sized = pool.starmap(size_chunk, tasks)
-                    pool.close(); pool.join()
-                    solar_agents.df = pd.concat(sized, axis=0)
+
+                    # drop any large or per‐hour columns before splitting
+                    drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
+                    static_df = solar_agents.df.drop(columns=drop_cols).copy()
+
+                    # split by agent ID
+                    all_ids = static_df.index.tolist()
+                    chunks  = np.array_split(all_ids, cores)
+
+                    # prepare tasks using only the static subset
+                    tasks = [
+                        (
+                            static_df.loc[chunk_ids],    # contains only static attrs + tariff_dict, costs, etc.
+                            scenario_settings.sectors,
+                            rate_switch_table
+                        )
+                        for chunk_ids in chunks
+                    ]
+
+                    # size each chunk in parallel (each worker will fetch its own hourly profiles)
+                    sized_chunks = pool.starmap(size_chunk, tasks)
+
+                    pool.close()
+                    pool.join()
+
+                    # re‐assemble into one DataFrame and overwrite solar_agents.df
+                    solar_agents.df = pd.concat(sized_chunks, axis=0)
 
                 # downstream: max market share, developable load, market last year, diffusion…
                 solar_agents.on_frame(financial_functions.calc_max_market_share, [max_market_share])
