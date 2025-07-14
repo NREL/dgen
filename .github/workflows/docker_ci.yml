@@ -25,7 +25,8 @@ jobs:
           ls -ld ./docker_actions/
           ls -l ./docker_actions/
 
-          rsync -a --exclude='docker-compose.yml' ./docker/ ./docker_actions/
+          rsync -a .github/workflows/docker_actions/ ./docker_actions/
+          rsync -a --exclude='dgen/input_sheet_final.xlsm' --exclude='docker-compose.yml' ./docker/ ./docker_actions/
           ls -l ./docker_actions/docker-compose.yml
           cat ./docker_actions/docker-compose.yml
 
