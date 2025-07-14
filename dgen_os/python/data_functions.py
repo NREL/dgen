@@ -576,9 +576,9 @@ def create_model_years(start_year, end_year, increment=1):
         list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
     '''
     years = list(range(start_year, end_year + 1, increment))
-    # if 2015 sneaks in (e.g. when increment=1), pull it back out
-    if 2015 in years:
-        years.remove(2015)
+    # # if 2015 sneaks in (e.g. when increment=1), pull it back out
+    # if 2015 in years:
+    #     years.remove(2015)
     return years
 
 
