@@ -25,9 +25,12 @@ jobs:
           ls -ld ./docker_actions/
           ls -l ./docker_actions/
 
-          rsync -a --exclude='docker-compose.yml' ./docker/ ./docker_actions/
+          rsync -a .github/docker_actions/ ./docker_actions/
+          rsync -a --exclude='input_sheet_final.xlsm' --exclude='docker-compose.yml' ./docker/ ./docker_actions/
           ls -l ./docker_actions/docker-compose.yml
           cat ./docker_actions/docker-compose.yml
+          ls -l ./docker_actions/dgen/input_sheet_final.xlsm
+          md5sum ./docker_actions/dgen/input_sheet_final.xlsm
 
           rm -rf ./docker_actions/dgen_data/
           rm -rf ./docker_actions/postgresql_data/
@@ -43,7 +46,6 @@ jobs:
         run: |
           docker compose down
           docker system prune -a -f # remove all stopped containers and dangling images
-          docker volume prune -f    # remove all dangling volumes
           docker compose up --build -d
       
       - name: "Pause for database to finish set up"
@@ -63,7 +65,8 @@ jobs:
                               && source /opt/conda/bin/activate dg3n \
                               && python dgen_model.py \
                               && echo "Success: $?"')
-          if [[ $(printf result |grep -c "Success: 0") -eq 0 ]]; then
+          echo "Result: $(echo $result)"
+          if [[ $(echo $result |grep -c "Success: 0") -eq 0 ]]; then
             echo "Dgen model script failed."
             exit 1
           else
