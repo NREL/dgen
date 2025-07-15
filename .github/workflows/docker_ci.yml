@@ -6,6 +6,7 @@ jobs:
 
   docker_compose:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     timeout-minutes: 30
     name: Tests Dockerfile 
     container: docker
@@ -17,6 +18,12 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
 
+=======
+    timeout-minutes: 120
+    name: Tests Dockerfile 
+    container: docker
+
+>>>>>>> e8f4fd1da9ff25b3a08b0de9e6047ef021a742c8
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -27,6 +34,7 @@ jobs:
       - name: create data directory
         working-directory: ./
         run: |
+<<<<<<< HEAD
           rm -rf ./dgen_data/*
           mkdir -p ./dgen_data/
           chmod 777 ./dgen_data/ # TODO - put back to 755
@@ -36,6 +44,26 @@ jobs:
           rsync -a --exclude='docker-compose.yml' ./docker/ ./docker_actions/
           ls -l ./docker_actions/
 
+=======
+          mkdir -p ./docker_actions/
+          chmod 755 ./docker_actions/
+          ls -ld ./docker_actions/
+          ls -l ./docker_actions/
+
+          rsync -a .github/docker_actions/ ./docker_actions/
+          rsync -a --exclude='dgen/input_sheet_final.xlsm' --exclude='docker-compose.yml' ./docker/ ./docker_actions/
+          ls -l ./docker_actions/docker-compose.yml
+          cat ./docker_actions/docker-compose.yml
+
+          rm -rf ./docker_actions/dgen_data/
+          rm -rf ./docker_actions/postgresql_data/
+          mkdir -p ./docker_actions/dgen_data/
+          chmod 755 ./docker_actions/dgen_data/
+          chown -R 999:999 ./docker_actions/dgen_data/
+          ls -ld ./docker_actions/dgen_data/
+          ls -l ./docker_actions/dgen_data/
+
+>>>>>>> e8f4fd1da9ff25b3a08b0de9e6047ef021a742c8
       - name: "Builds the docker composed image and the docker compose"
         id: build
         working-directory: ./docker_actions/

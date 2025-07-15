@@ -1,0 +1,41 @@
+services:
+  dgen:
+    build:
+      context: ../
+      dockerfile: docker_actions/dgen/Dockerfile
+    stdin_open: true
+    tty: false
+    container_name: test_dgen_1
+    hostname: test_dgen
+    volumes:
+      - dgen_data:/data
+    environment:
+      DATABASE_HOSTNAME: test_postgis
+      DGEN_DB_USER: postgres
+      DGEN_DB_NAME: dgen_db
+      DGEN_DB_PORT: 5432
+      DGEN_DISABLE_AUTO_START: 0 # Set to 1 to Disable dropping into a dgen shell
+  postgis:
+    build:
+      context: ../
+      dockerfile: docker_actions/postgis/Dockerfile
+    container_name: test_postgis_1
+    hostname: test_postgis
+    ports:
+      - "127.0.0.1:5432:5432" # If you change the listening port, keep the last number 5432.  For example: 127.0.0.1:6500:5432 would listen on 6500 on your system.
+    volumes:
+      - dgen_data:/data
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      DGEN_DATAFILE_URL: https://oedi-data-lake.s3.amazonaws.com/dgen/de_final_db/dgen_db.sql
+      DGEN_AGENTFILE_URL: https://oedi-data-lake.s3.amazonaws.com/dgen/de_final_db/agent_df_base_res_de_revised.pkl
+      DGEN_FORCE_DELETE_DATABASE: 1 # Set to 1 to drop the database and clear all the data for a fresh load
+    restart: unless-stopped
+
+volumes:
+  dgen_data:
+    driver: local
+  postgresql_data:
+    driver: local

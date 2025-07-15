@@ -43,3 +43,28 @@ echo "cd ~/dgen/docker/" >> ~ubuntu/.bashrc
 
 # Add dgen usage to login message
 echo -e "\e[1;32mTo launch dgen run:\e[0m \e[1;36msource ~/dgen_start.sh\e[0m" | sudo tee -a /etc/motd
+
+# Disable Hyperthreading
+printf '#!/bin/bash\nfor cpunum in $(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -s -d, -f2- | tr ',' '\n' | sort -un); do echo 0 > /sys/devices/system/cpu/cpu$cpunum/online; done' > /usr/local/bin/disable-ht.sh
+chmod 755 /usr/local/bin/disable-ht.sh
+chown root:root /usr/local/bin/disable-ht.sh
+cat <<EOF >/etc/systemd/system/disable-ht.service
+          [Unit]
+          Description=Disable Hyperthreading
+          After=multi-user.target
+          DefaultDependencies=no
+
+          [Service]
+          Type=oneshot
+          ExecStart=/usr/local/bin/disable-ht.sh
+          RemainAfterExit=yes
+          User=root
+
+          [Install]
+          WantedBy=multi-user.target
+EOF
+chmod 0644 /etc/systemd/system/disable-ht.service
+chown root:root /etc/systemd/system/disable-ht.service
+systemctl daemon-reexec
+systemctl enable disable-ht.service
+systemctl start disable-ht.service
