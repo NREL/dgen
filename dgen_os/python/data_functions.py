@@ -152,9 +152,10 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
         msg = "Specified source_schema ({source_schema}) does not exist.".format(**inputs)
         raise ValueError(msg)
 
-    scen_suffix = os.path.split(scenario_list[0])[1].split('_')[2].rstrip('.xlsm')
+    fname = os.path.basename(scenario_list[0])
+    scenario_file_name, _ = os.path.splitext(fname)
 
-    dest_schema = 'diffusion_results_{}'.format(suffix+suffix_microsecond+'_'+scen_suffix)
+    dest_schema = 'diffusion_results_{}'.format(scenario_file_name+'_'+suffix+suffix_microsecond)
     inputs['dest_schema'] = dest_schema
 
     sql = '''SELECT diffusion_shared.clone_schema('{source_schema}', '{dest_schema}', '{role}', {include_data});'''.format(**inputs)
@@ -576,9 +577,6 @@ def create_model_years(start_year, end_year, increment=1):
         list of model years ranging between the specified model start year and end year that increments by 2 year time steps.
     '''
     years = list(range(start_year, end_year + 1, increment))
-    # # if 2015 sneaks in (e.g. when increment=1), pull it back out
-    # if 2015 in years:
-    #     years.remove(2015)
     return years
 
 
