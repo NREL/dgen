@@ -44,10 +44,11 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
     out_subfolders = {'wind': [], 'solar': []}
 
     for i, scenario_file in enumerate(model_settings.input_scenarios, start=1):
+        scenario_start_time = round(time.time())
         logger.info('============================================')
         logger.info(f"Running Scenario {i} of {len(model_settings.input_scenarios)}")
 
-        scenario_settings = settings.init_scenario_settings(scenario_file, model_settings, con, cur)
+        scenario_settings = settings.init_scenario_settings(scenario_file, model_settings, con, cur, i-1)
         scenario_settings.input_data_dir = model_settings.input_data_dir
         datfunc.summarize_scenario(scenario_settings, model_settings)
 
@@ -261,10 +262,14 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
             out_subfolders = datfunc.create_tech_subfolders(out_scen_path, scenario_settings.techs, out_subfolders)
             pool.close(); pool.join()
 
-        engine.dispose()
-        con.close()
+        if i < len(model_settings.input_scenarios):
+            pass
+        else:
+            engine.dispose()
+            con.close()
         datfunc.drop_output_schema(model_settings.pg_conn_string, schema, model_settings.delete_output_schema)
-        logger.info(f"-------------Model Run Complete in {round(time.time()-model_settings.model_init,1)}s-------------")
+        scenario_endtime = round(time.time())
+        logger.info(f"-------------Model Run Complete in {round(scenario_start_time-scenario_endtime,1)}s-------------")
 
 if __name__ == '__main__':
     main()

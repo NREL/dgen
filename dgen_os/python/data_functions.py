@@ -113,7 +113,7 @@ def create_scenario_results_folder(input_scenario, scen_name, scenario_names, ou
 
 
 @decorators.fn_timer(logger=logger, tab_level=1, prefix='')
-def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_schema='diffusion_template', include_data=True):
+def create_output_schema(scenario_num, pg_conn_string, role, suffix, scenario_list, source_schema='diffusion_template', include_data=True):
     """
     Creates output schema that will be dropped into the database
     
@@ -152,7 +152,7 @@ def create_output_schema(pg_conn_string, role, suffix, scenario_list, source_sch
         msg = "Specified source_schema ({source_schema}) does not exist.".format(**inputs)
         raise ValueError(msg)
 
-    fname = os.path.basename(scenario_list[0])
+    fname = os.path.basename(scenario_list[scenario_num])
     scenario_file_name, _ = os.path.splitext(fname)
 
     dest_schema = 'diffusion_results_{}'.format(scenario_file_name+'_'+suffix+suffix_microsecond)
