@@ -492,7 +492,7 @@ def init_model_settings():
     return model_settings
 
 
-def init_scenario_settings(scenario_file, model_settings, con, cur):
+def init_scenario_settings(scenario_file, model_settings, con, cur, list_number=None):
     """load scenario specific data and configure output settings"""
     scenario_settings = ScenarioSettings()
     scenario_settings.set('input_scenario', scenario_file)
@@ -503,7 +503,7 @@ def init_scenario_settings(scenario_file, model_settings, con, cur):
     # =========================================================================
     try:
         # create an empty schema from diffusion_template
-        new_schema = datfunc.create_output_schema(model_settings.pg_conn_string, model_settings.role, model_settings.cdate, model_settings.input_scenarios, source_schema = 'diffusion_template', include_data = False)
+        new_schema = datfunc.create_output_schema(list_number, model_settings.pg_conn_string, model_settings.role, model_settings.cdate, model_settings.input_scenarios, source_schema = 'diffusion_template', include_data = False)
     except Exception as e:
         raise Exception('\tCreation of output schema failed with the following error: {}'.format(e))
 
