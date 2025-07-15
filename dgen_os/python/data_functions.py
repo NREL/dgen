@@ -1,5 +1,5 @@
 """
-Functions for pulling data
+Functions for pulling data.
 """
 import psycopg2 as pg
 import time
