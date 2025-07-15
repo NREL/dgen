@@ -10,13 +10,6 @@ jobs:
     name: Tests Dockerfile 
     container: docker
 
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-    
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -31,14 +24,12 @@ jobs:
           chmod 755 ./docker_actions/
           ls -ld ./docker_actions/
           ls -l ./docker_actions/
-
           rsync -a .github/docker_actions/ ./docker_actions/
           rsync -a --exclude='input_sheet_final.xlsm' --exclude='docker-compose.yml' ./docker/ ./docker_actions/
           ls -l ./docker_actions/docker-compose.yml
           cat ./docker_actions/docker-compose.yml
           ls -l ./docker_actions/dgen/input_sheet_final.xlsm
           md5sum ./docker_actions/dgen/input_sheet_final.xlsm
-
           rm -rf ./docker_actions/dgen_data/
           rm -rf ./docker_actions/postgresql_data/
           mkdir -p ./docker_actions/dgen_data/
@@ -46,7 +37,6 @@ jobs:
           chown -R 999:999 ./docker_actions/dgen_data/
           ls -ld ./docker_actions/dgen_data/
           ls -l ./docker_actions/dgen_data/
-
       - name: "Builds the docker composed image and the docker compose"
         id: build
         working-directory: ./docker_actions/
@@ -57,32 +47,25 @@ jobs:
       
       - name: "Pause for database to finish set up"
         run: |
-          docker compose up --abort-on-container-exit 
-          docker attach test_dgen
-          exit
+          echo "Sleeping for 5 minutes to download files and allow the database to set up"
+          sleep 300s # 5 minutes may not be long enough if internet is slow
         
-      # - name: "pause for database to finish set up"
-      #   shell: bash
-      #   run: |
-      #     echo sleeping now
-      #     sleep 30s
-      #     exit
-        
-
-      # - name: run python script
-      #   working-directory: ./docker_actions/dgen
-      #   run: |
-      #     sleep 300s
-      #     echo "sleeping"
-      #     python dgen_model.py
-          
-          
-
-      # - name: connect to containers
-      #   run: docker attach dgen_5
-      # - name: "Brings up the docker compose and runs the tests"
-      #   id: run-test
-      #   run: docker compose up --abort-on-container-exit --exit-code-from client
-
-      # - name: Test
-      #   run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
+      - name: "Test running dgen model python script"
+        working-directory: ./docker_actions/
+        run: |
+          export CONTAINER_ID=$(docker ps -q --filter "name=dgen")
+          echo "Container ID: ${CONTAINER_ID}"
+          result=$(docker exec -u dgen "${CONTAINER_ID}" bash -c ' \
+                              source ~/.bashrc \
+                              && cd /opt/dgen_os/python \
+                              && /docker-entrypoint-initdb.d/init-dgen.sh \
+                              && source /opt/conda/bin/activate dg3n \
+                              && python dgen_model.py \
+                              && echo "Success: $?"')
+          echo "Result: $(echo $result)"
+          if [[ $(echo $result |grep -c "Success: 0") -eq 0 ]]; then
+            echo "Dgen model script failed."
+            exit 1
+          else
+            echo "Dgen model script executed successfully."
+          fi
