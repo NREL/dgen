@@ -1,5 +1,8 @@
 FROM continuumio/miniconda3
 
+# Build arguments
+ARG INPUT_SHEET_FILE=docker/dgen/input_sheet_final.xlsm
+
 # Install common cli tools needed, dos2unix is required for Windows
 RUN apt-get update && \
     apt-get install -y dos2unix vim nano
@@ -31,7 +34,7 @@ fi' >> ~dgen/.bashrc
 RUN chown dgen: ~dgen/.bashrc
 
 # Setup default input_sheet_final.xlsm (Delaware residential agent file and SQL database)
-COPY docker/dgen/input_sheet_final.xlsm /opt/dgen_os/excel/input_sheet_final.xlsm
+COPY ${INPUT_SHEET_FILE} /opt/dgen_os/excel/input_sheet_final.xlsm
 RUN chmod 755 /opt/dgen_os/excel/input_sheet_final.xlsm && chown dgen: /opt/dgen_os/excel/input_sheet_final.xlsm
 
 # Switch to non-root user

@@ -41,11 +41,4 @@ python/pg_params*.json
 timeslice_8760_wH17.csv
 
 # Ignore Temp output files for CI/CD workflows
-<<<<<<< HEAD
-dgen_data/
 docker_actions/*
-# Track the test specific docker-compose.yml file for GitHub Actions
-!docker_actions/docker-compose.yml
-=======
-docker_actions/*
->>>>>>> e8f4fd1da9ff25b3a08b0de9e6047ef021a742c8

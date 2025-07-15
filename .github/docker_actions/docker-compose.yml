@@ -3,6 +3,8 @@ services:
     build:
       context: ../
       dockerfile: docker_actions/dgen/Dockerfile
+      args:
+        INPUT_SHEET_FILE: docker_actions/dgen/input_sheet_final.xlsm
     stdin_open: true
     tty: false
     container_name: test_dgen_1
