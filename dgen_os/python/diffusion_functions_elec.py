@@ -38,12 +38,12 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
         `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
     
     year : int
-        contains the year the model is simulating adoption 
+        The year the model is simulating adoption 
 
     Returns
     -------    
     df : :class: `pandas.DataFrame`
-        Agent dataframe that contains attributes associated with adoption.
+        Agent DataFrame that contains attributes associated with adoption.
 
     market_last_year : :class: `pandas.DataFrame`
         Dataframe that is used for comparing with next iteration for market share. 
@@ -298,7 +298,10 @@ def calc_diffusion_market_share(df, is_first_year):
     1. Note that this does not specify the actual new adoption fraction without knowing adoption in the previous period. 
     2. This is different than the fraction of population that will adopt, which is the max market share.y
     3. This function uses two "inner" functions to calculate market share, :func: `calc_equiv_time`, and `bass_diffusion`
-
+4. New columns added to DataFrame:
+    - `new_adopt_fraction`: The proportion of the overall population that will adopt the technology.
+    - `bass_market_share`: New market share based on max. market share and `new_adopt_frac`
+    - `diffusion_market_share`: Market share that has diffused into the market. When `market_share_last_year` > `bass_market_share`, the value is the same as `market_share_last_year`. Otherwise, value is same as `bass_market_share`
     """
 
     # The relative economic attractiveness controls the p,q values in Bass diffusion
@@ -355,7 +358,7 @@ def bass_diffusion(df):
     Parameters
     ----------
     df : :class: `pandas.DataFrame`
-        contains agents with all their attributes. The important attributes used in this function are: 
+        DataFrame containing agents with the following attributes:
             df.bass_param_p : :class: `pandas.Series`
                 Bass diffusion parameter defining the coeffieicent of innovation.
             df.bass_param_q : :class: `pandas.Series`
@@ -392,7 +395,7 @@ def calc_equiv_time(df):
     Parameters
     ----------
     df : :class: `pandas.DataFrame`
-        full agent dataframe, the important attributes used are: 
+       Agent DataFrame, containing the following attributes: 
             df.market_share_last_year : :class: `numpy.ndarray`
                 Market share last year [at end of the previous solve] as decimal
             df.maximum_market_share : :class: `numpy.ndarray`
