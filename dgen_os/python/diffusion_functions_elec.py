@@ -30,14 +30,14 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
     df : :class: `pandas.DataFrame`
         Input agent file with all agent attributes
 
-    is_first_year : bool
+    is_first_year : `bool`
         Passed to :func:`diffusion_functions_elec.calc_diffusion_market_share` to determine the increment of `teq`
 
     bass_params : :class: `pandas.DataFrame`
         DataFrame containing the following attributes: 
         `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
     
-    year : int
+    year : `int`
         The year the model is simulating adoption 
 
     Returns
@@ -52,7 +52,7 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
     -----
     Relationship between max market share and market share:   
         Market share (ms) must be less than max market share (mms) except initial ms is greater than the calculated mms. 
-        For this circumstance, no diffusion allowed until mms > ms. Also, do not allow ms to decrease if economics deterioriate. 
+        For this circumstance, no diffusion allowed until Max Market Share > Market Share. Also, do not allow ms to decrease if economics deterioriate. 
         Using the calculated market share, relevant quantities are updated.
     
     When running the model for specific geography make sure the p & q values are appropriate. Current p & q values are available at state level. 
@@ -65,13 +65,6 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
     References
     ----------
     More information about how p & q values were calculated can be found here. https://www.nrel.gov/docs/fy16osti/65231.pdf 
-
-    Raises
-    ------
-    None
-
-    Issues
-    ------
 
     """
     
@@ -176,102 +169,9 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
 
     return df, market_last_year
 
-
-# #=============================================================================
-# # ^^^^  Diffusion Calculator  ^^^^
-# @decorators.fn_timer(logger = logger, tab_level = 3, prefix = '')
-# def calc_diffusion(df, cur, con, techs, choose_tech, sectors, schema, is_first_year,
-#                    bass_params, override_p_value = None, override_q_value = None, override_teq_yr1_value = None):
-
-#     """
-#     Calculate the fraction of overall population that have adopted the technology in the current period.
-#     Parameters
-#     ----------
-#     df : pandas.DataFrame
-#         Attributes
-#         ----------
-#         df.payback_period : numpy.ndarray
-#             Payback period in years.
-#         df.max_market_share : numpy.ndarray
-#             Maximum market share as decimal percentage.
-#         df.current_market_share : numpy.ndarray
-#             Current market share as decimal percentage.
-#     is_first_year : bool
-#         If `True`, the new equivalent time (`teq2`) is equal to the original `teq_yr1` plus the increment defined in `teq`.
-#         Otherwise, `teq2` is equal to `teq` plus 2 years. 
-#     Returns
-#     -------
-#     numpy.ndarray
-#         The fraction of overall population that have adopted the technology
-    
-#     Note
-#     ----
-#     1) This does not specify the actual new adoption fraction without knowing adoption in the previous period. 
-#     2) The relative economic attractiveness controls the p, q value in the Bass diffusion model.
-#     3) The current assumption is that only payback and MBS are being used, that pp is bounded [0-30] and MBS is bounded [0-120].
-#     """ 
-    
-#     logger.info("\t\tCalculating Diffusion")
-    
-#     # set p/q/teq_yr1 params    
-#     df  = set_bass_param(df, bass_params, override_p_value, override_q_value, override_teq_yr1_value)
-    
-#     # calc diffusion market share
-#     df = calc_diffusion_market_share(df, is_first_year)
-    
-#     # ensure no diffusion for non-selected options
-#     df['diffusion_market_share'] = df['diffusion_market_share'] * df['selected_option'] 
-    
-#     # market share floor is based on last year's market share
-#     df['market_share'] = np.maximum(df['diffusion_market_share'], df['market_share_last_year'])
-
-#     # if in tech choice mode, ensure that total market share doesn't exceed 1   
-#     if choose_tech == True:
-       
-#         # extract out the rows for unselected technologies
-#         market_share_cap = df[df['selected_option'] == False][['county_id', 'bin_id', 'sector_abbr', 'market_share']].groupby(['county_id', 'bin_id', 'sector_abbr']).sum().reset_index()
-       
-#         # determine how much market share is allowable based on 1 - the MS of the unselected techs
-#         market_share_cap['market_share_cap'] = 1 - market_share_cap['market_share']
-       
-#         # drop the market share column
-#         market_share_cap.drop('market_share', inplace = True, axis = 1)
-       
-#         # merge to df
-#         df = pd.merge(df, market_share_cap, how = 'left', on = ['county_id', 'bin_id', 'sector_abbr'])
-       
-#         # cap the market share (for the selected option only)
-#         df['market_share'] = np.where(df['selected_option'] == True, np.minimum(df['market_share'], df['market_share_cap']), df['market_share'])
-       
-#         # drop the market share cap field
-#         df.drop('market_share_cap', inplace = True, axis = 1)
-   
-#     # calculate the "new" market share (old - current)
-#     df['new_market_share'] = df['market_share'] - df['market_share_last_year']
-   
-#     # cap the new_market_share where the market share exceeds the max market share
-#     df['new_market_share'] = np.where(df['market_share'] > df['max_market_share'], 0, df['new_market_share'])
-   
-#     # calculate new adopters, capacity and market value            
-#     df['new_adopters'] = np.where(df['system_size_kw'] == 0, 0, df['new_market_share'] * df['developable_agent_weight'])
-#     df['new_capacity'] = df['new_adopters'] * df['system_size_kw']
-#     df['new_market_value'] = df['new_adopters'] * df['system_size_kw'] * df['installed_costs_dollars_per_kw']
-   
-#     # then add these values to values from last year to get cumulative values:
-#     df['number_of_adopters'] = df['adopters_cum_last_year'] + df['new_adopters']
-#     df['installed_capacity'] = df['installed_capacity_last_year'] + df['new_capacity'] # All capacity in kW in the model
-#     df['market_value'] = df['market_value_last_year'] + df['new_market_value']
-#     market_last_year = df[['county_id','bin_id', 'sector_abbr', 'tech', 'market_share', 'max_market_share','number_of_adopters', 'installed_capacity', 'market_value', 'initial_number_of_adopters', 'initial_capacity_mw', 'initial_market_share', 'initial_market_value']] # Update dataframe for next solve year
-#     market_last_year.columns = ['county_id', 'bin_id', 'sector_abbr', 'tech', 'market_share_last_year', 'max_market_share_last_year','adopters_cum_last_year', 'installed_capacity_last_year', 'market_value_last_year', 'initial_number_of_adopters', 'initial_capacity_mw', 'initial_market_share', 'initial_market_value']
-
-#     return df, market_last_year
-
-#=============================================================================
-
-#  ^^^^ Calculate new diffusion in market segment ^^^^
 def calc_diffusion_market_share(df, is_first_year):
     """
-    Calculate the fraction of overall population that have adopted (diffused into
+    Calculates the fraction of overall population that have adopted (diffused into
     the max market share) the technology in the current period. 
 
     Parameters
@@ -285,23 +185,24 @@ def calc_diffusion_market_share(df, is_first_year):
             df.teq_yr1 : :class: `pandas.Series`
                 Number of years since the diffusion model began.
 
-    is_first_year : bool
-        Passed from :func:`diffusion_functions_elec.calc_diffusion_solar` to determine the increment of `teq`
+    is_first_year : `bool`
+        If this function is running during the first model year. Used to determine the increment of `teq`
 
     Returns
     -------
     df : :class: `pandas.DataFrame`
-        Input dataframe with `new_adopt_fraction` column added. `new_adopt_fraction` represents the proportion of the overall population that will adopt the technology.
+        Input dataframe with 'teq2', 'bass_market_share', and 'diffusion_market_share' columns added. 
     
     Notes
     ----
     1. Note that this does not specify the actual new adoption fraction without knowing adoption in the previous period. 
     2. This is different than the fraction of population that will adopt, which is the max market share.y
     3. This function uses two "inner" functions to calculate market share, :func: `calc_equiv_time`, and `bass_diffusion`
-4. New columns added to DataFrame:
-    - `new_adopt_fraction`: The proportion of the overall population that will adopt the technology.
+    
+    4. New columns added to DataFrame:
     - `bass_market_share`: New market share based on max. market share and `new_adopt_frac`
-    - `diffusion_market_share`: Market share that has diffused into the market. When `market_share_last_year` > `bass_market_share`, the value is the same as `market_share_last_year`. Otherwise, value is same as `bass_market_share`
+    - `diffusion_market_share`: Market share that has diffused into the market. When `market_share_last_year` > `bass_market_share`, 
+        the value is the same as `market_share_last_year`. Otherwise, value is same as `bass_market_share`
     """
 
     # The relative economic attractiveness controls the p,q values in Bass diffusion
@@ -321,36 +222,7 @@ def calc_diffusion_market_share(df, is_first_year):
     df['diffusion_market_share'] = np.where(df.market_share_last_year > df.bass_market_share, df.market_share_last_year, df.bass_market_share)
     
     return df
-#==============================================================================  
-    
-#=============================================================================
-# def set_bass_param(df, bass_params, override_p_value, override_q_value, override_teq_yr1_value):
-#     """
-#     Set the p & q parameters which define the Bass diffusion curve.
-#     p is the coefficient of innovation, external influence or advertising effect. 
-#     q is the coefficient of imitation, internal influence or word-of-mouth effect.
 
-#         IN: scaled_metric_value - numpy array - scaled value of economic attractiveness [0-1]
-#         OUT: p,q - numpy arrays - Bass diffusion parameters
-#     """
-      
-#     # set p and q values
-#     df = pd.merge(df, bass_params, how = 'left', on  = ['state_abbr','sector_abbr', 'tech'])
-    
-#     # if override values were provided for p, q, or teq_yr1, apply them to all agents
-#     if override_p_value is not None:
-#         df.loc[:, 'bass_param_p'] = override_p_value
-
-#     if override_q_value is not None:
-#         df.loc[:, 'bass_param_q'] = override_q_value
-        
-#     if override_teq_yr1_value is not None:
-#         df.loc[:, 'teq_yr1'] = override_teq_yr1_value
-
-#     return df
-    
-#=============================================================================
-# ^^^^  Bass Diffusion Calculator  ^^^^ 
 def bass_diffusion(df):
     """
     Calculate the fraction of population that diffuse into the max_market_share.
@@ -369,7 +241,8 @@ def bass_diffusion(df):
     Returns
     -------
     df : :class: `pandas.DataFrame`
-        Agent dataframe with `new_adopt_fraction` attribute added. 
+        Agent dataframe with 'new_adopt_fraction' attribute added, 
+        representing the proportion of the overall population that has adopted the technology.
     
     Notes
     -----
@@ -384,9 +257,6 @@ def bass_diffusion(df):
     df['new_adopt_fraction'] = (1-df['f']) / (1 + (df['bass_param_q']/df['bass_param_p'])*df['f']) # Bass Diffusion - cumulative adoption
     return df
     
-#=============================================================================
-
-#=============================================================================
 def calc_equiv_time(df):
     """
     Calculate the "equivalent time" on the diffusion curve. This defines the
@@ -427,5 +297,4 @@ def calc_equiv_time(df):
    
     return df
     
-#=============================================================================
 
