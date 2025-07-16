@@ -34,7 +34,8 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
         Passed to :func:`diffusion_functions_elec.calc_diffusion_market_share` to determine the increment of `teq`
 
     bass_params : :class: `pandas.DataFrame`
-        DataFrame generally loaded from :func:`datfunc.get_bass_params`, includes the following attributes: `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
+        DataFrame containing the following attributes: 
+        `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
     
     year : int
         contains the year the model is simulating adoption 
