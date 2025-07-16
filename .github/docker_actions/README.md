@@ -1,0 +1,1 @@
+The `.github/docker_actions` path is used to keep files that are used for testing with github actions. This is used by `.github/workflows/docker_ci.yml`, if you add more files make sure to update the rsync exclude.
