@@ -1,5 +1,4 @@
 import pandas as pd
-
 import numpy as np
 import os
 import sqlalchemy
@@ -7,7 +6,7 @@ from sqlalchemy import text
 import data_functions as datfunc
 import utility_functions as utilfunc
 import agent_mutation
-from agents import Agents, Solar_Agents
+from agents import Agents
 from pandas import DataFrame
 import json
 
@@ -15,29 +14,34 @@ import json
 logger = utilfunc.get_logger()
 
 #%%
-
 def get_psql_table_fields(engine, schema, name):
     """
     Creates numpy array of columns from specified schema and table
     
     Parameters
     ----------
-    engine : 'SQL engine'
+    engine : :class: `sqlalchemy.Engine`
         SQL engine to intepret SQL query
-    schema : 'SQL schema'
+
+    schema : str
         SQL schema to pull table from 
-    name : 'string'
+
+    name : str
         Name of the table from which fields are retrieved
 
     Returns
     -------
-    numpy array : 'np.array'
+    array : :class: `numpy.array`
         Numpy array of columns
-
+    
     """
-
+    # Query the relevant SQL table
     sql = "SELECT column_name FROM information_schema.columns WHERE table_schema = '{}' AND table_name   = '{}'".format(schema, name)
-    return np.concatenate(pd.read_sql_query(sql, engine).values)
+    
+    # Concatenate the returned table values into one array
+    array = np.concatenate(pd.read_sql_query(sql, engine).values)
+    
+    return array
 
 def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_transformations=False):
     """
@@ -45,24 +49,33 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe to upload to database
-    engine : 'SQL table'
+
+    engine : :class: `sqlalchemy.Engine`
         SQL engine to intepret SQL query 
-    schema : 'SQL schema'
+
+    schema : str
         Schema in which to upload df
-    owner : 'string'
+
+    owner : str
         Owner of schema
-    name : 'string'
+
+    name : str
         Name to be given to table that is uploaded
-    if_exists : 'replace or append'
-        If table exists and if if_exists set to replace, replaces table in database. If table exists and if if_exists set to append, appendss table in database. 
-    append_transformations : 'bool'
-        IDK
+
+    if_exists : str, Optional
+        If table exists and if `if_exists` set to 'replace', replaces table in database. If table exists and 
+        `if_exists` is set to 'append', appends table in database. 
+        Default is 'replace', other options is 'append'
+    
+    append_transformations : bool, Optional
+        Append the dataframe data to the SQL database
+        Default is 'False'
     
     Returns
     -------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe that was uploaded to database
 
     """
@@ -75,8 +88,13 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
     delete_list = []
     orig_fields = df.columns.values
     df.columns = [i.lower() for i in orig_fields]
+    
+    # Based on values in the columns, assign the corresponding SQL data type
     for f in df.columns:
+
+        # Filter for columns that do contain data
         df_filter = pd.notnull(df[f]).values
+        
         if sum(df_filter) > 0:
             f_d_type[f] = type(df[f][df_filter].values[0]).__name__.lower()
 
@@ -119,8 +137,10 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
             orig_fields = [i for i in orig_fields if i.lower()!=f]
             delete_list.append(f)
 
+    # Drop columns that are empty
     df = df.drop(delete_list, axis=1)
 
+    # For any items in the "transfor" dictionary, append them to the database
     for k, v in list(transform.items()):
         if append_transformations:
             df[k + "_" + f_d_type[k]] = df[k].apply(v)
@@ -131,21 +151,27 @@ def df_to_psql(df, engine, schema, owner, name, if_exists='replace', append_tran
             df[k] = df[k].apply(v)   
 
     conn = engine.connect()
+    
+    # Append to the database if defined by function call
     if if_exists == 'append':
         fields = [i.lower() for i in get_psql_table_fields(engine, schema, name)]
         for f in list(set(df.columns.values) - set(fields)):
             with conn.begin():
                 sql = text("ALTER TABLE {}.{} ADD COLUMN {} {}".format(schema, name, f, sql_type[f]))
                 conn.execute(sql)
-        
+    
+    # Send dataframe to SQL database 
     df.to_sql(name, engine, schema=schema, index=False, dtype=d_types, if_exists=if_exists)
     sql = text('ALTER TABLE {}."{}" OWNER to "{}"'.format(schema, name, owner))
     conn.execute(sql)
 
+    # Clean up and close SQL connections
     conn.close()
     engine.dispose() 
 
+    # Set dataframe columns to the original column names
     df.columns = orig_fields
+    
     return df
     
 
@@ -156,19 +182,22 @@ def get_scenario_settings(schema, con):
     
     Parameters
     ----------
-    schema : 'SQL schema'
+    schema : str
         Schema in which to look for the scenario settings
-    con : 'SQL connection'
+
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
 
     Returns
     -------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe of default scenario settings
 
     """
-
+    # Create the SQL query
     sql = "SELECT * FROM {}.input_main_scenario_options".format(schema)
+    
+    # Query SQL database table
     df = pd.read_sql(sql, con)
 
     return df
@@ -180,19 +209,25 @@ def get_userdefined_scenario_settings(schema, table_name, con):
     
     Parameters
     ----------
-    schema : 'SQL schema'
+    schema : str
         Schema in which to look for the scenario settings
-    con : 'SQL connection'
+    
+    table_name : str
+        Name of the table from which fields are retrieved
+    
+    con : :clas: `psycopg2.connection`
         SQL connection to connect to database
 
     Returns
     -------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe of user created scenario settings
 
     """
-
+    # Create the SQL query
     sql = "SELECT * FROM {}.{}".format(schema, table_name)
+    
+    # Query SQL database table
     df = pd.read_sql(sql, con)
 
     return df
@@ -205,26 +240,38 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
     
     Parameters
     ----------
-    scenario_settings : 'SQL schema'
-        Schema in which to look for the scenario settings
-    con : 'SQL connection'
+    scenario_settings : :class: `settings.ScenarioSettings`
+        Custom object in which to look for the scenario settings
+
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
-    engine : 'SQL engine'
-        SQL engine to intepret SQL query
-    role : 'string'
+
+    engine : :class: `sqlalchemy.Engine`
+        SQL engine to intepret SQL query 
+
+    role : str
         Owner of schema
-    input_name : 'string'
-        Name of the csv file that should be imported     
-    csv_import_function : 'function'
-        Specific function to import and munge csv 
+
+    input_name : str
+        Name of the csv file that should be imported   
+
+    csv_import_function : `input_data_functions.Object`, Optional
+        Specific function to import and format csv. Check Notes section for more information on use
+        Default is None
+        Options are: deprec_schedule, melt_year, process_wholesale_elec_prices, stacked_sectors, and process_elec_price_trajectories
     
     Returns
     -------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe of the table that was imported
 
+    Notes
+    -----
+    - csv_import_function calls the import functions defined in this file. The general function call style is:
+        'input_data_functions.import_function_name'
     """
 
+    # Set scenario and scema settings 
     schema = scenario_settings.schema
     shared_schema = 'diffusion_shared'
     input_data_dir = scenario_settings.input_data_dir
@@ -237,14 +284,17 @@ def import_table(scenario_settings, con, engine, role, input_name, csv_import_fu
         scenario_userdefined_name = get_userdefined_scenario_settings(schema, userdefined_table_name, con)
         scenario_userdefined_value = scenario_userdefined_name['val'].values[0]
         
+        # Read in the local user defined dataset as a pandas dataframe
         df = pd.read_csv(os.path.join(input_data_dir, input_name, scenario_userdefined_value + '.csv'), index_col=False)
 
+        # Use the defined csv import function to read in the csv file
         if csv_import_function is not None:
             df = csv_import_function(df)
 
         df_to_psql(df, engine, shared_schema, role, scenario_userdefined_value)
 
     else:
+        # For non user defined scenarios, query the relevant SQL database
         if input_name == 'elec_prices':
             df = datfunc.get_rate_escalations(con, scenario_settings.schema)
         elif input_name == 'load_growth':
@@ -262,12 +312,12 @@ def stacked_sectors(df):
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : 'pd.df'
+    output : :class: `pandas.DataFrame`
         Dataframe of the table that was imported and split by sector
 
     """
@@ -302,13 +352,13 @@ def deprec_schedule(df):
     
     Parameters
     ----------
-    df : 'pd.df'
+    df : :class: `pandas.DataFrame`
         Dataframe to be sorted by sector. 
     
     Returns
     -------
-    output : 'pd.df'
-        Dataframe of depreciation schedule sorted by year
+    df : :class: `pandas.DataFrame`
+        Input dataframe with depreciation schedule sorted by year
 
     """
 
@@ -324,7 +374,6 @@ def deprec_schedule(df):
         last_entry['year'] = year
         df = pd.concat([df,last_entry], ignore_index=True, sort=False)
 
-
     return df.loc[:,['year','sector_abbr','deprec_sch']]
 
 #%%
@@ -334,12 +383,12 @@ def melt_year(parameter_name):
     
     Parameters
     ----------
-    parameter name : 'string'
+    parameter_name : `string`
         Name of the parameter value in dataframe. 
     
     Returns
     -------
-    function : 'function'
+    function : `function`
         Function that melts years and parameter value to row axis
 
     """
@@ -350,12 +399,12 @@ def melt_year(parameter_name):
     
         Parameters
         ----------
-        df : 'pd.df'
+        df : :class: `pandas.DataFrame`
             Dataframe to be unpivot. 
     
         Returns
         -------
-        df_tidy : 'pd.df'
+        df_tidy : :class: `pandas.DataFrame`
             Dataframe with every other year and the parameter value for that year as rows for each state 
 
         """
@@ -373,34 +422,49 @@ def melt_year(parameter_name):
 
 
 #%%
-def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name):
+def import_agent_file(scenario_settings, con, model_settings, agent_file_status, input_name):
     """
     Generates new agents or uses pre-generated agents from provided .pkl file
     
     Parameters
     ----------
-    scenario_settings : 'SQL schema'
-        Schema of the scenario settings
-    con : 'SQL connection'
+    scenario_settings : :class: `settings.ScenarioSettings`
+        Custom object in which to look for the scenario settings
+
+    con : :class: `psycopg2.connection`
         SQL connection to connect to database
-    cur : 'SQL cursor'
-        Cursor
-    engine : 'SQL engine'
-        SQL engine to intepret SQL query
-    model_settings : 'object'
+
+    model_settings : :class: `settings.ModelSettings`
         Model settings that apply to all scenarios
-    agent_file_status : 'attribute'
-        Attribute that describes whether to use pre-generated agent file or create new    
-    input_name : 'string'
-        .Pkl file name substring of pre-generated agent table 
+
+    agent_file_status : str
+        Attribute that describes whether to use pre-generated agent file or create new  
+        Function and model only allows use of pre-generated agent files
+
+    input_name : str
+        Pickle file name of pre-generated agent table 
     
     Returns
     -------
-    solar_agents : 'Class'
-        Instance of Agents class with either user pre-generated or new data
+    solar_agents : :class: `agents.Agents`
+        Instance of Agents class with pre-generated agents
+
+    Raises
+    ------
+        ValueError 
+            Raised if region in the pickle file  
+            "Region not present within pre-generated agent file - Edit Inputsheet"
+        
+        ValueError
+            Raised if agent supplied does not confirm to correct standards. See references for the template
+            "Generating agents is not supported at this time. Please select "Use pre-generated Agents" in the input sheet')"
+
+    References
+    ----------
+    Pre-generated agents for selected region as a pickle file can be downloaded from here: https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F
 
     """
-
+    # Define scenario specific values for model run 
     schema = scenario_settings.schema
     input_agent_dir = model_settings.input_agent_dir
     state_to_model = scenario_settings.state_to_model
@@ -408,13 +472,15 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
     ISO_List = ['ERCOT', 'NEISO', 'NYISO', 'CAISO', 'PJM', 'MISO', 'SPP']
 
     if agent_file_status == 'Use pre-generated Agents':
-
+        # Create a table in the SQL database with the user defined sceanrio settings
         userdefined_table_name = "input_" + input_name + "_user_defined"
         scenario_userdefined_name = get_userdefined_scenario_settings(schema, userdefined_table_name, con)
         scenario_userdefined_value = scenario_userdefined_name['val'].values[0]
 
+        # Read in the agent pickle file
         solar_agents_df = pd.read_pickle(os.path.join(input_agent_dir, scenario_userdefined_value+".pkl"))
 
+        # Depending on if the agent files is part of an ISO or state, select agent down for correct region
         if scenario_settings.region in ISO_List:
             solar_agents_df = pd.read_pickle(os.path.join(input_agent_dir, scenario_userdefined_value+".pkl"))
 
@@ -432,7 +498,6 @@ def import_agent_file(scenario_settings, con, cur, engine, model_settings, agent
 
     return solar_agents
 
-
 #%%
 def process_elec_price_trajectories(elec_price_traj):
     """
@@ -440,13 +505,17 @@ def process_elec_price_trajectories(elec_price_traj):
     
     Parameters
     ----------
-    elec_price_traj : 'pd.df'
-        Dataframe of electricity prices by year and ReEDS BA
+    elec_price_traj : :class: `pandas.DataFrame`
+        Dataframe of electricity prices by year and ReEDS balancing areas
     
     Returns
     -------
-    elec_price_change_traj : 'pd.df'
+    elec_price_change_traj : :class: `pandas.DataFrame`
         Dataframe of annual electricity price change factors from base year
+
+    Notes
+    -----
+    The price trajectory is calculated at the balancing areas level. With county mapped to balancing areas. 
 
     """
 
@@ -455,12 +524,14 @@ def process_elec_price_trajectories(elec_price_traj):
     # For SS19, when using Retail Electricity Prices from ReEDS
     base_year_prices = elec_price_traj[elec_price_traj['year']==2018]
     
+    # Rename columns to match what is found in model
     base_year_prices.rename(columns={'elec_price_res':'res_base',
                                      'elec_price_com':'com_base',
                                      'elec_price_ind':'ind_base'}, inplace=True)
     
     elec_price_change_traj = pd.merge(elec_price_traj, base_year_prices[['res_base', 'com_base', 'ind_base', 'ba']], on='ba')
 
+    # Assign new electricity price change columns by sector based on the trajectory price and base price for that sector
     elec_price_change_traj['elec_price_change_res'] = elec_price_change_traj['elec_price_res'] / elec_price_change_traj['res_base']
     elec_price_change_traj['elec_price_change_com'] = elec_price_change_traj['elec_price_com'] / elec_price_change_traj['com_base']
     elec_price_change_traj['elec_price_change_ind'] = elec_price_change_traj['elec_price_ind'] / elec_price_change_traj['ind_base']
@@ -481,10 +552,13 @@ def process_elec_price_trajectories(elec_price_traj):
     ind_df.rename(columns={'elec_price_change_ind':'elec_price_multiplier'}, inplace=True)
     ind_df['sector_abbr'] = 'ind'
     
+    # Re-combine the sector electriciity price projections into one dataframe
     elec_price_change_traj = pd.concat([res_df, com_df, ind_df], ignore_index=True, sort=False)
     
+    # Add the county name and balancing area (ba) information to the dataframe
     elec_price_change_traj = pd.merge(county_to_ba_lkup, elec_price_change_traj, how='left', on=['ba'])
     
+    # Remove balancing area column from dataframe
     elec_price_change_traj.drop(['ba'], axis=1, inplace=True)  
 
     return elec_price_change_traj
@@ -497,77 +571,36 @@ def process_wholesale_elec_prices(wholesale_elec_price_traj):
     
     Parameters
     ----------
-    wholesale_elec_price_traj : 'pd.df'
+    wholesale_elec_price_traj : :class: `pandas.DataFrame`
         Dataframe of wholesale electricity prices by year and ReEDS BA
     
     Returns
     -------
-    wholesale_elec_price_change_traj : 'pd.df'
-        Dataframe of annual electricity price change factors from base year
+    wholesale_elec_price_change_traj : :class: `pandas.DataFrame`
+        Dataframe of annual electricity price change factors from base year, 
+
+    Notes
+    -----
+    The price change is calculated at the balancing areas level. With county mapped to balancing areas. 
 
     """
 
     county_to_ba_lkup = pd.read_csv('county_to_ba_mapping.csv')
-    
+
+    # Create a list of valid years for the model to use
     years = np.arange(2014, 2051, 2)
     years = [str(year) for year in years]
 
+    # Un-pivot wholesale price dataframe, preserving the balancing area column (ba)
     wholesale_elec_price_change_traj = pd.melt(wholesale_elec_price_traj, id_vars='ba', value_vars=years, var_name='year', value_name='wholesale_elec_price_dollars_per_kwh')
 
+    # Change the data tpype of the 'year' column to be "int"
     wholesale_elec_price_change_traj['year'] = wholesale_elec_price_change_traj['year'].astype(int)
- 
+    
+    # Merge in the county and balancing area data to the price change trajectory, merging on the balancing area column of both dataframes 
     wholesale_elec_price_change_traj = pd.merge(county_to_ba_lkup, wholesale_elec_price_change_traj, how='left', on=['ba'])
     
+    # Remove balancing area column from dataframe
     wholesale_elec_price_change_traj.drop(['ba'], axis=1, inplace=True)
     
     return wholesale_elec_price_change_traj
-
-
-#%%
-def process_load_growth(load_growth):
-    """
-    Returns the trajectory of the load growth rates over time relative to a base year of 2014
-    
-    Parameters
-    ----------
-    load_growth : 'pd.df'
-        Dataframe of annual load growth rates
-    
-    Returns
-    -------
-    load_growth_change_traj : 'pd.df'
-        Dataframe of annual load growth rates relative to base year
-
-    """
-
-    base_year_load_growth = load_growth[load_growth['year']==2014]
-    
-    base_year_load_growth.rename(columns={'load_growth_res':'res_base',
-                                     'load_growth_com':'com_base',
-                                     'load_growth_ind':'ind_base'}, inplace=True)
-    
-    load_growth_change_traj = pd.merge(load_growth, base_year_load_growth[['res_base', 'com_base', 'ind_base', 'census_division_abbr']], on='census_division_abbr')
-
-    load_growth_change_traj['load_growth_change_res'] = load_growth_change_traj['load_growth_res'] / load_growth_change_traj['res_base']
-    load_growth_change_traj['load_growth_change_com'] = load_growth_change_traj['load_growth_com'] / load_growth_change_traj['com_base']
-    load_growth_change_traj['load_growth_change_ind'] = load_growth_change_traj['load_growth_ind'] / load_growth_change_traj['ind_base']
-
-    # Melt by sector
-    res_df = pd.DataFrame(load_growth_change_traj['year'])
-    res_df = load_growth_change_traj[['year', 'load_growth_change_res', 'census_division_abbr']]
-    res_df.rename(columns={'load_growth_change_res':'load_multiplier'}, inplace=True)
-    res_df['sector_abbr'] = 'res'
-    
-    com_df = pd.DataFrame(load_growth_change_traj['year'])
-    com_df = load_growth_change_traj[['year', 'load_growth_change_com', 'census_division_abbr']]
-    com_df.rename(columns={'load_growth_change_com':'load_multiplier'}, inplace=True)
-    com_df['sector_abbr'] = 'com'
-    
-    ind_df = pd.DataFrame(load_growth_change_traj['year'])
-    ind_df = load_growth_change_traj[['year', 'load_growth_change_ind', 'census_division_abbr']]
-    ind_df.rename(columns={'load_growth_change_ind':'load_multiplier'}, inplace=True)
-    ind_df['sector_abbr'] = 'ind'
-    
-    load_growth_change_traj = pd.concat([res_df, com_df, ind_df], ignore_index=True, sort=False)
-
-    return load_growth_change_traj

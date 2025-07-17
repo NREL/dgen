@@ -101,7 +101,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
             logger.info('Getting various scenario parameters')
             schema = scenario_settings.schema
             max_market_share = datfunc.get_max_market_share(con, schema)
-            load_growth_scenario = scenario_settings.load_growth.lower()
+            #load_growth_scenario = scenario_settings.load_growth.lower()
             inflation_rate = datfunc.get_annual_inflation(con, scenario_settings.schema)
             bass_params = datfunc.get_bass_params(con, scenario_settings.schema)
 
@@ -119,7 +119,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                 # Initialize agents
                 # =========================================================   
                            
-                solar_agents = iFuncs.import_agent_file(scenario_settings, con, cur, engine, model_settings, agent_file_status, input_name='agent_file')   
+                solar_agents = iFuncs.import_agent_file(scenario_settings, con, model_settings, agent_file_status, input_name='agent_file')   
                 
                 
                 # Get set of columns that define agent's immutable attributes
@@ -182,7 +182,7 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     if is_first_year:
                         last_year_installed_capacity = agent_mutation.elec.get_state_starting_capacities(con, schema)
 
-                    state_capacity_by_year = agent_mutation.elec.calc_state_capacity_by_year(con, schema, load_growth, peak_demand_mw, is_first_year, year,solar_agents,last_year_installed_capacity)
+                    state_capacity_by_year = agent_mutation.elec.calc_state_capacity_by_year(load_growth, peak_demand_mw, is_first_year, year,solar_agents,last_year_installed_capacity)
                     
                     #Apply net metering parameters
                     net_metering_state_df, net_metering_utility_df = agent_mutation.elec.get_nem_settings(nem_state_capacity_limits, nem_state_and_sector_attributes, nem_utility_and_sector_attributes, nem_selected_scenario, year, state_capacity_by_year, cf_during_peak_demand)
@@ -203,8 +203,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
 
                     # Apply technology prices
                     solar_agents.on_frame(agent_mutation.elec.apply_pv_prices, pv_price_traj)
-                    solar_agents.on_frame(agent_mutation.elec.apply_batt_prices, [batt_price_traj, batt_tech_traj, year])
-                    solar_agents.on_frame(agent_mutation.elec.apply_pv_plus_batt_prices, [pv_plus_batt_price_traj, batt_tech_traj, year])
+                    solar_agents.on_frame(agent_mutation.elec.apply_batt_prices, [batt_price_traj])
+                    solar_agents.on_frame(agent_mutation.elec.apply_pv_plus_batt_prices, [pv_plus_batt_price_traj])
 
                     # Apply value of resiliency
                     solar_agents.on_frame(agent_mutation.elec.apply_value_of_resiliency, value_of_resiliency)
@@ -227,7 +227,8 @@ def main(mode = None, resume_year = None, endyear = None, ReEDS_inputs = None):
                     solar_agents.on_frame(agent_mutation.elec.apply_state_incentives, [state_incentives, year, model_settings.start_year, state_capacity_by_year])
                     
                     # Calculate System Financial Performance
-                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
+                    #solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, sectors=scenario_settings.sectors, cores=cores, rate_switch_table=rate_switch_table)
+                    solar_agents.chunk_on_row(financial_functions.calc_system_size_and_performance, cores=cores, rate_switch_table=rate_switch_table)
 
                     # Calculate the financial performance of the S+S systems
                     #solar_agents.on_frame(financial_functions.calc_financial_performance)
