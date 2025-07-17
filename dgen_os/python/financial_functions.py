@@ -24,10 +24,10 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
     
     Parameters
     ----------
-    kw : `float`
+    kw : float
         PV System size or PV Capacity (in kW) 
 
-    pv : `dict` 
+    pv : dict 
         Contains two attributes of the agent, hourly PV generation profile and hourly PV consumption, as an array (float) in kW for the whole year (8760)
 
     utilityrate : :class: `PySAM.Utilityrate5` 
@@ -39,7 +39,7 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
     batt : :class: `PySAM.Battery`
         It is the simplified battery storage model from PySAM used for evaluating the system performance
 
-    costs : `dict`
+    costs : dict
         Maps the cost components for Solar PV and the Battery systems as a scalar (float) value (?maps the cost component for the technology in questions?)
 
     agent : :class: `pandas.Series`
@@ -48,17 +48,17 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
     rate_switch_table : :class: `pandas.DataFrame`
         Has details on how utility rates will switch with DG/storage adoption
 
-    en_batt : `bool`, Optional
+    en_batt : bool, Optional
         When this arguement is True, battery is included in the analysis and vice versa when False. 
         Default is "True"
 
-    batt_dispatch : `str`, Optional
+    batt_dispatch : str, Optional
         Parameters contains the battery dispatch model to be used in the analysis 
         Default is "Peak Shaving", all other options result in "Retail Rate Dispatch"
                 
     Returns
     -------
-    -loan.Outputs.npv : `float`
+    -loan.Outputs.npv : float
         The negative net present value of the system modeled calculated with the PySAM Cashloan module
 
     References
@@ -717,10 +717,10 @@ def process_tariff(utilityrate, tariff_dict, net_billing_sell_rate):
     utilityrate : :class: `PySAM.Utilityrate5`
         UtilityRate5 object used for assessing the system performance
 
-    tariff_dict :  `dict`
+    tariff_dict :  dict
         An agent attribute that maps components of the tariff rate that will be used by PySAM UtilityRate Module
 
-    net_billing_sell_rate : `float`
+    net_billing_sell_rate : float
         Net billing sell rate ($/kW) set by the utility the agent is residing. 
 
     Returns

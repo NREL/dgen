@@ -30,14 +30,14 @@ def calc_diffusion_solar(df, is_first_year, bass_params, year):
     df : :class: `pandas.DataFrame`
         Input agent file with all agent attributes
 
-    is_first_year : `bool`
+    is_first_year : bool
         Passed to :func:`diffusion_functions_elec.calc_diffusion_market_share` to determine the increment of `teq`
 
     bass_params : :class: `pandas.DataFrame`
         DataFrame containing the following attributes: 
         `state_abbr`, `bass_param_p`, `bass_param_q`, `teq_yr1`, `sector_abbr`, `tech`
     
-    year : `int`
+    year : int
         The year the model is simulating adoption 
 
     Returns
@@ -185,7 +185,7 @@ def calc_diffusion_market_share(df, is_first_year):
             df.teq_yr1 : :class: `pandas.Series`
                 Number of years since the diffusion model began.
 
-    is_first_year : `bool`
+    is_first_year : bool
         If this function is running during the first model year. Used to determine the increment of `teq`
 
     Returns
