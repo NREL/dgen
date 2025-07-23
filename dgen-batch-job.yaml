@@ -1,0 +1,56 @@
+logsPolicy:
+  destination: CLOUD_LOGGING
+
+# 2) Allocation policy: use 12-vCPU, 48 GiB machine type
+allocationPolicy:
+  instances:
+    - policy:
+        machineType: "custom-12-49152"  # 12 vCPUs, 48 GiB memory
+
+taskGroups:
+  - taskCount: "50"               # one task per state
+    parallelism: "50"             # run all states in parallel
+    schedulingPolicy: AS_SOON_AS_POSSIBLE
+
+    taskSpec:
+      environment:
+        variables:
+          DB_USER: "<DB_USER>"
+          DB_PASS: "<DB_PASS>"
+          INSTANCE_CONNECTION_NAME: "<PROJECT>:<REGION>:dgen-db"
+
+      runnables:
+        - container:
+            imageUri: us-central1-docker.pkg.dev/dgen-466702/dgen-repo/dgen:latest
+            entrypoint: bash
+            commands:
+              - -lc
+              - |
+                #!/usr/bin/env bash
+                set -euo pipefail
+
+                # 1) Fetch templates and state mapping
+                gsutil cp gs://dgen-assets/input_scenarios/{baseline,policy}.xlsm /opt/dgen_os/input_scenarios/
+                gsutil cp gs://dgen-assets/states.csv /tmp/states.csv
+
+                # 2) Determine this task's state
+                IDX=${BATCH_TASK_INDEX}
+                STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/states.csv)
+                IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
+                echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
+
+                # 3) Generate the two scenario files for this state
+                python /opt/dgen_os/python/prepare_all_scenarios.py \
+                  --templates-dir /opt/dgen_os/input_scenarios \
+                  --output-dir    /opt/dgen_os/input_scenarios \
+                  --states-file   /tmp/states.csv \
+                  --end-year      2026
+
+                # 4) Run the model (it will load the state-specific .xlsm files)
+                python /opt/dgen_os/python/dgen_model.py \
+                  --db "postgresql://${DB_USER}:${DB_PASS}@/dgendb?host=/cloudsql/${INSTANCE_CONNECTION_NAME}"
+
+      computeResource:
+        cpuMilli: 12000             # 12 vCPUs
+        memoryMib: 49152            # 48 GiB
+        bootDiskMib: 100          # 100 MiB boot disk
