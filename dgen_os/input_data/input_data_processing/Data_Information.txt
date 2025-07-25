@@ -11,3 +11,10 @@ File: Cambium24_Workbook.xlsx
      URL: https://data.nrel.gov/submissions/289
      Folder: Cambium_Data
      Data: carbon_intensities
+
+File: Cambium24_allScenarios_annual_balancingArea.csv
+     Year: 2024
+     Source: NREL Cambium Dataset
+     URL: https://scenarioviewer.nrel.gov/?project=5c7bef16-7e38-4094-92ce-8b03dfa93380&mode=download&layout=Default
+     Folder: Cambium_Data
+     Data: wholesale_electricity_prices
