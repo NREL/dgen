@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import decorators
@@ -1118,6 +1119,7 @@ def _init_worker(dsn, role):
     """
     global _worker_conn
     import utility_functions as utilfunc
+    import os
     _worker_conn, _ = utilfunc.make_con(dsn, role)
 
 def size_chunk(static_agents_df, sectors, rate_switch_table):
@@ -1135,13 +1137,15 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
 
     global _worker_conn
     results = []
+    n = len(static_agents_df)
+    print(f"[size_chunk start] PID {os.getpid()} — {n} agents", flush=True)
 
     # static_agents_df.index holds agent_ids
     for aid, row in static_agents_df.iterrows():
         # 1) copy static attributes
         agent = row.copy()
         agent.name = aid
-
+        
         # 2) fetch hourly profiles
         lp = agent_mutation.elec.get_and_apply_agent_load_profiles(_worker_conn, agent)
         cons = lp['consumption_hourly'].iloc[0]
@@ -1163,7 +1167,7 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
             rate_switch_table
         )
         results.append(sized)
-
+    print(f"[size_chunk end]   PID {os.getpid()} — done {n} agents", flush=True)
     return pd.DataFrame(results)
 
 

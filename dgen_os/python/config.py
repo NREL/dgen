@@ -23,7 +23,7 @@ start_year = 2026
 if os.environ.get('LOCAL_CORES'):
     pg_procs = multiprocessing.cpu_count()
 else:
-    pg_procs = 4
+    pg_procs = 12
 
 #==============================================================================
 #   set role for database (default is postgres)

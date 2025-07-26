@@ -155,7 +155,7 @@ def create_output_schema(scenario_num, pg_conn_string, role, suffix, scenario_li
     fname = os.path.basename(scenario_list[scenario_num])
     scenario_file_name, _ = os.path.splitext(fname)
 
-    dest_schema = 'diffusion_results_{}'.format(scenario_file_name+'_'+suffix+suffix_microsecond)
+    dest_schema = 'diffusion_results_{}'.format( (scenario_file_name+'_'+suffix+suffix_microsecond).lower())
     inputs['dest_schema'] = dest_schema
 
     sql = '''SELECT diffusion_shared.clone_schema('{source_schema}', '{dest_schema}', '{role}', {include_data});'''.format(**inputs)

@@ -23,6 +23,9 @@ import input_data_functions as iFuncs
 import PySAM
 import multiprocessing
 from financial_functions import size_chunk, _init_worker
+import logging
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
 
 # raise numpy and pandas warnings as exceptions
 pd.set_option('mode.chained_assignment', None)
@@ -30,15 +33,22 @@ pd.set_option('mode.chained_assignment', None)
 import warnings
 warnings.simplefilter("ignore")
 
+# ── SMOKE TEST ──
+def _smoke_test(x):
+    import os
+    print(f"[SMOKE TEST] worker PID {os.getpid()} received {x}", flush=True)
+    return x
 
 def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
-    print(f"Detected CPUs = {os.cpu_count()}, multiprocessing.cpu_count() = {multiprocessing.cpu_count()}", flush=True)
     model_settings = settings.init_model_settings()
     os.makedirs(model_settings.out_dir, exist_ok=True)
     logger = utilfunc.get_logger(os.path.join(model_settings.out_dir, 'dg_model.log'))
+    print(f"Detected CPUs = {os.cpu_count()}, multiprocessing.cpu_count() = {multiprocessing.cpu_count()}", flush=True)
+    print(f"model_settings.local_cores = {model_settings.local_cores}")
 
     con, cur = utilfunc.make_con(model_settings.pg_conn_string, model_settings.role)
     engine = utilfunc.make_engine(model_settings.pg_engine_string)
+
     if isinstance(con, psycopg2.extensions.connection):
         pgx.register_hstore(con)
     logger.info(f"Connected to Postgres with: {model_settings.pg_params_log}")
@@ -250,6 +260,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     cores = model_settings.local_cores
                 else:
                     cores = None
+                print(f"Using {cores} cores for parallel processing", flush=True)
 
                 if cores is None:
                     solar_agents.chunk_on_row(
@@ -259,41 +270,73 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                         rate_switch_table=rate_switch_table
                     )
                 else:
-                    from multiprocessing import get_context
+                    from multiprocessing import get_context, Manager
 
-                    # build a forked Pool with a DB connection in each worker
-                    pool = get_context('fork').Pool(
+                    # build a spawn‐based Pool with a DB connection in each worker
+                    ctx = get_context('spawn')
+                    pool = ctx.Pool(
                         processes=cores,
                         initializer=_init_worker,
                         initargs=(model_settings.pg_conn_string, model_settings.role)
                     )
+
+                    worker_pids = [p.pid for p in pool._pool]
+                    logger.info(f"Spawned {len(worker_pids)} workers, PIDs={worker_pids}")
+
+                    # ── SMOKE TEST ──
+                    # ensure `_smoke_test` is defined at module top‐level
+                    smoke_results = pool.map(_smoke_test, list(range(min(cores, 4))))
+                    print(f">>> SMOKE TEST results: {smoke_results}", flush=True)
+                    # ─────────────────
 
                     # drop any large or per‐hour columns before splitting
                     drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
                     static_df = solar_agents.df.drop(columns=drop_cols).copy()
 
                     # split by agent ID
-                    all_ids = static_df.index.tolist()
-                    chunks  = np.array_split(all_ids, cores)
-
-                    # prepare tasks using only the static subset
+                    all_ids      = static_df.index.tolist()
+                    chunks       = np.array_split(all_ids, cores)
+                    total_agents = len(all_ids)
                     tasks = [
-                        (
-                            static_df.loc[chunk_ids],    # contains only static attrs + tariff_dict, costs, etc.
-                            scenario_settings.sectors,
-                            rate_switch_table
-                        )
+                        (static_df.loc[chunk_ids], scenario_settings.sectors, rate_switch_table)
                         for chunk_ids in chunks
                     ]
 
-                    # size each chunk in parallel (each worker will fetch its own hourly profiles)
-                    sized_chunks = pool.starmap(size_chunk, tasks)
+                    logger.info(f"Sizing {total_agents} agents in {len(tasks)} chunks with {cores} workers")
+
+                    # set up shared counters for progress tracking
+                    manager          = Manager()
+                    completed_chunks = manager.Value('i', 0)
+                    processed_agents = manager.Value('i', 0)
+                    lock             = manager.Lock()
+
+                    def on_done(df_chunk):
+                        with lock:
+                            completed_chunks.value += 1
+                            processed_agents.value += len(df_chunk)
+                            pct = processed_agents.value / total_agents
+                            print(
+                                f"[progress] Chunk {completed_chunks.value}/{len(tasks)} done — "
+                                f"{len(df_chunk)} agents "
+                                f"({processed_agents.value}/{total_agents}, {pct:.0%})",
+                                flush=True
+                            )
+                        return df_chunk
+
+                    # dispatch each chunk asynchronously
+                    results = []
+                    for args in tasks:
+                        results.append(
+                            pool.apply_async(size_chunk, args=args, callback=on_done)
+                        )
 
                     pool.close()
                     pool.join()
 
-                    # re‐assemble into one DataFrame and overwrite solar_agents.df
+                    # collect results and re‐assemble into one DataFrame
+                    sized_chunks = [r.get() for r in results]
                     solar_agents.df = pd.concat(sized_chunks, axis=0)
+
 
                 # downstream: max market share, developable load, market last year, diffusion…
                 solar_agents.on_frame(financial_functions.calc_max_market_share, [max_market_share])
@@ -319,7 +362,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 # write outputs… (same as original)
                 drop_list = [f for f in [
                     'index','reeds_reg','customers_in_bin_initial',
-                    'load_kwh_per_customer_in_bin_initial','load_kwh_in_bin_initial',
+                    'load_kwh_per_customer_in _bin_initial','load_kwh_in_bin_initial',
                     'sector','roof_adjustment','load_kwh_in_bin','naep',
                     'first_year_elec_bill_savings_frac','metric',
                     'developable_load_kwh_in_bin','initial_number_of_adopters',
@@ -335,7 +378,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 df_write.to_pickle(os.path.join(out_scen_path, f'agent_df_{year}.pkl'))
                 mode = 'replace' if year == scenario_settings.model_years[0] else 'append'
                 iFuncs.df_to_psql(df_write, engine, schema, owner,
-                                  'agent_outputs', if_exists=mode, append_transformations=True)
+                                    'agent_outputs', if_exists=mode, append_transformations=True)
                 del df_write
 
             # teardown and finish
