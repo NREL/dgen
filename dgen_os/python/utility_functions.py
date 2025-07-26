@@ -1,5 +1,6 @@
 import json
 import getopt
+from google.cloud.sql.connector import Connector
 import sys
 import colorama
 import logging
@@ -7,8 +8,9 @@ import colorlog
 import pandas as pd
 import datetime
 import select
+import pg8000.native
 import psycopg2 as pg
-import psycopg2.extras as pgx
+from psycopg2.extras import RealDictCursor
 import time
 import subprocess
 import os
@@ -121,43 +123,83 @@ def pylist_2_pglist(l):
     return str(l)[1:-1]
 
 
+# One Connector instance for the lifetime of the process
+_connector = Connector()
+
 def make_con(connection_string, role, async_=False):
+    """
+    Returns a DB connection+cursor.
+      - In GCP (PG_CONN_STRING set): use Connector + pg8000
+      - Locally:              psycopg2.connect(connection_string)
+    """
+    dsn = os.environ.get("PG_CONN_STRING")
+    if dsn:
+        # ── Cloud mode: Connector + pg8000
+        inst     = os.environ["INSTANCE_CONNECTION_NAME"]
+        user     = os.environ["DB_USER"]
+        password = os.environ["DB_PASS"]
+        dbname   = os.environ.get("DB_NAME", None)
 
-    '''
-    Returns the psql connection and cursor objects to be used with functions that query from the database.
-        
-    Parameters
-    ----------    
-    connection_string : 'SQL connection'
-        Connection string. e.g. "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/dgen_db".       
-    role : 'str'
-        Database role. 'postgres' should be the default role name for the open source codebase. 
+        conn: pg8000.native.Connection = _connector.connect(
+            inst,
+            "pg8000",
+            user=user,
+            password=password,
+            db=dbname,
+        )
+        cur = conn.cursor()
+        # SET ROLE still works
+        cur.execute(f'SET ROLE "{role}";')
+        conn.commit()
+        print(f"[make_con] Connected via Cloud SQL Connector (pg8000) to {inst}", flush=True)
 
-    Returns
-    -------
-    con : 'SQL connection'
-        Postgres Database Connection.
-    cur : 'SQL cursor'
-        Postgres Database Cursor.
-    '''
-
-    con = pg.connect(connection_string, async_=async_)
-    if async_:
-        wait(con)
-    # create cursor object
-    cur = con.cursor(cursor_factory=pgx.RealDictCursor)
-    # set role (this should avoid permissions issues)
-    cur.execute('SET ROLE "{}";'.format(role))
-    if async_:
-        wait(con)
     else:
-        con.commit()
+        # ── Local mode: psycopg2 + cloud-sql-proxy or local Postgres
+        conn = pg.connect(connection_string, async_=async_)
+        if async_:
+            wait(conn)
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(f'SET ROLE "{role}";')
+        if async_:
+            wait(conn)
+        else:
+            conn.commit()
+        print(f"[make_con] Connected via psycopg2 to {connection_string}", flush=True)
 
-    return con, cur
+    return conn, cur
 
 def make_engine(pg_engine_con):
+    """
+    SQLAlchemy engine factory:
+     - GCP: use Connector+pg8000 via creator() to open the Cloud SQL socket
+     - Local: create_engine(pg_engine_con) as before
+    """
+    if os.environ.get("PG_CONN_STRING"):
+        # Cloud mode: all engine connections go via the Connector
+        def getconn():
+            inst     = os.environ["INSTANCE_CONNECTION_NAME"]
+            user     = os.environ["DB_USER"]
+            password = os.environ["DB_PASS"]
+            dbname   = os.environ.get("DB_NAME", None)
+            return _connector.connect(
+                inst,
+                "pg8000",
+                user=user,
+                password=password,
+                db=dbname,
+            )
 
-    return create_engine(pg_engine_con, poolclass=NullPool)
+        print(f"[make_engine] Using Cloud SQL Connector for engine", flush=True)
+        return create_engine(
+            "postgresql+pg8000://",
+            creator=getconn,
+            poolclass=NullPool
+        )
+
+    # Local mode
+    url = pg_engine_con.strip()
+    print(f"[make_engine] Using URL: {url}", flush=True)
+    return create_engine(url, poolclass=NullPool)
 
 
 def get_pg_params(json_file):

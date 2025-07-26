@@ -38,11 +38,14 @@ RUN echo 'if [[ -z ${DGEN_DISABLE_AUTO_START} ]] || [[ ${DGEN_DISABLE_AUTO_START
 fi' >> ~dgen/.bashrc
 RUN chown dgen: ~dgen/.bashrc
 
-# Switch to non-root user
-USER dgen
+# Ensure we install the Conda environment before adding pip-only packages
+USER root
 
-# Create the Conda environment
+# Create the Conda environment (dg3n), including pip setup
 RUN conda env create -f /opt/dgen_os/python/dg3n.yml
+
+# Switch back to non-root user
+USER dgen
 
 # Launch an interactive shell by default (or override with your commands)
 CMD ["bash", "--login"]

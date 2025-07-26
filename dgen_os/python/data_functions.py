@@ -199,28 +199,27 @@ def drop_output_schema(pg_conn_string, schema, delete_output_schema):
 
 
 def get_sectors(cur, schema):
-    '''
-    Return the sectors to model from table view in postgres.
-        
-    Parameters
-    ----------    
-    cur : 'SQL cursor'
-        Cursor
-    schema : 'SQL schema'
-        Schema in which the sectors exist        
-
-    Returns
-    -------
-    sectors : 'dict'
-        Dictionary of sectors to be modeled in table view in postgres
-
-    '''
-
-    sql = '''SELECT sectors
-              FROM {}.sectors_to_model;'''.format(schema)
+    """
+    Fetch the sectors hstore column as JSONB, then return it as a Python dict.
+    Works under psycopg2 or pg8000.
+    """
+    sql = f"""
+      SELECT hstore_to_jsonb(sectors) AS sectors_json
+      FROM {schema}.sectors_to_model;
+    """
     cur.execute(sql)
-    sectors = cur.fetchone()['sectors']
-    return sectors
+    row = cur.fetchone()
+    if not row:
+        return {}
+
+    # row may be a dict (psycopg2 RealDictCursor) or a tuple (pg8000)
+    raw = row.get("sectors_json") if isinstance(row, dict) else row[0]
+
+    # pg8000 sometimes returns a JSON string, so parse if needed
+    if isinstance(raw, str):
+        raw = json.loads(raw)
+
+    return raw
 
 
 def get_technologies(con, schema):
@@ -597,23 +596,53 @@ def summarize_scenario(scenario_settings, model_settings):
 
 #%%
 def get_scenario_options(cur, schema, pg_params):
-    '''
-    Pull scenario options and log the user running the scenario from dB
-    '''
-    inputs = locals().copy()
-    inputs['user'] = str(pg_params.get("user"))
+    """
+    Pull scenario options and return as a Python dict,
+    using row_to_json to handle any hstore (or other) columns.
+    Works under psycopg2 (dict) and pg8000 (tuple/string).
+    """
+    user = str(pg_params.get("user"))
 
-    # log username to identify the user running the particular scenario
-    sql = '''ALTER TABLE {schema}.input_main_scenario_options ADD COLUMN scenario_user text;
-            UPDATE {schema}.input_main_scenario_options SET scenario_user = '{user}' WHERE scenario_name IS NOT NULL'''.format(**inputs)
+    # 1) Ensure the scenario_user column exists and is set
+    ddl = f"""
+      ALTER TABLE {schema}.input_main_scenario_options
+        ADD COLUMN IF NOT EXISTS scenario_user text;
+      UPDATE {schema}.input_main_scenario_options
+        SET scenario_user = '{user}'
+       WHERE scenario_name IS NOT NULL;
+    """
+    cur.execute(ddl)
+
+    # 2) Fetch the entire row as JSON
+    sql = f"""
+      SELECT row_to_json(t) AS json_row
+      FROM (
+        SELECT *
+          FROM {schema}.input_main_scenario_options
+      ) AS t;
+    """
     cur.execute(sql)
+    result = cur.fetchone()
+    if not result:
+        raise ValueError("No rows in input_main_scenario_options")
 
-    sql = '''SELECT *
-             FROM {schema}.input_main_scenario_options;'''.format(**inputs)
-    cur.execute(sql)
+    # 3) Normalize into a Python dict
+    # psycopg2 RealDictCursor → result is a dict: {'json_row': {...}}
+    if isinstance(result, dict):
+        raw = result.get('json_row')
+    else:
+        # pg8000 → result is a 1-tuple: ( {...} ) or a JSON string
+        raw = result[0]
 
-    results = cur.fetchall()[0]
-    return results
+    # 4) If it’s still a string, parse JSON
+    if isinstance(raw, str):
+        raw = json.loads(raw)
+
+    # final: must be a dict
+    if not isinstance(raw, dict):
+        raise TypeError(f"Expected dict, got {type(raw)}")
+
+    return raw
 
 #%%
 def get_nem_state(con, schema):

@@ -10,6 +10,8 @@ import time
 import os
 import pandas as pd
 import psycopg2.extras as pgx
+import psycopg2.extensions
+import pg8000.native
 import numpy as np
 import data_functions as datfunc
 import utility_functions as utilfunc
@@ -19,6 +21,7 @@ import diffusion_functions_elec
 import financial_functions
 import input_data_functions as iFuncs
 import PySAM
+import multiprocessing
 from financial_functions import size_chunk, _init_worker
 
 # raise numpy and pandas warnings as exceptions
@@ -29,13 +32,15 @@ warnings.simplefilter("ignore")
 
 
 def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
+    print(f"Detected CPUs = {os.cpu_count()}, multiprocessing.cpu_count() = {multiprocessing.cpu_count()}", flush=True)
     model_settings = settings.init_model_settings()
     os.makedirs(model_settings.out_dir, exist_ok=True)
     logger = utilfunc.get_logger(os.path.join(model_settings.out_dir, 'dg_model.log'))
 
     con, cur = utilfunc.make_con(model_settings.pg_conn_string, model_settings.role)
     engine = utilfunc.make_engine(model_settings.pg_engine_string)
-    pgx.register_hstore(con)
+    if isinstance(con, psycopg2.extensions.connection):
+        pgx.register_hstore(con)
     logger.info(f"Connected to Postgres with: {model_settings.pg_params_log}")
     owner = model_settings.role
 
@@ -49,6 +54,8 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
         logger.info(f"Running Scenario {i} of {len(model_settings.input_scenarios)}")
 
         scenario_settings = settings.init_scenario_settings(scenario_file, model_settings, con, cur, i-1)
+        logger.info(f"▶▶▶ DEBUG: techs = {scenario_settings.techs!r}")
+        logger.info(f"▶▶▶ DEBUG: model_years = {scenario_settings.model_years!r}")
         scenario_settings.input_data_dir = model_settings.input_data_dir
         datfunc.summarize_scenario(scenario_settings, model_settings)
 
@@ -85,31 +92,105 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
             nem_selected_scenario = datfunc.get_selected_scenario(con, schema)
             rate_switch_table = agent_mutation.elec.get_rate_switch_table(con)
 
-            # ingest static tables once
-            deprec_sch = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='depreciation_schedules', csv_import_function=iFuncs.deprec_schedule)
-            carbon_intensities = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                     input_name='carbon_intensities', csv_import_function=iFuncs.melt_year('grid_carbon_intensity_tco2_per_kwh'))
-            wholesale_elec_prices = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                       input_name='wholesale_electricity_prices', csv_import_function=iFuncs.process_wholesale_elec_prices)
-            pv_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='pv_tech_performance', csv_import_function=iFuncs.stacked_sectors)
-            elec_price_change_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                        input_name='elec_prices', csv_import_function=iFuncs.process_elec_price_trajectories)
-            load_growth = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='load_growth', csv_import_function=iFuncs.stacked_sectors)
-            pv_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                               input_name='pv_prices', csv_import_function=iFuncs.stacked_sectors)
-            batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                 input_name='batt_prices', csv_import_function=iFuncs.stacked_sectors)
-            pv_plus_batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                         input_name='pv_plus_batt_prices', csv_import_function=iFuncs.stacked_sectors)
-            financing_terms = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                  input_name='financing_terms', csv_import_function=iFuncs.stacked_sectors)
-            batt_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                input_name='batt_tech_performance', csv_import_function=iFuncs.stacked_sectors)
-            value_of_resiliency = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                      input_name='value_of_resiliency', csv_import_function=None)
+            if os.environ.get('PG_CONN_STRING'):
+                deprec_sch = pd.read_sql_table(
+                    "deprec_sch_FY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                carbon_intensities = pd.read_sql_table(
+                    "carbon_intensities_FY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                wholesale_elec_prices = pd.read_sql_table(
+                    "ATB23_Mid_Case_wholesale",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_tech_traj = pd.read_sql_table(
+                    "pv_tech_performance_defaultFY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                elec_price_change_traj = pd.read_sql_table(
+                    "ATB23_Mid_Case_retail",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                load_growth = pd.read_sql_table(
+                    "load_growth_to_model_adjusted",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_price_traj = pd.read_sql_table(
+                    "pv_price_atb23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                batt_price_traj = pd.read_sql_table(
+                    "batt_prices_FY23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_plus_batt_price_traj = pd.read_sql_table(
+                    "pv_plus_batt_prices_FY23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                financing_terms = pd.read_sql_table(
+                    "financing_atb_FY23",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                batt_tech_traj = pd.read_sql_table(
+                    "batt_tech_performance_SunLamp17",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                value_of_resiliency = pd.read_sql_table(
+                    "vor_FY20_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+            else:
+                # ingest static tables once
+                deprec_sch = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='depreciation_schedules', csv_import_function=iFuncs.deprec_schedule)
+                carbon_intensities = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='carbon_intensities', csv_import_function=iFuncs.melt_year('grid_carbon_intensity_tco2_per_kwh'))
+                wholesale_elec_prices = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='wholesale_electricity_prices', csv_import_function=iFuncs.process_wholesale_elec_prices)
+                pv_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='pv_tech_performance', csv_import_function=iFuncs.stacked_sectors)
+                elec_price_change_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                            input_name='elec_prices', csv_import_function=iFuncs.process_elec_price_trajectories)
+                load_growth = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='load_growth', csv_import_function=iFuncs.stacked_sectors)
+                pv_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='pv_prices', csv_import_function=iFuncs.stacked_sectors)
+                batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='batt_prices', csv_import_function=iFuncs.stacked_sectors)
+                pv_plus_batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                            input_name='pv_plus_batt_prices', csv_import_function=iFuncs.stacked_sectors)
+                financing_terms = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='financing_terms', csv_import_function=iFuncs.stacked_sectors)
+                batt_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='batt_tech_performance', csv_import_function=iFuncs.stacked_sectors)
+                value_of_resiliency = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='value_of_resiliency', csv_import_function=None)
 
             # per-year loop
             for year in scenario_settings.model_years:

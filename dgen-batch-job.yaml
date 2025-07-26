@@ -1,56 +1,73 @@
 logsPolicy:
   destination: CLOUD_LOGGING
 
-# 2) Allocation policy: use 12-vCPU, 48 GiB machine type
-allocationPolicy:
-  instances:
-    - policy:
-        machineType: "custom-12-49152"  # 12 vCPUs, 48 GiB memory
-
 taskGroups:
-  - taskCount: "50"               # one task per state
-    parallelism: "50"             # run all states in parallel
+  - taskCount: "3"               # one task per state
+    parallelism: "3"             # run all states in parallel
     schedulingPolicy: AS_SOON_AS_POSSIBLE
 
     taskSpec:
       environment:
         variables:
-          DB_USER: "<DB_USER>"
-          DB_PASS: "<DB_PASS>"
-          INSTANCE_CONNECTION_NAME: "<PROJECT>:<REGION>:dgen-db"
+          DB_USER: "postgres"
+          DB_PASS: "postgres"
+          DB_NAME: "dgendb"
+          INSTANCE_CONNECTION_NAME: "dgen-466702:us-east1:dgen-db"
+          PG_CONN_STRING: >
+            host=/cloudsql/dgen-466702:us-east1:dgen-db
+            port=5432
+            dbname=dgendb
+            user=postgres
+            password=postgres
+          LOCAL_CORES: "16"
 
       runnables:
-        - container:
-            imageUri: us-central1-docker.pkg.dev/dgen-466702/dgen-repo/dgen:latest
-            entrypoint: bash
-            commands:
-              - -lc
-              - |
-                #!/usr/bin/env bash
-                set -euo pipefail
+      - container:
+          imageUri: us-east1-docker.pkg.dev/dgen-466702/dgen-repo-east1/dgen:latest
+          entrypoint: bash
+          commands:
+            - -lc
+            - |
+              #!/usr/bin/env bash
+              set -euo pipefail
 
-                # 1) Fetch templates and state mapping
-                gsutil cp gs://dgen-assets/input_scenarios/{baseline,policy}.xlsm /opt/dgen_os/input_scenarios/
-                gsutil cp gs://dgen-assets/states.csv /tmp/states.csv
+              # echo so you can confirm in the logs
+              echo ">>> PG_CONN_STRING is: $PG_CONN_STRING" >&2
 
-                # 2) Determine this task's state
-                IDX=${BATCH_TASK_INDEX}
-                STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/states.csv)
-                IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
-                echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
+              # Activate conda env
+              source "$(conda info --base)/etc/profile.d/conda.sh"
+              conda activate dg3n
 
-                # 3) Generate the two scenario files for this state
-                python /opt/dgen_os/python/prepare_all_scenarios.py \
-                  --templates-dir /opt/dgen_os/input_scenarios \
-                  --output-dir    /opt/dgen_os/input_scenarios \
-                  --states-file   /tmp/states.csv \
-                  --end-year      2026
+              # 1) Fetch templates & state list
+              python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/baseline.xlsm /opt/dgen_os/input_scenarios/baseline.xlsm
+              python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/policy.xlsm   /opt/dgen_os/input_scenarios/policy.xlsm
+              python /opt/dgen_os/python/fetch_files.py dgen-assets states_test.csv                /tmp/states_test.csv
 
-                # 4) Run the model (it will load the state-specific .xlsm files)
-                python /opt/dgen_os/python/dgen_model.py \
-                  --db "postgresql://${DB_USER}:${DB_PASS}@/dgendb?host=/cloudsql/${INSTANCE_CONNECTION_NAME}"
+              # 2) Pick *this* task’s state
+              IDX=${BATCH_TASK_INDEX}
+              STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/states_test.csv)
+              IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
+              echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
+
+              # write just that one line out
+              echo "${ABBR},${FULLNAME}" > /tmp/state_${IDX}.csv
+
+              # 3) Generate *only* that state’s two .xlsm files
+              python /opt/dgen_os/python/prepare_all_scenarios.py \
+                --templates-dir /opt/dgen_os/input_scenarios \
+                --output-dir    /opt/dgen_os/input_scenarios \
+                --states-file   /tmp/state_${IDX}.csv \
+                --end-year      2026
+
+              # 4) Remove the raw templates so only your two new files remain
+              rm /opt/dgen_os/input_scenarios/baseline.xlsm
+              rm /opt/dgen_os/input_scenarios/policy.xlsm
+
+              # 5) Run the model (it will now find exactly two scenario files)
+              cd /opt/dgen_os/python
+              python /opt/dgen_os/python/dgen_model.py
 
       computeResource:
-        cpuMilli: 12000             # 12 vCPUs
-        memoryMib: 49152            # 48 GiB
-        bootDiskMib: 100          # 100 MiB boot disk
+        cpuMilli: 16000            # 16 vCPUs
+        memoryMib: 32768           # 32 GiB
+        bootDiskMib: 100         # 100 mb boot disk

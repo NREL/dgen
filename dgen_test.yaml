@@ -1,0 +1,26 @@
+logsPolicy:
+  destination: CLOUD_LOGGING
+
+taskGroups:
+  - taskCount: "1"               # one task per state
+    parallelism: "1"             # run all states in parallel
+    schedulingPolicy: AS_SOON_AS_POSSIBLE
+
+    taskSpec:
+      environment:
+        variables:
+          DB_USER: "<DB_USER>"
+          DB_PASS: "<DB_PASS>"
+          INSTANCE_CONNECTION_NAME: "<PROJECT>:<REGION>:dgen-db"
+
+      runnables:
+      - container:
+          imageUri: us-east1-docker.pkg.dev/dgen-466702/dgen-repo-east1/dgen:latest
+          # remove 'entrypoint' block entirely
+          commands:
+            - echo "Hello, Batch!" && exit 0
+
+      computeResource:
+        cpuMilli: 8000             # 12 vCPUs
+        memoryMib: 16384            # 48 GiB
+        bootDiskMib: 10240          # 100 MiB boot disk

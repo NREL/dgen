@@ -19,37 +19,41 @@ logger = utilfunc.get_logger()
 
 @decorators.fn_timer(logger=logger, tab_level=1, prefix='')
 def load_scenario(xls_file, schema, con, cur):
-
     logger.info('Loading Input Scenario Worksheet')
 
     try:
+        # 1) sanity checks
+        if not os.path.exists(xls_file):
+            raise ExcelError(f'The specified input worksheet ({xls_file}) does not exist')
 
-        if os.path.exists(xls_file) == False:
-            raise ExcelError('The specified input worksheet ({}) does not exist'.format(xls_file))
-
-        # get the table to named range lookup from csv
         mapping_file = os.path.join(path, 'table_range_lkup.csv')
-        if os.path.exists(mapping_file) == False:
-            raise ExcelError('The required file that maps from named ranges to postgres tables ({}) does not exist'.format(mapping_file))
+        if not os.path.exists(mapping_file):
+            raise ExcelError(f'The mapping file ({mapping_file}) does not exist')
+        
+        # 2) read & filter mappings
         mappings = pd.read_csv(mapping_file)
-        # only run the mappings that are marked to run
         mappings = mappings[mappings.run == True]
 
-        # open the workbook
+        # 3) Monkey‐patch this cursor *after* mappings is defined
+        if not hasattr(cur, "copy_expert"):
+            def _copy_expert(sql, file_obj):
+                # pg8000’s COPY via execute(..., stream=...)
+                return cur.execute(sql, stream=file_obj)
+            cur.copy_expert = _copy_expert
+
+        # 4) open workbook
         with warnings.catch_warnings():
-            # ignore meaningless warning
-            warnings.filterwarnings(
-                "ignore", message="Discarded range with reserved name")
+            warnings.filterwarnings("ignore", message="Discarded range with reserved name")
             wb = xl.load_workbook(xls_file, data_only=True, read_only=True)
 
+        # 5) iterate & load
         for run, table, range_name, transpose, melt in mappings.itertuples(index=False):
             fnr = FancyNamedRange(wb, range_name)
-            if transpose == True:
+            if transpose:
                 fnr.__transpose_values__()
-            if melt == True:
+            if melt:
                 fnr.__melt__()
-           
-            fnr.to_postgres(con,cur, schema, table)
-           
+            fnr.to_postgres(con, cur, schema, table)
+
     except ExcelError as e:
         raise ExcelError(e)
