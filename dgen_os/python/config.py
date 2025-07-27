@@ -20,7 +20,10 @@ start_year = 2026
 #==============================================================================
 #   set number of parallel processes to run postgres queries
 #==============================================================================
-pg_procs = 4
+if os.environ.get('LOCAL_CORES'):
+    pg_procs = multiprocessing.cpu_count()
+else:
+    pg_procs = 12
 
 #==============================================================================
 #   set role for database (default is postgres)

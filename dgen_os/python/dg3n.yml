@@ -17,5 +17,10 @@ dependencies:
   - spyder
   - sqlalchemy
   - nrel-pysam
+  - google-cloud-storage
+  - pg8000
+  - pip
+  - pip:
+      - cloud-sql-python-connector[pg8000]
 
 

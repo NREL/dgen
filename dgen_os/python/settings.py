@@ -480,6 +480,18 @@ def init_model_settings():
 
     # add the config to model settings; set model starting time, output directory based on run time, etc.
     model_settings.add_config(config)
+    # Override the postgres connection string to use the cloudsql instance if it exists
+    env = os.environ.get("PG_CONN_STRING")
+    if env:
+        # sidestep the JSON file entirely
+        model_settings.pg_conn_string = env
+    # Override the local cores setting to use the cloud cores if it exists
+    env_cores = os.environ.get("LOCAL_CORES")
+    if env_cores:
+        model_settings.local_cores = int(env_cores)
+    else:
+        # multiprocessing.cpu_count() sees all vCPUs in the container
+        model_settings.local_cores = max(1, multiprocessing.cpu_count())
     model_settings.set('model_init', utilfunc.get_epoch_time())
     model_settings.set('cdate', utilfunc.get_formatted_time())
     model_settings.set('out_dir', datfunc.make_output_directory_path(model_settings.cdate))

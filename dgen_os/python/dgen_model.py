@@ -10,6 +10,8 @@ import time
 import os
 import pandas as pd
 import psycopg2.extras as pgx
+import psycopg2.extensions
+import pg8000.native
 import numpy as np
 import data_functions as datfunc
 import utility_functions as utilfunc
@@ -17,9 +19,14 @@ import settings
 import agent_mutation
 import diffusion_functions_elec
 import financial_functions
+from functools import partial
 import input_data_functions as iFuncs
 import PySAM
+import multiprocessing
 from financial_functions import size_chunk, _init_worker
+import logging
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
 
 # raise numpy and pandas warnings as exceptions
 pd.set_option('mode.chained_assignment', None)
@@ -27,15 +34,18 @@ pd.set_option('mode.chained_assignment', None)
 import warnings
 warnings.simplefilter("ignore")
 
-
 def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
     model_settings = settings.init_model_settings()
     os.makedirs(model_settings.out_dir, exist_ok=True)
     logger = utilfunc.get_logger(os.path.join(model_settings.out_dir, 'dg_model.log'))
+    print(f"Detected CPUs = {os.cpu_count()}, multiprocessing.cpu_count() = {multiprocessing.cpu_count()}", flush=True)
+    print(f"model_settings.local_cores = {model_settings.local_cores}")
 
     con, cur = utilfunc.make_con(model_settings.pg_conn_string, model_settings.role)
     engine = utilfunc.make_engine(model_settings.pg_engine_string)
-    pgx.register_hstore(con)
+
+    if isinstance(con, psycopg2.extensions.connection):
+        pgx.register_hstore(con)
     logger.info(f"Connected to Postgres with: {model_settings.pg_params_log}")
     owner = model_settings.role
 
@@ -85,31 +95,105 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
             nem_selected_scenario = datfunc.get_selected_scenario(con, schema)
             rate_switch_table = agent_mutation.elec.get_rate_switch_table(con)
 
-            # ingest static tables once
-            deprec_sch = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='depreciation_schedules', csv_import_function=iFuncs.deprec_schedule)
-            carbon_intensities = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                     input_name='carbon_intensities', csv_import_function=iFuncs.melt_year('grid_carbon_intensity_tco2_per_kwh'))
-            wholesale_elec_prices = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                       input_name='wholesale_electricity_prices', csv_import_function=iFuncs.process_wholesale_elec_prices)
-            pv_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='pv_tech_performance', csv_import_function=iFuncs.stacked_sectors)
-            elec_price_change_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                        input_name='elec_prices', csv_import_function=iFuncs.process_elec_price_trajectories)
-            load_growth = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                              input_name='load_growth', csv_import_function=iFuncs.stacked_sectors)
-            pv_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                               input_name='pv_prices', csv_import_function=iFuncs.stacked_sectors)
-            batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                 input_name='batt_prices', csv_import_function=iFuncs.stacked_sectors)
-            pv_plus_batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                         input_name='pv_plus_batt_prices', csv_import_function=iFuncs.stacked_sectors)
-            financing_terms = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                  input_name='financing_terms', csv_import_function=iFuncs.stacked_sectors)
-            batt_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                input_name='batt_tech_performance', csv_import_function=iFuncs.stacked_sectors)
-            value_of_resiliency = iFuncs.import_table(scenario_settings, con, engine, owner,
-                                                      input_name='value_of_resiliency', csv_import_function=None)
+            if os.environ.get('PG_CONN_STRING'):
+                deprec_sch = pd.read_sql_table(
+                    "deprec_sch_FY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                carbon_intensities = pd.read_sql_table(
+                    "carbon_intensities_FY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                wholesale_elec_prices = pd.read_sql_table(
+                    "ATB23_Mid_Case_wholesale",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_tech_traj = pd.read_sql_table(
+                    "pv_tech_performance_defaultFY19",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                elec_price_change_traj = pd.read_sql_table(
+                    "ATB23_Mid_Case_retail",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                load_growth = pd.read_sql_table(
+                    "load_growth_to_model_adjusted",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_price_traj = pd.read_sql_table(
+                    "pv_price_atb23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                batt_price_traj = pd.read_sql_table(
+                    "batt_prices_FY23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                pv_plus_batt_price_traj = pd.read_sql_table(
+                    "pv_plus_batt_prices_FY23_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                financing_terms = pd.read_sql_table(
+                    "financing_atb_FY23",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                batt_tech_traj = pd.read_sql_table(
+                    "batt_tech_performance_SunLamp17",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+                value_of_resiliency = pd.read_sql_table(
+                    "vor_FY20_mid",
+                    con=engine,
+                    schema="diffusion_shared"
+                )
+
+            else:
+                # ingest static tables once
+                deprec_sch = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='depreciation_schedules', csv_import_function=iFuncs.deprec_schedule)
+                carbon_intensities = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='carbon_intensities', csv_import_function=iFuncs.melt_year('grid_carbon_intensity_tco2_per_kwh'))
+                wholesale_elec_prices = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='wholesale_electricity_prices', csv_import_function=iFuncs.process_wholesale_elec_prices)
+                pv_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='pv_tech_performance', csv_import_function=iFuncs.stacked_sectors)
+                elec_price_change_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                            input_name='elec_prices', csv_import_function=iFuncs.process_elec_price_trajectories)
+                load_growth = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='load_growth', csv_import_function=iFuncs.stacked_sectors)
+                pv_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                input_name='pv_prices', csv_import_function=iFuncs.stacked_sectors)
+                batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='batt_prices', csv_import_function=iFuncs.stacked_sectors)
+                pv_plus_batt_price_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                            input_name='pv_plus_batt_prices', csv_import_function=iFuncs.stacked_sectors)
+                financing_terms = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='financing_terms', csv_import_function=iFuncs.stacked_sectors)
+                batt_tech_traj = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                    input_name='batt_tech_performance', csv_import_function=iFuncs.stacked_sectors)
+                value_of_resiliency = iFuncs.import_table(scenario_settings, con, engine, owner,
+                                                        input_name='value_of_resiliency', csv_import_function=None)
 
             # per-year loop
             for year in scenario_settings.model_years:
@@ -169,6 +253,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     cores = model_settings.local_cores
                 else:
                     cores = None
+                print(f"Using {cores} cores for parallel processing", flush=True)
 
                 if cores is None:
                     solar_agents.chunk_on_row(
@@ -178,41 +263,84 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                         rate_switch_table=rate_switch_table
                     )
                 else:
-                    from multiprocessing import get_context
+                    from multiprocessing import get_context, Manager
 
-                    # build a forked Pool with a DB connection in each worker
-                    pool = get_context('fork').Pool(
+                    # build a spawn‐based Pool with a DB connection in each worker
+                    ctx = get_context('spawn')
+                    pool = ctx.Pool(
                         processes=cores,
                         initializer=_init_worker,
                         initargs=(model_settings.pg_conn_string, model_settings.role)
                     )
+
+                    worker_pids = [p.pid for p in pool._pool]
+                    logger.info(f"Spawned {len(worker_pids)} workers, PIDs={worker_pids}")
 
                     # drop any large or per‐hour columns before splitting
                     drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
                     static_df = solar_agents.df.drop(columns=drop_cols).copy()
 
                     # split by agent ID
-                    all_ids = static_df.index.tolist()
-                    chunks  = np.array_split(all_ids, cores)
+                    all_ids      = static_df.index.tolist()
+                    chunks       = np.array_split(all_ids, cores)
+                    total_agents = len(all_ids)
 
-                    # prepare tasks using only the static subset
                     tasks = [
                         (
-                            static_df.loc[chunk_ids],    # contains only static attrs + tariff_dict, costs, etc.
+                            static_df.loc[chunk_ids],
                             scenario_settings.sectors,
                             rate_switch_table
                         )
-                        for chunk_ids in chunks
+                        for idx, chunk_ids in enumerate(chunks)
                     ]
 
-                    # size each chunk in parallel (each worker will fetch its own hourly profiles)
-                    sized_chunks = pool.starmap(size_chunk, tasks)
+                    logger.info(f"Sizing {total_agents} agents in {len(tasks)} chunks with {cores} workers")
+
+                    # set up shared counters for progress tracking
+                    manager          = Manager()
+                    completed_chunks = manager.Value('i', 0)
+                    processed_agents = manager.Value('i', 0)
+                    lock             = manager.Lock()
+
+                    def on_done(df_chunk, idx):
+                        """
+                        df_chunk: the sized DataFrame returned by size_chunk
+                        idx:      the chunk index
+                        """
+                        elapsed = time.time() - chunk_start[idx]
+                        with lock:
+                            completed_chunks.value += 1
+                            processed_agents.value += len(df_chunk)
+                            pct = processed_agents.value / total_agents
+
+                        print(
+                            f"[Chunk {idx+1}/{len(tasks)}] "
+                            f"sized {len(df_chunk)} agents in {elapsed:.2f}s → "
+                            f"{processed_agents.value}/{total_agents} ({pct:.0%})",
+                            flush=True
+                        )
+                        return df_chunk
+
+                    # dispatch each chunk asynchronously
+                    chunk_start = {}
+                    results = []
+                    for idx, args in enumerate(tasks):
+                        chunk_start[idx] = time.time()
+                        # note: callback gets the df_chunk first, then idx via partial
+                        res = pool.apply_async(
+                            size_chunk,
+                            args=args,
+                            callback=partial(on_done, idx=idx)
+                        )
+                        results.append(res)
 
                     pool.close()
                     pool.join()
 
-                    # re‐assemble into one DataFrame and overwrite solar_agents.df
+                    # collect results and re‐assemble into one DataFrame
+                    sized_chunks = [r.get() for r in results]
                     solar_agents.df = pd.concat(sized_chunks, axis=0)
+
 
                 # downstream: max market share, developable load, market last year, diffusion…
                 solar_agents.on_frame(financial_functions.calc_max_market_share, [max_market_share])
@@ -238,7 +366,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 # write outputs… (same as original)
                 drop_list = [f for f in [
                     'index','reeds_reg','customers_in_bin_initial',
-                    'load_kwh_per_customer_in_bin_initial','load_kwh_in_bin_initial',
+                    'load_kwh_per_customer_in _bin_initial','load_kwh_in_bin_initial',
                     'sector','roof_adjustment','load_kwh_in_bin','naep',
                     'first_year_elec_bill_savings_frac','metric',
                     'developable_load_kwh_in_bin','initial_number_of_adopters',
@@ -254,7 +382,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 df_write.to_pickle(os.path.join(out_scen_path, f'agent_df_{year}.pkl'))
                 mode = 'replace' if year == scenario_settings.model_years[0] else 'append'
                 iFuncs.df_to_psql(df_write, engine, schema, owner,
-                                  'agent_outputs', if_exists=mode, append_transformations=True)
+                                    'agent_outputs', if_exists=mode, append_transformations=True)
                 del df_write
 
             # teardown and finish

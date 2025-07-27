@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import decorators
@@ -6,6 +7,7 @@ from scipy import optimize
 
 import settings
 import utility_functions as utilfunc
+import time
 import agent_mutation
 
 import PySAM.Battery as battery
@@ -1117,45 +1119,30 @@ def _init_worker(dsn, role):
     Pool initializer: open a fresh psycopg2 connection in this worker.
     """
     global _worker_conn
-    import utility_functions as utilfunc
     _worker_conn, _ = utilfunc.make_con(dsn, role)
 
 def size_chunk(static_agents_df, sectors, rate_switch_table):
     """
-    For each agent in the provided static_agents_df:
-      1) take the static attrs from the row
-      2) fetch hourly profiles via elec.get_*
-      3) call calc_system_size_and_performance
     Returns a DataFrame with the sized agents.
     """
-    import numpy as np
-    import pandas as pd
-    from financial_functions import calc_system_size_and_performance
-    import agent_mutation
 
     global _worker_conn
     results = []
 
-    # static_agents_df.index holds agent_ids
     for aid, row in static_agents_df.iterrows():
-        # 1) copy static attributes
         agent = row.copy()
         agent.name = aid
 
-        # 2) fetch hourly profiles
         lp = agent_mutation.elec.get_and_apply_agent_load_profiles(_worker_conn, agent)
         cons = lp['consumption_hourly'].iloc[0]
         agent.loc['consumption_hourly'] = cons.tolist()
-        del lp
 
         norm = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(_worker_conn, agent)
         raw = norm['solar_cf_profile'].iloc[0]
         gen = (np.array(raw, dtype=float) / 1e6).tolist()
         agent.loc['generation_hourly'] = gen
         agent.loc['naep'] = sum(gen)
-        del norm
 
-        # 3) size & performance
         sized = calc_system_size_and_performance(
             _worker_conn,
             agent,
