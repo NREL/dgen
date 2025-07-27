@@ -286,8 +286,12 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     total_agents = len(all_ids)
 
                     tasks = [
-                        (static_df.loc[chunk_ids], scenario_settings.sectors, rate_switch_table)
-                        for chunk_ids in chunks
+                        (
+                            static_df.loc[chunk_ids],
+                            scenario_settings.sectors,
+                            rate_switch_table
+                        )
+                        for idx, chunk_ids in enumerate(chunks)
                     ]
 
                     logger.info(f"Sizing {total_agents} agents in {len(tasks)} chunks with {cores} workers")
@@ -298,25 +302,37 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     processed_agents = manager.Value('i', 0)
                     lock             = manager.Lock()
 
-                    def on_done(df_chunk):
-                        # Update counters
+                    def on_done(df_chunk, idx):
+                        """
+                        df_chunk: the sized DataFrame returned by size_chunk
+                        idx:      the chunk index
+                        """
+                        elapsed = time.time() - chunk_start[idx]
                         with lock:
                             completed_chunks.value += 1
                             processed_agents.value += len(df_chunk)
                             pct = processed_agents.value / total_agents
 
                         print(
-                            f"Processed {processed_agents.value}/{total_agents}, ({pct:.0%})",
+                            f"[Chunk {idx+1}/{len(tasks)}] "
+                            f"PID {os.getpid()} sized {len(df_chunk)} agents in {elapsed:.2f}s → "
+                            f"{processed_agents.value}/{total_agents} ({pct:.0%})",
                             flush=True
                         )
                         return df_chunk
 
                     # dispatch each chunk asynchronously
+                    chunk_start = {}
                     results = []
-                    for args in tasks:
-                        results.append(
-                            pool.apply_async(size_chunk, args=args, callback=on_done)
+                    for idx, args in enumerate(tasks):
+                        chunk_start[idx] = time.time()
+                        # note: callback gets the df_chunk first, then idx via partial
+                        res = pool.apply_async(
+                            size_chunk,
+                            args=args,
+                            callback=partial(on_done, idx=idx)
                         )
+                        results.append(res)
 
                     pool.close()
                     pool.join()
