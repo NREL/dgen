@@ -315,7 +315,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
 
                         print(
                             f"[Chunk {idx+1}/{len(tasks)}] "
-                            f"PID {os.getpid()} sized {len(df_chunk)} agents in {elapsed:.2f}s → "
+                            f"sized {len(df_chunk)} agents in {elapsed:.2f}s → "
                             f"{processed_agents.value}/{total_agents} ({pct:.0%})",
                             flush=True
                         )
