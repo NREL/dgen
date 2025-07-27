@@ -2,8 +2,8 @@ logsPolicy:
   destination: CLOUD_LOGGING
 
 taskGroups:
-  - taskCount: "3"               # one task per state
-    parallelism: "3"             # run all states in parallel
+  - taskCount: "2"               # one task per state
+    parallelism: "2"             # run all states in parallel
     schedulingPolicy: AS_SOON_AS_POSSIBLE
 
     taskSpec:
@@ -19,7 +19,7 @@ taskGroups:
             dbname=dgendb
             user=postgres
             password=postgres
-          LOCAL_CORES: "8"
+          LOCAL_CORES: "16"
 
       runnables:
       - container:
@@ -41,11 +41,11 @@ taskGroups:
               # 1) Fetch templates & state list
               python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/baseline.xlsm /opt/dgen_os/input_scenarios/baseline.xlsm
               python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/policy.xlsm   /opt/dgen_os/input_scenarios/policy.xlsm
-              python /opt/dgen_os/python/fetch_files.py dgen-assets states_test.csv                /tmp/states_test.csv
+              python /opt/dgen_os/python/fetch_files.py dgen-assets large_states_test.csv                /tmp/large_states_test.csv
 
               # 2) Pick *this* task’s state
               IDX=${BATCH_TASK_INDEX}
-              STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/states_test.csv)
+              STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/large_states_test.csv)
               IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
               echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
 
@@ -68,6 +68,6 @@ taskGroups:
               python /opt/dgen_os/python/dgen_model.py
 
       computeResource:
-        cpuMilli: 8000            # 24 vCPUs
-        memoryMib: 16384           # 32 GiB
+        cpuMilli: 16000            # 16 vCPUs
+        memoryMib: 65356           # 64 GiB
         bootDiskMib: 100         # 100 mb boot disk
