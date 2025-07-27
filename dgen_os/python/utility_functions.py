@@ -130,7 +130,7 @@ def make_con(connection_string, role, async_=False):
     """
     Returns a DB connection+cursor.
       - In GCP (PG_CONN_STRING set): use Connector + pg8000
-      - Locally:              psycopg2.connect(connection_string)
+      - Locally: psycopg2.connect(connection_string)
     """
     dsn = os.environ.get("PG_CONN_STRING")
     if dsn:
@@ -151,7 +151,6 @@ def make_con(connection_string, role, async_=False):
         # SET ROLE still works
         cur.execute(f'SET ROLE "{role}";')
         conn.commit()
-        print(f"[make_con] Connected via Cloud SQL Connector (pg8000) to {inst}", flush=True)
 
     else:
         # ── Local mode: psycopg2 + cloud-sql-proxy or local Postgres
@@ -164,7 +163,6 @@ def make_con(connection_string, role, async_=False):
             wait(conn)
         else:
             conn.commit()
-        print(f"[make_con] Connected via psycopg2 to {connection_string}", flush=True)
 
     return conn, cur
 

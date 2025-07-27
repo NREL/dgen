@@ -7,6 +7,7 @@ from scipy import optimize
 
 import settings
 import utility_functions as utilfunc
+import time
 import agent_mutation
 
 import PySAM.Battery as battery
@@ -1130,17 +1131,13 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
       3) call calc_system_size_and_performance
     Returns a DataFrame with the sized agents.
     """
-    import numpy as np
-    import pandas as pd
-    from financial_functions import calc_system_size_and_performance
-    import agent_mutation
 
     global _worker_conn
     results = []
     n = len(static_agents_df)
-    print(f"[size_chunk start] PID {os.getpid()} — {n} agents", flush=True)
 
     # static_agents_df.index holds agent_ids
+    t0 = time.time()
     for aid, row in static_agents_df.iterrows():
         # 1) copy static attributes
         agent = row.copy()
@@ -1167,7 +1164,12 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
             rate_switch_table
         )
         results.append(sized)
-    print(f"[size_chunk end]   PID {os.getpid()} — done {n} agents", flush=True)
+    t1 = time.time()
+    print(
+    f"PID {os.getpid()} sized {n} agents in {t1-t0:.2f}s",
+    flush=True
+    )
+
     return pd.DataFrame(results)
 
 

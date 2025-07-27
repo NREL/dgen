@@ -19,6 +19,7 @@ import settings
 import agent_mutation
 import diffusion_functions_elec
 import financial_functions
+from functools import partial
 import input_data_functions as iFuncs
 import PySAM
 import multiprocessing
@@ -32,12 +33,6 @@ pd.set_option('mode.chained_assignment', None)
 # Suppress pandas warnings
 import warnings
 warnings.simplefilter("ignore")
-
-# ── SMOKE TEST ──
-def _smoke_test(x):
-    import os
-    print(f"[SMOKE TEST] worker PID {os.getpid()} received {x}", flush=True)
-    return x
 
 def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
     model_settings = settings.init_model_settings()
@@ -64,8 +59,6 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
         logger.info(f"Running Scenario {i} of {len(model_settings.input_scenarios)}")
 
         scenario_settings = settings.init_scenario_settings(scenario_file, model_settings, con, cur, i-1)
-        logger.info(f"▶▶▶ DEBUG: techs = {scenario_settings.techs!r}")
-        logger.info(f"▶▶▶ DEBUG: model_years = {scenario_settings.model_years!r}")
         scenario_settings.input_data_dir = model_settings.input_data_dir
         datfunc.summarize_scenario(scenario_settings, model_settings)
 
@@ -283,12 +276,6 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     worker_pids = [p.pid for p in pool._pool]
                     logger.info(f"Spawned {len(worker_pids)} workers, PIDs={worker_pids}")
 
-                    # ── SMOKE TEST ──
-                    # ensure `_smoke_test` is defined at module top‐level
-                    smoke_results = pool.map(_smoke_test, list(range(min(cores, 4))))
-                    print(f">>> SMOKE TEST results: {smoke_results}", flush=True)
-                    # ─────────────────
-
                     # drop any large or per‐hour columns before splitting
                     drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
                     static_df = solar_agents.df.drop(columns=drop_cols).copy()
@@ -297,6 +284,7 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     all_ids      = static_df.index.tolist()
                     chunks       = np.array_split(all_ids, cores)
                     total_agents = len(all_ids)
+
                     tasks = [
                         (static_df.loc[chunk_ids], scenario_settings.sectors, rate_switch_table)
                         for chunk_ids in chunks
@@ -311,16 +299,16 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     lock             = manager.Lock()
 
                     def on_done(df_chunk):
+                        # Update counters
                         with lock:
                             completed_chunks.value += 1
                             processed_agents.value += len(df_chunk)
                             pct = processed_agents.value / total_agents
-                            print(
-                                f"[progress] Chunk {completed_chunks.value}/{len(tasks)} done — "
-                                f"{len(df_chunk)} agents "
-                                f"({processed_agents.value}/{total_agents}, {pct:.0%})",
-                                flush=True
-                            )
+
+                        print(
+                            f"Processed {processed_agents.value}/{total_agents}, ({pct:.0%})",
+                            flush=True
+                        )
                         return df_chunk
 
                     # dispatch each chunk asynchronously
