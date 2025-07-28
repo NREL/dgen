@@ -258,16 +258,20 @@ def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None
         agent.loc['agent_id'] = agent.name
 
     # ——— 1) Hourly profiles ———
+    t0 = time.time()
     lp = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
     cons = lp['consumption_hourly'].iloc[0]
     agent.loc['consumption_hourly'] = cons.tolist()
     del lp
+    load_profiles_total_time = time.time() - t0
 
+    t0 = time.time()
     norm = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(con, agent)
     gen = np.array(norm['solar_cf_profile'].iloc[0], dtype=float) / 1e6
     agent.loc['generation_hourly'] = gen.tolist()
     agent.loc['naep'] = float(gen.sum())
     del norm
+    solar_resource_total_time = time.time() - t0
 
     pv = {
         'consumption_hourly': cons,
@@ -476,7 +480,7 @@ def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None
     ]
 
     cur.close()
-    return agent
+    return agent, load_profiles_total_time, solar_resource_total_time
 
 
 
@@ -1131,22 +1135,27 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
     results = []
 
     n_agents = len(static_agents_df)
-    print(f"[size_chunk] Starting sizing of {n_agents} agents", flush=True)
     chunk_start = time.time()
-    sizing_total_time = 0.0
+
+    # Cumulative timers
+    load_profile_time = 0.0
+    solar_resource_time = 0.0
+    sizing_time = 0.0
 
     for aid, row in static_agents_df.iterrows():
         agent = row.copy()
         agent.name = aid
 
         t0 = time.time()
-        sized = calc_system_size_and_performance(
+        sized, lp_time, solar_time = calc_system_size_and_performance(
             _worker_conn,
             agent,
             sectors,
             rate_switch_table
         )
-        sizing_total_time += time.time() - t0
+        sizing_time += time.time() - t0
+        load_profile_time += lp_time
+        solar_resource_time += solar_time
 
         results.append(sized)
 
@@ -1154,7 +1163,9 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
 
     print(
         f"[size_chunk] Completed {n_agents} agents in {chunk_total_time:.2f}s: "
-        f"Sizing = {sizing_total_time:.2f}s",
+        f"Load profiles = {load_profile_time:.2f}s, "
+        f"Solar = {solar_resource_time:.2f}s, "
+        f"Sizing = {sizing_time:.2f}s",
         flush=True
     )
 
