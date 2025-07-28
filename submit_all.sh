@@ -2,7 +2,7 @@
 set -euo pipefail
 
 LOCATION="us-east1"
-JOB_TS=$(date +"%Y-%m-%d_%H-%M-%S")
+JOB_TS=$(date -u +"%Y%m%d-%H%M%S")
 
 # Define job name with timestamp
 JOB_NAME="dgen-small-states-${JOB_TS}"
