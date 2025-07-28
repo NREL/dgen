@@ -23,7 +23,7 @@ logger = utilfunc.get_logger()
 
 
 #%%
-def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_switch_table, en_batt=True, batt_dispatch='peak_shaving'):
+def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_switch_table, en_batt=True, batt_dispatch='price_signal_forecast'):
     """
     Executes Battwatts, Utilityrate5, and Cashloan PySAM modules with system sizes (kw) as input
     
@@ -1123,33 +1123,40 @@ def _init_worker(dsn, role):
 
 def size_chunk(static_agents_df, sectors, rate_switch_table):
     """
-    Returns a DataFrame with the sized agents.
+    Sizes a chunk of agents using calc_system_size_and_performance.
+    Logs total time spent per chunk and within sizing itself.
     """
 
     global _worker_conn
     results = []
 
+    n_agents = len(static_agents_df)
+    print(f"[size_chunk] Starting sizing of {n_agents} agents", flush=True)
+    chunk_start = time.time()
+    sizing_total_time = 0.0
+
     for aid, row in static_agents_df.iterrows():
         agent = row.copy()
         agent.name = aid
 
-        lp = agent_mutation.elec.get_and_apply_agent_load_profiles(_worker_conn, agent)
-        cons = lp['consumption_hourly'].iloc[0]
-        agent.loc['consumption_hourly'] = cons.tolist()
-
-        norm = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(_worker_conn, agent)
-        raw = norm['solar_cf_profile'].iloc[0]
-        gen = (np.array(raw, dtype=float) / 1e6).tolist()
-        agent.loc['generation_hourly'] = gen
-        agent.loc['naep'] = sum(gen)
-
+        t0 = time.time()
         sized = calc_system_size_and_performance(
             _worker_conn,
             agent,
             sectors,
             rate_switch_table
         )
+        sizing_total_time += time.time() - t0
+
         results.append(sized)
+
+    chunk_total_time = time.time() - chunk_start
+
+    print(
+        f"[size_chunk] Completed {n_agents} agents in {chunk_total_time:.2f}s: "
+        f"Sizing = {sizing_total_time:.2f}s",
+        flush=True
+    )
 
     return pd.DataFrame(results)
 

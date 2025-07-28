@@ -57,7 +57,7 @@ taskGroups:
                 --templates-dir /opt/dgen_os/input_scenarios \
                 --output-dir    /opt/dgen_os/input_scenarios \
                 --states-file   /tmp/state_${IDX}.csv \
-                --end-year      2040
+                --end-year      2026
 
               # 4) Remove the raw templates so only your two new files remain
               rm /opt/dgen_os/input_scenarios/baseline.xlsm
