@@ -23,6 +23,7 @@ from functools import partial
 import input_data_functions as iFuncs
 import PySAM
 import multiprocessing
+from multiprocessing import get_context, Manager
 from financial_functions import size_chunk, _init_worker
 import logging
 from sqlalchemy import event
@@ -263,8 +264,6 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                         rate_switch_table=rate_switch_table
                     )
                 else:
-                    from multiprocessing import get_context, Manager
-
                     ctx = get_context('spawn')
                     pool = ctx.Pool(
                         processes=cores,
