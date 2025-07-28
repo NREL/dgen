@@ -254,7 +254,7 @@ def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None
     cons = np.array(agent.loc['consumption_hourly'], dtype=float)
     gen  = np.array(agent.loc['generation_hourly'], dtype=float)
     convert_time = time.time() - t3
-
+    
     # ── Step 4: Compute NAEP
     t4 = time.time()
     agent.loc['naep'] = float(gen.sum())
