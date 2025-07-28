@@ -265,7 +265,6 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                 else:
                     from multiprocessing import get_context, Manager
 
-                    # build a spawn‐based Pool with a DB connection in each worker
                     ctx = get_context('spawn')
                     pool = ctx.Pool(
                         processes=cores,
@@ -276,37 +275,95 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     worker_pids = [p.pid for p in pool._pool]
                     logger.info(f"Spawned {len(worker_pids)} workers, PIDs={worker_pids}")
 
-                    # drop any large or per‐hour columns before splitting
                     drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
                     static_df = solar_agents.df.drop(columns=drop_cols).copy()
 
-                    # split by agent ID
-                    all_ids      = static_df.index.tolist()
-                    chunks       = np.array_split(all_ids, cores)
+                    agent_ids = solar_agents.df['bldg_id'].tolist()
+                    sector = solar_agents.df['sector_abbr'].iat[0]
+                    state = solar_agents.df['state_abbr'].iat[0]
+
+                    sql_start_time = time.time()
+                    sql_load = f"""
+                    SELECT 
+                        bldg_id,
+                        kwh_load_profile AS consumption_hourly
+                    FROM diffusion_load_profiles.{sector}stock_load_profiles
+                    WHERE sector_abbr = %s
+                    AND state_abbr  = %s
+                    AND bldg_id      = ANY(%s);
+                    """
+
+                    load_df = pd.read_sql(
+                        sql_load,
+                        con,
+                        params=[sector, state, agent_ids],
+                        coerce_float=False
+                    )
+
+                    load_df = load_df.merge(
+                        solar_agents.df[['bldg_id', 'load_kwh_per_customer_in_bin']],
+                        on='bldg_id', how='left'
+                    )
+                    def scale_profile(row):
+                        prof = np.array(row['consumption_hourly'], dtype='float64')
+                        target = float(row['load_kwh_per_customer_in_bin'])
+                        return (prof / prof.sum() * target).tolist()
+
+                    load_df['scaled_consumption_hourly'] = load_df.apply(scale_profile, axis=1)
+                    load_df = load_df[['bldg_id', 'scaled_consumption_hourly']]
+
+                    solar_gids = solar_agents.df['solar_re_9809_gid'].unique().tolist()
+                    ids_str = ','.join(str(i) for i in solar_gids)
+                    tilts_str = ','.join(str(int(t)) for t in solar_agents.df['tilt'].unique())
+                    azimuths_str = ','.join(f"'{a}'" for a in solar_agents.df['azimuth'].unique())
+
+                    sql_solar = f"""
+                    SELECT 
+                        solar_re_9809_gid,
+                        cf AS solar_cf_profile,
+                        azimuth,
+                        tilt
+                    FROM diffusion_resource_solar.solar_resource_hourly
+                    WHERE solar_re_9809_gid IN ({ids_str})
+                    AND tilt IN ({tilts_str})
+                    AND azimuth IN ({azimuths_str});
+                    """
+
+                    solar_df = pd.read_sql(sql_solar, con, coerce_float=False)
+                    solar_df = solar_df.drop_duplicates(subset=['solar_re_9809_gid', 'tilt', 'azimuth'], keep='first')
+
+                    def transform_solar(row):
+                        cf = np.array(row['solar_cf_profile'], dtype='float64') / 1e6
+                        return pd.Series({'scaled_cf': cf.tolist(), 'naep': float(cf.sum())})
+
+                    solar_df[['scaled_cf', 'naep']] = solar_df.apply(transform_solar, axis=1)
+                    solar_df = solar_df[['solar_re_9809_gid', 'tilt', 'azimuth', 'scaled_cf', 'naep']]
+                    sql_end_time = time.time()
+                    print(f"SQL queries took {sql_end_time - sql_start_time:.2f}s", flush=True)
+
+                    all_ids = static_df.index.tolist()
+                    chunks = np.array_split(all_ids, cores)
                     total_agents = len(all_ids)
 
                     tasks = [
                         (
                             static_df.loc[chunk_ids],
                             scenario_settings.sectors,
-                            rate_switch_table
+                            rate_switch_table,
+                            load_df,
+                            solar_df
                         )
-                        for idx, chunk_ids in enumerate(chunks)
+                        for chunk_ids in chunks
                     ]
 
                     logger.info(f"Sizing {total_agents} agents in {len(tasks)} chunks with {cores} workers")
 
-                    # set up shared counters for progress tracking
-                    manager          = Manager()
+                    manager = Manager()
                     completed_chunks = manager.Value('i', 0)
                     processed_agents = manager.Value('i', 0)
-                    lock             = manager.Lock()
+                    lock = manager.Lock()
 
                     def on_done(df_chunk, idx):
-                        """
-                        df_chunk: the sized DataFrame returned by size_chunk
-                        idx:      the chunk index
-                        """
                         elapsed = time.time() - chunk_start[idx]
                         with lock:
                             completed_chunks.value += 1
@@ -322,12 +379,10 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                         )
                         return df_chunk
 
-                    # dispatch each chunk asynchronously
                     chunk_start = {}
                     results = []
                     for idx, args in enumerate(tasks):
                         chunk_start[idx] = time.time()
-                        # note: callback gets the df_chunk first, then idx via partial
                         res = pool.apply_async(
                             size_chunk,
                             args=args,
@@ -338,10 +393,8 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     pool.close()
                     pool.join()
 
-                    # collect results and re‐assemble into one DataFrame
                     sized_chunks = [r.get() for r in results]
                     solar_agents.df = pd.concat(sized_chunks, axis=0)
-
 
                 # downstream: max market share, developable load, market last year, diffusion…
                 solar_agents.on_frame(financial_functions.calc_max_market_share, [max_market_share])

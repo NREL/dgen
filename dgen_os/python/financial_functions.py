@@ -230,53 +230,48 @@ def calc_system_performance(kw, pv, utilityrate, loan, batt, costs, agent, rate_
     return -loan.Outputs.npv
 
 
-def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None):
+def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None,
+                                     timing_accumulators=None):
     """
-    Calculate the optimal system and battery size and generation profile, and resulting bill savings and financial metrics.
-
-    Parameters
-    ----------
-    con : psycopg2.extensions.connection
-        A live database connection (opened once per worker).
-    agent : pandas.Series
-        Individual agent record (indexed by agent_id).
-    sectors : list[str]
-        The sector(s) for this scenario.
-    rate_switch_table : pandas.DataFrame, optional
-        Rate-switching rules for storage and solar.
-
-    Returns
-    -------
-    pandas.Series
-        The input `agent` series augmented with sizing, performance and financial fields.
+    Calculate the optimal system and battery size and generation profile,
+    and resulting bill savings and financial metrics.
     """
-    cur = con.cursor()
+    t0 = time.time()
 
-    # work on a copy so we don’t clobber the caller’s state
+    # ── Step 1: Copy agent (avoid mutating caller)
+    t1 = time.time()
     agent = agent.copy()
+    copy_time = time.time() - t1
+
+    # ── Step 2: Ensure agent_id
+    t2 = time.time()
     if 'agent_id' not in agent.index:
         agent.loc['agent_id'] = agent.name
+    agent_id_check_time = time.time() - t2
 
-    # ——— 1) Hourly profiles ———
-    t0 = time.time()
-    lp = agent_mutation.elec.get_and_apply_agent_load_profiles(con, agent)
-    cons = lp['consumption_hourly'].iloc[0]
-    agent.loc['consumption_hourly'] = cons.tolist()
-    del lp
-    load_profiles_total_time = time.time() - t0
+    # ── Step 3: Convert hourly data
+    t3 = time.time()
+    cons = np.array(agent.loc['consumption_hourly'], dtype=float)
+    gen  = np.array(agent.loc['generation_hourly'], dtype=float)
+    convert_time = time.time() - t3
 
-    t0 = time.time()
-    norm = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(con, agent)
-    gen = np.array(norm['solar_cf_profile'].iloc[0], dtype=float) / 1e6
-    agent.loc['generation_hourly'] = gen.tolist()
+    # ── Step 4: Compute NAEP
+    t4 = time.time()
     agent.loc['naep'] = float(gen.sum())
-    del norm
-    solar_resource_total_time = time.time() - t0
+    naep_time = time.time() - t4
 
+    # Store inputs
     pv = {
         'consumption_hourly': cons,
         'generation_hourly': gen
     }
+
+    # ── Accumulate timings if passed in ──
+    if timing_accumulators:
+        timing_accumulators['copy'] += copy_time
+        timing_accumulators['agent_id'] += agent_id_check_time
+        timing_accumulators['convert'] += convert_time
+        timing_accumulators['naep'] += naep_time
 
     # ——— 2+3) PySAM setup (moved *outside* optimizer loop) ———
     # instantiate once per agent:
@@ -478,9 +473,7 @@ def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None
         'cash_incentives', 'export_tariff_results',
         'generation_hourly', 'consumption_hourly'
     ]
-
-    cur.close()
-    return agent, load_profiles_total_time, solar_resource_total_time
+    return agent
 
 
 
@@ -1125,11 +1118,19 @@ def _init_worker(dsn, role):
     global _worker_conn
     _worker_conn, _ = utilfunc.make_con(dsn, role)
 
-def size_chunk(static_agents_df, sectors, rate_switch_table):
+def size_chunk(static_agents_df, sectors, rate_switch_table, load_profiles_df, solar_cf_df):
     """
-    Sizes a chunk of agents using calc_system_size_and_performance.
-    Logs total time spent per chunk and within sizing itself.
+    Sizes a chunk of agents using calc_system_size_and_performance,
+    leveraging pre-scaled load profiles and solar resources.
+    Logs time spent on preprocessing, lookups, and sizing.
     """
+
+    timing_accumulators = {
+    'copy': 0.0,
+    'agent_id': 0.0,
+    'convert': 0.0,
+    'naep': 0.0,
+    }
 
     global _worker_conn
     results = []
@@ -1137,39 +1138,73 @@ def size_chunk(static_agents_df, sectors, rate_switch_table):
     n_agents = len(static_agents_df)
     chunk_start = time.time()
 
+    # Preprocessing: build lookup tables
+    t0 = time.time()
+    load_lookup = {
+        row['bldg_id']: row['scaled_consumption_hourly']
+        for _, row in load_profiles_df.iterrows()
+    }
+    t1 = time.time()
+    solar_lookup = {
+        (row['solar_re_9809_gid'], row['tilt'], row['azimuth']):
+            (row['scaled_cf'], row['naep'])
+        for _, row in solar_cf_df.iterrows()
+    }
+    preprocessing_time = time.time() - t0
+
     # Cumulative timers
-    load_profile_time = 0.0
-    solar_resource_time = 0.0
+    lookup_time = 0.0
     sizing_time = 0.0
 
     for aid, row in static_agents_df.iterrows():
         agent = row.copy()
         agent.name = aid
 
-        t0 = time.time()
-        sized, lp_time, solar_time = calc_system_size_and_performance(
+        t_lookup = time.time()
+        bldg_id = agent.loc['bldg_id']
+        if bldg_id not in load_lookup:
+            raise ValueError(f"Missing load profile for bldg_id={bldg_id}")
+        agent.loc['consumption_hourly'] = load_lookup[bldg_id]
+
+        gid     = agent.loc['solar_re_9809_gid']
+        tilt    = agent.loc['tilt']
+        azimuth = agent.loc['azimuth']
+        key = (gid, tilt, azimuth)
+        if key not in solar_lookup:
+            raise ValueError(f"Missing solar CF for gid={gid}, tilt={tilt}, azimuth={azimuth}")
+        agent.loc['generation_hourly'], agent.loc['naep'] = solar_lookup[key]
+        lookup_time += time.time() - t_lookup
+
+        # Sizing
+        t_sizing = time.time()
+        sized = calc_system_size_and_performance(
             _worker_conn,
             agent,
             sectors,
-            rate_switch_table
+            rate_switch_table, 
+            timing_accumulators=timing_accumulators
         )
-        sizing_time += time.time() - t0
-        load_profile_time += lp_time
-        solar_resource_time += solar_time
+        sizing_time += time.time() - t_sizing
 
         results.append(sized)
 
     chunk_total_time = time.time() - chunk_start
 
+    print(f"[Timing breakdown] copy={timing_accumulators['copy']:.2f}s, "
+      f"agent_id={timing_accumulators['agent_id']:.2f}s, "
+      f"convert={timing_accumulators['convert']:.2f}s, "
+      f"naep={timing_accumulators['naep']:.2f}s")
+
     print(
         f"[size_chunk] Completed {n_agents} agents in {chunk_total_time:.2f}s: "
-        f"Load profiles = {load_profile_time:.2f}s, "
-        f"Solar = {solar_resource_time:.2f}s, "
+        f"Preprocessing = {preprocessing_time:.2f}s, "
+        f"Lookups = {lookup_time:.2f}s, "
         f"Sizing = {sizing_time:.2f}s",
         flush=True
     )
 
     return pd.DataFrame(results)
+
 
 
 #%%
