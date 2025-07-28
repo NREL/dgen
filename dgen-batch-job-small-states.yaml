@@ -2,8 +2,8 @@ logsPolicy:
   destination: CLOUD_LOGGING
 
 taskGroups:
-  - taskCount: "2"               # one task per state
-    parallelism: "2"             # run all states in parallel
+  - taskCount: "3"               # one task per state
+    parallelism: "3"             # run all states in parallel
     schedulingPolicy: AS_SOON_AS_POSSIBLE
 
     taskSpec:
@@ -31,9 +31,6 @@ taskGroups:
               #!/usr/bin/env bash
               set -euo pipefail
 
-              # echo so you can confirm in the logs
-              echo ">>> PG_CONN_STRING is: $PG_CONN_STRING" >&2
-
               # Activate conda env
               source "$(conda info --base)/etc/profile.d/conda.sh"
               conda activate dg3n
@@ -48,6 +45,9 @@ taskGroups:
               STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/small_states_test.csv)
               IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
               echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
+              
+              # export it so Python’s os.getenv("BATCH_STATE") will see it
+              export BATCH_STATE="${ABBR}"
 
               # write just that one line out
               echo "${ABBR},${FULLNAME}" > /tmp/state_${IDX}.csv

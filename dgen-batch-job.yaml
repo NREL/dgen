@@ -2,8 +2,8 @@ logsPolicy:
   destination: CLOUD_LOGGING
 
 taskGroups:
-  - taskCount: "2"               # one task per state
-    parallelism: "2"             # run all states in parallel
+  - taskCount: "10"               # one task per state
+    parallelism: "4"             # Let idle VMs pick up new tasts
     schedulingPolicy: AS_SOON_AS_POSSIBLE
 
     taskSpec:
@@ -38,14 +38,14 @@ taskGroups:
               # 1) Fetch templates & state list
               python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/baseline.xlsm /opt/dgen_os/input_scenarios/baseline.xlsm
               python /opt/dgen_os/python/fetch_files.py dgen-assets input_scenarios/policy.xlsm   /opt/dgen_os/input_scenarios/policy.xlsm
-              python /opt/dgen_os/python/fetch_files.py dgen-assets large_states_test.csv                /tmp/large_states_test.csv
+              python /opt/dgen_os/python/fetch_files.py dgen-assets states_test.csv                /tmp/states_test.csv
 
               # 2) Pick *this* task’s state
               IDX=${BATCH_TASK_INDEX}
-              STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/large_states_test.csv)
+              STATE_LINE=$(sed -n "$((IDX+1))p" /tmp/states_test.csv)
               IFS=',' read -r ABBR FULLNAME <<< "${STATE_LINE}"
               echo "[Task $IDX] Running for state=${FULLNAME} (abbr=${ABBR})"
-
+              
               # export it so Python’s os.getenv("BATCH_STATE") will see it
               export BATCH_STATE="${ABBR}"
 
@@ -68,6 +68,6 @@ taskGroups:
               python /opt/dgen_os/python/dgen_model.py
 
       computeResource:
-        cpuMilli: 16000            #16 vCPUs
-        memoryMib: 32768           # 64 GiB
+        cpuMilli: 16000            # 16 vCPUs
+        memoryMib: 32768          # 32 GiB
         bootDiskMib: 100         # 100 mb boot disk

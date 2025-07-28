@@ -10,7 +10,14 @@ gcloud batch jobs submit dgen-small-states \
   --machine-type="c2-standard-8"
 
 # submit the second job
+gcloud batch jobs submit dgen-mid-states \
+  --location="${LOCATION}" \
+  --config="dgen-batch-job-mid-states.yaml" \
+  --machine-type="c2d-standard-16"  
+
+# submit the third job
 gcloud batch jobs submit dgen-large-states \
   --location="${LOCATION}" \
   --config="dgen-batch-job-large-states.yaml" \
-  --machine-type="c2-standard-16"
+  --machine-type="c2-standard-16"  
+

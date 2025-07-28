@@ -21,40 +21,60 @@ from sqlalchemy.pool import  NullPool
 #==============================================================================
 
 
+class StatefulAdapter(logging.LoggerAdapter):
+    """
+    A LoggerAdapter that prefixes every message with [<state>] [Task <idx>].
+    """
+    def __init__(self, logger, state):
+        super().__init__(logger, {})
+        self.state      = state
+
+    def process(self, msg, kwargs):
+        prefix = f"[{self.state}]"
+        return f"{prefix} {msg}", kwargs
+
 def get_logger(log_file_path=None):
     """
-    Takes depreciation schedule and sorts table fields by depreciation year
-    
-    Parameters
-    ----------
-    log_file_path : 'str' 
-        The log_file_path. 
-    
-    Returns
-    -------
-    logger : 'loggin.logger'
-        logger object for logging
+    Returns a LoggerAdapter which automatically prefixes each message
+    with the BATCH_STATE and BATCH_TASK_INDEX, writes INFO+ to stdout,
+    and optionally logs to a file.
     """
-
     colorama.init()
-    formatter = colorlog.ColoredFormatter("{log_color}{levelname:8}:{reset} {white}{message}",
-                                          datefmt=None,
-                                          reset=True, style = '{'
-                                          )
-    if log_file_path is not None:
-        logging.basicConfig(filename=log_file_path, filemode='w',
-                            format='{levelname}-8:{message}', level=logging.DEBUG, style = '{')
-        
-    logger = logging.getLogger(__name__)
 
-    if len(logger.handlers) == 0:
-        logger = logging.getLogger(__name__)
-        console = logging.StreamHandler()
-        console.setLevel(logging.DEBUG)
-        console.setFormatter(formatter)
-        logger.addHandler(console)
+    # — prepare your colored console formatter (only needs to format {message}) —
+    console_fmt = (
+        "{log_color}{levelname:8}{reset} {message}"
+    )
+    console_formatter = colorlog.ColoredFormatter(
+        console_fmt,
+        reset=True,
+        style="{"
+    )
 
-    return logger
+    # — create the base logger —
+    base = logging.getLogger("dgen_model")
+    base.setLevel(logging.DEBUG)
+    base.handlers.clear()
+
+    # 1) File handler (if requested)
+    if log_file_path:
+        fh = logging.FileHandler(log_file_path, mode="w")
+        fh.setLevel(logging.DEBUG)
+        # simple %-style formatter, but it will see the prefixed message
+        fh.setFormatter(logging.Formatter(
+            "%(levelname)-8s %(message)s"
+        ))
+        base.addHandler(fh)
+
+    # 2) Console handler → stdout
+    ch = logging.StreamHandler(stream=sys.stdout)
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(console_formatter)
+    base.addHandler(ch)
+
+    # — wrap it in our adapter so every .info/.error call is auto-prefixed —
+    state = os.getenv("BATCH_STATE", "??")
+    return StatefulAdapter(base, state)
 
 
 def shutdown_log(logger):
