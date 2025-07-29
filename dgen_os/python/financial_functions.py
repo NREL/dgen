@@ -276,10 +276,11 @@ def calc_system_size_and_performance(con, agent, sectors, rate_switch_table=None
     # ——— 2+3) PySAM setup (moved *outside* optimizer loop) ———
     # instantiate once per agent:
     if agent.loc['sector_abbr'] == 'res':
-        batt = battery.default("GenericBatteryResidential")
-        utilityrate = utility.from_existing(batt, "GenericBatteryResidential")
-        loan = cashloan.from_existing(utilityrate, "GenericBatteryResidential")
-        loan.FinancialParameters.market = 0
+        sector = agent.loc['sector_abbr']
+        templates = _pysam_templates[sector]
+        batt = templates['batt'].deep_copy()
+        utilityrate = templates['utilityrate'].deep_copy()
+        loan = templates['loan'].deep_copy()
     else:
         batt = battery.default("GenericBatteryCommercial")
         utilityrate = utility.from_existing(batt, "GenericBatteryCommercial")
@@ -1112,11 +1113,45 @@ def eqn_builder(method,incentive_info, info_params, default_params,additional_da
 _worker_conn = None
 
 def _init_worker(dsn, role):
-    """
-    Pool initializer: open a fresh psycopg2 connection in this worker.
-    """
-    global _worker_conn
+    global _worker_conn, _pysam_templates
     _worker_conn, _ = utilfunc.make_con(dsn, role)
+
+    import PySAM.BatteryStateful as battery
+    import PySAM.UtilityRate5 as utility
+    import PySAM.CashLoan as cashloan
+
+    _pysam_templates = {}
+
+    for sector in ['res', 'com']:
+        batt = battery.default(f"GenericBattery{sector.title()}")
+        util = utility.from_existing(batt, f"GenericBattery{sector.title()}")
+        loan = cashloan.from_existing(util, f"GenericBattery{sector.title()}")
+
+        # Apply sector-specific static defaults
+        if sector == 'res':
+            loan.FinancialParameters.market = 0
+            loan.Depreciation.depr_fed_type = 0
+            loan.Depreciation.depr_sta_type = 0
+        else:
+            loan.FinancialParameters.market = 1
+            loan.Depreciation.depr_fed_type = 1
+            loan.Depreciation.depr_sta_type = 0
+
+        loan.BatterySystem.batt_replacement_option = 2
+        loan.FinancialParameters.insurance_rate = 0
+        loan.FinancialParameters.mortgage = 0
+        loan.FinancialParameters.prop_tax_assessed_decline = 5
+        loan.FinancialParameters.prop_tax_cost_assessed_percent = 95
+        loan.FinancialParameters.property_tax_rate = 0
+        loan.FinancialParameters.salvage_percentage = 0
+        loan.FinancialParameters.system_heat_rate = 0
+        loan.Lifetime.system_use_lifetime_output = 0
+
+        _pysam_templates[sector] = {
+            'batt': batt,
+            'utilityrate': util,
+            'loan': loan,
+        }
 
 def size_chunk(static_agents_df, sectors, rate_switch_table, load_profiles_df, solar_cf_df):
     """

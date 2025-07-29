@@ -24,6 +24,7 @@ import input_data_functions as iFuncs
 import PySAM
 import multiprocessing
 from multiprocessing import get_context, Manager
+from multiprocessing.pool import ThreadPool
 from financial_functions import size_chunk, _init_worker
 import logging
 from sqlalchemy import event
@@ -254,7 +255,96 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
                     cores = model_settings.local_cores
                 else:
                     cores = None
-                print(f"Using {cores} cores for parallel processing", flush=True)
+                print(f"Using up to {cores} cores for parallel processing", flush=True)
+
+                # ── parallel SQL queries ──
+
+                # Drop hourly columns and extract static agent info
+                drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
+                static_df = solar_agents.df.drop(columns=drop_cols).copy()
+
+                agent_ids = solar_agents.df['bldg_id'].tolist()
+                sector = solar_agents.df['sector_abbr'].iat[0]
+                state = solar_agents.df['state_abbr'].iat[0]
+
+                all_ids = static_df.index.tolist()
+                chunks = np.array_split(all_ids, cores)
+                total_agents = len(all_ids)
+
+                sql_start_time = time.time()
+
+                # ── Load profile query in parallel ──
+                def fetch_load_profiles(bldg_subset):
+                    ids_str = ','.join(f"'{i}'" for i in bldg_subset)
+                    sql = f"""
+                    SELECT 
+                        bldg_id,
+                        kwh_load_profile AS consumption_hourly
+                    FROM diffusion_load_profiles.{sector}stock_load_profiles
+                    WHERE sector_abbr = '{sector}'
+                    AND state_abbr  = '{state}'
+                    AND bldg_id IN ({ids_str});
+                    """
+                    return pd.read_sql(sql, engine, coerce_float=False)
+
+                bldg_chunks = [chunk.tolist() for chunk in np.array_split(agent_ids, min(cores, 8))]
+                with ThreadPool(len(bldg_chunks)) as thread_pool:
+                    load_dfs = thread_pool.map(fetch_load_profiles, bldg_chunks)
+
+                load_df = pd.concat(load_dfs, ignore_index=True)
+                load_df = load_df.merge(
+                    solar_agents.df[['bldg_id', 'load_kwh_per_customer_in_bin']],
+                    on='bldg_id', how='left'
+                )
+                print(f"Loaded {len(load_df)} load profiles for {sector} in {state}", flush=True)
+
+                def scale_profile(row):
+                    prof = np.array(row['consumption_hourly'], dtype='float64')
+                    target = float(row['load_kwh_per_customer_in_bin'])
+                    return (prof / prof.sum() * target).tolist()
+
+                load_df['scaled_consumption_hourly'] = load_df.apply(scale_profile, axis=1)
+                load_df = load_df[['bldg_id', 'scaled_consumption_hourly']]
+
+                # ── Solar profile query in parallel ──
+                solar_gids = solar_agents.df['solar_re_9809_gid'].unique().tolist()
+                tilts = list(set(int(t) for t in solar_agents.df['tilt'].unique()))
+                azimuths = list(set(solar_agents.df['azimuth'].unique()))
+
+                def fetch_solar_profiles(gid_subset):
+                    ids_str = ','.join(str(i) for i in gid_subset)
+                    tilts_str = ','.join(str(t) for t in tilts)
+                    azimuths_str = ','.join(f"'{a}'" for a in azimuths)
+
+                    sql = f"""
+                    SELECT DISTINCT ON (solar_re_9809_gid, tilt, azimuth)
+                        solar_re_9809_gid,
+                        cf AS solar_cf_profile,
+                        azimuth,
+                        tilt
+                    FROM diffusion_resource_solar.solar_resource_hourly
+                    WHERE solar_re_9809_gid IN ({ids_str})
+                    AND tilt IN ({tilts_str})
+                    AND azimuth IN ({azimuths_str});
+                    """
+                    return pd.read_sql(sql, engine, coerce_float=False)
+
+                solar_chunks = [chunk.tolist() for chunk in np.array_split(solar_gids, min(cores, 8))]
+                with ThreadPool(len(solar_chunks)) as thread_pool:
+                    solar_dfs = thread_pool.map(fetch_solar_profiles, solar_chunks)
+
+                solar_df = pd.concat(solar_dfs, ignore_index=True)
+
+                def transform_solar(row):
+                    cf = np.array(row['solar_cf_profile'], dtype='float64') / 1e6
+                    return pd.Series({'scaled_cf': cf.tolist(), 'naep': float(cf.sum())})
+
+                solar_df[['scaled_cf', 'naep']] = solar_df.apply(transform_solar, axis=1)
+                solar_df = solar_df[['solar_re_9809_gid', 'tilt', 'azimuth', 'scaled_cf', 'naep']]
+
+                sql_end_time = time.time()
+                print(f"SQL queries took {sql_end_time - sql_start_time:.2f}s", flush=True)
+
 
                 if cores is None:
                     solar_agents.chunk_on_row(
@@ -273,76 +363,6 @@ def main(mode=None, resume_year=None, endyear=None, ReEDS_inputs=None):
 
                     worker_pids = [p.pid for p in pool._pool]
                     logger.info(f"Spawned {len(worker_pids)} workers, PIDs={worker_pids}")
-
-                    drop_cols = [c for c in solar_agents.df.columns if c.endswith('_hourly')]
-                    static_df = solar_agents.df.drop(columns=drop_cols).copy()
-
-                    agent_ids = solar_agents.df['bldg_id'].tolist()
-                    sector = solar_agents.df['sector_abbr'].iat[0]
-                    state = solar_agents.df['state_abbr'].iat[0]
-
-                    sql_start_time = time.time()
-                    sql_load = f"""
-                    SELECT 
-                        bldg_id,
-                        kwh_load_profile AS consumption_hourly
-                    FROM diffusion_load_profiles.{sector}stock_load_profiles
-                    WHERE sector_abbr = %s
-                    AND state_abbr  = %s
-                    AND bldg_id      = ANY(%s);
-                    """
-
-                    load_df = pd.read_sql(
-                        sql_load,
-                        con,
-                        params=[sector, state, agent_ids],
-                        coerce_float=False
-                    )
-
-                    load_df = load_df.merge(
-                        solar_agents.df[['bldg_id', 'load_kwh_per_customer_in_bin']],
-                        on='bldg_id', how='left'
-                    )
-                    def scale_profile(row):
-                        prof = np.array(row['consumption_hourly'], dtype='float64')
-                        target = float(row['load_kwh_per_customer_in_bin'])
-                        return (prof / prof.sum() * target).tolist()
-
-                    load_df['scaled_consumption_hourly'] = load_df.apply(scale_profile, axis=1)
-                    load_df = load_df[['bldg_id', 'scaled_consumption_hourly']]
-
-                    solar_gids = solar_agents.df['solar_re_9809_gid'].unique().tolist()
-                    ids_str = ','.join(str(i) for i in solar_gids)
-                    tilts_str = ','.join(str(int(t)) for t in solar_agents.df['tilt'].unique())
-                    azimuths_str = ','.join(f"'{a}'" for a in solar_agents.df['azimuth'].unique())
-
-                    sql_solar = f"""
-                    SELECT 
-                        solar_re_9809_gid,
-                        cf AS solar_cf_profile,
-                        azimuth,
-                        tilt
-                    FROM diffusion_resource_solar.solar_resource_hourly
-                    WHERE solar_re_9809_gid IN ({ids_str})
-                    AND tilt IN ({tilts_str})
-                    AND azimuth IN ({azimuths_str});
-                    """
-
-                    solar_df = pd.read_sql(sql_solar, con, coerce_float=False)
-                    solar_df = solar_df.drop_duplicates(subset=['solar_re_9809_gid', 'tilt', 'azimuth'], keep='first')
-
-                    def transform_solar(row):
-                        cf = np.array(row['solar_cf_profile'], dtype='float64') / 1e6
-                        return pd.Series({'scaled_cf': cf.tolist(), 'naep': float(cf.sum())})
-
-                    solar_df[['scaled_cf', 'naep']] = solar_df.apply(transform_solar, axis=1)
-                    solar_df = solar_df[['solar_re_9809_gid', 'tilt', 'azimuth', 'scaled_cf', 'naep']]
-                    sql_end_time = time.time()
-                    print(f"SQL queries took {sql_end_time - sql_start_time:.2f}s", flush=True)
-
-                    all_ids = static_df.index.tolist()
-                    chunks = np.array_split(all_ids, cores)
-                    total_agents = len(all_ids)
 
                     tasks = [
                         (
