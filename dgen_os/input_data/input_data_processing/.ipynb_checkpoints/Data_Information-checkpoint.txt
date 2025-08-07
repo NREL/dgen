@@ -1,0 +1,27 @@
+File: 2024_v3_Workbook.xlsx
+     Year: 2024
+     Source: NREL Annual Technology Baseline (ATB)
+     URL: https://atb.nrel.gov/electricity/2024/data
+     Folder: ATB_Data
+     Data: pv_prices, batt_prices, batt_tech_performance, pv_plus_batt_prices, financial_terms, depreciation_schedules
+
+File: Cambium24_Workbook.xlsx
+     Year: 2024
+     Source: NREL Cambium Dataset
+     URL: https://data.nrel.gov/submissions/289
+     Folder: Cambium_Data
+     Data: carbon_intensities
+
+File: agent_df_base_res_national_revised_v2.pkl
+     Year: 2024
+     Source: dGen Database (OS_dGen_Agents.zip)
+     URL: https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F&offset=50
+     Folder: Agent_Data
+     Data: utility_rates
+
+File: agent_df_base_com_national_revised.pkl
+     Year: 2024
+     Source: dGen Database (OS_dGen_Agents.zip)
+     URL: https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=dgen%2F&offset=50
+     Folder: Agent_Data
+     Data: utility_rates

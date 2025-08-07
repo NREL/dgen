@@ -1,0 +1,19 @@
+Save the starting agent data parquet files here. See below for source:
+
+File: residential_agents.parquet
+     Year: 2024
+     Source: dGen Database
+     URL: TBD
+     Folder: Agent_Data
+     Data: utility_rates
+
+File: commercial_agents.parquet
+     Year: 2024
+     Source: dGen Database
+     URL: TBD
+     Folder: Agent_Data
+     Data: utility_rates
+
+Folder: original_agent_files (no URDB updates)
+
+Folder: updated_urdb_agent_files (URDB updates)
