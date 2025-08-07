@@ -18,4 +18,4 @@ USER postgres
 EXPOSE 5432
 
 # Override the PostgreSQL entrypoint for the dgen init setup
-CMD ["/bin/bash", "-c", "postgres & sleep 5 && /bin/init-dgen-pg.sh && wait"]
+CMD ["bash", "-c", "docker-entrypoint.sh postgres & until pg_isready; do sleep 1; done && /bin/init-dgen-pg.sh && wait"]

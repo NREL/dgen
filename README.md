@@ -16,23 +16,23 @@ The Distributed Generation Market Demand (dGen) Model
 - [Webinar and Setup Tutorial](https://youtu.be/-Te5_KKZR8o)
 - [Official dGen Documentation](https://nrel.github.io/dgen/) 
 - [Wiki](https://github.com/NREL/dgen/wiki)
-- [dGen Docker Usage Guide](./docker/README.md)
-- [dGen Packer Usage Guide](./packer/README.md)
+- [dGen Docker Usage Guide (Containers)](./docker/README.md)
+- [dGen Cloud Usage Guide (AWS)](./cloud/README.md)
 
 
 ## Get Your Tools
 Install Docker for [(Mac)](https://docs.docker.com/docker-for-mac/install/) or [(Windows)](https://docs.docker.com/docker-for-windows/install/)
 
-- Important: In Docker, go into Docker > Preferences > Resources and up the allocation for disk size image for Docker. 16 GB is recommended for smaller (state level) databasese. 32 GB is recommended for ISO specific databases. 70+GB is required for restoring the national level database. If you get a memory issue then you'll need to up the memory allocation and or will need to prune past failed images/volumes. Running the below docker commands will clear these out and let you start fresh:
+- Important: In Docker, go into Docker > Settings ("Gear" icon in top-right corner of application) > Resources and up the allocation for disk size image for Docker. 16 GB is recommended for smaller (state level) databasese. 32 GB is recommended for ISO specific databases. 70+GB is required for restoring the national level database. If you get a memory issue then you'll need to up the memory allocation and or will need to prune past failed images/volumes. Running the below docker commands will clear these out and let you start fresh:
 ```
    $ docker system prune -a 
    $ docker volume prune -f
 ``` 
 - Please refer to Docker’s [documentation](https://docs.docker.com/reference/) for more details.
 
-- Install [Anaconda for Python 3.7](https://www.anaconda.com/distribution/). Users with VPNs may need to turn their VPNs off while installing or updating Anaconda.
+- Install [Anaconda for Python 3.7](https://www.anaconda.com/download/success). Users with VPNs may need to turn their VPNs off while installing or updating Anaconda.
 
-- Install [PgAdmin](https://www.pgadmin.org/download/). Ignore all of the options for docker, python, os host, etc.
+- Install [PgAdmin](https://www.pgadmin.org/download/). Download pgAdmin 4 based on your operating system (i.e., macOS, Windows, etc.). If prompted, ignore all of the options for installing docker, python, os host, etc.
 
 - Install Git: If you don't already have git installed, then navigate [here](https://www.atlassian.com/git/tutorials/install-git) to install it for your operating system.
 
@@ -52,7 +52,7 @@ Next, clone the forked repository to your local machine by running the following
 ### A. Create Environment
 After cloning this repository and installing (and running) Docker as well as Anaconda, we'll create our environment and container:
 
-1. Depending on directory you cloned this repo into, navigate in terminal to the python directory (/../dgen/python) and run the following command:
+1. Depending on directory you cloned this repo into, navigate in terminal to the python directory (/../dgen/dgen_os/python) and run the following command:
 
 ```$ conda env create -f dg3n.yml```
 
@@ -88,7 +88,7 @@ Notes:
 
 
 ### B. Download data (agents and database):
-Download data by navigating to https://data.openei.org/submissions/1931 and clicking the 'model inputs' tab. Make sure to unzip any zipped files once downloaded. Note, the 13.5 GB dgen_db.sql.zip file contains all of the data for national level runs. We recommend starting with the database specific to the state or ISO region you're interested in. 
+Download data by navigating to https://data.openei.org/submissions/1931 and clicking the 'View Data Lake' for the 'dGen Model Inputs' entry. Make sure to unzip any zipped files once downloaded. Note, the 13.5 GB dgen_db.sql.zip file contains all of the data for national level runs. We recommend starting with the database specific to the state or ISO region you're interested in. 
 
 For example, if you want to simulate only California then navigate to the 'ca_final_db' folder and download the dgen_db.sql file. 
 
@@ -104,7 +104,6 @@ In Powershell run the following (replace 'path_to_where_you_saved_database_file'
    $ docker cp /path_to_where_you_saved_data/dgen_db.sql <container id>:/dgen_db.sql
    $ docker exec -i <container id> psql -U postgres -d dgen_db -f dgen_db.sql
 ```
-
 
 #### Mac Users
 
@@ -127,7 +126,9 @@ Troublshooting Container/Database Issues:
 - Try googling errors.
 
 ### C. Create Local Server:
-Once the database is restored (it will take some time), open PgAdmin and create a new server. Name this whatever you want. Input "localhost" (or 127.0.0.1) in the host/address cell and "postgres" in both the username and password cells. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
+Once the database is restored (it will take some time), open PgAdmin and create a new server. To do this, right-click on "Servers" (located in top-left corner of application), and then click on Register --> Server. In the "General" tab, name this whatever you want (e.g., "dgen_db"). In the "Connection" tab, input "localhost" (or 127.0.0.1) in the "Host name/address" cell and "postgres" in both the "Username" and "Password" cells. "Port" is defaulted to `5432`, but if you used a different port number while setting up the database, update this to match that port number. Next, click the "Save" button in the bottom-right corner of the dialogue box. Finally, right-click "Servers" and then the "Refresh" option. Upon refreshing this and opening the database dropdown, you should be able to see your database. 
+
+Note: the system might prompt you to install the "hstore" extension for sql in PgAdmin if needed. 
 
 ### D: Activate Environment 
 Activate the dg3n environment and launch spyder by opening a new terminal window and run the following command:
@@ -165,7 +166,7 @@ See the Input Sheet [Wiki page](https://github.com/NREL/dgen/wiki) for more deta
 - dbname will likely just be "dgen_db" unless you changed the name of this database in postgres
 - Localhost could also be set as "127.0.0.1"
 - Save this file
-- Make sure the role is set as "postgres" in ```settings.py``` (it is set as "postgres" already by default)
+- Make sure the role is set as "postgres" in ```config.py``` (it is set as "postgres" already by default)
 
 The cloned repository will have already initialized the default values for the following important parameters:
 
