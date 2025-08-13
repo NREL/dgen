@@ -1,0 +1,71 @@
+name: docker-compose-actions-workflow
+on:
+  push:
+  pull_request:
+jobs:
+
+  docker_compose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    name: Tests Dockerfile 
+    container: docker
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: Install rsync
+        run: apk update && apk add --no-cache rsync
+
+      - name: create data directory
+        working-directory: ./
+        run: |
+          mkdir -p ./docker_actions/
+          chmod 755 ./docker_actions/
+          ls -ld ./docker_actions/
+          ls -l ./docker_actions/
+          rsync -a .github/docker_actions/ ./docker_actions/
+          rsync -a --exclude='input_sheet_final.xlsm' --exclude='docker-compose.yml' ./docker/ ./docker_actions/
+          ls -l ./docker_actions/docker-compose.yml
+          cat ./docker_actions/docker-compose.yml
+          ls -l ./docker_actions/dgen/input_sheet_final.xlsm
+          md5sum ./docker_actions/dgen/input_sheet_final.xlsm
+          rm -rf ./docker_actions/dgen_data/
+          rm -rf ./docker_actions/postgresql_data/
+          mkdir -p ./docker_actions/dgen_data/
+          chmod 755 ./docker_actions/dgen_data/
+          chown -R 999:999 ./docker_actions/dgen_data/
+          ls -ld ./docker_actions/dgen_data/
+          ls -l ./docker_actions/dgen_data/
+      - name: "Builds the docker composed image and the docker compose"
+        id: build
+        working-directory: ./docker_actions/
+        run: |
+          docker compose down
+          docker system prune -a -f # remove all stopped containers and dangling images
+          docker compose up --build -d
+      
+      - name: "Pause for database to finish set up"
+        run: |
+          echo "Sleeping for 5 minutes to download files and allow the database to set up"
+          sleep 300s # 5 minutes may not be long enough if internet is slow
+        
+      - name: "Test running dgen model python script"
+        working-directory: ./docker_actions/
+        run: |
+          export CONTAINER_ID=$(docker ps -q --filter "name=dgen")
+          echo "Container ID: ${CONTAINER_ID}"
+          result=$(docker exec -u dgen "${CONTAINER_ID}" bash -c ' \
+                              source ~/.bashrc \
+                              && cd /opt/dgen_os/python \
+                              && /docker-entrypoint-initdb.d/init-dgen.sh \
+                              && source /opt/conda/bin/activate dg3n \
+                              && python dgen_model.py \
+                              && echo "Success: $?"')
+          echo "Result: $(echo $result)"
+          if [[ $(echo $result |grep -c "Success: 0") -eq 0 ]]; then
+            echo "Dgen model script failed."
+            exit 1
+          else
+            echo "Dgen model script executed successfully."
+          fi
