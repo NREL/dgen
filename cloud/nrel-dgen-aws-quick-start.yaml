@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  AWS Quick Start for NREL Distributed Generation (dgen) - EC2 Instance
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Type: AWS::EC2::KeyPair::KeyName
+
+  VpcId:
+    Description: VPC ID where the EC2 instance will be launched
+    Type: AWS::EC2::VPC::Id
+
+  PrivateSubnetId:
+    Description: Private Subnet ID in the selected VPC
+    Type: AWS::EC2::Subnet::Id
+
+  AssignElasticIP:
+    Description: Whether to allocate and associate an Elastic IP (true/false)
+    Type: String
+    AllowedValues: [true, false]
+    Default: false
+
+  InstanceType:
+    Description: EC2 instance type for the dgen instance
+    Type: String
+    Default: c6i.2xlarge
+
+  SSHAccessCIDR:
+    Description: CIDR range for SSH access to the instance
+    Type: String
+    Default: 0.0.0.0/0
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: "Network Configuration"
+        Parameters:
+          - VpcId
+          - PrivateSubnetId
+          - SSHAccessCIDR
+      - Label:
+          default: "Instance Configuration"
+        Parameters:
+          - KeyName
+          - InstanceType
+          - AssignElasticIP
+    ParameterLabels:
+      VpcId:
+        default: "VPC ID"
+      PrivateSubnetId:
+        default: "Private Subnet ID"
+      SSHAccessCIDR:
+        default: "SSH Access CIDR"
+      KeyName:
+        default: "EC2 Key Pair"
+      InstanceType:
+        default: "Instance Type"
+      AssignElasticIP:
+        default: "Assign Elastic IP"
+
+Conditions:
+  UseElasticIP: !Equals [!Ref AssignElasticIP, true]
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-06011bf884306bc59
+    us-east-2:
+      AMI: ami-02846882ee9d36fc9
+    us-west-1:
+      AMI: ami-012a44053086ad026
+    us-west-2:
+      AMI: ami-0f0d578d0aac21c08
+
+Resources:
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref SSHAccessCIDR
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      KeyName: !Ref KeyName
+      NetworkInterfaces:
+        - SubnetId: !Ref PrivateSubnetId
+          DeviceIndex: 0
+          AssociatePublicIpAddress: false
+          GroupSet:
+            - !Ref InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: NREL-dgen-quickstart
+
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Condition: UseElasticIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: NREL-dgen-EIP
+
+  EIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Condition: UseElasticIP
+    Properties:
+      InstanceId: !Ref EC2Instance
+      EIP: !Ref ElasticIP
+
+Outputs:
+  InstanceId:
+    Description: EC2 Instance ID
+    Value: !Ref EC2Instance
+
+  AZ:
+    Description: Availability Zone
+    Value: !GetAtt EC2Instance.AvailabilityZone
+
+  PublicIP:
+    Condition: UseElasticIP
+    Description: Public IP assigned to the instance (via Elastic IP)
+    Value: !Ref ElasticIP
