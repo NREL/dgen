@@ -249,6 +249,6 @@ def get_epoch_time():
 
 def get_formatted_time():
 
-    formatted_time = time.strftime('%Y%m%d_%H%M%S')
+    formatted_time = time.strftime('%Y%m%d_%H%M%S') + datetime.datetime.now().strftime('%f')
 
     return formatted_time
