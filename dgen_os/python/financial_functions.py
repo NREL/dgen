@@ -320,6 +320,7 @@ def calc_system_size_and_performance(agent, rate_switch_table):
     norm_scaled_pv_cf_profiles_df = agent_mutation.elec.get_and_apply_normalized_hourly_resource_solar(con, agent)
     pv['generation_hourly'] = pd.Series(norm_scaled_pv_cf_profiles_df['solar_cf_profile'].iloc[0]) /  1e6
     del norm_scaled_pv_cf_profiles_df
+    con.close()
     
     # normalized annual energy production (kwh/kW) of system
     agent.loc['naep'] = float(np.sum(pv['generation_hourly'])) 
