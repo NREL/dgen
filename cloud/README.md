@@ -14,13 +14,24 @@ Alternatively, launch an AWS EC2 instance using the dgen AMI:
 - us-west-1: `ami-012a44053086ad026`
 - us-west-2: `ami-0f0d578d0aac21c08`
 
-#### System Requirements
+#### System Recommendations
 
-- **Min CPUs**: 8 cores
+- **Min CPUs**: 4 cores
 - **Min Memory**: 16 GB
 - **Min Disk Storage**: 80 GB
 
-We recommend using an instance type of **c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, or higher** for optimal performance. Using an instance type with too little memory will result in an error during the `conda env create -f` step, if you run into an error during the `conda env` step then try a larger instance type.
+We recommend using an instance type of **c6a.2xlarge, c6a.4xlarge, or c6a.8xlarge for optimal performance. Using an instance type with too little memory will result in an error during the `conda env create -f` step, if you run into an error during the `conda env` step then try a larger instance type.
+
+#### Performance Estimates
+
+Estimates are based on Delaware, Only Residential, for the years 2014 - 2022.
+
+| Instance Type | Performance   | Notes                |
+|---------------|---------------|----------------------|
+| c6a.2xlarge   | ~27m   |                      |
+| c6a.4xlarge   | ~15m   |                      |
+| c6a.8xlarge   | ~11m   |                      |
+| c6a.12xlarge  | ~18m   | Diminishing returns  |
 
 #### Getting Started
 
