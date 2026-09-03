@@ -43,3 +43,13 @@ timeslice_8760_wH17.csv
 
 # Ignore Temp output files for CI/CD workflows
 docker_actions/*
+
+dgen_os/dgen_db.sql
+dgen_os/input_data/carbon_intensities/lrmer_cambium25_highrecosts.csv
+dgen_os/input_data/carbon_intensities/lrmer_cambium25_lowrecosts.csv
+dgen_os/input_data/carbon_intensities/lrmer_cambium25_midcase.csv
+dgen_os/input_data/input_data_processing/Agent_Aggregation/
+dgen_os/input_data/input_data_processing/Agent_Data/original_agent_files/
+dgen_os/input_data/input_data_processing/Agent_Data/updated_urdb_agent_files/
+dgen_os/input_data/input_data_processing/Rate_Data/json_files/
+sql_dependencies_report.xlsx
